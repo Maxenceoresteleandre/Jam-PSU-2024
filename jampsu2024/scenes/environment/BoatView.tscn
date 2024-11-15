@@ -1,4 +1,11 @@
-[gd_scene format=3 uid="uid://b0ew2d3ov7rsc"]
+[gd_scene load_steps=2 format=3 uid="uid://b0ew2d3ov7rsc"]
+
+[ext_resource type="Texture2D" uid="uid://c6rc5o0ovxmb5" path="res://icon.svg" id="1_chstg"]
 
 [node name="BoatView" type="Node2D"]
 z_index = 100
+
+[node name="ShipSprite" type="Sprite2D" parent="."]
+position = Vector2(299.5, 524)
+scale = Vector2(3.22656, 5.9375)
+texture = ExtResource("1_chstg")
