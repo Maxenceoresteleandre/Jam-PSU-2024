@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bod8wa5bta3ix"]
+[gd_scene load_steps=4 format=3 uid="uid://bod8wa5bta3ix"]
 
 [ext_resource type="Script" path="res://script/world.gd" id="1_sean8"]
+[ext_resource type="PackedScene" uid="uid://b0ew2d3ov7rsc" path="res://scenes/environment/BoatView.tscn" id="2_h7naq"]
+[ext_resource type="PackedScene" uid="uid://oxak7bpjdska" path="res://scenes/environment/SeaView.tscn" id="3_ybsmw"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_sean8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="BoatView" parent="." instance=ExtResource("2_h7naq")]
+position = Vector2(91, 187)
+
+[node name="SeaView" parent="." instance=ExtResource("3_ybsmw")]
