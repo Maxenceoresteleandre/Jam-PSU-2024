@@ -46,11 +46,11 @@ func _input(event: InputEvent) -> void:
 			down_pressed = false
 			set_collision_mask_value(5, true)
 	
-	if can_act:
-		if event.is_action_pressed("interact"):
-			interact()
-		elif event.is_action_pressed("cancel"):
-			cancel()
+		if can_act:
+			if event.is_action_pressed("interact"):
+				interact()
+			elif event.is_action_pressed("cancel"):
+				cancel()
 
 func _physics_process(_delta: float) -> void:
 	if can_move and not object_freeze_movement:
