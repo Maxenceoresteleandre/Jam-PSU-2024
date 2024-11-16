@@ -97,7 +97,7 @@ const DIR := {
 	DownRight = Vector2.DOWN + Vector2.RIGHT,		
 }
 
-func get_closest_dir(dir: Vector2) -> Vector2:
+func get_closest_dir(dir: Vector2) -> Array:
 	var closest_distance: float = 9999.99
 	var closest_dir := Vector2.ZERO
 	
@@ -107,11 +107,14 @@ func get_closest_dir(dir: Vector2) -> Vector2:
 		if distance < closest_distance:
 			closest_distance = distance
 			closest_dir = other_dir
-	return closest_dir
+	return [closest_dir, closest_distance]
 
 func play_dir_anim(dir: Vector2) -> void:
-	var closest_dir := get_closest_dir(dir)
+	var arr := get_closest_dir(dir)
+	var closest_dir : Vector2 = arr[0]
+	var rott : float = arr[1]
 	var anim_name := ""
+	print("arr, ", arr)
 	match closest_dir:
 		DIR.Left: 		set_ship_sprite(Directions.Left)
 		DIR.Right: 		set_ship_sprite(Directions.Right)
@@ -121,6 +124,7 @@ func play_dir_anim(dir: Vector2) -> void:
 		DIR.UpRight: 	set_ship_sprite(Directions.TopRight)
 		DIR.DownLeft: 	set_ship_sprite(Directions.BottomLeft)
 		DIR.DownRight:	set_ship_sprite(Directions.BottomRight)
+	
 
 func set_turn(value : float):
 	direction = direction.rotated(value)
