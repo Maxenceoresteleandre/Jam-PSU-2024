@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c2a0nbvglukoh"]
+[gd_scene load_steps=33 format=3 uid="uid://c2a0nbvglukoh"]
 
 [ext_resource type="Script" path="res://script/small_boat.gd" id="1_ayldm"]
 [ext_resource type="Shader" path="res://resources/shader/line.gdshader" id="3_cfkk8"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://cjcpbf3mgx4nv" path="res://resources/art/sea_view/ship/ship sprites/facing up/ship up frame 03.png" id="19_ymp5s"]
 [ext_resource type="Texture2D" uid="uid://c0gwxs0b0fjkv" path="res://resources/art/sea_view/ship/ship sprites/facing top right/ship top right stopped.png" id="20_rveei"]
 [ext_resource type="Texture2D" uid="uid://dq2gqpdlhti4c" path="res://resources/art/sea_view/ship/ship sprites/facing up/ship up stopped.png" id="24_vkmwf"]
+[ext_resource type="AudioStream" uid="uid://dty676jy4ipa" path="res://resources/audio/impact_bateau.wav" id="25_0jdm8"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qbyrv"]
 particle_flag_disable_z = true
@@ -320,3 +321,6 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_g54dr")
 animation = &"down_right_m"
 speed_scale = 1.2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_0jdm8")

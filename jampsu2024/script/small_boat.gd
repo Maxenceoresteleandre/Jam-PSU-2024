@@ -141,6 +141,7 @@ func set_ship_sprite(d : Directions):
 	$AnimatedSprite2D.flip_h = DIRECTION_ANIMS[d][1]
 
 func damage(damage: float):
+	$AudioStreamPlayer.play()
 	health -= damage
 	$Camera2D/CameraUtils.shake(0.3, 7, 20, 2)
 	if health == 0:
