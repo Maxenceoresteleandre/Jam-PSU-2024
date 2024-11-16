@@ -12,6 +12,11 @@ const RESOURCES_SPRITE_RES := [
 	preload("res://scenes/environment/cannonball_reserve.tscn"),
 	preload("res://scenes/environment/coal_reserve.tscn")
 ]
+const CRATE_SPRITES := [
+	preload("res://resources/art/boat_view/ship/crate_cannonballs.png"),
+	preload("res://resources/art/boat_view/ship/coal.png"),
+	preload("res://resources/art/boat_view/ship/crate_oil.png")
+]
 
 @export var resource : ResourceTypes
 @export var can_interact_forever := true
@@ -19,6 +24,7 @@ const RESOURCES_SPRITE_RES := [
 func _ready() -> void:
 	var resource_sprite : CollectibleResource = RESOURCES_SPRITE_RES[int(resource)].instantiate()
 	self.add_child(resource_sprite)
+	$Sprite.texture = CRATE_SPRITES[int(resource)]
 
 func interact() -> void:
 	current_player

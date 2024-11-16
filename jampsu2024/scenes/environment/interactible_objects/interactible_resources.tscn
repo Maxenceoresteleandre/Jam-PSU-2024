@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvxjpkvp6vgfr"]
+[gd_scene load_steps=7 format=3 uid="uid://cvxjpkvp6vgfr"]
 
 [ext_resource type="PackedScene" uid="uid://bxw152aldsit3" path="res://scenes/environment/interactible_objects/interactible_object.tscn" id="1_xcw22"]
 [ext_resource type="Shader" path="res://resources/shader/outline.gdshader" id="2_7mine"]
 [ext_resource type="Script" path="res://script/interactible_resources.gd" id="2_su73d"]
+[ext_resource type="Texture2D" uid="uid://dleh0ha7jwkji" path="res://resources/art/boat_view/ship/crate_oil.png" id="4_u2b05"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsugw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c6hp3"]
 resource_local_to_scene = true
@@ -20,5 +23,10 @@ can_interact_forever = true
 movement_speed_multiplier = 0.65
 gives_carried_object = true
 
+[node name="CollisionShape2D" parent="." index="0"]
+visible = true
+shape = SubResource("RectangleShape2D_hsugw")
+
 [node name="Sprite" parent="." index="1"]
 material = SubResource("ShaderMaterial_c6hp3")
+texture = ExtResource("4_u2b05")
