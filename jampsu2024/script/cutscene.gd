@@ -21,7 +21,7 @@ static func load_cutscene() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$AudioStreamPlayer.volume_db = 10
+	$AudioStreamPlayer.volume_db = 0
 	get_tree().paused = true
 	$AnimationPlayer.play("defilement")
 	$AnimationPlayer.speed_scale = 1 / $AudioStreamPlayer.stream.get_length()
@@ -39,3 +39,8 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void:
 	$AudioStreamPlayer.pitch_scale += 1
 	$AnimationPlayer.speed_scale += 1 / $AudioStreamPlayer.stream.get_length()
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().paused = false
+	queue_free()
