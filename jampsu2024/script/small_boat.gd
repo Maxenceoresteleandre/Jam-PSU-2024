@@ -72,6 +72,7 @@ func damage(damage: float):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$coal_debug.text = str(remaining_coal_time)
 	remaining_coal_time -= delta * COAL_CONS_MULT[current_speed]
 	if remaining_coal_time <= 0.0 and current_speed != SPEEDS.STOPPED:
 		if GlobalVariables.steam_engine.consume_coal():
@@ -88,7 +89,7 @@ func _physics_process(_delta: float) -> void:
 func set_speed(value: SPEEDS):
 	current_speed = value
 	var t := create_tween().set_trans(Tween.TRANS_CUBIC)
-	t.tween_property(self, "speed", value, 2.0)
+	t.tween_property(self, "speed", value, 0.9)
 
 func set_line_direction(index: int, direction: float):
 	lines[index].rotation = direction
@@ -113,7 +114,7 @@ func set_speed_change(speed_offset : float):
 				set_speed(SPEEDS.SLOW)
 			elif current_speed == SPEEDS.SLOW:
 				set_speed(SPEEDS.FAST)
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.3).timeout
 		can_change_speed = true
 
 func shoot(index: int, dir : Vector2):

@@ -12,17 +12,25 @@ const COAL_PLACES : Array[Vector2] = [
 
 const change_speed_rate := 100.0
 @onready var coal_reserved : Array[Sprite2D] = []
+var can_change_speed := false
 
 func _ready() -> void:
 	GlobalVariables.steam_engine = self
-	create_sea_correspondance()
+	add_coal()
+	add_coal()
 	add_coal()
 
 func add_resource() -> void:
 	add_coal()
 
-func create_sea_correspondance() -> void:
-	pass
+func connect_to_player(player : PlayerCharacter):
+	set_can_change_speed_with_delay()
+	return super.connect_to_player(player)
+
+func set_can_change_speed_with_delay():
+	can_change_speed = false
+	await get_tree().create_timer(0.5).timeout
+	can_change_speed = true
 
 func interact() -> void:
 	pass
@@ -46,10 +54,11 @@ func consume_coal() -> bool:
 		return false
 
 func _process(delta: float) -> void:
-	if current_player != null and not Engine.is_editor_hint():
+	if current_player != null and can_change_speed:
 		var change_speed := 0.0
-		if current_player.down_pressed or current_player.left_pressed:
-			change_speed += 1.0 
-		if current_player.up_pressed or current_player.right_pressed:
-			change_speed -= 1.0
-		GlobalVariables.small_boat.set_speed_change(change_speed)
+		if current_player.down_pressed:
+			change_speed -= 1.0 
+		if current_player.up_pressed:
+			change_speed += 1.0
+		if change_speed > 0.5 or change_speed < -0.5:
+			GlobalVariables.small_boat.set_speed_change(change_speed)
