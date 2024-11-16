@@ -52,7 +52,7 @@ var cannons_offsets = [
 ]
 var can_move = true
 var max_health = 100.0
-var speed: float = 70
+var speed: float = 125
 @export var current_speed:SPEEDS = SPEEDS.SLOW
 @export var hit_obstacle_min_speed = 50
 @export var health: float = max_health
@@ -68,6 +68,7 @@ func _ready() -> void:
 	$AnimatedSprite2D.play("right_m")
 	$health_debug.text = str(health) + "/" + str(max_health)
 	$speed_debug.text = "speed : " + str(speed)
+	
 
 func hit_obstacle():
 	if velocity.length() > hit_obstacle_min_speed:
@@ -150,14 +151,15 @@ func show_game_over():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	oil_lightouse_remaining_time -= delta
-	if oil_lightouse_remaining_time <= 0.0:
-		if GlobalVariables.light_house.consume_OIL():
-			$PointLightHouse.visible = true
-			oil_lightouse_remaining_time = MAX_OIL_TIME
-		else:
-			$PointLightHouse.visible = false
-	$coal_debug.text = str(remaining_coal_time)
+	pass
+	#oil_lightouse_remaining_time -= delta
+	#if oil_lightouse_remaining_time <= 0.0:
+		#if GlobalVariables.light_house.consume_OIL():
+			#$PointLightHouse.visible = true
+			#oil_lightouse_remaining_time = MAX_OIL_TIME
+		#else:
+			#$PointLightHouse.visible = false
+	#$coal_debug.text = str(remaining_coal_time)
 	#remaining_coal_time -= delta * COAL_CONS_MULT[current_speed]
 	#if remaining_coal_time <= 0.0 and current_speed != SPEEDS.STOPPED:
 		#if GlobalVariables.steam_engine.consume_coal():

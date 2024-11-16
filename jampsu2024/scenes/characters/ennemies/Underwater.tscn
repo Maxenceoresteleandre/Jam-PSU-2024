@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpee5frran2j0"]
+[gd_scene load_steps=10 format=3 uid="uid://8rqrc63m6s0m"]
 
 [ext_resource type="PackedScene" uid="uid://chviatf7tluc5" path="res://scenes/characters/ennemies/ennemy.tscn" id="1_t73wk"]
 [ext_resource type="Script" path="res://script/underwater.gd" id="2_dfemf"]
