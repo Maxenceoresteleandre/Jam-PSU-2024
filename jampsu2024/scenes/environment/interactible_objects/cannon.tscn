@@ -23,7 +23,6 @@ script = ExtResource("2_cf3jc")
 turn_speed = 1.0
 left_side = true
 freeze_movement = true
-gives_carried_object = null
 
 [node name="CollisionShape2D" parent="." index="0"]
 visible = true

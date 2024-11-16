@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgkvv0wj5v2xe"]
+[gd_scene load_steps=3 format=3 uid="uid://dgkvv0wj5v2xe"]
 
 [ext_resource type="Texture2D" uid="uid://d4big70pva8wp" path="res://resources/art/boat_view/ship/coal.png" id="1_dt53m"]
+[ext_resource type="Script" path="res://script/coal_reserve.gd" id="2_nga4g"]
 
 [node name="CoalReserve" type="Sprite2D"]
 texture_filter = 1
 scale = Vector2(5, 5)
 texture = ExtResource("1_dt53m")
+script = ExtResource("2_nga4g")

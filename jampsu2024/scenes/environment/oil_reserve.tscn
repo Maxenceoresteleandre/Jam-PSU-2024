@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://kvjt3xhlpuhf"]
+[gd_scene load_steps=3 format=3 uid="uid://kvjt3xhlpuhf"]
 
 [ext_resource type="Texture2D" uid="uid://bv5gv1fvt1mmb" path="res://resources/art/boat_view/ship/oil_res.png" id="1_i43bd"]
+[ext_resource type="Script" path="res://script/oil_reserve.gd" id="2_uvtmp"]
 
 [node name="OilReserve" type="Sprite2D"]
 texture_filter = 1
 scale = Vector2(5, 5)
 texture = ExtResource("1_i43bd")
+script = ExtResource("2_uvtmp")
