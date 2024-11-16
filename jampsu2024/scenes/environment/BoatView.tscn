@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0ew2d3ov7rsc"]
+
+[ext_resource type="Texture2D" uid="uid://c6rc5o0ovxmb5" path="res://icon.svg" id="1_chstg"]
+[ext_resource type="PackedScene" uid="uid://dk2rkvhposxkf" path="res://scenes/characters/player_character.tscn" id="2_rrqf3"]
+
+[node name="BoatView" type="Node2D"]
+z_index = 100
+
+[node name="ShipSprite" type="Sprite2D" parent="."]
+position = Vector2(366.5, 549.5)
+scale = Vector2(4.27344, 6.33594)
+texture = ExtResource("1_chstg")
+
+[node name="VampireCharacter" parent="." instance=ExtResource("2_rrqf3")]
+position = Vector2(211, 462)
+
+[node name="VampireCharacter2" parent="." instance=ExtResource("2_rrqf3")]
+position = Vector2(407, 686)
+control_device = 1
+
+[node name="VampireCharacter3" parent="." instance=ExtResource("2_rrqf3")]
+position = Vector2(520, 427)
+control_device = 2
+
+[node name="VampireCharacter4" parent="." instance=ExtResource("2_rrqf3")]
+position = Vector2(326, 263)
+control_device = 3
