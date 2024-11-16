@@ -100,6 +100,7 @@ func collect_resource(obj : Collectible, rtype : int):
 	print("collect : ", obj, " of type ", rtype)
 	resource_type = rtype
 	carried_object = obj
+	carried_object.carry_object()
 	carrying_object = true
 	object_speed_coeff = 0.7
 	self.add_child(carried_object)
