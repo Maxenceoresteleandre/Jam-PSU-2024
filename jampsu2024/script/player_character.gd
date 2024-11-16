@@ -4,7 +4,14 @@ class_name PlayerCharacter
 signal interacting_with_nothing
 
 const INTERACT_DELAY = 0.1
+const PLAYER_ANIMS : Array[String] = [
+	"amaranth",
+	"ivory",
+	"obsidian",
+	"yellow"
+]
 
+@export var anim_num := 0
 @export var control_device := 0
 @export var player_color := Color.WHITE
 @export var speed := 200
@@ -29,6 +36,8 @@ var carried_object : Collectible = null
 
 func _ready() -> void:
 	start_game()
+	$Sprite.play(PLAYER_ANIMS[anim_num])
+	$Sprite.speed_scale = 0.0
 	$WhitePixel.modulate = player_color
 
 func start_game():
@@ -66,6 +75,10 @@ func _physics_process(_delta: float) -> void:
 	if can_move and not object_freeze_movement:
 		velocity = Vector2(int(right_pressed) - int(left_pressed), int(down_pressed) - int(up_pressed)
 		).normalized() * speed * object_speed_coeff
+		if velocity.length_squared() > 100:
+			$Sprite.speed_scale = 1.0
+		else:
+			$Sprite.speed_scale = 0.0
 		check_turn()
 		move_and_slide()
 
