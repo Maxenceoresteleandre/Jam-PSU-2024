@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://oxak7bpjdska"]
+[gd_scene load_steps=16 format=3 uid="uid://oxak7bpjdska"]
 
 [ext_resource type="Shader" path="res://resources/shader/water.gdshader" id="1_cwibs"]
 [ext_resource type="Shader" path="res://resources/shader/pixelart.gdshader" id="1_mgopa"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c2a0nbvglukoh" path="res://scenes/characters/SmallBoat.tscn" id="4_ms5o0"]
 [ext_resource type="PackedScene" uid="uid://b0ew2d3ov7rsc" path="res://scenes/environment/BoatView.tscn" id="5_wi4hj"]
 [ext_resource type="PackedScene" path="res://scenes/environment/Obstacle.tscn" id="7_55r16"]
+[ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="8_ccdmm"]
 [ext_resource type="PackedScene" uid="uid://cu3ayfi7cnbdj" path="res://scenes/utilities/CameraUtils.tscn" id="8_qu3r4"]
 [ext_resource type="PackedScene" uid="uid://s16w4sliprif" path="res://scenes/characters/ennemies/Shark.tscn" id="9_iafle"]
 [ext_resource type="PackedScene" path="res://scenes/characters/ennemies/Underwater.tscn" id="10_071nf"]
@@ -73,6 +74,13 @@ position = Vector2(-300, -17)
 
 [node name="BoatView" parent="SmallBoat" instance=ExtResource("5_wi4hj")]
 position = Vector2(-1295, -616)
+
+[node name="PointLight2D" type="PointLight2D" parent="SmallBoat/BoatView"]
+position = Vector2(344, 572)
+scale = Vector2(14, 25)
+energy = 0.4
+texture = ExtResource("8_ccdmm")
+texture_scale = 50.0
 
 [node name="Obstacle" parent="." instance=ExtResource("7_55r16")]
 position = Vector2(358, -205)
