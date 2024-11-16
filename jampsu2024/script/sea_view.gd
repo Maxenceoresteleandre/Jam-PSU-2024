@@ -7,11 +7,10 @@ class_name SeaView
 func _ready() -> void:
 	GlobalVariables.sea_view = self
 	print(GlobalVariables.sea_view)
-	spawn_enemy()
-	spawn_enemy()
 
 
 func spawn_enemy():
+	print("hello")
 	const ENEMIES = [
 		preload("res://scenes/characters/ennemies/Shark.tscn"),
 		preload("res://scenes/characters/ennemies/sharklvl2.tscn"),
@@ -29,4 +28,4 @@ func spawn_enemy():
 
 func spawn_m(monster : PackedScene):
 	add_child(monster.instantiate())
-	monster.position = $SmallBoat.position + Vector2(randf_range(400.0, 600.0), randf_range(400.0, 600.0))
+	monster.position = $SmallBoat.position + Vector2(randf_range(100.0, 200.0), randf_range(100.0, 200.0))
