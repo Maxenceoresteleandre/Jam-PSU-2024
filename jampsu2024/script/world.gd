@@ -9,11 +9,14 @@ func _ready() -> void:
 	spawn_enemy()
 	spawn_enemy()
 	spawn_enemy()
+	Cutscene.load_cutscene()
 
 static var score := 0
 func increase_score():
 	score += 1
 	$CanvasLayer/Label.text = str(score)
+	if score % 15 == 0 or true:
+		Cutscene.load_cutscene()
 
 var lifez := 100.0
 var can_re := true

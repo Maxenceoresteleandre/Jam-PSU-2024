@@ -41,6 +41,10 @@ func connect_to_player(player : PlayerCharacter) -> bool:
 		remove_res()
 	return false
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("interact"):
+		remove_res()
+
 func remove_res():
 	await get_tree().process_frame
 	queue_free()
