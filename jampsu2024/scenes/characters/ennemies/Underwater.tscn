@@ -14,7 +14,7 @@ shader_parameter/enable = true
 radius = 602.083
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5xrl"]
-size = Vector2(162, 88.5)
+size = Vector2(109, 56)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yt3fq"]
 shader = ExtResource("3_wk5y8")
@@ -25,8 +25,6 @@ shader_parameter/enable = false
 size = Vector2(165, 88)
 
 [node name="Underwater" instance=ExtResource("1_t73wk")]
-collision_layer = 16
-collision_mask = 0
 script = ExtResource("2_dfemf")
 
 [node name="AggroRange" parent="Area2D" index="0"]
@@ -34,7 +32,7 @@ material = SubResource("ShaderMaterial_5ps3n")
 shape = SubResource("CircleShape2D_xyh6s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-position = Vector2(-11, 1.75)
+position = Vector2(-3.5, 5)
 shape = SubResource("RectangleShape2D_k5xrl")
 
 [node name="Sprite" parent="." index="2"]
