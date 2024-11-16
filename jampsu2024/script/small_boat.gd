@@ -3,7 +3,7 @@ class_name SmallBoat
 
 const CANNONBALL_RES := preload("res://scenes/environment/cannonball_sea.tscn")
 const GAMEOVER_SCREEN := preload("res://scenes/UI/GameOver.tscn")
-const COAL_CONSUMPTION_TIME := 17.5
+const COAL_CONSUMPTION_TIME := 40
 const COAL_CONS_MULT := {
 	SPEEDS.REVERSE : 1.0,
 	SPEEDS.STOPPED : 0.0,
