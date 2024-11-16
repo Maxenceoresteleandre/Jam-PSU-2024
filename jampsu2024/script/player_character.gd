@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name PlayerCharacter
 
 @export var control_device := 0
+@export var player_color := Color.WHITE
 @export var speed := 400
 
 var right_pressed := false
