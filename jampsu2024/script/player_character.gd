@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name PlayerCharacter
 
+const INTERACT_DELAY = 0.1
+
 @export var control_device := 0
 @export var player_color := Color.WHITE
 @export var speed := 200
@@ -73,10 +75,14 @@ func interact() -> void:
 		interact_with_new_object()
 		if current_object == null:
 			interact_idle()
-			print("\twith nothing")
-			return
+		start_interact_delay()
+		return
 	current_object.interact()
-	print("\twith object " + str(current_object))
+
+func start_interact_delay():
+	can_act = false
+	await get_tree().create_timer(INTERACT_DELAY).timeout
+	can_act = true
 
 func interact_idle() -> void:
 	return
