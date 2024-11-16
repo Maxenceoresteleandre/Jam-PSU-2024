@@ -6,15 +6,23 @@ class_name InteractibleObject
 
 var current_player : PlayerCharacter = null
 var in_player_interact_zone : PlayerCharacter = null
+var outline_width := 0.0
+var tween_outline := false
 
 func interact() -> void:
 	pass
+
+func _process(_delta: float) -> void:
+	if tween_outline:
+		$Sprite.material.set_shader_parameter("width", outline_width)
 
 func enter_interact_zone(player : PlayerCharacter) -> bool:
 	if current_player != null:
 		return false
 	if in_player_interact_zone != null:
 		leave_interact_zone(player, false)
+	else:
+		tween_outline_to(5.0)
 	in_player_interact_zone = player
 	return true
 
@@ -22,7 +30,14 @@ func leave_interact_zone(player : PlayerCharacter, remove_shader := true) -> voi
 	player.leave_interaction_zone(self)
 	in_player_interact_zone = null
 	if remove_shader:
-		$Sprite.material.set_shader_parameter("width", 0.0)
+		tween_outline_to(0.0)
+
+func tween_outline_to(to_val : float):
+	tween_outline = true
+	var tween := create_tween().set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "outline_width", to_val, 0.5)
+	await tween.finished
+	tween_outline = false
 
 func connect_to_player(player : PlayerCharacter) -> bool:
 	if current_player != null:

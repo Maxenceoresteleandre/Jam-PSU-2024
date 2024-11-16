@@ -14,7 +14,7 @@ var can_move := false
 var can_act := false
 
 var current_object : InteractibleObject = null
-var nearby_objects : Array[InteractibleObject] = []
+var nearby_object : InteractibleObject = null
 
 var object_freeze_movement := false
 var object_speed_coeff := 1.0
@@ -80,12 +80,10 @@ func interact_idle() -> void:
 	return
 
 func interact_with_new_object() -> void:
-	for obj : InteractibleObject in nearby_objects:
-		if obj.connect_to_player(self):
-			current_object = obj
-			object_freeze_movement = obj.freeze_movement
-			object_speed_coeff = obj.movement_speed_multiplier
-			break
+	if nearby_object.connect_to_player(self):
+		current_object = nearby_object
+		object_freeze_movement = nearby_object.freeze_movement
+		object_speed_coeff = nearby_object.movement_speed_multiplier
 
 func cancel() -> void:
 	if current_object == null:
@@ -95,13 +93,18 @@ func cancel() -> void:
 	object_speed_coeff = 1.0
 	current_object = null
 
-func _on_interaction_area_body_entered(body: Node2D) -> void:
-	if body is InteractibleObject:
-		var ibody : InteractibleObject = body
-		ibody.enter_interact_zone(self)
-
-func _on_interaction_area_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
-
 func leave_interaction_zone(object : InteractibleObject) -> void:
-	pass
+	nearby_object = null
+
+func _on_interaction_area_area_entered(area: Area2D) -> void:
+	if area is InteractibleObject:
+		var ibody : InteractibleObject = area
+		ibody.enter_interact_zone(self)
+		if nearby_object != null:
+			nearby_object.leave_interact_zone(self)
+		nearby_object = ibody
+
+func _on_interaction_area_area_exited(area: Area2D) -> void:
+	if area == nearby_object:
+		nearby_object.leave_interact_zone(self)
+		nearby_object = null
