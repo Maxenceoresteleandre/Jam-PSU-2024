@@ -16,6 +16,7 @@ shader_parameter/add_margins = true
 [node name="InteractibleResources" instance=ExtResource("1_xcw22")]
 script = ExtResource("2_su73d")
 resource = 0
+can_interact_forever = true
 movement_speed_multiplier = 0.65
 gives_carried_object = true
 

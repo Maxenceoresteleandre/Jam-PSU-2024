@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://iy5xyhdcl5q3"]
+
+[ext_resource type="PackedScene" uid="uid://cvxjpkvp6vgfr" path="res://scenes/environment/interactible_objects/interactible_resources.tscn" id="1_yi7lu"]
+[ext_resource type="Shader" path="res://resources/shader/outline.gdshader" id="2_efdn0"]
+[ext_resource type="Script" path="res://script/interactible_object_resource.gd" id="2_eguqe"]
+[ext_resource type="Texture2D" uid="uid://03sgokkgbv0c" path="res://resources/art/boat_view/ship/cannonball.png" id="4_jx105"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mblv"]
+size = Vector2(8, 8)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d8vcw"]
+resource_local_to_scene = true
+shader = ExtResource("2_efdn0")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[node name="InteractibleObjectResource" instance=ExtResource("1_yi7lu")]
+script = ExtResource("2_eguqe")
+can_interact_forever = false
+movement_speed_multiplier = 1.0
+gives_carried_object = false
+
+[node name="CollisionShape2D" parent="." index="0"]
+visible = true
+shape = SubResource("RectangleShape2D_7mblv")
+
+[node name="Sprite" parent="." index="1"]
+material = SubResource("ShaderMaterial_d8vcw")
+texture = ExtResource("4_jx105")

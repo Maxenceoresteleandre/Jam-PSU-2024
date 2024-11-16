@@ -86,7 +86,6 @@ func interact() -> void:
 func collect_resource(obj : CollectibleResource, rtype : InteractibleResource.ResourceTypes):
 	if carrying_object:
 		return
-	carried_object
 	resource_type = rtype
 	carried_object = obj
 

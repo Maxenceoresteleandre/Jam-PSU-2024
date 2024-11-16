@@ -14,14 +14,22 @@ const RESOURCES_SPRITE_RES := [
 ]
 
 @export var resource : ResourceTypes
+@export var can_interact_forever := true
 
 func _ready() -> void:
-	var resource_sprite : Sprite2D = RESOURCES_SPRITE_RES[int(resource)].instantiate()
+	var resource_sprite : CollectibleResource = RESOURCES_SPRITE_RES[int(resource)].instantiate()
 	self.add_child(resource_sprite)
 
 func interact() -> void:
 	current_player
 
 func connect_to_player(player : PlayerCharacter) -> bool:
-	
+	var resource_sprite : CollectibleResource = RESOURCES_SPRITE_RES[int(resource)].instantiate()
+	player.collect_resource(resource_sprite, resource)
+	if not can_interact_forever:
+		remove_res()
 	return false
+
+func remove_res():
+	await get_tree().process_frame
+	queue_free()
