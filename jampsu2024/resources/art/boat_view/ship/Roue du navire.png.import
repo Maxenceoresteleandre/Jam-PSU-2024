@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0yiv8ulmdnqs"
-path="res://.godot/imported/fantome.png-46939c1fc8aa7bd07b35557c1ce85b0d.ctex"
+uid="uid://80jf3ljp65bp"
+path="res://.godot/imported/Roue du navire.png-06c65b2953a3eb634adbd6642b9d427e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/art/fantome.png"
-dest_files=["res://.godot/imported/fantome.png-46939c1fc8aa7bd07b35557c1ce85b0d.ctex"]
+source_file="res://resources/art/boat_view/ship/Roue du navire.png"
+dest_files=["res://.godot/imported/Roue du navire.png-06c65b2953a3eb634adbd6642b9d427e.ctex"]
 
 [params]
 

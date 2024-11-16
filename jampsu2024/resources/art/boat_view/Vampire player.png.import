@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qorcsva5r5wh"
-path="res://.godot/imported/Canon.png-3e32831220310136e39aca7eb0245c2f.ctex"
+uid="uid://dgfwgn78qcjhm"
+path="res://.godot/imported/Vampire player.png-29b33f307afd2b1f2b7dae886f5a94ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/art/Canon.png"
-dest_files=["res://.godot/imported/Canon.png-3e32831220310136e39aca7eb0245c2f.ctex"]
+source_file="res://resources/art/boat_view/Vampire player.png"
+dest_files=["res://.godot/imported/Vampire player.png-29b33f307afd2b1f2b7dae886f5a94ae.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnda0on2lhoq6"
-path="res://.godot/imported/Bato.png-3026aa4a2920c32c3be7b113f7b5dc34.ctex"
+uid="uid://c0yiv8ulmdnqs"
+path="res://.godot/imported/fantome.png-52b9c06bdc12c890a0e887accf7ea10e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/art/Bato.png"
-dest_files=["res://.godot/imported/Bato.png-3026aa4a2920c32c3be7b113f7b5dc34.ctex"]
+source_file="res://resources/art/boat_view/ennemies/fantome.png"
+dest_files=["res://.godot/imported/fantome.png-52b9c06bdc12c890a0e887accf7ea10e.ctex"]
 
 [params]
 

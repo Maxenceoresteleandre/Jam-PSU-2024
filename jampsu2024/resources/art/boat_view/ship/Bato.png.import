@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://borg57ksvt14d"
-path="res://.godot/imported/Bad octopus.png-efa8dc3e8b0195753db4e833e560a998.ctex"
+uid="uid://cnda0on2lhoq6"
+path="res://.godot/imported/Bato.png-3c70ecc0f727e964dd1ef0d7b51d1385.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/art/Bad octopus.png"
-dest_files=["res://.godot/imported/Bad octopus.png-efa8dc3e8b0195753db4e833e560a998.ctex"]
+source_file="res://resources/art/boat_view/ship/Bato.png"
+dest_files=["res://.godot/imported/Bato.png-3c70ecc0f727e964dd1ef0d7b51d1385.ctex"]
 
 [params]
 

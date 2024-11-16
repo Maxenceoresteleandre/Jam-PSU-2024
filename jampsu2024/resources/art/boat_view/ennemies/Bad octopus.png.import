@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://80jf3ljp65bp"
-path="res://.godot/imported/Roue du navire.png-1c45770cbb28993822efd9eebe348020.ctex"
+uid="uid://borg57ksvt14d"
+path="res://.godot/imported/Bad octopus.png-3496d123b938bc46191e2dd14598c3a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/art/Roue du navire.png"
-dest_files=["res://.godot/imported/Roue du navire.png-1c45770cbb28993822efd9eebe348020.ctex"]
+source_file="res://resources/art/boat_view/ennemies/Bad octopus.png"
+dest_files=["res://.godot/imported/Bad octopus.png-3496d123b938bc46191e2dd14598c3a9.ctex"]
 
 [params]
 
