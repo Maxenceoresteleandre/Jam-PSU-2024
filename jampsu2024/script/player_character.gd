@@ -94,3 +94,14 @@ func cancel() -> void:
 	object_freeze_movement = false
 	object_speed_coeff = 1.0
 	current_object = null
+
+func _on_interaction_area_body_entered(body: Node2D) -> void:
+	if body is InteractibleObject:
+		var ibody : InteractibleObject = body
+		ibody.enter_interact_zone(self)
+
+func _on_interaction_area_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
+
+func leave_interaction_zone(object : InteractibleObject) -> void:
+	pass
