@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://oxak7bpjdska"]
+[gd_scene load_steps=13 format=3 uid="uid://oxak7bpjdska"]
 
 [ext_resource type="Shader" path="res://resources/shader/water.gdshader" id="1_cwibs"]
 [ext_resource type="Shader" path="res://resources/shader/pixelart.gdshader" id="1_mgopa"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c1lbji6onqrmq" path="res://scenes/environment/Obstacle.tscn" id="7_55r16"]
 [ext_resource type="PackedScene" uid="uid://cu3ayfi7cnbdj" path="res://scenes/utilities/CameraUtils.tscn" id="8_qu3r4"]
 [ext_resource type="PackedScene" uid="uid://s16w4sliprif" path="res://scenes/characters/ennemies/Shark.tscn" id="9_iafle"]
+[ext_resource type="PackedScene" uid="uid://cpee5frran2j0" path="res://scenes/characters/ennemies/Underwater.tscn" id="10_071nf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x28q6"]
 shader = ExtResource("1_cwibs")
@@ -69,5 +70,7 @@ position = Vector2(358, -205)
 position = Vector2(646, 593)
 
 [node name="Shark" parent="." instance=ExtResource("9_iafle")]
-position = Vector2(1828, -1334)
-speed = 150
+position = Vector2(-1014, -2654)
+
+[node name="Underwater" parent="." instance=ExtResource("10_071nf")]
+position = Vector2(1087, -263)
