@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b0ew2d3ov7rsc"]
+[gd_scene load_steps=22 format=3 uid="uid://b0ew2d3ov7rsc"]
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="1_ecoml"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cvxjpkvp6vgfr" path="res://scenes/environment/interactible_objects/interactible_resources.tscn" id="7_8y7oe"]
 [ext_resource type="PackedScene" uid="uid://bc8dk4ly01i3h" path="res://scenes/environment/interactible_objects/engine.tscn" id="8_e4w2j"]
 [ext_resource type="PackedScene" uid="uid://duqdi0n0ql27i" path="res://scenes/environment/interactible_objects/light_house.tscn" id="9_nborx"]
+[ext_resource type="PackedScene" uid="uid://btc1len2ws85b" path="res://scenes/environment/interactible_objects/ship_light.tscn" id="10_pau2v"]
+[ext_resource type="Shader" path="res://resources/shader/outline.gdshader" id="11_rdet8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vhkfm"]
 radius = 90.0
@@ -27,6 +29,24 @@ size = Vector2(17, 644.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwfyc"]
 size = Vector2(30.5, 435.201)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_raawg"]
+resource_local_to_scene = true
+shader = ExtResource("11_rdet8")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_24vxn"]
+radius = 290.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_47fhp"]
+polygon = PackedVector2Array(-58, 64, -96, 2, -61, -69, 50, -67, 86, -5, 53, 68)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yv58s"]
+polygon = PackedVector2Array(26, 1164, 9, -89, 50, -67, 68, 1175)
 
 [node name="BoatView" type="Node2D" node_paths=PackedStringArray("cannons")]
 z_index = 100
@@ -154,3 +174,52 @@ position = Vector2(423, 879)
 
 [node name="LightHouse" parent="." instance=ExtResource("9_nborx")]
 position = Vector2(357, 561)
+
+[node name="ShipLight" parent="." instance=ExtResource("10_pau2v")]
+position = Vector2(123, 422)
+
+[node name="ShipLight2" parent="." instance=ExtResource("10_pau2v")]
+position = Vector2(352, 160)
+
+[node name="ShipLight3" parent="." instance=ExtResource("10_pau2v")]
+position = Vector2(566, 420)
+
+[node name="ShipLight4" parent="." instance=ExtResource("10_pau2v")]
+position = Vector2(357, 725)
+
+[node name="Sprite" parent="ShipLight4" index="1"]
+material = SubResource("ShaderMaterial_raawg")
+
+[node name="PointLight2D" parent="ShipLight4" index="3"]
+texture_scale = 23.05
+
+[node name="CollisionShape2D" parent="ShipLight4/Area2D" index="0"]
+shape = SubResource("CircleShape2D_24vxn")
+
+[node name="ShipLight5" parent="." instance=ExtResource("10_pau2v")]
+position = Vector2(105, 1066)
+
+[node name="ShipLight6" parent="." instance=ExtResource("10_pau2v")]
+position = Vector2(594, 1064)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(352, 648)
+occluder = SubResource("OccluderPolygon2D_47fhp")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+position = Vector2(668, 48)
+occluder = SubResource("OccluderPolygon2D_yv58s")
+
+[node name="GhostSpawn" type="Node2D" parent="."]
+position = Vector2(307, -123)
+
+[node name="GhostSpawn2" type="Node2D" parent="."]
+position = Vector2(-206, 763)
+
+[node name="GhostSpawn3" type="Node2D" parent="."]
+position = Vector2(361, 1239)
+
+[node name="GhostSpawn4" type="Node2D" parent="."]
+position = Vector2(786, 625)
+
+[editable path="ShipLight4"]
