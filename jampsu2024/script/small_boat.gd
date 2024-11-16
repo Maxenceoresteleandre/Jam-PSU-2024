@@ -106,3 +106,4 @@ func shoot(index: int, dir : Vector2):
 	$GPUParticles2D.position = cannons_offsets[index]
 	$GPUParticles2D.process_material.initial_velocity = direction * 100
 	$GPUParticles2D.emitting = true
+	
