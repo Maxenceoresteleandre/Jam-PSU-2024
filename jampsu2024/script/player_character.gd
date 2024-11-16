@@ -21,6 +21,8 @@ var nearby_object : InteractibleObject = null
 var object_freeze_movement := false
 var object_speed_coeff := 1.0
 var carrying_object := false
+var resource_type : InteractibleResource.ResourceTypes
+var carried_object : CollectibleResource = null
 
 
 func _ready() -> void:
@@ -30,6 +32,7 @@ func _ready() -> void:
 func start_game():
 	can_move = true
 	can_act = true
+
 
 func _input(event: InputEvent) -> void:
 	if event.device == control_device:
@@ -79,6 +82,16 @@ func interact() -> void:
 		start_interact_delay()
 		return
 	current_object.interact()
+
+func collect_resource(obj : CollectibleResource, rtype : InteractibleResource.ResourceTypes):
+	if carrying_object:
+		return
+	carried_object
+	resource_type = rtype
+	carried_object = obj
+
+func leave_resource():
+	pass
 
 func start_interact_delay():
 	can_act = false

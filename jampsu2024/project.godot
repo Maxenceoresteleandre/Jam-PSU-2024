@@ -69,6 +69,7 @@ cancel={
 2d_physics/layer_3="ship"
 2d_physics/layer_4="sea_env"
 2d_physics/layer_5="sea_enemy"
+2d_physics/layer_6="resource"
 
 [rendering]
 
