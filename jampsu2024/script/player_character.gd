@@ -15,6 +15,9 @@ var can_act := false
 var current_object : InteractibleObject = null
 var nearby_objects : Array[InteractibleObject] = []
 
+var object_freeze_movement := false
+var object_speed_coeff := 1.0
+
 
 func _ready() -> void:
 	start_game()
@@ -50,8 +53,8 @@ func _input(event: InputEvent) -> void:
 			cancel()
 
 func _physics_process(_delta: float) -> void:
-	if can_move:
-		velocity = Vector2(int(right_pressed) - int(left_pressed), int(down_pressed) - int(up_pressed)) * speed
+	if can_move and not object_freeze_movement:
+		velocity = Vector2(int(right_pressed) - int(left_pressed), int(down_pressed) - int(up_pressed)) * speed * object_speed_coeff
 		check_turn()
 		move_and_slide()
 
@@ -79,10 +82,14 @@ func interact_with_new_object() -> void:
 	for obj : InteractibleObject in nearby_objects:
 		if obj.connect_to_player(self):
 			current_object = obj
+			object_freeze_movement = obj.freeze_movement
+			object_speed_coeff = obj.movement_speed_multiplier
 			break
 
 func cancel() -> void:
 	if current_object == null:
 		return
 	
+	object_freeze_movement = false
+	object_speed_coeff = 1.0
 	current_object = null
