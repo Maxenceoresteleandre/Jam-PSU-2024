@@ -24,5 +24,6 @@ visible = false
 shape = SubResource("RectangleShape2D_yi3uk")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
 material = SubResource("ShaderMaterial_tjfbm")
 texture = ExtResource("1_xukj5")

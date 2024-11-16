@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="1_ecoml"]
-[ext_resource type="PackedScene" path="res://scenes/characters/player_character.tscn" id="2_rrqf3"]
-[ext_resource type="PackedScene" uid="uid://bxw152aldsit3" path="res://scenes/environment/interactible_objects/interactible_object.tscn" id="3_tdscc"]
-[ext_resource type="PackedScene" path="res://scenes/environment/interactible_objects/ship_wheel.tscn" id="5_ix3x2"]
+[ext_resource type="PackedScene" uid="uid://dk2rkvhposxkf" path="res://scenes/characters/player_character.tscn" id="2_rrqf3"]
+[ext_resource type="PackedScene" uid="uid://d1e3duvrjeqii" path="res://scenes/environment/interactible_objects/cannon.tscn" id="5_8vw4u"]
+[ext_resource type="PackedScene" uid="uid://8x20osbchfve" path="res://scenes/environment/interactible_objects/ship_wheel.tscn" id="5_ix3x2"]
 
 [node name="BoatView" type="Node2D"]
 z_index = 100
@@ -23,25 +23,40 @@ texture = ExtResource("1_5kobi")
 
 [node name="VampireCharacter" parent="." instance=ExtResource("2_rrqf3")]
 position = Vector2(211, 462)
-player_color = Color(1, 0, 1, 1)
+player_color = Color(0.772549, 0.643137, 0.294118, 1)
 
 [node name="VampireCharacter2" parent="." instance=ExtResource("2_rrqf3")]
 position = Vector2(407, 686)
 control_device = 1
-player_color = Color(0.184314, 0, 1, 1)
+player_color = Color(0.898039, 0.168627, 0.313726, 1)
 
 [node name="VampireCharacter3" parent="." instance=ExtResource("2_rrqf3")]
 position = Vector2(520, 427)
 control_device = 2
-player_color = Color(0.682353, 0, 0, 1)
+player_color = Color(0.0470588, 0.0509804, 0.054902, 1)
 
 [node name="VampireCharacter4" parent="." instance=ExtResource("2_rrqf3")]
 position = Vector2(326, 263)
 control_device = 3
-player_color = Color(6.49765e-07, 0.296087, 0.386533, 1)
-
-[node name="InteractibleObject" parent="." instance=ExtResource("3_tdscc")]
-position = Vector2(139, 785)
+player_color = Color(1, 1, 0.941176, 1)
 
 [node name="ShipWheel" parent="." instance=ExtResource("5_ix3x2")]
 position = Vector2(345, 931)
+
+[node name="Cannon" parent="." instance=ExtResource("5_8vw4u")]
+position = Vector2(101, 758)
+turn_speed = null
+
+[node name="Cannon2" parent="." instance=ExtResource("5_8vw4u")]
+position = Vector2(96, 545)
+turn_speed = null
+
+[node name="Cannon3" parent="." instance=ExtResource("5_8vw4u")]
+position = Vector2(596, 545)
+turn_speed = null
+left_side = false
+
+[node name="Cannon4" parent="." instance=ExtResource("5_8vw4u")]
+position = Vector2(595, 755)
+turn_speed = null
+left_side = false

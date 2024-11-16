@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://buun01l26gkgv"]
+
+[ext_resource type="Texture2D" uid="uid://03sgokkgbv0c" path="res://resources/art/boat_view/ship/cannonball.png" id="1_7en3o"]
+[ext_resource type="Script" path="res://script/cannonball_boat.gd" id="2_rs345"]
+
+[node name="CannonballBoat" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("1_7en3o")
+script = ExtResource("2_rs345")

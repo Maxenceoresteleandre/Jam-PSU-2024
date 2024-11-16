@@ -28,9 +28,8 @@ visible = true
 shape = SubResource("CircleShape2D_ofwny")
 
 [node name="Sprite" parent="." index="1"]
-texture_filter = 1
 material = SubResource("ShaderMaterial_l8hkm")
-scale = Vector2(5.11111, 5.11111)
+scale = Vector2(5, 5)
 texture = ExtResource("4_23c8i")
 
 [node name="Sprite2" type="Sprite2D" parent="Sprite" index="0"]
