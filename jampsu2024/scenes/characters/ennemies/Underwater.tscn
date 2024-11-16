@@ -11,7 +11,7 @@ shader_parameter/target_color = Vector4(0.8, 0.8, 0.8, 0.5)
 shader_parameter/enable = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xyh6s"]
-radius = 602.083
+radius = 409.782
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5xrl"]
 size = Vector2(106, 47)
@@ -29,6 +29,7 @@ script = ExtResource("2_dfemf")
 
 [node name="AggroRange" parent="Area2D" index="0"]
 material = SubResource("ShaderMaterial_5ps3n")
+position = Vector2(6, 0)
 shape = SubResource("CircleShape2D_xyh6s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
