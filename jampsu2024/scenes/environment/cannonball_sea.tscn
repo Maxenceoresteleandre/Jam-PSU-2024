@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dty03b84snb1v"]
+[gd_scene load_steps=4 format=3 uid="uid://dty03b84snb1v"]
 
 [ext_resource type="Texture2D" uid="uid://03sgokkgbv0c" path="res://resources/art/boat_view/ship/cannonball.png" id="1_m35ve"]
 [ext_resource type="Script" path="res://script/cannonball_sea.gd" id="2_bxvvc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bc3ru"]
+size = Vector2(7.33333, 7.33333)
 
 [node name="CannonballSea" type="Sprite2D"]
 z_index = 3
@@ -9,3 +12,11 @@ texture_filter = 1
 scale = Vector2(3, 3)
 texture = ExtResource("1_m35ve")
 script = ExtResource("2_bxvvc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(7.94729e-08, -7.94729e-08)
+shape = SubResource("RectangleShape2D_bc3ru")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

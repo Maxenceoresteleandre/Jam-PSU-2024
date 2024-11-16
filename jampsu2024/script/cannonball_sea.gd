@@ -10,3 +10,9 @@ func _process(delta: float) -> void:
 	if time_to_live <= 0.0:
 		queue_free()
 	position += velocity * SPEED * delta
+
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if not (body is SmallBoat):
+		body.hit()
