@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://buun01l26gkgv"]
+[gd_scene load_steps=3 format=3 uid="uid://bynfco1rh02w1"]
 
 [ext_resource type="Texture2D" uid="uid://03sgokkgbv0c" path="res://resources/art/boat_view/ship/cannonball.png" id="1_7en3o"]
 [ext_resource type="Script" path="res://script/cannonball_boat.gd" id="2_rs345"]

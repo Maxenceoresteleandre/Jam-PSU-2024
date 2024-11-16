@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name SmallBoat
 
+const CANNONBALL_RES := preload("res://scenes/environment/cannonball_sea.tscn")
+
 enum SPEEDS {
 	STOPPED = 0,
 	SLOW = 40,
@@ -13,6 +15,13 @@ enum SPEEDS {
 	$CanonLine2,
 	$CanonLine3,
 	$CanonLine4
+]
+
+var cannons_offsets = [
+	Vector2(10, 10),
+	Vector2(55, 10),
+	Vector2(55, 40),
+	Vector2(10, 40)
 ]
 var can_move = true
 var max_health = 100.0
@@ -29,7 +38,12 @@ func _ready() -> void:
 	GlobalVariables.small_boat = self
 	$health_debug.text = str(health) + "/" + str(max_health)
 	$speed_debug.text = "speed : " + str(speed)
-	set_line_direction(0, Vector2(1,1))
+	set_line_direction(0, Vector2(-1,-1))
+	set_line_direction(1, Vector2(1,-1))
+	set_line_direction(2, Vector2(1,1))
+	set_line_direction(3, Vector2(-1,1))
+	await get_tree().create_timer(hit_cooldown_time).timeout
+	shoot(0, Vector2(-1, -1))
 
 func hit_obstacle():
 	if velocity.length() > hit_obstacle_min_speed:
@@ -87,6 +101,14 @@ func set_speed(value: SPEEDS):
 func set_line_direction(index: int, direction: Vector2):
 	lines[index].visible = true
 	var start_position = position
+	start_position += cannons_offsets[index]
 	var end_position = direction * line_length
 	lines[index].add_point(start_position)
 	lines[index].add_point(end_position)
+	
+func shoot(index: int, direction: Vector2):
+	var cannonball : Node2D = CANNONBALL_RES.instantiate()
+	GlobalVariables.sea_view.add_child(cannonball)
+	var cannonball_velocity : Vector2
+	cannonball.position = position + cannons_offsets[index]
+	cannonball.velocity = direction
