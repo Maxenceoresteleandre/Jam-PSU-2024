@@ -43,7 +43,7 @@ func _ready() -> void:
 	set_line_direction(2, Vector2(1,1))
 	set_line_direction(3, Vector2(-1,1))
 	await get_tree().create_timer(hit_cooldown_time).timeout
-	shoot(0, Vector2(-1, -1))
+	shoot(2, Vector2(1, 1))
 
 func hit_obstacle():
 	if velocity.length() > hit_obstacle_min_speed:
@@ -112,3 +112,6 @@ func shoot(index: int, direction: Vector2):
 	var cannonball_velocity : Vector2
 	cannonball.position = position + cannons_offsets[index]
 	cannonball.velocity = direction
+	$GPUParticles2D.position = cannons_offsets[index]
+	$GPUParticles2D.process_material.initial_velocity = direction * 100
+	$GPUParticles2D.emitting = true
