@@ -92,7 +92,7 @@ func interact_with_new_object() -> void:
 func cancel() -> void:
 	if current_object == null:
 		return
-	
+	current_object.cancel()
 	object_freeze_movement = false
 	object_speed_coeff = 1.0
 	current_object = null
