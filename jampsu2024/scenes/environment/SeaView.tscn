@@ -70,3 +70,4 @@ position = Vector2(646, 593)
 
 [node name="Shark" parent="." instance=ExtResource("9_iafle")]
 position = Vector2(1828, -1334)
+speed = 100
