@@ -21,7 +21,6 @@ shader_parameter/add_margins = true
 script = ExtResource("2_su73d")
 resource = 0
 can_interact_forever = true
-consume_resource_type = -1
 movement_speed_multiplier = 0.65
 gives_carried_object = true
 

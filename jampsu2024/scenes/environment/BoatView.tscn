@@ -67,19 +67,23 @@ position = Vector2(350, 954)
 
 [node name="Cannon" parent="." instance=ExtResource("5_8vw4u")]
 position = Vector2(101, 758)
+consume_resource_type = -1
 
 [node name="Cannon2" parent="." instance=ExtResource("5_8vw4u")]
 position = Vector2(96, 545)
+consume_resource_type = -1
 
 [node name="Cannon3" parent="." instance=ExtResource("5_8vw4u")]
 position = Vector2(596, 545)
 scale = Vector2(-1, 1)
 left_side = false
+consume_resource_type = -1
 
 [node name="Cannon4" parent="." instance=ExtResource("5_8vw4u")]
 position = Vector2(595, 755)
 scale = Vector2(-1, 1)
 left_side = false
+consume_resource_type = -1
 
 [node name="StaticBodyChimney" type="StaticBody2D" parent="."]
 position = Vector2(350, 649)
