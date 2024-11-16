@@ -82,6 +82,8 @@ func interact_idle() -> void:
 	return
 
 func interact_with_new_object() -> void:
+	if nearby_object == null:
+		return
 	if nearby_object.connect_to_player(self):
 		current_object = nearby_object
 		object_freeze_movement = nearby_object.freeze_movement
