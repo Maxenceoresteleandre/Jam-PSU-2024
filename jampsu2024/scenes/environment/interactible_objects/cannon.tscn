@@ -12,7 +12,7 @@ size = Vector2(100, 50)
 resource_local_to_scene = true
 shader = ExtResource("2_bfv8o")
 shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/width = 0.0
+shader_parameter/width = 1.0
 shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
@@ -22,6 +22,7 @@ script = ExtResource("2_cf3jc")
 turn_speed = 1.0
 left_side = true
 consume_resource_type = null
+consume_res_type = null
 freeze_movement = true
 
 [node name="CollisionShape2D" parent="." index="0"]
