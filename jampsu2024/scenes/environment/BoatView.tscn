@@ -173,7 +173,7 @@ resource = 1
 position = Vector2(423, 879)
 
 [node name="LightHouse" parent="." instance=ExtResource("9_nborx")]
-position = Vector2(357, 561)
+position = Vector2(349, 549)
 
 [node name="ShipLight" parent="." instance=ExtResource("10_pau2v")]
 position = Vector2(123, 422)

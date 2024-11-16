@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://btc1len2ws85b"]
+[gd_scene load_steps=13 format=3 uid="uid://btc1len2ws85b"]
 
 [ext_resource type="PackedScene" uid="uid://bxw152aldsit3" path="res://scenes/environment/interactible_objects/interactible_object.tscn" id="1_6xq6j"]
 [ext_resource type="Script" path="res://script/ship_light.gd" id="2_a44ww"]
 [ext_resource type="Shader" path="res://resources/shader/outline.gdshader" id="2_nqiod"]
-[ext_resource type="Texture2D" uid="uid://dwuaec32p1ylb" path="res://resources/art/boat_view/ship/roue_up.png" id="3_fynwa"]
+[ext_resource type="Texture2D" uid="uid://ck848jgqvlr6i" path="res://resources/art/boat_view/ship/Flambeau animated1.png" id="5_ei2de"]
 [ext_resource type="Texture2D" uid="uid://dwlufm0mapnsy" path="res://resources/art/lights/ship_small_light.png" id="5_q87sj"]
+[ext_resource type="Texture2D" uid="uid://8ivo4xgv1ilp" path="res://resources/art/boat_view/ship/Flambeau animated2.png" id="6_w4gxo"]
+[ext_resource type="Texture2D" uid="uid://dd5r7j1baa7p7" path="res://resources/art/boat_view/ship/Flambeau animated3.png" id="7_j62fv"]
+[ext_resource type="Texture2D" uid="uid://2sc76k32sifg" path="res://resources/art/boat_view/ship/Flambeau animated4.png" id="8_0jlwy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gs0xj"]
 size = Vector2(70, 70)
@@ -17,6 +20,26 @@ shader_parameter/width = 0.0
 shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rsf6u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ei2de")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w4gxo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j62fv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0jlwy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_glnq4"]
 radius = 182.003
@@ -31,7 +54,11 @@ shape = SubResource("RectangleShape2D_gs0xj")
 [node name="Sprite" parent="." index="1"]
 material = SubResource("ShaderMaterial_wkxve")
 scale = Vector2(5, 5)
-texture = ExtResource("3_fynwa")
+texture = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite" index="0"]
+sprite_frames = SubResource("SpriteFrames_rsf6u")
+frame_progress = 0.25764
 
 [node name="Timer" type="Timer" parent="." index="2"]
 

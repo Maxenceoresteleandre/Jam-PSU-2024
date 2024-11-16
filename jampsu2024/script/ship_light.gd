@@ -9,6 +9,7 @@ var is_light_on := true
 
 func _ready() -> void:
 	$Timer.start(light_time)
+	$Sprite/AnimatedSprite2D.play("default")
 
 func connect_to_player(player : PlayerCharacter) -> bool:
 	$Timer.start(MAX_LIGHT_DURATION)
