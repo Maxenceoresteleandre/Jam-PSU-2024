@@ -1,11 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2a0nbvglukoh"]
+[gd_scene load_steps=10 format=3 uid="uid://c2a0nbvglukoh"]
 
 [ext_resource type="Script" path="res://script/small_boat.gd" id="1_ayldm"]
 [ext_resource type="Texture2D" uid="uid://bqd8p5k8lyxg8" path="res://resources/art/sea_view/ship placeholder.png" id="2_erb1x"]
 [ext_resource type="Shader" path="res://resources/shader/line.gdshader" id="3_cfkk8"]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qbyrv"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 19.53
+angle_min = -83.0
+angle_max = 1.07288e-05
+spread = 29.277
+gravity = Vector3(0, 98, 0)
+scale_min = 10.61
+scale_max = 10.61
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7txp"]
-size = Vector2(392, 135)
+size = Vector2(165, 70)
 
 [sub_resource type="Theme" id="Theme_am6nv"]
 
@@ -33,6 +44,17 @@ collision_layer = 4
 collision_mask = 16
 script = ExtResource("1_ayldm")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+physics_interpolation_mode = 2
+z_index = 1
+emitting = false
+amount = 28
+process_material = SubResource("ParticleProcessMaterial_qbyrv")
+one_shot = true
+explosiveness = 1.0
+randomness = 0.26
+local_coords = true
+
 [node name="Icon" type="Sprite2D" parent="."]
 z_index = 1
 texture_filter = 1
@@ -41,7 +63,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_erb1x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(20, 46.5)
+position = Vector2(15.5, 20)
 shape = SubResource("RectangleShape2D_f7txp")
 
 [node name="health_debug" type="Label" parent="."]
