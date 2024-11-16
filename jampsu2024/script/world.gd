@@ -31,15 +31,18 @@ func spawn_enemy():
 	const ENEMIES = [
 		preload("res://scenes/characters/ennemies/Shark.tscn"),
 		preload("res://scenes/characters/ennemies/sharklvl2.tscn"),
-		preload("res://scenes/characters/ennemies/Underwater.tscn")
+		preload("res://scenes/characters/ennemies/Underwater.tscn"),
+		preload("res://scenes/characters/ennemies/kraken.tscn")
 	]
-	var rd := randi_range(0, 10)
+	var rd := randi_range(0, 23)
 	if rd <= 5 or score <= 10: 
 		spawn_m(ENEMIES[0])
 	elif rd < 9 or score <= 15:
 		spawn_m(ENEMIES[1])
-	elif score:
+	elif rd <= 20 or score <= 30:
 		spawn_m(ENEMIES[2])
+	else:
+		spawn_m(ENEMIES[3])
 	await get_tree().create_timer(randf_range(9.0, 17.0)).timeout
 	spawn_enemy()
 
