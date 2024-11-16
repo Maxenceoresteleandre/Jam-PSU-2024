@@ -99,6 +99,7 @@ func set_speed(value: SPEEDS):
 	t.tween_property(self, "speed", value, 2.0)
 
 func set_line_direction(index: int, direction: Vector2):
+	lines[index].visible = true
 	var start_position = position
 	start_position += cannons_offsets[index]
 	var end_position = direction * line_length
