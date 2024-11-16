@@ -19,6 +19,8 @@ shader_parameter/add_margins = true
 
 [node name="LightHouse" instance=ExtResource("1_cuscy")]
 script = ExtResource("2_1p4mo")
+consume_resource_type = 0
+freeze_movement = true
 
 [node name="CollisionShape2D" parent="." index="0"]
 visible = true
