@@ -56,7 +56,7 @@ func add_cannonball() -> bool:
 	return true
 
 func _process(delta: float) -> void:
-	if current_player != null:
+	if current_player != null and not Engine.is_editor_hint():
 		var turn_rate := 0.0
 		if current_player.down_pressed or current_player.left_pressed:
 			turn_rate += 1.0 

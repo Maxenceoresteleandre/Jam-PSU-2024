@@ -20,6 +20,7 @@ var nearby_object : InteractibleObject = null
 
 var object_freeze_movement := false
 var object_speed_coeff := 1.0
+var carrying_object := false
 
 
 func _ready() -> void:

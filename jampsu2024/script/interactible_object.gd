@@ -5,6 +5,7 @@ const MAX_WIDTH_OUTLINE := 1.25
 
 @export var freeze_movement := false
 @export var movement_speed_multiplier := 1.0
+@export var gives_carried_object := false
 
 var current_player : PlayerCharacter = null
 var in_player_interact_zone : PlayerCharacter = null
