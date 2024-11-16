@@ -38,17 +38,32 @@ func damage(damage: float):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	pass
 	
 func _physics_process(delta: float) -> void:
-	
+	$speed_debug.text = "speed : " + str(speed)
 	if can_move:
 		velocity = direction.normalized() * speed
 		move_and_slide()
 	if Input.is_action_just_pressed("ui_up"):
-		speed += 1
-		$speed_debug.text = "speed : " + str(speed)
+		if current_speed == SPEEDS.STOPPED:
+			set_speed(SPEEDS.SLOW)
+		elif current_speed == SPEEDS.SLOW:
+			set_speed(SPEEDS.NORMAL)
+		elif current_speed == SPEEDS.NORMAL:
+			set_speed(SPEEDS.FAST)
+		
 	if Input.is_action_just_pressed("ui_down"):
-		speed -= 1
-		$speed_debug.text = "speed : " + str(speed)
-	
+		if current_speed == SPEEDS.FAST:
+			set_speed(SPEEDS.NORMAL)
+		elif current_speed == SPEEDS.NORMAL:
+			set_speed(SPEEDS.SLOW)
+		elif current_speed == SPEEDS.SLOW:
+			set_speed(SPEEDS.STOPPED)
+		
+
+func set_speed(value: SPEEDS):
+	current_speed = value
+	var t := create_tween().set_trans(Tween.TRANS_CUBIC)
+	t.tween_property(self, "speed", value, 2.0)

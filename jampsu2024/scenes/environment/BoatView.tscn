@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="1_ecoml"]
-[ext_resource type="PackedScene" uid="uid://dk2rkvhposxkf" path="res://scenes/characters/player_character.tscn" id="2_rrqf3"]
+[ext_resource type="PackedScene" path="res://scenes/characters/player_character.tscn" id="2_rrqf3"]
 [ext_resource type="PackedScene" uid="uid://bxw152aldsit3" path="res://scenes/environment/interactible_objects/interactible_object.tscn" id="3_tdscc"]
 
 [node name="BoatView" type="Node2D"]
