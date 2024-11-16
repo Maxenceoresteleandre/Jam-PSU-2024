@@ -44,5 +44,4 @@ func _process(delta: float) -> void:
 			change_speed += 1.0 
 		if current_player.up_pressed or current_player.right_pressed:
 			change_speed -= 1.0
-		var rot_offset := change_speed_rate * delta * change_speed
-		GlobalVariables.small_boat.set_speed_change(rot_offset)
+		GlobalVariables.small_boat.set_speed_change(change_speed)

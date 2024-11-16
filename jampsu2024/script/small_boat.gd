@@ -32,6 +32,7 @@ var speed: float = 70
 @export var direction: Vector2 = Vector2(1,0)
 @export var line_length = 500
 @export var hit_cooldown_time = 2.0
+var can_change_speed := true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -96,6 +97,9 @@ func set_line_direction(index: int, direction: float):
 
 func set_line_visibility(index : int, new_visibility : bool):
 	lines[index].visible = new_visibility
+
+func set_speed_change(speed_offset : float):
+	pass
 
 func shoot(index: int, dir : Vector2):
 	var cannonball : Node2D = CANNONBALL_RES.instantiate()
