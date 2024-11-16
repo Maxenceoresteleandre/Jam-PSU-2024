@@ -3,6 +3,8 @@ class_name InteractibleObject
 
 const MAX_WIDTH_OUTLINE := 1.25
 
+
+@export var consume_resource_type : int = -1
 @export var freeze_movement := false
 @export var movement_speed_multiplier := 1.0
 @export var gives_carried_object := false

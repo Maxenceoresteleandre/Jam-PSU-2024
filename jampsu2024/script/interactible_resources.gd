@@ -4,7 +4,8 @@ class_name InteractibleResource
 enum ResourceTypes {
 	Oil,
 	Cannonballs,
-	Coal
+	Coal,
+	NoRes
 }
 
 const COLLECTIBLE_PATH := preload("res://scenes/environment/interactible_objects/Collectible.tscn")

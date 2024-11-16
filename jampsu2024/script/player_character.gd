@@ -89,6 +89,8 @@ func collect_resource(obj : Collectible, rtype : InteractibleResource.ResourceTy
 	print("collect : ", obj, " of type ", rtype)
 	resource_type = rtype
 	carried_object = obj
+	carrying_object = true
+	object_speed_coeff = 0.7
 	self.add_child(carried_object)
 	carried_object.global_position = $ObjectAttach.global_position
 	carried_object.global_scale = Vector2(5, 5)
