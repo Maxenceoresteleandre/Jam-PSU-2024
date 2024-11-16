@@ -19,11 +19,12 @@ const CRATE_SPRITES := [
 	preload("res://resources/art/boat_view/ship/crate_oil.png")
 ]
 
+@export var collect_res : Resource
 @export var resource : ResourceTypes
 @export var can_interact_forever := true
 
 func _ready() -> void:
-	var resource_sprite : CollectibleResource = COLLECTIBLE_RESOURCE_PATH.instantiate()
+	var resource_sprite = collect_res.instantiate()
 	self.add_child(resource_sprite)
 	print("resource_sprite : ", resource_sprite)
 	#resource_sprite.texture = RESOURCES_SPRITE_RES[int(resource)]

@@ -132,11 +132,14 @@ shape = SubResource("RectangleShape2D_xwfyc")
 
 [node name="InteractibleResourcesOil" parent="." instance=ExtResource("7_8y7oe")]
 position = Vector2(448, 373)
+collect_res = null
 
 [node name="InteractibleResourcesCoal" parent="." instance=ExtResource("7_8y7oe")]
 position = Vector2(237, 373)
+collect_res = null
 resource = 2
 
 [node name="InteractibleResourcesBalls" parent="." instance=ExtResource("7_8y7oe")]
 position = Vector2(296, 843)
+collect_res = null
 resource = 1
