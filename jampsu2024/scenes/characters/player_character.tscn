@@ -37,6 +37,10 @@ rotation = -0.785397
 scale = Vector2(44.0095, 44.0095)
 texture = ExtResource("3_ms3vx")
 
+[node name="ObjectAttach" type="Node2D" parent="."]
+position = Vector2(-2, 14)
+scale = Vector2(44.0095, 44.0095)
+
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]

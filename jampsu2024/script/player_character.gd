@@ -22,7 +22,7 @@ var object_freeze_movement := false
 var object_speed_coeff := 1.0
 var carrying_object := false
 var resource_type : InteractibleResource.ResourceTypes
-var carried_object : CollectibleResource = null
+var carried_object : Collectible = null
 
 
 func _ready() -> void:
@@ -83,11 +83,15 @@ func interact() -> void:
 		return
 	current_object.interact()
 
-func collect_resource(obj : CollectibleResource, rtype : InteractibleResource.ResourceTypes):
+func collect_resource(obj : Collectible, rtype : InteractibleResource.ResourceTypes):
 	if carrying_object:
 		return
+	print("collect : ", obj, " of type ", rtype)
 	resource_type = rtype
 	carried_object = obj
+	self.add_child(carried_object)
+	carried_object.global_position = $ObjectAttach.global_position
+	carried_object.global_scale = Vector2(5, 5)
 
 func leave_resource():
 	pass

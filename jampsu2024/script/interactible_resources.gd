@@ -7,6 +7,7 @@ enum ResourceTypes {
 	Coal
 }
 
+const COLLECTIBLE_PATH := preload("res://scenes/environment/interactible_objects/Collectible.tscn")
 const RESOURCES_SPRITE_RES := [
 	preload("res://resources/art/boat_view/ship/oil_res.png"),
 	preload("res://resources/art/boat_view/ship/cannonball.png"),
@@ -34,7 +35,8 @@ func interact() -> void:
 	current_player
 
 func connect_to_player(player : PlayerCharacter) -> bool:
-	var resource_sprite : CollectibleResource = RESOURCES_SPRITE_RES[int(resource)].instantiate()
+	var resource_sprite : Collectible = COLLECTIBLE_PATH.instantiate()
+	resource_sprite.texture = RESOURCES_SPRITE_RES[int(resource)]
 	player.collect_resource(resource_sprite, resource)
 	if not can_interact_forever:
 		remove_res()
