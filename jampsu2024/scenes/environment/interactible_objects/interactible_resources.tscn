@@ -29,4 +29,5 @@ shape = SubResource("RectangleShape2D_hsugw")
 
 [node name="Sprite" parent="." index="1"]
 material = SubResource("ShaderMaterial_c6hp3")
+scale = Vector2(5, 5)
 texture = ExtResource("4_u2b05")
