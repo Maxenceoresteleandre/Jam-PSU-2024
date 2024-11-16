@@ -47,7 +47,9 @@ func connect_to_player(player : PlayerCharacter) -> bool:
 	if current_player != null:
 		return false
 	current_player = player
+	tween_outline_to(MAX_WIDTH_OUTLINE * 2.1)
 	return true
 
 func cancel() -> void:
 	current_player = null
+	tween_outline_to(MAX_WIDTH_OUTLINE)
