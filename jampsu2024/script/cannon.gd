@@ -3,7 +3,14 @@ extends InteractibleObject
 class_name Cannon
 
 const CANNONBALL_RES := preload("res://scenes/environment/cannonball_boat.tscn")
+const CANNONBALL_SPRITE := preload("res://scenes/environment/cannonball_reserve.tscn")
 const CANNONBALL_OFFSET := 70.0
+
+const CANNONBALL_PLACES : Array[Vector2] = [
+	Vector2( 97,  18),
+	Vector2(137,  18),
+	Vector2(117, -10),
+]
 
 @export var turn_speed := 1.0
 
@@ -16,6 +23,8 @@ const CANNONBALL_OFFSET := 70.0
 			scale.x = -1.0
 
 var sea_corresp : Node2D = null
+
+@onready var cannonballs_reserved : Array[Sprite2D] = [$CannonballReserve]
 
 func _ready() -> void:
 	create_sea_correspondance()
