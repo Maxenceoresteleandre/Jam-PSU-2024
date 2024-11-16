@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://8x20osbchfve"]
+
+[ext_resource type="PackedScene" uid="uid://bxw152aldsit3" path="res://scenes/environment/interactible_objects/interactible_object.tscn" id="1_umbpd"]
+[ext_resource type="Script" path="res://script/ship_wheel.gd" id="2_30n02"]
+[ext_resource type="Shader" path="res://resources/shader/outline.gdshader" id="3_5vtai"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l8hkm"]
+resource_local_to_scene = true
+shader = ExtResource("3_5vtai")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 2
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[node name="ShipWheel" instance=ExtResource("1_umbpd")]
+script = ExtResource("2_30n02")
+turn_rate = 100.0
+
+[node name="Sprite" parent="." index="1"]
+material = SubResource("ShaderMaterial_l8hkm")

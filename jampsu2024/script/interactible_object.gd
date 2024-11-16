@@ -14,7 +14,7 @@ var tween_outline := false
 func interact() -> void:
 	pass
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if tween_outline:
 		$Sprite.material.set_shader_parameter("width", outline_width)
 
