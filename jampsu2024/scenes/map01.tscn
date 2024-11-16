@@ -1,67 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgfmyooh5wuqd"]
+[gd_scene load_steps=2 format=3 uid="uid://jn5mpcyvs2x5"]
 
-[ext_resource type="PackedScene" uid="uid://c1lbji6onqrmq" path="res://scenes/environment/Obstacle.tscn" id="1_spljg"]
-[ext_resource type="Shader" path="res://resources/shader/water.gdshader" id="2_j85st"]
-[ext_resource type="Shader" path="res://resources/shader/pixelart.gdshader" id="3_1284c"]
-[ext_resource type="PackedScene" uid="uid://c2a0nbvglukoh" path="res://scenes/characters/SmallBoat.tscn" id="4_b1ohb"]
-[ext_resource type="PackedScene" uid="uid://cu3ayfi7cnbdj" path="res://scenes/utilities/CameraUtils.tscn" id="5_6mp0v"]
-[ext_resource type="PackedScene" uid="uid://b0ew2d3ov7rsc" path="res://scenes/environment/BoatView.tscn" id="6_dkx3j"]
-[ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="7_86sdk"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k3mm3"]
-shader = ExtResource("2_j85st")
-shader_parameter/uv_scale = 1.0
-shader_parameter/color_alpha = 1.0
-shader_parameter/resolution = 7.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f1b57"]
-shader = ExtResource("3_1284c")
-shader_parameter/resolution = 128.0
+[ext_resource type="PackedScene" path="res://scenes/environment/Obstacle.tscn" id="1_spljg"]
 
 [node name="Map01" type="Node2D"]
 
 [node name="Area2D" parent="." instance=ExtResource("1_spljg")]
 position = Vector2(417, 341)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
-material = SubResource("ShaderMaterial_k3mm3")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
-visible = false
-material = SubResource("ShaderMaterial_f1b57")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SmallBoat" parent="." instance=ExtResource("4_b1ohb")]
-collision_mask = 0
-
-[node name="Camera2D" type="Camera2D" parent="SmallBoat"]
-position = Vector2(-300, -17)
-
-[node name="CameraUtils" parent="SmallBoat/Camera2D" instance=ExtResource("5_6mp0v")]
-
-[node name="BoatView" parent="SmallBoat" instance=ExtResource("6_dkx3j")]
-position = Vector2(-1295, -616)
-
-[node name="PointLight2D" type="PointLight2D" parent="SmallBoat/BoatView"]
-position = Vector2(344, 572)
-scale = Vector2(14, 25)
-energy = 0.3
-texture = ExtResource("7_86sdk")
-texture_scale = 50.0
 
 [node name="Area2D2" parent="." instance=ExtResource("1_spljg")]
 position = Vector2(487, -297)

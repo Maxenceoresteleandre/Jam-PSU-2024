@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvohnapm6ax6u"
-path="res://.godot/imported/olmo-1.png-94f2576b8d1005196ae22b4dcf04b1ba.ctex"
+uid="uid://dh73f4vgjmndo"
+path="res://.godot/imported/Gros caillou.png-727fd9aaade841aa6f0c7a443f4d1447.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/audio/olmo-1.png"
-dest_files=["res://.godot/imported/olmo-1.png-94f2576b8d1005196ae22b4dcf04b1ba.ctex"]
+source_file="res://resources/art/sea_view/Récifs/Gros caillou.png"
+dest_files=["res://.godot/imported/Gros caillou.png-727fd9aaade841aa6f0c7a443f4d1447.ctex"]
 
 [params]
 

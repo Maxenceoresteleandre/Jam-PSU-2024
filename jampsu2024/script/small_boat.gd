@@ -93,7 +93,7 @@ const DIR := {
 	UpLeft = Vector2.UP + Vector2.LEFT,
 	UpRight = Vector2.UP + Vector2.RIGHT,
 	DownLeft = Vector2.DOWN + Vector2.LEFT,
-	DownRight = Vector2.DOWN + Vector2.RIGHT,		
+	DownRight = Vector2.DOWN + Vector2.RIGHT,
 }
 
 func get_closest_dir(dir: Vector2) -> Array:
@@ -113,7 +113,7 @@ func play_dir_anim(dir: Vector2) -> void:
 	var closest_dir : Vector2 = arr[0]
 	var rott : float = arr[1]
 	var anim_name := ""
-	print("arr, ", arr)
+	#$AnimatedSprite2D.rotation = (1 / rott) / 100.0
 	match closest_dir:
 		DIR.Left: 		set_ship_sprite(Directions.Left)
 		DIR.Right: 		set_ship_sprite(Directions.Right)
@@ -128,9 +128,14 @@ func play_dir_anim(dir: Vector2) -> void:
 func set_turn(value : float):
 	direction = direction.rotated(value)
 	$Icon.rotation += value
+	$AnimatedSprite2D.rotation += value / 2.0
 	play_dir_anim(Vector2.RIGHT.rotated($Icon.rotation))
 
+var current_d := Directions.Right
 func set_ship_sprite(d : Directions):
+	if d != current_d:
+		current_d = d
+		$AnimatedSprite2D.rotation = 0.0
 	$AnimatedSprite2D.play(DIRECTION_ANIMS[d][0] + "m")
 	$AnimatedSprite2D.flip_h = DIRECTION_ANIMS[d][1]
 

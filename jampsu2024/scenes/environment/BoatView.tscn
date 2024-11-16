@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b0ew2d3ov7rsc"]
+[gd_scene load_steps=17 format=3 uid="uid://b0ew2d3ov7rsc"]
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="1_ecoml"]
@@ -10,17 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bc8dk4ly01i3h" path="res://scenes/environment/interactible_objects/engine.tscn" id="8_e4w2j"]
 [ext_resource type="PackedScene" uid="uid://duqdi0n0ql27i" path="res://scenes/environment/interactible_objects/light_house.tscn" id="9_nborx"]
 [ext_resource type="PackedScene" uid="uid://btc1len2ws85b" path="res://scenes/environment/interactible_objects/ship_light.tscn" id="10_pau2v"]
-[ext_resource type="Shader" path="res://resources/shader/outline.gdshader" id="11_rdet8"]
-[ext_resource type="Texture2D" uid="uid://dwuaec32p1ylb" path="res://resources/art/boat_view/ship/roue_up.png" id="12_su6kc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vhkfm"]
 radius = 90.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tnu3"]
-size = Vector2(294, 13)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoeaj"]
-size = Vector2(15, 75.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjvor"]
 size = Vector2(516, 13)
@@ -30,18 +22,6 @@ size = Vector2(17, 644.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwfyc"]
 size = Vector2(30.5, 435.201)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_raawg"]
-resource_local_to_scene = true
-shader = ExtResource("11_rdet8")
-shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/width = 0.0
-shader_parameter/pattern = 0
-shader_parameter/inside = false
-shader_parameter/add_margins = true
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_24vxn"]
-radius = 290.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_47fhp"]
 polygon = PackedVector2Array(-58, 64, -96, 2, -61, -69, 50, -67, 86, -5, 53, 68)
@@ -117,22 +97,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyChimney"]
 shape = SubResource("CircleShape2D_vhkfm")
 
-[node name="StaticBodyInsideGuard" type="StaticBody2D" parent="."]
-position = Vector2(335, 895)
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyInsideGuard"]
-position = Vector2(18, 3.5)
-shape = SubResource("RectangleShape2D_3tnu3")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBodyInsideGuard"]
-position = Vector2(-125, 46)
-shape = SubResource("RectangleShape2D_yoeaj")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBodyInsideGuard"]
-position = Vector2(156, 46)
-shape = SubResource("RectangleShape2D_yoeaj")
-
 [node name="StaticBodyOutsideGuard" type="StaticBody2D" parent="."]
 position = Vector2(335, 895)
 collision_mask = 0
@@ -159,19 +123,13 @@ position = Vector2(-119, -644)
 rotation = 0.672534
 shape = SubResource("RectangleShape2D_xwfyc")
 
-[node name="InteractibleResourcesOil" parent="." instance=ExtResource("7_8y7oe")]
-position = Vector2(448, 373)
-
-[node name="InteractibleResourcesCoal" parent="." instance=ExtResource("7_8y7oe")]
-position = Vector2(237, 373)
-resource = 2
-
 [node name="InteractibleResourcesBalls" parent="." instance=ExtResource("7_8y7oe")]
-position = Vector2(269, 846)
+position = Vector2(349, 803)
 resource = 1
 
 [node name="Engine" parent="." instance=ExtResource("8_e4w2j")]
-position = Vector2(423, 879)
+visible = false
+position = Vector2(-850, 772)
 
 [node name="LightHouse" parent="." instance=ExtResource("9_nborx")]
 position = Vector2(357, 561)
@@ -184,19 +142,6 @@ position = Vector2(352, 160)
 
 [node name="ShipLight3" parent="." instance=ExtResource("10_pau2v")]
 position = Vector2(566, 420)
-
-[node name="ShipLight4" parent="." instance=ExtResource("10_pau2v")]
-position = Vector2(357, 725)
-
-[node name="Sprite" parent="ShipLight4" index="1"]
-material = SubResource("ShaderMaterial_raawg")
-texture = ExtResource("12_su6kc")
-
-[node name="PointLight2D" parent="ShipLight4" index="3"]
-texture_scale = 23.05
-
-[node name="CollisionShape2D" parent="ShipLight4/Area2D" index="0"]
-shape = SubResource("CircleShape2D_24vxn")
 
 [node name="ShipLight5" parent="." instance=ExtResource("10_pau2v")]
 position = Vector2(105, 1066)
@@ -223,5 +168,3 @@ position = Vector2(361, 1239)
 
 [node name="GhostSpawn4" type="Node2D" parent="."]
 position = Vector2(786, 625)
-
-[editable path="ShipLight4"]
