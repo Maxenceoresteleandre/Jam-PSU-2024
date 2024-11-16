@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0ew2d3ov7rsc"]
+[gd_scene load_steps=6 format=3 uid="uid://b0ew2d3ov7rsc"]
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="1_ecoml"]
-[ext_resource type="PackedScene" path="res://scenes/characters/player_character.tscn" id="2_rrqf3"]
+[ext_resource type="PackedScene" uid="uid://dk2rkvhposxkf" path="res://scenes/characters/player_character.tscn" id="2_rrqf3"]
 [ext_resource type="PackedScene" uid="uid://bxw152aldsit3" path="res://scenes/environment/interactible_objects/interactible_object.tscn" id="3_tdscc"]
+[ext_resource type="PackedScene" uid="uid://8x20osbchfve" path="res://scenes/environment/interactible_objects/ship_wheel.tscn" id="5_ix3x2"]
 
 [node name="BoatView" type="Node2D"]
 z_index = 100
@@ -40,4 +41,8 @@ control_device = 3
 player_color = Color(6.49765e-07, 0.296087, 0.386533, 1)
 
 [node name="InteractibleObject" parent="." instance=ExtResource("3_tdscc")]
-position = Vector2(206, 900)
+position = Vector2(139, 785)
+
+[node name="ShipWheel" parent="." instance=ExtResource("5_ix3x2")]
+position = Vector2(345, 931)
+turn_speed = 1.0
