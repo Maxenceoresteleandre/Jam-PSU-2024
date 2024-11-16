@@ -89,10 +89,10 @@ position = Vector2(358, -205)
 position = Vector2(646, 593)
 
 [node name="Shark" parent="." instance=ExtResource("9_iafle")]
-position = Vector2(-1014, -2654)
+position = Vector2(1802, -1246)
 
 [node name="Underwater" parent="." instance=ExtResource("10_071nf")]
-position = Vector2(1087, -263)
+position = Vector2(10139, 3873)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yberc")

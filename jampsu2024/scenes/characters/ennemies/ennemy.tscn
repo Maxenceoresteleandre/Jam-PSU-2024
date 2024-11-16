@@ -99,6 +99,8 @@ _data = {
 }
 
 [node name="Ennemy" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 0
 script = ExtResource("1_ekx8i")
 
 [node name="Area2D" type="Area2D" parent="."]

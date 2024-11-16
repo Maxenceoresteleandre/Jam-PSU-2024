@@ -27,5 +27,5 @@ func _on_hitbox_area_2d_body_entered(body: Node2D) -> void:
 		choose_random_point()
 
 func choose_random_point():
-	var rp = Vector2(rng.randi_range(position.x - 500, position.x + 500), rng.randi_range(position.y - 500, position.y + 500))
+	var rp = Vector2(rng.randi_range(position.x - 500, position.x-200), rng.randi_range(position.y - 500, position.y + 500))
 	random_point = rp
