@@ -2,11 +2,18 @@ extends CharacterBody2D
 class_name SmallBoat
 
 const CANNONBALL_RES := preload("res://scenes/environment/cannonball_sea.tscn")
+const COAL_CONSUMPTION_TIME := 10.0
+const COAL_CONS_MULT := {
+	SPEEDS.REVERSE : 1.0,
+	SPEEDS.STOPPED : 0.0,
+	SPEEDS.SLOW : 1.0,
+	SPEEDS.FAST : 2.0,
+}
 
 enum SPEEDS {
+	REVERSE = -70,
 	STOPPED = 0,
-	SLOW = 40,
-	NORMAL = 80,
+	SLOW = 70,
 	FAST = 140
 } 
 
@@ -26,7 +33,7 @@ var cannons_offsets = [
 var can_move = true
 var max_health = 100.0
 var speed: float = 70
-@export var current_speed:SPEEDS = SPEEDS.NORMAL
+@export var current_speed:SPEEDS = SPEEDS.SLOW
 @export var hit_obstacle_min_speed = 50
 @export var health: float = max_health
 @export var direction: Vector2 = Vector2(1,0)
@@ -88,17 +95,17 @@ func set_speed_change(speed_offset : float):
 		can_change_speed = false
 		if speed_offset < -0.5:
 			if current_speed == SPEEDS.FAST:
-				set_speed(SPEEDS.NORMAL)
-			elif current_speed == SPEEDS.NORMAL:
 				set_speed(SPEEDS.SLOW)
 			elif current_speed == SPEEDS.SLOW:
 				set_speed(SPEEDS.STOPPED)
+			elif current_speed == SPEEDS.STOPPED:
+				set_speed(SPEEDS.REVERSE)
 		else:
-			if current_speed == SPEEDS.STOPPED:
+			if current_speed == SPEEDS.REVERSE:
+				set_speed(SPEEDS.STOPPED)
+			elif current_speed == SPEEDS.STOPPED:
 				set_speed(SPEEDS.SLOW)
 			elif current_speed == SPEEDS.SLOW:
-				set_speed(SPEEDS.NORMAL)
-			elif current_speed == SPEEDS.NORMAL:
 				set_speed(SPEEDS.FAST)
 		await get_tree().create_timer(1.0).timeout
 		can_change_speed = true
