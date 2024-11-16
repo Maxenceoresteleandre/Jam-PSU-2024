@@ -1,12 +1,18 @@
 extends Node2D
 
 func _ready() -> void:
+	GlobalVariables.world = self
 	GlobalVariables.sea_view = $SeaView
 	await get_tree().create_timer(0.5).timeout
 	spawn_enemy()
 	spawn_enemy()
 	spawn_enemy()
 	spawn_enemy()
+
+var score := 0
+func increase_score():
+	score += 1
+	$CanvasLayer/Label.text = str(score)
 
 
 func spawn_enemy():
