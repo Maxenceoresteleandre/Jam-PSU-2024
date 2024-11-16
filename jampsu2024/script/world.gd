@@ -15,7 +15,7 @@ static var score := 0
 func increase_score():
 	score += 1
 	$CanvasLayer/Label.text = str(score)
-	if score % 15 == 0 or true:
+	if score % 15 == 0:
 		Cutscene.load_cutscene()
 
 var lifez := 100.0
