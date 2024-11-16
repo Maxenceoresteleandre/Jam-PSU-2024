@@ -131,3 +131,12 @@ offset_right = -150.0
 offset_bottom = -63.0
 theme = SubResource("Theme_am6nv")
 label_settings = SubResource("LabelSettings_hw1wk")
+
+[node name="coal_debug" type="Label" parent="."]
+offset_left = -361.0
+offset_top = -27.0
+offset_right = -249.0
+offset_bottom = 30.0
+theme = SubResource("Theme_am6nv")
+text = "gfdfvgf"
+label_settings = SubResource("LabelSettings_hw1wk")

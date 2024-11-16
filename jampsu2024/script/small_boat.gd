@@ -2,11 +2,18 @@ extends CharacterBody2D
 class_name SmallBoat
 
 const CANNONBALL_RES := preload("res://scenes/environment/cannonball_sea.tscn")
+const COAL_CONSUMPTION_TIME := 17.5
+const COAL_CONS_MULT := {
+	SPEEDS.REVERSE : 1.0,
+	SPEEDS.STOPPED : 0.0,
+	SPEEDS.SLOW : 1.0,
+	SPEEDS.FAST : 2.0,
+}
 
 enum SPEEDS {
+	REVERSE = -70,
 	STOPPED = 0,
-	SLOW = 40,
-	NORMAL = 80,
+	SLOW = 70,
 	FAST = 140
 } 
 
@@ -26,13 +33,14 @@ var cannons_offsets = [
 var can_move = true
 var max_health = 100.0
 var speed: float = 70
-@export var current_speed:SPEEDS = SPEEDS.NORMAL
+@export var current_speed:SPEEDS = SPEEDS.SLOW
 @export var hit_obstacle_min_speed = 50
 @export var health: float = max_health
 @export var direction: Vector2 = Vector2(1,0)
 @export var line_length = 500
 @export var hit_cooldown_time = 2.0
 var can_change_speed := true
+var remaining_coal_time := COAL_CONSUMPTION_TIME
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -63,9 +71,15 @@ func damage(damage: float):
 	$Camera2D/CameraUtils.shake(0.3, 7, 20, 2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-	
+func _process(delta: float) -> void:
+	$coal_debug.text = str(remaining_coal_time)
+	remaining_coal_time -= delta * COAL_CONS_MULT[current_speed]
+	if remaining_coal_time <= 0.0 and current_speed != SPEEDS.STOPPED:
+		if GlobalVariables.steam_engine.consume_coal():
+			remaining_coal_time = COAL_CONSUMPTION_TIME
+		else:
+			set_speed(SPEEDS.STOPPED)
+
 func _physics_process(_delta: float) -> void:
 	$speed_debug.text = "speed : " + str(speed)
 	if can_move:
@@ -75,7 +89,7 @@ func _physics_process(_delta: float) -> void:
 func set_speed(value: SPEEDS):
 	current_speed = value
 	var t := create_tween().set_trans(Tween.TRANS_CUBIC)
-	t.tween_property(self, "speed", value, 2.0)
+	t.tween_property(self, "speed", value, 0.9)
 
 func set_line_direction(index: int, direction: float):
 	lines[index].rotation = direction
@@ -88,19 +102,19 @@ func set_speed_change(speed_offset : float):
 		can_change_speed = false
 		if speed_offset < -0.5:
 			if current_speed == SPEEDS.FAST:
-				set_speed(SPEEDS.NORMAL)
-			elif current_speed == SPEEDS.NORMAL:
 				set_speed(SPEEDS.SLOW)
 			elif current_speed == SPEEDS.SLOW:
 				set_speed(SPEEDS.STOPPED)
+			elif current_speed == SPEEDS.STOPPED:
+				set_speed(SPEEDS.REVERSE)
 		else:
-			if current_speed == SPEEDS.STOPPED:
+			if current_speed == SPEEDS.REVERSE:
+				set_speed(SPEEDS.STOPPED)
+			elif current_speed == SPEEDS.STOPPED:
 				set_speed(SPEEDS.SLOW)
 			elif current_speed == SPEEDS.SLOW:
-				set_speed(SPEEDS.NORMAL)
-			elif current_speed == SPEEDS.NORMAL:
 				set_speed(SPEEDS.FAST)
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.3).timeout
 		can_change_speed = true
 
 func shoot(index: int, dir : Vector2):

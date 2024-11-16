@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b0ew2d3ov7rsc"]
+[gd_scene load_steps=15 format=3 uid="uid://b0ew2d3ov7rsc"]
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="1_ecoml"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d1e3duvrjeqii" path="res://scenes/environment/interactible_objects/cannon.tscn" id="5_8vw4u"]
 [ext_resource type="PackedScene" uid="uid://8x20osbchfve" path="res://scenes/environment/interactible_objects/ship_wheel.tscn" id="5_ix3x2"]
 [ext_resource type="PackedScene" uid="uid://cvxjpkvp6vgfr" path="res://scenes/environment/interactible_objects/interactible_resources.tscn" id="7_8y7oe"]
+[ext_resource type="PackedScene" uid="uid://bc8dk4ly01i3h" path="res://scenes/environment/interactible_objects/engine.tscn" id="8_e4w2j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vhkfm"]
 radius = 90.0
@@ -67,27 +68,22 @@ position = Vector2(350, 954)
 
 [node name="Cannon" parent="." instance=ExtResource("5_8vw4u")]
 position = Vector2(101, 758)
-array_num = 0
-one_time_collectible = false
 
 [node name="Cannon2" parent="." instance=ExtResource("5_8vw4u")]
 position = Vector2(96, 545)
 array_num = 1
-one_time_collectible = false
 
 [node name="Cannon3" parent="." instance=ExtResource("5_8vw4u")]
 position = Vector2(596, 545)
 scale = Vector2(-1, 1)
 array_num = 2
 left_side = false
-one_time_collectible = false
 
 [node name="Cannon4" parent="." instance=ExtResource("5_8vw4u")]
 position = Vector2(595, 755)
 scale = Vector2(-1, 1)
 array_num = 3
 left_side = false
-one_time_collectible = false
 
 [node name="StaticBodyChimney" type="StaticBody2D" parent="."]
 position = Vector2(350, 649)
@@ -146,5 +142,8 @@ position = Vector2(237, 373)
 resource = 2
 
 [node name="InteractibleResourcesBalls" parent="." instance=ExtResource("7_8y7oe")]
-position = Vector2(296, 843)
+position = Vector2(269, 846)
 resource = 1
+
+[node name="Engine" parent="." instance=ExtResource("8_e4w2j")]
+position = Vector2(417, 866)

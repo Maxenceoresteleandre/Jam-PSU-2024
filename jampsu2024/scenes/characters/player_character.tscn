@@ -1,11 +1,65 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk2rkvhposxkf"]
+[gd_scene load_steps=14 format=3 uid="uid://dk2rkvhposxkf"]
 
 [ext_resource type="Script" path="res://script/player_character.gd" id="1_p1nly"]
-[ext_resource type="Texture2D" uid="uid://dgfwgn78qcjhm" path="res://resources/art/boat_view/Vampire player.png" id="2_6xnrr"]
+[ext_resource type="Texture2D" uid="uid://df2s37xg7msg3" path="res://resources/art/boat_view/Players/Amaranth animated1.png" id="2_d7r8w"]
+[ext_resource type="Texture2D" uid="uid://djpea6davk3vq" path="res://resources/art/boat_view/Players/Amaranth animated2.png" id="3_l0eh8"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="3_ms3vx"]
+[ext_resource type="Texture2D" uid="uid://cf4m6ug1dh35a" path="res://resources/art/boat_view/Players/Ivory animated1.png" id="4_78pn5"]
+[ext_resource type="Texture2D" uid="uid://vultidglsx1t" path="res://resources/art/boat_view/Players/Ivory animated2.png" id="5_k4jl4"]
+[ext_resource type="Texture2D" uid="uid://c47gev06ofess" path="res://resources/art/boat_view/Players/Obsidian animated1.png" id="6_l7usg"]
+[ext_resource type="Texture2D" uid="uid://c8mupupkaygyd" path="res://resources/art/boat_view/Players/Obsidian animated2.png" id="7_bmo6a"]
+[ext_resource type="Texture2D" uid="uid://cev1pb8jikiap" path="res://resources/art/boat_view/Players/Yellow ocre animated1.png" id="8_hiy4f"]
+[ext_resource type="Texture2D" uid="uid://d3gsr75ojk1vk" path="res://resources/art/boat_view/Players/Yellow ocre animated2.png" id="9_8mupm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w7g5h"]
 radius = 30.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p535o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d7r8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l0eh8")
+}],
+"loop": true,
+"name": &"amaranth",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_78pn5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k4jl4")
+}],
+"loop": true,
+"name": &"ivory",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_l7usg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bmo6a")
+}],
+"loop": true,
+"name": &"obsidian",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_hiy4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8mupm")
+}],
+"loop": true,
+"name": &"yellow",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2hrs"]
 radius = 79.0253
@@ -19,11 +73,12 @@ script = ExtResource("1_p1nly")
 position = Vector2(-2, 40)
 shape = SubResource("CircleShape2D_w7g5h")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-1, -1)
 scale = Vector2(7, 7)
-texture = ExtResource("2_6xnrr")
+sprite_frames = SubResource("SpriteFrames_p535o")
+animation = &"yellow"
 
 [node name="InteractionArea" type="Area2D" parent="."]
 
