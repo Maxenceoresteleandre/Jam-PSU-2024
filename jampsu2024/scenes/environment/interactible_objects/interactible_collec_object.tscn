@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://0ai3qs4hs51k"]
+
+[ext_resource type="PackedScene" uid="uid://bxw152aldsit3" path="res://scenes/environment/interactible_objects/interactible_object.tscn" id="1_nmdix"]
+[ext_resource type="Script" path="res://script/interactible_collec_object.gd" id="2_8e4u4"]
+[ext_resource type="Shader" path="res://resources/shader/outline.gdshader" id="3_0ngd2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dd3pe"]
+resource_local_to_scene = true
+shader = ExtResource("3_0ngd2")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[node name="InteractibleCollecObject" instance=ExtResource("1_nmdix")]
+script = ExtResource("2_8e4u4")
+
+[node name="Sprite" parent="." index="1"]
+material = SubResource("ShaderMaterial_dd3pe")
