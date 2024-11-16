@@ -6,6 +6,8 @@ var type : int
 var carried := false
 var can_be_carried_again := false
 
+var potential_player : PlayerCharacter = null
+
 func _ready() -> void:
 	carry_object()
 
@@ -22,14 +24,17 @@ func deposit_object():
 
 func carry_object():
 	carried = true
-	#if get_parent() != null:
-	#	get_parent().remove_child(self)
-	#global_scale = Vector2(5, 5)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if not carried and body is PlayerCharacter and can_be_carried_again:
-		var pbody : PlayerCharacter = body
-		if not pbody.carrying_object:
-			get_parent().remove_child(self)
-			print("carry new again type = ", type)
-			pbody.collect_resource(self, type)
+	if not carried and body is PlayerCharacter and potential_player == null:
+		potential_player = body
+		potential_player.connect("interacting_with_nothing", potential_carry_back)
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body == potential_player:
+		potential_player.disconnect("interacting_with_nothing", potential_carry_back)
+		potential_player = null
+
+func potential_carry_back():
+	if not potential_player.carrying_object:
+		potential_player.collect_resource(self, type)

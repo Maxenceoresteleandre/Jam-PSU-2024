@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name PlayerCharacter
 
+signal interacting_with_nothing
+
 const INTERACT_DELAY = 0.1
 
 @export var control_device := 0
@@ -103,6 +105,8 @@ func collect_resource(obj : Collectible, rtype : int):
 	carried_object.carry_object()
 	carrying_object = true
 	object_speed_coeff = 0.7
+	if carried_object.get_parent() != null:
+		carried_object.get_parent().remove_child(carried_object)
 	self.add_child(carried_object)
 	carried_object.global_position = $ObjectAttach.global_position
 	carried_object.global_scale = Vector2(5, 5)
@@ -124,7 +128,7 @@ func start_interact_delay():
 	can_act = true
 
 func interact_idle() -> void:
-	return
+	emit_signal("interacting_with_nothing")
 
 func interact_with_new_object() -> void:
 	if nearby_object == null:
