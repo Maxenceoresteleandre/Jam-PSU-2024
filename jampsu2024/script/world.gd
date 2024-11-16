@@ -14,6 +14,9 @@ func increase_score():
 	score += 1
 	$CanvasLayer/Label.text = str(score)
 
+func set_life(new_life : float):
+	pass
+
 
 func spawn_enemy():
 	print("hello")
