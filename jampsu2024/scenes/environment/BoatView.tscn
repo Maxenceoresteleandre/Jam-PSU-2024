@@ -1,15 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0ew2d3ov7rsc"]
 
-[ext_resource type="Texture2D" uid="uid://c6rc5o0ovxmb5" path="res://icon.svg" id="1_chstg"]
+[ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/Bato.png" id="1_5kobi"]
 [ext_resource type="PackedScene" uid="uid://dk2rkvhposxkf" path="res://scenes/characters/player_character.tscn" id="2_rrqf3"]
 
 [node name="BoatView" type="Node2D"]
 z_index = 100
+texture_filter = 1
 
 [node name="ShipSprite" type="Sprite2D" parent="."]
-position = Vector2(366.5, 549.5)
-scale = Vector2(4.27344, 6.33594)
-texture = ExtResource("1_chstg")
+position = Vector2(350.5, 556)
+scale = Vector2(4.02344, 3.55245)
+texture = ExtResource("1_5kobi")
 
 [node name="VampireCharacter" parent="." instance=ExtResource("2_rrqf3")]
 position = Vector2(211, 462)

@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name PlayerCharacter
 
 @export var control_device := 0
-@export var speed := 200
+@export var speed := 400
 
 var right_pressed := false
 var left_pressed := false
