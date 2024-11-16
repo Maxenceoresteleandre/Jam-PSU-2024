@@ -32,6 +32,11 @@ func hit_obstacle():
 		await get_tree().create_timer(hit_cooldown_time).timeout
 		can_move = true
 		$health_debug.text = str(health) + "/" + str(max_health)
+		
+func ennemy_hit():
+	damage(10)
+	$health_debug.text = str(health) + "/" + str(max_health)
+	
 
 func set_turn(value : float):
 	direction = direction.rotated(value)
