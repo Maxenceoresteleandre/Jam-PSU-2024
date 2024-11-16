@@ -71,21 +71,6 @@ func _physics_process(_delta: float) -> void:
 	if can_move:
 		velocity = direction.normalized() * speed
 		move_and_slide()
-	if Input.is_action_just_pressed("ui_up"):
-		if current_speed == SPEEDS.STOPPED:
-			set_speed(SPEEDS.SLOW)
-		elif current_speed == SPEEDS.SLOW:
-			set_speed(SPEEDS.NORMAL)
-		elif current_speed == SPEEDS.NORMAL:
-			set_speed(SPEEDS.FAST)
-		
-	if Input.is_action_just_pressed("ui_down") and false:
-		if current_speed == SPEEDS.FAST:
-			set_speed(SPEEDS.NORMAL)
-		elif current_speed == SPEEDS.NORMAL:
-			set_speed(SPEEDS.SLOW)
-		elif current_speed == SPEEDS.SLOW:
-			set_speed(SPEEDS.STOPPED)
 
 func set_speed(value: SPEEDS):
 	current_speed = value
@@ -99,7 +84,24 @@ func set_line_visibility(index : int, new_visibility : bool):
 	lines[index].visible = new_visibility
 
 func set_speed_change(speed_offset : float):
-	pass
+	if can_change_speed:
+		can_change_speed = false
+		if speed_offset < -0.5:
+			if current_speed == SPEEDS.FAST:
+				set_speed(SPEEDS.NORMAL)
+			elif current_speed == SPEEDS.NORMAL:
+				set_speed(SPEEDS.SLOW)
+			elif current_speed == SPEEDS.SLOW:
+				set_speed(SPEEDS.STOPPED)
+		else:
+			if current_speed == SPEEDS.STOPPED:
+				set_speed(SPEEDS.SLOW)
+			elif current_speed == SPEEDS.SLOW:
+				set_speed(SPEEDS.NORMAL)
+			elif current_speed == SPEEDS.NORMAL:
+				set_speed(SPEEDS.FAST)
+		await get_tree().create_timer(1.0).timeout
+		can_change_speed = true
 
 func shoot(index: int, dir : Vector2):
 	var cannonball : Node2D = CANNONBALL_RES.instantiate()
