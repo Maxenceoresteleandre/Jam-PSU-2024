@@ -3,7 +3,7 @@ extends InteractibleObject
 class_name Cannon
 
 const CANNONBALL_RES := preload("res://scenes/environment/cannonball_boat.tscn")
-const CANNONBALL_SPRITE := preload("res://scenes/environment/cannonball_reserve.tscn")
+const CANNONBALL_SPRITE := preload("res://scenes/environment/interactible_objects/CollectibleResource.tscn")
 const CANNONBALL_OFFSET := 70.0
 
 const CANNONBALL_PLACES : Array[Vector2] = [
@@ -50,6 +50,7 @@ func add_cannonball() -> bool:
 	if cannonballs_reserved.size() >= 3:
 		return false
 	var new_cannonball : Sprite2D = CANNONBALL_SPRITE.instantiate()
+	new_cannonball.texture = preload("res://resources/art/boat_view/ship/cannonball.png")
 	self.add_child(new_cannonball)
 	cannonballs_reserved.append(new_cannonball)
 	new_cannonball.position = CANNONBALL_PLACES[cannonballs_reserved.size()-1]
