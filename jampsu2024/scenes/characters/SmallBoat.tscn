@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c2a0nbvglukoh"]
 
 [ext_resource type="Script" path="res://script/small_boat.gd" id="1_ayldm"]
-[ext_resource type="Texture2D" uid="uid://bqd8p5k8lyxg8" path="res://resources/art/sea_view/ship placeholder.png" id="2_erb1x"]
+[ext_resource type="Texture2D" uid="uid://7y2url7aofoi" path="res://resources/art/sea_view/ship placeholder v2.png" id="2_rxjs8"]
 [ext_resource type="Shader" path="res://resources/shader/line.gdshader" id="3_cfkk8"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qbyrv"]
@@ -60,7 +60,7 @@ z_index = 1
 texture_filter = 1
 position = Vector2(3, -2)
 scale = Vector2(4, 4)
-texture = ExtResource("2_erb1x")
+texture = ExtResource("2_rxjs8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(15.5, 20)
