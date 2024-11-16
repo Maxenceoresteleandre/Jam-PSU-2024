@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0ew2d3ov7rsc"]
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
-[ext_resource type="PackedScene" uid="uid://dk2rkvhposxkf" path="res://scenes/characters/player_character.tscn" id="2_rrqf3"]
+[ext_resource type="PackedScene" path="res://scenes/characters/player_character.tscn" id="2_rrqf3"]
 
 [node name="BoatView" type="Node2D"]
 z_index = 100

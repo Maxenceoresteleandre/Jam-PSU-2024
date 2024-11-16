@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://oxak7bpjdska"]
+[gd_scene load_steps=10 format=3 uid="uid://oxak7bpjdska"]
 
 [ext_resource type="Shader" path="res://resources/shader/water.gdshader" id="1_cwibs"]
 [ext_resource type="Shader" path="res://resources/shader/pixelart.gdshader" id="1_mgopa"]
 [ext_resource type="Script" path="res://script/sea_view.gd" id="1_y6n53"]
 [ext_resource type="PackedScene" uid="uid://c2a0nbvglukoh" path="res://scenes/characters/SmallBoat.tscn" id="4_ms5o0"]
+[ext_resource type="PackedScene" uid="uid://b0ew2d3ov7rsc" path="res://scenes/environment/BoatView.tscn" id="5_wi4hj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x28q6"]
 shader = ExtResource("1_cwibs")
@@ -55,3 +56,6 @@ texture = SubResource("GradientTexture2D_ts3b2")
 [node name="SmallBoat" parent="." instance=ExtResource("4_ms5o0")]
 
 [node name="Camera2D" type="Camera2D" parent="SmallBoat"]
+
+[node name="BoatView" parent="SmallBoat" instance=ExtResource("5_wi4hj")]
+position = Vector2(-1001, -605)
