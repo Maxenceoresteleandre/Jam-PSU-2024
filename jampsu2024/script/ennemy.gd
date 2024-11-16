@@ -25,6 +25,7 @@ func hit():
 	else:
 		death_anim()
 		await $AnimationPlayer.animation_finished
+		GlobalVariables.world.increment_score()
 		queue_free()
 
 func hit_anim():
