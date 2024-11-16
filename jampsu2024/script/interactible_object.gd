@@ -1,6 +1,8 @@
 extends Area2D
 class_name InteractibleObject
 
+const MAX_WIDTH_OUTLINE := 10.0
+
 @export var freeze_movement := false
 @export var movement_speed_multiplier := 1.0
 
@@ -19,10 +21,11 @@ func _process(_delta: float) -> void:
 func enter_interact_zone(player : PlayerCharacter) -> bool:
 	if current_player != null:
 		return false
+	$Sprite.material.set_shader_parameter("color", player.player_color)
 	if in_player_interact_zone != null:
 		leave_interact_zone(player, false)
 	else:
-		tween_outline_to(5.0)
+		tween_outline_to(MAX_WIDTH_OUTLINE)
 	in_player_interact_zone = player
 	return true
 
