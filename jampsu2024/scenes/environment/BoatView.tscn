@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0ew2d3ov7rsc"]
+[gd_scene load_steps=13 format=3 uid="uid://b0ew2d3ov7rsc"]
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="1_ecoml"]
+[ext_resource type="Script" path="res://script/boat_view.gd" id="1_y42bq"]
 [ext_resource type="PackedScene" uid="uid://dk2rkvhposxkf" path="res://scenes/characters/player_character.tscn" id="2_rrqf3"]
 [ext_resource type="PackedScene" uid="uid://d1e3duvrjeqii" path="res://scenes/environment/interactible_objects/cannon.tscn" id="5_8vw4u"]
 [ext_resource type="PackedScene" uid="uid://8x20osbchfve" path="res://scenes/environment/interactible_objects/ship_wheel.tscn" id="5_ix3x2"]
@@ -27,6 +28,7 @@ size = Vector2(30.5, 435.201)
 [node name="BoatView" type="Node2D"]
 z_index = 100
 texture_filter = 1
+script = ExtResource("1_y42bq")
 
 [node name="WhitePixel" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
