@@ -301,5 +301,5 @@ texture_filter = 1
 position = Vector2(-6, -8)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_g54dr")
-animation = &"down_m"
+animation = &"down_right_m"
 speed_scale = 1.2

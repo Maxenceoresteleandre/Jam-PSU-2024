@@ -65,6 +65,7 @@ var remaining_coal_time := COAL_CONSUMPTION_TIME
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GlobalVariables.small_boat = self
+	$AnimatedSprite2D.play("right_m")
 	$health_debug.text = str(health) + "/" + str(max_health)
 	$speed_debug.text = "speed : " + str(speed)
 
