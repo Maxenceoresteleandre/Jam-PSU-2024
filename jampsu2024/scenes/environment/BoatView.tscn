@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="1_ecoml"]
 [ext_resource type="PackedScene" uid="uid://dk2rkvhposxkf" path="res://scenes/characters/player_character.tscn" id="2_rrqf3"]
-[ext_resource type="PackedScene" uid="uid://bxw152aldsit3" path="res://scenes/environment/interactible_objects/interactible_object.tscn" id="3_tdscc"]
+[ext_resource type="PackedScene" uid="uid://d1e3duvrjeqii" path="res://scenes/environment/interactible_objects/cannon.tscn" id="5_8vw4u"]
 [ext_resource type="PackedScene" uid="uid://8x20osbchfve" path="res://scenes/environment/interactible_objects/ship_wheel.tscn" id="5_ix3x2"]
 
 [node name="BoatView" type="Node2D"]
@@ -40,8 +40,23 @@ position = Vector2(326, 263)
 control_device = 3
 player_color = Color(1, 1, 0.941176, 1)
 
-[node name="InteractibleObject" parent="." instance=ExtResource("3_tdscc")]
-position = Vector2(139, 785)
-
 [node name="ShipWheel" parent="." instance=ExtResource("5_ix3x2")]
 position = Vector2(345, 931)
+
+[node name="Cannon" parent="." instance=ExtResource("5_8vw4u")]
+position = Vector2(101, 758)
+turn_speed = null
+
+[node name="Cannon2" parent="." instance=ExtResource("5_8vw4u")]
+position = Vector2(96, 545)
+turn_speed = null
+
+[node name="Cannon3" parent="." instance=ExtResource("5_8vw4u")]
+position = Vector2(596, 545)
+turn_speed = null
+left_side = false
+
+[node name="Cannon4" parent="." instance=ExtResource("5_8vw4u")]
+position = Vector2(595, 755)
+turn_speed = null
+left_side = false
