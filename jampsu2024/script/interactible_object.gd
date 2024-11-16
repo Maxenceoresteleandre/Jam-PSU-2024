@@ -6,7 +6,11 @@ class_name InteractibleObject
 
 var current_player : PlayerCharacter = null
 
-func interact(player : PlayerCharacter):
+func interact(player : PlayerCharacter) -> bool:
 	if current_player != null:
-		return
-	
+		return false
+	current_player = player
+	return true
+
+func cancel() -> void:
+	current_player = null
