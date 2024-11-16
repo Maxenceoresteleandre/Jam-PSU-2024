@@ -29,18 +29,15 @@ var sea_corresp : Node2D = null
 func _ready() -> void:
 	create_sea_correspondance()
 	add_cannonball()
-	print("cannonballs_reserved = ", cannonballs_reserved)
 
 func create_sea_correspondance() -> void:
 	pass
 
 func interact() -> void:
-	print("cannonballs_reserved = ", cannonballs_reserved)
 	if cannonballs_reserved.size() == 0:
 		return
 	# remove cannonball from reserve
 	var c : Node = cannonballs_reserved.pop_back()
-	print("\tcannonball destroyed = ", c)
 	c.queue_free()
 	# fake cannonball
 	var cannonball : Node2D = CANNONBALL_RES.instantiate()
