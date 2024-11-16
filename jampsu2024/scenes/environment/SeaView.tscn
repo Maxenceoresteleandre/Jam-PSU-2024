@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://oxak7bpjdska"]
+[gd_scene load_steps=14 format=3 uid="uid://oxak7bpjdska"]
 
 [ext_resource type="Shader" path="res://resources/shader/water.gdshader" id="1_cwibs"]
 [ext_resource type="Shader" path="res://resources/shader/pixelart.gdshader" id="1_mgopa"]
@@ -6,13 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://buf4qtgavs5sf" path="res://resources/art/sea_view/water.png" id="4_8wy6i"]
 [ext_resource type="PackedScene" uid="uid://c2a0nbvglukoh" path="res://scenes/characters/SmallBoat.tscn" id="4_ms5o0"]
 [ext_resource type="PackedScene" uid="uid://b0ew2d3ov7rsc" path="res://scenes/environment/BoatView.tscn" id="5_wi4hj"]
+[ext_resource type="PackedScene" uid="uid://yv7lcxf6b5ft" path="res://scenes/environment/Obstacle.tscn" id="7_55r16"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="8_ccdmm"]
 [ext_resource type="PackedScene" uid="uid://cu3ayfi7cnbdj" path="res://scenes/utilities/CameraUtils.tscn" id="8_qu3r4"]
-<<<<<<< Updated upstream
-[ext_resource type="PackedScene" uid="uid://s16w4sliprif" path="res://scenes/characters/ennemies/Shark.tscn" id="9_iafle"]
-[ext_resource type="PackedScene" uid="uid://cpee5frran2j0" path="res://scenes/characters/ennemies/Underwater.tscn" id="10_071nf"]
-=======
->>>>>>> Stashed changes
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x28q6"]
 shader = ExtResource("1_cwibs")
@@ -92,3 +88,69 @@ camera_attributes = SubResource("CameraAttributesPractical_q58yo")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 color = Color(0, 0, 0, 1)
+
+[node name="Area2D" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(-444, -474)
+
+[node name="Area2D2" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(-528, -825)
+
+[node name="Area2D21" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(-1212, -119)
+
+[node name="Area2D7" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(113, 410)
+
+[node name="Area2D8" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(53, -284)
+
+[node name="Area2D9" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(780, 660)
+
+[node name="Area2D10" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(-347, 810)
+
+[node name="Area2D11" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(1204, 34)
+
+[node name="Area2D12" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(705, -11)
+
+[node name="Area2D13" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(1574, 695)
+
+[node name="Area2D14" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(-711, 410)
+
+[node name="Area2D15" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(1207, -565)
+
+[node name="Area2D16" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(286, -875)
+
+[node name="Area2D17" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(-935, 868)
+
+[node name="Area2D18" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(1717, -26)
+
+[node name="Area2D19" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(1238, 831)
+
+[node name="Area2D20" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(246, 895)
+
+[node name="Area2D22" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(716, 1192)
+
+[node name="Area2D3" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(-237, -498)
+
+[node name="Area2D6" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(-237, -498)
+
+[node name="Area2D4" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(563, -333)
+
+[node name="Area2D5" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(662, -323)
