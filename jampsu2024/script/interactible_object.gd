@@ -31,9 +31,10 @@ func enter_interact_zone(player : PlayerCharacter) -> bool:
 
 func leave_interact_zone(player : PlayerCharacter, remove_shader := true) -> void:
 	player.leave_interaction_zone(self)
-	in_player_interact_zone = null
-	if remove_shader:
-		tween_outline_to(0.0)
+	if player == in_player_interact_zone:
+		in_player_interact_zone = null
+		if remove_shader:
+			tween_outline_to(0.0)
 
 func tween_outline_to(to_val : float):
 	tween_outline = true
