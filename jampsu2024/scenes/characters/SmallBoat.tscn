@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2a0nbvglukoh"]
+[gd_scene load_steps=12 format=3 uid="uid://c2a0nbvglukoh"]
 
 [ext_resource type="Script" path="res://script/small_boat.gd" id="1_ayldm"]
 [ext_resource type="Texture2D" uid="uid://7y2url7aofoi" path="res://resources/art/sea_view/ship placeholder v2.png" id="2_rxjs8"]
 [ext_resource type="Shader" path="res://resources/shader/line.gdshader" id="3_cfkk8"]
 [ext_resource type="Texture2D" uid="uid://dwlufm0mapnsy" path="res://resources/art/lights/ship_small_light.png" id="4_dbmac"]
+[ext_resource type="Texture2D" uid="uid://b8v4dh2v28c6r" path="res://resources/art/lights/light_house_light.png" id="5_qqabn"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qbyrv"]
 particle_flag_disable_z = true
@@ -150,3 +151,13 @@ color = Color(0.58479, 0.693539, 0.299293, 1)
 shadow_enabled = true
 texture = ExtResource("4_dbmac")
 texture_scale = 5.0
+
+[node name="PointLightHouse" type="PointLight2D" parent="."]
+texture_filter = 1
+position = Vector2(34, 14)
+scale = Vector2(3, 3)
+color = Color(0.58479, 0.693539, 0.299293, 1)
+shadow_enabled = true
+texture = ExtResource("5_qqabn")
+offset = Vector2(175, 0)
+texture_scale = 4.0

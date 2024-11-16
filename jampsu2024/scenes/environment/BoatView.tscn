@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b0ew2d3ov7rsc"]
+[gd_scene load_steps=16 format=3 uid="uid://b0ew2d3ov7rsc"]
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="1_ecoml"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://8x20osbchfve" path="res://scenes/environment/interactible_objects/ship_wheel.tscn" id="5_ix3x2"]
 [ext_resource type="PackedScene" uid="uid://cvxjpkvp6vgfr" path="res://scenes/environment/interactible_objects/interactible_resources.tscn" id="7_8y7oe"]
 [ext_resource type="PackedScene" uid="uid://bc8dk4ly01i3h" path="res://scenes/environment/interactible_objects/engine.tscn" id="8_e4w2j"]
+[ext_resource type="PackedScene" uid="uid://duqdi0n0ql27i" path="res://scenes/environment/interactible_objects/light_house.tscn" id="9_nborx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vhkfm"]
 radius = 90.0
@@ -149,4 +150,7 @@ position = Vector2(269, 846)
 resource = 1
 
 [node name="Engine" parent="." instance=ExtResource("8_e4w2j")]
-position = Vector2(417, 866)
+position = Vector2(423, 879)
+
+[node name="LightHouse" parent="." instance=ExtResource("9_nborx")]
+position = Vector2(357, 561)

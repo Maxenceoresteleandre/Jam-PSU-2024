@@ -10,6 +10,8 @@ const COAL_CONS_MULT := {
 	SPEEDS.FAST : 2.0,
 }
 
+var oil_lightouse_remaining_time := 15.0
+
 enum SPEEDS {
 	REVERSE = -70,
 	STOPPED = 0,
@@ -62,7 +64,7 @@ func ennemy_hit():
 	$health_debug.text = str(health) + "/" + str(max_health)
 
 func move_light_house(rot_offset : float):
-	pass
+	$PointLightHouse.rotation += rot_offset
 
 func set_turn(value : float):
 	direction = direction.rotated(value)
@@ -74,6 +76,12 @@ func damage(damage: float):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	oil_lightouse_remaining_time -= delta
+	if oil_lightouse_remaining_time <= 0.0:
+		if GlobalVariables.light_house.consume_OIL():
+			pass
+		else:
+			$PointLightHouse.visible = false
 	$coal_debug.text = str(remaining_coal_time)
 	remaining_coal_time -= delta * COAL_CONS_MULT[current_speed]
 	if remaining_coal_time <= 0.0 and current_speed != SPEEDS.STOPPED:

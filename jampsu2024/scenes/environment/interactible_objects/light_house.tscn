@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://qorcsva5r5wh" path="res://resources/art/boat_view/ship/Canon.png" id="3_3ky2t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfnft"]
-size = Vector2(70, 30)
+size = Vector2(110, 60)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yv1"]
 resource_local_to_scene = true
@@ -28,5 +28,5 @@ shape = SubResource("RectangleShape2D_bfnft")
 
 [node name="Sprite" parent="." index="1"]
 material = SubResource("ShaderMaterial_h2yv1")
-scale = Vector2(3, 3)
+scale = Vector2(5, 5)
 texture = ExtResource("3_3ky2t")
