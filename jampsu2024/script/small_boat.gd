@@ -144,6 +144,7 @@ func damage(damage: float):
 	$AudioStreamPlayer.play()
 	health -= damage
 	$Camera2D/CameraUtils.shake(0.3, 7, 20, 2)
+	GlobalVariables.world.set_life(health)
 	if health == 0:
 		show_game_over()
 		
