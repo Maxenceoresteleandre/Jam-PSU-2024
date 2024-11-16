@@ -19,9 +19,8 @@ shader_parameter/add_margins = true
 
 [node name="ShipWheel" instance=ExtResource("1_umbpd")]
 script = ExtResource("2_30n02")
+turn_speed = 1.0
 freeze_movement = true
-movement_speed_multiplier = null
-turn_speed = null
 
 [node name="CollisionShape2D" parent="." index="0"]
 visible = true

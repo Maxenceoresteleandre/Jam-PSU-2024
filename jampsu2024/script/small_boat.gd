@@ -43,7 +43,6 @@ func damage(damage: float):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	print("direction = ", direction)
 	pass
 	
 func _physics_process(_delta: float) -> void:
