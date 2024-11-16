@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://jtfb1qdeivcs"]
 
-[ext_resource type="PackedScene" uid="uid://c1lbji6onqrmq" path="res://scenes/environment/Obstacle.tscn" id="1_cvjyb"]
+[ext_resource type="PackedScene" uid="uid://yv7lcxf6b5ft" path="res://scenes/environment/Obstacle.tscn" id="1_cvjyb"]
 [ext_resource type="Script" path="res://script/breakable_obstacle.gd" id="2_46n2h"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m7i2k"]

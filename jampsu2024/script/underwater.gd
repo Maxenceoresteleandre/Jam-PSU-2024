@@ -14,10 +14,10 @@ var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	# Set the center based on the character's starting position
-	await get_tree().create_timer(0.5).timeout
 	center = position + Vector2(radius, 0) # Center to the right of the character
 
 func _physics_process(delta: float) -> void:
+	print(str(going_back))
 	if going_back and position.distance_squared_to(random_point) < 10:
 		going_back = false
 		chasing_player = true
@@ -48,12 +48,6 @@ func _physics_process(delta: float) -> void:
 		
 		# Rotate the character based on motion or independently
 		rotation += rotation_speed * delta
-
-func _on_hitbox_area_2d_body_entered(body: Node2D) -> void:
-	if body is SmallBoat:
-		body.ennemy_hit()
-		going_back = true
-		choose_random_point()
 	
 func go_underwater():
 	can_be_killed = false
@@ -76,3 +70,11 @@ func hit():
 func choose_random_point():
 	var rp = Vector2(rng.randi_range(position.x - 500, position.x-200), rng.randi_range(position.y - 500, position.y + 500))
 	random_point = rp
+
+
+func _on_area_2d_2_body_entered(body: Node2D) -> void:
+	if body is SmallBoat:
+		print("hit body")
+		body.ennemy_hit()
+		going_back = true
+		choose_random_point()
