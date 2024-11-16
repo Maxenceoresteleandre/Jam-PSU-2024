@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpee5frran2j0"]
+[gd_scene load_steps=10 format=3 uid="uid://cpee5frran2j0"]
 
 [ext_resource type="PackedScene" uid="uid://chviatf7tluc5" path="res://scenes/characters/ennemies/ennemy.tscn" id="1_t73wk"]
 [ext_resource type="Script" path="res://script/underwater.gd" id="2_dfemf"]
@@ -14,14 +14,19 @@ shader_parameter/enable = true
 radius = 602.083
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5xrl"]
-size = Vector2(83.5, 88.5)
+size = Vector2(162, 88.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yt3fq"]
 shader = ExtResource("3_wk5y8")
 shader_parameter/target_color = Vector4(0.8, 0.8, 0.8, 0.5)
 shader_parameter/enable = false
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bg7a"]
+size = Vector2(165, 88)
+
 [node name="Underwater" instance=ExtResource("1_t73wk")]
+collision_layer = 16
+collision_mask = 0
 script = ExtResource("2_dfemf")
 
 [node name="AggroRange" parent="Area2D" index="0"]
@@ -29,9 +34,17 @@ material = SubResource("ShaderMaterial_5ps3n")
 shape = SubResource("CircleShape2D_xyh6s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-position = Vector2(1.25, 1.75)
+position = Vector2(-11, 1.75)
 shape = SubResource("RectangleShape2D_k5xrl")
 
 [node name="Sprite" parent="." index="2"]
 material = SubResource("ShaderMaterial_yt3fq")
 texture = ExtResource("4_ooyux")
+
+[node name="Area2D2" type="Area2D" parent="." index="4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" index="0"]
+position = Vector2(-7.5, 3)
+shape = SubResource("RectangleShape2D_0bg7a")
+
+[connection signal="body_entered" from="Area2D2" to="." method="_on_hitbox_area_2d_body_entered"]

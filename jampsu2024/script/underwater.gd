@@ -8,13 +8,23 @@ var angle: float = 90 # Current angle
 var rotation_speed: float = -1.0
 
 var can_be_killed = true
+var going_back = false
+var random_point := Vector2.ZERO
+var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	# Set the center based on the character's starting position
 	center = position + Vector2(radius, 0) # Center to the right of the character
 
 func _physics_process(delta: float) -> void:
-	if chasing_player:
+	if going_back and position.distance_squared_to(random_point) < 10:
+		going_back = false
+		chasing_player = true
+	if going_back:
+		velocity = position.direction_to(random_point) * speed
+		look_at(random_point)
+		move_and_slide()
+	elif chasing_player:
 		go_underwater()
 		if position.distance_to(GlobalVariables.small_boat.position) < 300:
 			go_to_the_surface()
@@ -37,7 +47,12 @@ func _physics_process(delta: float) -> void:
 		
 		# Rotate the character based on motion or independently
 		rotation += rotation_speed * delta
-		
+
+func _on_hitbox_area_2d_body_entered(body: Node2D) -> void:
+	if body is SmallBoat:
+		body.ennemy_hit()
+		going_back = true
+		choose_random_point()
 	
 func go_underwater():
 	can_be_killed = false
@@ -56,3 +71,7 @@ func go_to_the_surface():
 func hit():
 	if can_be_killed:
 		super.hit()
+		
+func choose_random_point():
+	var rp = Vector2(rng.randi_range(position.x - 500, position.x + 500), rng.randi_range(position.y - 500, position.y + 500))
+	random_point = rp
