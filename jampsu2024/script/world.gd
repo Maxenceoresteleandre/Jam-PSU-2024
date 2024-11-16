@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
+	score = 0
 	GlobalVariables.world = self
 	GlobalVariables.sea_view = $SeaView
 	await get_tree().create_timer(0.5).timeout
@@ -9,7 +10,7 @@ func _ready() -> void:
 	spawn_enemy()
 	spawn_enemy()
 
-var score := 0
+static var score := 0
 func increase_score():
 	score += 1
 	$CanvasLayer/Label.text = str(score)
@@ -29,11 +30,11 @@ func spawn_enemy():
 		preload("res://scenes/characters/ennemies/Underwater.tscn")
 	]
 	var rd := randi_range(0, 10)
-	if rd <= 5: 
+	if rd <= 5 or score <= 10: 
 		spawn_m(ENEMIES[0])
-	elif rd < 9:
+	elif rd < 9 or score <= 15:
 		spawn_m(ENEMIES[1])
-	else:
+	elif score:
 		spawn_m(ENEMIES[2])
 	await get_tree().create_timer(randf_range(9.0, 17.0)).timeout
 	spawn_enemy()

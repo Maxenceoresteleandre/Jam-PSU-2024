@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://oxak7bpjdska"]
+[gd_scene load_steps=12 format=3 uid="uid://oxak7bpjdska"]
 
 [ext_resource type="Shader" path="res://resources/shader/water.gdshader" id="1_cwibs"]
 [ext_resource type="Shader" path="res://resources/shader/pixelart.gdshader" id="1_mgopa"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://yv7lcxf6b5ft" path="res://scenes/environment/Obstacle.tscn" id="7_55r16"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="8_ccdmm"]
 [ext_resource type="PackedScene" uid="uid://cu3ayfi7cnbdj" path="res://scenes/utilities/CameraUtils.tscn" id="8_qu3r4"]
-[ext_resource type="PackedScene" uid="uid://8rqrc63m6s0m" path="res://scenes/characters/ennemies/Underwater.tscn" id="10_iv2f1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x28q6"]
 shader = ExtResource("1_cwibs")
@@ -163,6 +162,3 @@ position = Vector2(563, -333)
 
 [node name="Area2D5" parent="." instance=ExtResource("7_55r16")]
 position = Vector2(662, -323)
-
-[node name="Underwater" parent="." instance=ExtResource("10_iv2f1")]
-position = Vector2(844, -188)
