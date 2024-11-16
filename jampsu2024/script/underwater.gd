@@ -74,7 +74,6 @@ func choose_random_point():
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	if body is SmallBoat:
-		print("hit body")
 		body.ennemy_hit()
 		going_back = true
 		choose_random_point()
