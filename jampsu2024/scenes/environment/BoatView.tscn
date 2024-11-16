@@ -1,10 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0ew2d3ov7rsc"]
+[gd_scene load_steps=12 format=3 uid="uid://b0ew2d3ov7rsc"]
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="1_ecoml"]
 [ext_resource type="PackedScene" uid="uid://dk2rkvhposxkf" path="res://scenes/characters/player_character.tscn" id="2_rrqf3"]
 [ext_resource type="PackedScene" uid="uid://d1e3duvrjeqii" path="res://scenes/environment/interactible_objects/cannon.tscn" id="5_8vw4u"]
 [ext_resource type="PackedScene" uid="uid://8x20osbchfve" path="res://scenes/environment/interactible_objects/ship_wheel.tscn" id="5_ix3x2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vhkfm"]
+radius = 90.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tnu3"]
+size = Vector2(294, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoeaj"]
+size = Vector2(15, 75.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjvor"]
+size = Vector2(516, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kw31"]
+size = Vector2(17, 644.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwfyc"]
+size = Vector2(30.5, 435.201)
 
 [node name="BoatView" type="Node2D"]
 z_index = 100
@@ -26,17 +44,17 @@ position = Vector2(211, 462)
 player_color = Color(0.772549, 0.643137, 0.294118, 1)
 
 [node name="VampireCharacter2" parent="." instance=ExtResource("2_rrqf3")]
-position = Vector2(407, 686)
+position = Vector2(455, 816)
 control_device = 1
 player_color = Color(0.898039, 0.168627, 0.313726, 1)
 
 [node name="VampireCharacter3" parent="." instance=ExtResource("2_rrqf3")]
-position = Vector2(520, 427)
+position = Vector2(392, 480)
 control_device = 2
 player_color = Color(0.0470588, 0.0509804, 0.054902, 1)
 
 [node name="VampireCharacter4" parent="." instance=ExtResource("2_rrqf3")]
-position = Vector2(326, 263)
+position = Vector2(343, 294)
 control_device = 3
 player_color = Color(1, 1, 0.941176, 1)
 
@@ -45,18 +63,63 @@ position = Vector2(345, 931)
 
 [node name="Cannon" parent="." instance=ExtResource("5_8vw4u")]
 position = Vector2(101, 758)
-turn_speed = null
 
 [node name="Cannon2" parent="." instance=ExtResource("5_8vw4u")]
 position = Vector2(96, 545)
-turn_speed = null
 
 [node name="Cannon3" parent="." instance=ExtResource("5_8vw4u")]
 position = Vector2(596, 545)
-turn_speed = null
 left_side = false
 
 [node name="Cannon4" parent="." instance=ExtResource("5_8vw4u")]
 position = Vector2(595, 755)
-turn_speed = null
 left_side = false
+
+[node name="StaticBodyChimney" type="StaticBody2D" parent="."]
+position = Vector2(350, 649)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyChimney"]
+shape = SubResource("CircleShape2D_vhkfm")
+
+[node name="StaticBodyInsideGuard" type="StaticBody2D" parent="."]
+position = Vector2(335, 895)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyInsideGuard"]
+position = Vector2(18, 3.5)
+shape = SubResource("RectangleShape2D_3tnu3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBodyInsideGuard"]
+position = Vector2(-125, 46)
+shape = SubResource("RectangleShape2D_yoeaj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBodyInsideGuard"]
+position = Vector2(156, 46)
+shape = SubResource("RectangleShape2D_yoeaj")
+
+[node name="StaticBodyOutsideGuard" type="StaticBody2D" parent="."]
+position = Vector2(335, 895)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyOutsideGuard"]
+position = Vector2(16, 160)
+shape = SubResource("RectangleShape2D_hjvor")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBodyOutsideGuard"]
+position = Vector2(-233.5, -155.75)
+shape = SubResource("RectangleShape2D_0kw31")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBodyOutsideGuard"]
+position = Vector2(263, -162)
+shape = SubResource("RectangleShape2D_0kw31")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBodyOutsideGuard"]
+position = Vector2(130.984, -658.222)
+rotation = -0.668246
+shape = SubResource("RectangleShape2D_xwfyc")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBodyOutsideGuard"]
+position = Vector2(-119, -644)
+rotation = 0.672534
+shape = SubResource("RectangleShape2D_xwfyc")
