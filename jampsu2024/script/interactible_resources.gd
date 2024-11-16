@@ -12,22 +12,21 @@ const RESOURCES_SPRITE_RES := [
 	preload("res://resources/art/boat_view/ship/cannonball.png"),
 	preload("res://resources/art/boat_view/ship/coal.png")
 ]
-const COLLECTIBLE_RESOURCE_PATH := preload("res://scenes/environment/interactible_objects/CollectibleResource.tscn")
+const COLLECTIBLE_RESOURCE_PATH := preload("res://scenes/environment/interactible_objects/Collectible.tscn")
 const CRATE_SPRITES := [
 	preload("res://resources/art/boat_view/ship/crate_cannonballs.png"),
 	preload("res://resources/art/boat_view/ship/crate_coal.png"),
 	preload("res://resources/art/boat_view/ship/crate_oil.png")
 ]
 
-@export var collect_res : Resource
 @export var resource : ResourceTypes
 @export var can_interact_forever := true
 
 func _ready() -> void:
-	var resource_sprite = collect_res.instantiate()
+	var resource_sprite : Collectible = COLLECTIBLE_RESOURCE_PATH.instantiate()
 	self.add_child(resource_sprite)
 	print("resource_sprite : ", resource_sprite)
-	#resource_sprite.texture = RESOURCES_SPRITE_RES[int(resource)]
+	resource_sprite.texture = RESOURCES_SPRITE_RES[int(resource)]
 	
 	$Sprite.texture = CRATE_SPRITES[int(resource)]
 

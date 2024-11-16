@@ -19,7 +19,6 @@ shader_parameter/add_margins = true
 
 [node name="InteractibleObjectResource" instance=ExtResource("1_yi7lu")]
 script = ExtResource("2_eguqe")
-collect_res = null
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("RectangleShape2D_7mblv")

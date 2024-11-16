@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://script/collectible.gd" id="1_mb8bh"]
 
 [node name="Collectible" type="Sprite2D"]
+scale = Vector2(5, 5)
 script = ExtResource("1_mb8bh")
