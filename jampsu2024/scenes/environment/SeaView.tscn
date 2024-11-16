@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://oxak7bpjdska"]
+[gd_scene load_steps=9 format=3 uid="uid://oxak7bpjdska"]
 
 [ext_resource type="Shader" path="res://resources/shader/water.gdshader" id="1_cwibs"]
 [ext_resource type="Shader" path="res://resources/shader/pixelart.gdshader" id="1_mgopa"]
-[ext_resource type="Texture2D" uid="uid://c6rc5o0ovxmb5" path="res://icon.svg" id="2_u4xxt"]
+[ext_resource type="Script" path="res://script/sea_view.gd" id="1_y6n53"]
+[ext_resource type="PackedScene" uid="uid://c2a0nbvglukoh" path="res://scenes/characters/SmallBoat.tscn" id="4_ms5o0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x28q6"]
 shader = ExtResource("1_cwibs")
@@ -14,11 +15,22 @@ shader_parameter/resolution = 7.0
 shader = ExtResource("1_mgopa")
 shader_parameter/resolution = 128.0
 
+[sub_resource type="Gradient" id="Gradient_5tqu7"]
+colors = PackedColorArray(0, 0, 1, 1, 0.110898, 3.85046e-07, 0.5855, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ts3b2"]
+gradient = SubResource("Gradient_5tqu7")
+fill_to = Vector2(0.948718, 0.239316)
+
 [node name="SeaView" type="Node2D"]
+script = ExtResource("1_y6n53")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 material = SubResource("ShaderMaterial_x28q6")
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,6 +47,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Icon" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(1306, 624)
-texture = ExtResource("2_u4xxt")
+[node name="backgroundTest" type="Sprite2D" parent="."]
+position = Vector2(960, 539)
+scale = Vector2(29.6563, 15.8437)
+texture = SubResource("GradientTexture2D_ts3b2")
+
+[node name="SmallBoat" parent="." instance=ExtResource("4_ms5o0")]
+
+[node name="Camera2D" type="Camera2D" parent="SmallBoat"]
