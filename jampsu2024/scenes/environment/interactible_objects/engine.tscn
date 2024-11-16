@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc8dk4ly01i3h"]
+
+[ext_resource type="PackedScene" uid="uid://bxw152aldsit3" path="res://scenes/environment/interactible_objects/interactible_object.tscn" id="1_x74fo"]
+[ext_resource type="Shader" path="res://resources/shader/outline.gdshader" id="2_flvxk"]
+[ext_resource type="Script" path="res://script/engine.gd" id="2_htuug"]
+[ext_resource type="Texture2D" uid="uid://qorcsva5r5wh" path="res://resources/art/boat_view/ship/Canon.png" id="3_fydu7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y44ox"]
+resource_local_to_scene = true
+shader = ExtResource("2_flvxk")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[node name="Engine" instance=ExtResource("1_x74fo")]
+script = ExtResource("2_htuug")
+
+[node name="Sprite" parent="." index="1"]
+material = SubResource("ShaderMaterial_y44ox")
+scale = Vector2(5, 5)
+texture = ExtResource("3_fydu7")
