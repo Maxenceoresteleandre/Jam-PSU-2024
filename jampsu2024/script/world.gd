@@ -14,6 +14,12 @@ func increase_score():
 	score += 1
 	$CanvasLayer/Label.text = str(score)
 
+var lifez := 100.0
+var can_re := true
+
+func set_life(new_life : float):
+	$CanvasLayer/Blood.position.x = 625 + (250 * (new_life / 100))
+
 
 func spawn_enemy():
 	print("hello")

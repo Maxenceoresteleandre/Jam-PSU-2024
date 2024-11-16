@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://mueevv1w5dn3"]
+[gd_scene load_steps=9 format=3 uid="uid://mueevv1w5dn3"]
 
 [ext_resource type="Script" path="res://script/world.gd" id="1_sean8"]
+[ext_resource type="Texture2D" uid="uid://c3f28bc6ouvxp" path="res://resources/art/furnace/furnace.png" id="3_aascn"]
+[ext_resource type="AudioStream" uid="uid://8uq6fqa88b5r" path="res://resources/audio/BO_theme.mp3" id="3_ohc4b"]
 [ext_resource type="PackedScene" uid="uid://oxak7bpjdska" path="res://scenes/environment/SeaView.tscn" id="3_ybsmw"]
+[ext_resource type="Texture2D" uid="uid://dbc3cqxd4vq7j" path="res://resources/art/furnace/blood bar.png" id="4_qd4dd"]
+[ext_resource type="Texture2D" uid="uid://ddx6n6arit6hs" path="res://resources/art/levier vitesse/cadran vide.png" id="5_xc153"]
+[ext_resource type="Texture2D" uid="uid://bao5sdhgu134p" path="res://resources/art/levier vitesse/levier de vitesse reverse.png" id="6_amc7e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4oppc"]
-font_size = 191
+font_size = 111
 font_color = Color(0.861208, 0, 0.232181, 1)
-outline_size = 164
+outline_size = 79
 outline_color = Color(0, 0, 0, 1)
 
 [node name="World" type="Node2D"]
@@ -21,8 +26,53 @@ script = null
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 638.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "0"
 label_settings = SubResource("LabelSettings_4oppc")
 horizontal_alignment = 1
+
+[node name="Blood" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(0.510824, 0.635497, 0.620516, 1)
+texture_filter = 1
+offset_left = 874.0
+offset_top = 1003.0
+offset_right = 1106.0
+offset_bottom = 1055.0
+texture = ExtResource("4_qd4dd")
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(0.510824, 0.635497, 0.620516, 1)
+texture_filter = 1
+offset_left = 621.0
+offset_top = -4.0
+offset_right = 2433.0
+offset_bottom = 1084.0
+texture = ExtResource("3_aascn")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(0.510824, 0.635497, 0.620516, 1)
+texture_filter = 1
+offset_left = 1512.0
+offset_top = 642.0
+offset_right = 2501.0
+offset_bottom = 1092.0
+texture = ExtResource("5_xc153")
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(0.510824, 0.635497, 0.620516, 1)
+texture_filter = 1
+offset_left = 1512.0
+offset_top = 642.0
+offset_right = 2501.0
+offset_bottom = 1092.0
+texture = ExtResource("6_amc7e")
+stretch_mode = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ohc4b")
+autoplay = true
