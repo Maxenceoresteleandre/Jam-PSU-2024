@@ -24,7 +24,7 @@ const CANNONBALL_PLACES : Array[Vector2] = [
 
 var sea_corresp : Node2D = null
 
-@onready var cannonballs_reserved : Array[Sprite2D] = [$CannonballReserve]
+@onready var cannonballs_reserved : Array[CollectibleResource] = [$CannonballReserve]
 
 func _ready() -> void:
 	create_sea_correspondance()
