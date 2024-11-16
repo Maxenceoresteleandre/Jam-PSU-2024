@@ -282,36 +282,19 @@ texture_filter = 1
 position = Vector2(38, 31)
 scale = Vector2(3, 3)
 color = Color(0.58479, 0.693539, 0.299293, 1)
-range_item_cull_mask = 3
 shadow_enabled = true
 texture = ExtResource("4_dbmac")
 texture_scale = 5.0
 
-[node name="Sprite2D" type="Sprite2D" parent="PointLight2D2"]
-visible = false
-modulate = Color(0.997844, 0.552907, 0, 0.449)
-position = Vector2(-1.66667, -0.666667)
-scale = Vector2(5, 5)
-texture = ExtResource("4_dbmac")
-
 [node name="PointLightHouse" type="PointLight2D" parent="."]
 texture_filter = 1
 position = Vector2(34, 14)
-scale = Vector2(5, 5)
+scale = Vector2(3, 3)
 color = Color(0.58479, 0.693539, 0.299293, 1)
-range_item_cull_mask = 3
 shadow_enabled = true
 texture = ExtResource("5_qqabn")
 offset = Vector2(175, 0)
 texture_scale = 4.0
-
-[node name="Sprite2D2" type="Sprite2D" parent="PointLightHouse"]
-visible = false
-modulate = Color(0.997844, 0.552907, 0, 0.449)
-position = Vector2(5, 5)
-scale = Vector2(5, 5)
-texture = ExtResource("5_qqabn")
-offset = Vector2(40, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

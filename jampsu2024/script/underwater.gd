@@ -14,7 +14,6 @@ var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	# Set the center based on the character's starting position
-	await get_tree().create_timer(0.5).timeout
 	center = position + Vector2(radius, 0) # Center to the right of the character
 
 func _physics_process(delta: float) -> void:

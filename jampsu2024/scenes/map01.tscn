@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://jn5mpcyvs2x5"]
 
-[ext_resource type="PackedScene" uid="uid://yv7lcxf6b5ft" path="res://scenes/environment/Obstacle.tscn" id="1_spljg"]
+[ext_resource type="PackedScene" path="res://scenes/environment/Obstacle.tscn" id="1_spljg"]
 
 [node name="Map01" type="Node2D"]
 
