@@ -37,6 +37,13 @@ func add_coal() -> bool:
 	new_cannonball.position = COAL_PLACES[coal_reserved.size()-1]
 	return true
 
+func consume_coal() -> bool:
+	if coal_reserved.size() > 0:
+		coal_reserved.pop_back().queue_free()
+		return true
+	else:
+		return false
+
 func _process(delta: float) -> void:
 	if current_player != null and not Engine.is_editor_hint():
 		var change_speed := 0.0

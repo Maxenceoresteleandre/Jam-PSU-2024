@@ -16,6 +16,8 @@ shader_parameter/add_margins = true
 
 [node name="Engine" instance=ExtResource("1_x74fo")]
 script = ExtResource("2_htuug")
+consume_resource_type = 2
+freeze_movement = true
 
 [node name="Sprite" parent="." index="1"]
 material = SubResource("ShaderMaterial_y44ox")
