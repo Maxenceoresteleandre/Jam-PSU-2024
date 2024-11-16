@@ -86,7 +86,6 @@ environment = SubResource("Environment_yberc")
 camera_attributes = SubResource("CameraAttributesPractical_q58yo")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Area2D" parent="." instance=ExtResource("7_55r16")]
@@ -110,11 +109,35 @@ position = Vector2(780, 660)
 [node name="Area2D10" parent="." instance=ExtResource("7_55r16")]
 position = Vector2(-347, 810)
 
+[node name="Area2D23" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(-152, 1143)
+
+[node name="Area2D24" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(-771, 1240)
+
+[node name="Area2D25" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(892, -839)
+
+[node name="Area2D26" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(1941, 1051)
+
+[node name="Area2D27" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(-1449, 362)
+
+[node name="Area2D28" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(-1121, 1078)
+
+[node name="Area2D29" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(1782, -666)
+
+[node name="Area2D30" parent="." instance=ExtResource("7_55r16")]
+position = Vector2(-930, -1005)
+
 [node name="Area2D11" parent="." instance=ExtResource("7_55r16")]
 position = Vector2(1204, 34)
 
 [node name="Area2D12" parent="." instance=ExtResource("7_55r16")]
-position = Vector2(705, -11)
+position = Vector2(663, 223)
 
 [node name="Area2D13" parent="." instance=ExtResource("7_55r16")]
 position = Vector2(1574, 695)
