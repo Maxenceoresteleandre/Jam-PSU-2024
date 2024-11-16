@@ -99,11 +99,11 @@ func set_speed(value: SPEEDS):
 	t.tween_property(self, "speed", value, 2.0)
 
 func set_line_direction(index: int, direction: Vector2):
-	var start_position = position
+	var start_position = Vector2.ZERO
 	start_position += cannons_offsets[index]
 	var end_position = direction * line_length
-	lines[index].add_point(start_position)
-	lines[index].add_point(end_position)
+	lines[index].points[0] = start_position
+	lines[index].points[1] = end_position.rotated($Icon.rotation)
 
 func set_line_visibility(index : int, new_visibility : bool):
 	lines[index].visible = new_visibility

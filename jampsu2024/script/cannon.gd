@@ -38,8 +38,8 @@ func create_sea_correspondance() -> void:
 	pass
 
 func connect_to_player(player : PlayerCharacter):
-	super.connect_to_player(player)
 	GlobalVariables.small_boat.set_line_visibility(array_num, true)
+	return super.connect_to_player(player)
 
 func cancel():
 	super.cancel()
