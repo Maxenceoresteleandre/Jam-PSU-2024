@@ -23,6 +23,8 @@ func hit():
 	if health > 0:
 		hit_anim()
 	else:
+		GlobalVariables.world.increase_score()
+		GlobalVariables.camera_util.shake()
 		death_anim()
 		await $AnimationPlayer.animation_finished
 		queue_free()

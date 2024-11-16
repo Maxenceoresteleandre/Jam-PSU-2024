@@ -10,3 +10,4 @@ var sea_view : Node2D = null
 var steam_engine : SteamEngine = null
 var light_house : LightHouse = null
 var world = null
+var camera_util : CameraUtils = null
