@@ -17,7 +17,7 @@ speed = 200
 [node name="Sprite" type="Sprite2D" parent="." index="1"]
 texture_filter = 1
 position = Vector2(-7, 6)
-scale = Vector2(11.954, 14.425)
+scale = Vector2(3, 3)
 texture = ExtResource("3_qonq2")
 
 [node name="truc" type="CollisionShape2D" parent="." index="2"]

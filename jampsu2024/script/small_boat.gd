@@ -8,6 +8,12 @@ enum SPEEDS {
 	FAST = 140
 } 
 
+@onready var lines: Array[Line2D] = [
+	$CanonLine1,
+	$CanonLine2,
+	$CanonLine3,
+	$CanonLine4
+]
 var can_move = true
 var max_health = 100.0
 var speed: float = 70
@@ -15,7 +21,7 @@ var speed: float = 70
 @export var hit_obstacle_min_speed = 50
 @export var health: float = max_health
 @export var direction: Vector2 = Vector2(1,0)
-
+@export var line_length = 500
 @export var hit_cooldown_time = 2.0
 
 # Called when the node enters the scene tree for the first time.
@@ -23,6 +29,7 @@ func _ready() -> void:
 	GlobalVariables.small_boat = self
 	$health_debug.text = str(health) + "/" + str(max_health)
 	$speed_debug.text = "speed : " + str(speed)
+	set_line_direction(0, Vector2(1,1))
 
 func hit_obstacle():
 	if velocity.length() > hit_obstacle_min_speed:
@@ -76,3 +83,10 @@ func set_speed(value: SPEEDS):
 	current_speed = value
 	var t := create_tween().set_trans(Tween.TRANS_CUBIC)
 	t.tween_property(self, "speed", value, 2.0)
+
+func set_line_direction(index: int, direction: Vector2):
+	lines[index].visible = true
+	var start_position = position
+	var end_position = direction * line_length
+	lines[index].add_point(start_position)
+	lines[index].add_point(end_position)
