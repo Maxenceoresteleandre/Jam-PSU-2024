@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b0ew2d3ov7rsc" path="res://scenes/environment/BoatView.tscn" id="5_wi4hj"]
 [ext_resource type="PackedScene" path="res://scenes/environment/Obstacle.tscn" id="7_55r16"]
 [ext_resource type="PackedScene" uid="uid://cu3ayfi7cnbdj" path="res://scenes/utilities/CameraUtils.tscn" id="8_qu3r4"]
-[ext_resource type="PackedScene" path="res://scenes/characters/ennemies/Shark.tscn" id="9_iafle"]
+[ext_resource type="PackedScene" uid="uid://s16w4sliprif" path="res://scenes/characters/ennemies/Shark.tscn" id="9_iafle"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x28q6"]
 shader = ExtResource("1_cwibs")

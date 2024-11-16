@@ -84,7 +84,7 @@ func _physics_process(_delta: float) -> void:
 		elif current_speed == SPEEDS.NORMAL:
 			set_speed(SPEEDS.FAST)
 		
-	if Input.is_action_just_pressed("ui_down"):
+	if Input.is_action_just_pressed("ui_down") and false:
 		if current_speed == SPEEDS.FAST:
 			set_speed(SPEEDS.NORMAL)
 		elif current_speed == SPEEDS.NORMAL:
