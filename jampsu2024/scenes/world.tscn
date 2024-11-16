@@ -13,3 +13,4 @@ position = Vector2(960, 540)
 [node name="BoatView" parent="." instance=ExtResource("2_h7naq")]
 
 [node name="SeaView" parent="." instance=ExtResource("3_ybsmw")]
+script = null

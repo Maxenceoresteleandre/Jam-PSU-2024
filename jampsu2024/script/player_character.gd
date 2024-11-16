@@ -16,6 +16,9 @@ var current_object : InteractibleObject = null
 var nearby_objects : Array[InteractibleObject] = []
 
 
+func _ready() -> void:
+	start_game()
+
 func start_game():
 	can_move = true
 	can_act = true
@@ -45,7 +48,8 @@ func _input(event: InputEvent) -> void:
 			interact()
 		elif event.is_action_pressed("cancel"):
 			cancel()
-	
+
+func _physics_process(_delta: float) -> void:
 	if can_move:
 		velocity = Vector2(int(right_pressed) - int(left_pressed), int(down_pressed) - int(up_pressed)) * speed
 		move_and_slide()
