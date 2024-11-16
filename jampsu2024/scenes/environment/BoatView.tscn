@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b0ew2d3ov7rsc"]
+[gd_scene load_steps=29 format=3 uid="uid://b0ew2d3ov7rsc"]
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="1_ecoml"]
@@ -18,12 +18,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vhkfm"]
 radius = 90.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tnu3"]
-size = Vector2(294, 13)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoeaj"]
-size = Vector2(15, 75.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjvor"]
 size = Vector2(516, 13)
@@ -159,22 +153,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyChimney"]
 shape = SubResource("CircleShape2D_vhkfm")
 
-[node name="StaticBodyInsideGuard" type="StaticBody2D" parent="."]
-position = Vector2(335, 895)
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyInsideGuard"]
-position = Vector2(18, 3.5)
-shape = SubResource("RectangleShape2D_3tnu3")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBodyInsideGuard"]
-position = Vector2(-125, 46)
-shape = SubResource("RectangleShape2D_yoeaj")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBodyInsideGuard"]
-position = Vector2(156, 46)
-shape = SubResource("RectangleShape2D_yoeaj")
-
 [node name="StaticBodyOutsideGuard" type="StaticBody2D" parent="."]
 position = Vector2(335, 895)
 collision_mask = 0
@@ -209,6 +187,7 @@ material = SubResource("ShaderMaterial_f4b07")
 texture = ExtResource("9_hao67")
 
 [node name="InteractibleResourcesCoal" parent="." instance=ExtResource("7_8y7oe")]
+visible = false
 position = Vector2(237, 373)
 resource = 2
 
@@ -228,6 +207,7 @@ material = SubResource("ShaderMaterial_8hlxa")
 texture = ExtResource("11_xkk2h")
 
 [node name="Engine" parent="." instance=ExtResource("8_e4w2j")]
+visible = false
 position = Vector2(423, 879)
 
 [node name="Sprite" parent="Engine" index="1"]
@@ -258,16 +238,17 @@ position = Vector2(357, 725)
 material = SubResource("ShaderMaterial_raawg")
 
 [node name="PointLight2D" parent="ShipLight4" index="3"]
+color = Color(0.723944, 0.537497, 0, 1)
 texture_scale = 23.05
 
 [node name="CollisionShape2D" parent="ShipLight4/Area2D" index="0"]
 shape = SubResource("CircleShape2D_24vxn")
 
 [node name="ShipLight5" parent="." instance=ExtResource("10_pau2v")]
-position = Vector2(105, 1066)
+position = Vector2(191, 1081)
 
 [node name="ShipLight6" parent="." instance=ExtResource("10_pau2v")]
-position = Vector2(594, 1064)
+position = Vector2(500, 1079)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 position = Vector2(352, 648)

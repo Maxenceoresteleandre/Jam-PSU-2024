@@ -20,6 +20,8 @@ func _ready() -> void:
 
 func add_resource() -> void:
 	add_OIL()
+	add_OIL()
+	add_OIL()
 
 func connect_to_player(player : PlayerCharacter):
 	set_can_change_speed_with_delay()

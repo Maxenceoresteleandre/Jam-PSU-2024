@@ -4,11 +4,11 @@ class_name ShipLight
 
 const MAX_LIGHT_DURATION = 25.0
 
-@onready var light_time := randf_range(MAX_LIGHT_DURATION - 10.0, MAX_LIGHT_DURATION)
+@onready var light_time := randf_range(0, MAX_LIGHT_DURATION) + MAX_LIGHT_DURATION
 var is_light_on := true
 
 func _ready() -> void:
-	$Timer.start(light_time)
+	#$Timer.start(light_time)
 	$Sprite/AnimatedSprite2D.play("default")
 
 func connect_to_player(player : PlayerCharacter) -> bool:

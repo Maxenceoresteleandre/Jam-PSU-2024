@@ -3,12 +3,12 @@ class_name SmallBoat
 
 const CANNONBALL_RES := preload("res://scenes/environment/cannonball_sea.tscn")
 const GAMEOVER_SCREEN := preload("res://scenes/UI/GameOver.tscn")
-const COAL_CONSUMPTION_TIME := 40
+const COAL_CONSUMPTION_TIME := 17.5
 const COAL_CONS_MULT := {
-	SPEEDS.REVERSE : 1.0,
+	SPEEDS.REVERSE : 0.4,
 	SPEEDS.STOPPED : 0.0,
-	SPEEDS.SLOW : 1.0,
-	SPEEDS.FAST : 2.0,
+	SPEEDS.SLOW : 0.4,
+	SPEEDS.FAST : 0.8,
 }
 
 const MAX_OIL_TIME := 20.0
@@ -92,12 +92,12 @@ func _process(delta: float) -> void:
 		else:
 			$PointLightHouse.visible = false
 	$coal_debug.text = str(remaining_coal_time)
-	remaining_coal_time -= delta * COAL_CONS_MULT[current_speed]
-	if remaining_coal_time <= 0.0 and current_speed != SPEEDS.STOPPED:
-		if GlobalVariables.steam_engine.consume_coal():
-			remaining_coal_time = COAL_CONSUMPTION_TIME
-		else:
-			set_speed(SPEEDS.STOPPED)
+	#remaining_coal_time -= delta * COAL_CONS_MULT[current_speed]
+	#if remaining_coal_time <= 0.0 and current_speed != SPEEDS.STOPPED:
+		#if GlobalVariables.steam_engine.consume_coal():
+			#remaining_coal_time = COAL_CONSUMPTION_TIME
+		#else:
+			#set_speed(SPEEDS.STOPPED)
 
 func _physics_process(_delta: float) -> void:
 	$speed_debug.text = "speed : " + str(speed)

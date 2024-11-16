@@ -58,7 +58,7 @@ texture = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite" index="0"]
 sprite_frames = SubResource("SpriteFrames_rsf6u")
-frame_progress = 0.7266
+frame_progress = 0.39271
 
 [node name="Timer" type="Timer" parent="." index="2"]
 
