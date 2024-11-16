@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://03sgokkgbv0c" path="res://resources/art/boat_view/ship/cannonball.png" id="4_jx105"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7mblv"]
-size = Vector2(8, 8)
+size = Vector2(35, 35)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d8vcw"]
 resource_local_to_scene = true
@@ -24,7 +24,6 @@ movement_speed_multiplier = 1.0
 gives_carried_object = false
 
 [node name="CollisionShape2D" parent="." index="0"]
-visible = true
 shape = SubResource("RectangleShape2D_7mblv")
 
 [node name="Sprite" parent="." index="1"]
