@@ -85,8 +85,7 @@ offset_right = -166.0
 offset_bottom = -70.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "fghgbvfghgh
-cghbvghbvghgfghgfghgfgbh
+text = "
 "
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
