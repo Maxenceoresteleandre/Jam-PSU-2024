@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc8dk4ly01i3h"]
+[gd_scene load_steps=7 format=3 uid="uid://bc8dk4ly01i3h"]
 
 [ext_resource type="PackedScene" uid="uid://bxw152aldsit3" path="res://scenes/environment/interactible_objects/interactible_object.tscn" id="1_x74fo"]
 [ext_resource type="Shader" path="res://resources/shader/outline.gdshader" id="2_flvxk"]
 [ext_resource type="Script" path="res://script/engine.gd" id="2_htuug"]
-[ext_resource type="Texture2D" uid="uid://qorcsva5r5wh" path="res://resources/art/boat_view/ship/Canon.png" id="3_fydu7"]
+[ext_resource type="Texture2D" uid="uid://b5qau78fenyyj" path="res://resources/art/boat_view/ship/Moteur.png" id="4_2004e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8704k"]
+size = Vector2(127, 30)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y44ox"]
 resource_local_to_scene = true
@@ -19,7 +22,12 @@ script = ExtResource("2_htuug")
 consume_resource_type = 2
 freeze_movement = true
 
+[node name="CollisionShape2D" parent="." index="0"]
+visible = true
+position = Vector2(-1.5, -1)
+shape = SubResource("RectangleShape2D_8704k")
+
 [node name="Sprite" parent="." index="1"]
 material = SubResource("ShaderMaterial_y44ox")
 scale = Vector2(5, 5)
-texture = ExtResource("3_fydu7")
+texture = ExtResource("4_2004e")

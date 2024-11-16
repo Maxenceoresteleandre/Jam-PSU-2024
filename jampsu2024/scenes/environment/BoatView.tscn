@@ -150,7 +150,7 @@ position = Vector2(269, 846)
 resource = 1
 
 [node name="Engine" parent="." instance=ExtResource("8_e4w2j")]
-position = Vector2(417, 866)
+position = Vector2(423, 879)
 
 [node name="LightHouse" parent="." instance=ExtResource("9_nborx")]
-position = Vector2(353, 724)
+position = Vector2(357, 561)
