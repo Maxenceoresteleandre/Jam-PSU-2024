@@ -52,12 +52,28 @@ func _input(event: InputEvent) -> void:
 func _physics_process(_delta: float) -> void:
 	if can_move:
 		velocity = Vector2(int(right_pressed) - int(left_pressed), int(down_pressed) - int(up_pressed)) * speed
+		check_turn()
 		move_and_slide()
 
+func check_turn() -> void:
+	if velocity.x > 0.1:
+		$Sprite.flip_h = true
+	elif velocity.x < -0.1:
+		$Sprite.flip_h = false
+
 func interact() -> void:
+	print("player " + str(control_device) + " interact!")
 	if current_object == null:
 		interact_with_new_object()
+		if current_object == null:
+			interact_idle()
+			print("\twith nothing")
+			return
 	current_object.interact()
+	print("\twith object " + str(current_object))
+
+func interact_idle() -> void:
+	return
 
 func interact_with_new_object() -> void:
 	for obj : InteractibleObject in nearby_objects:
