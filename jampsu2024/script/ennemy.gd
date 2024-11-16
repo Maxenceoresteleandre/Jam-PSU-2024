@@ -5,7 +5,7 @@ class_name Ennemy
 var chasing_player = false
 
 func _init() -> void:
-	$AggroRange.shape.radius = aggro_range
+	pass
 
 func _physics_process(delta: float) -> void:
 	pass

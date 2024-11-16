@@ -1,8 +1,9 @@
 extends Ennemy
 class_name Shark
 
-@export var player: PackedScene
+@export var speed = 200
 
 func _physics_process(delta: float) -> void:
 	if chasing_player:
-		move_toward(g)
+		velocity = position.direction_to(GlobalVariables.small_boat.position) * speed
+		move_and_slide()
