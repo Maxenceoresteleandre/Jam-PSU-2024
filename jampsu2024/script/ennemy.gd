@@ -32,4 +32,5 @@ func hit_anim():
 	$AnimationPlayer.play("hit_effect")
 
 func death_anim():
+	GlobalVariables.camera_utils.shake()
 	$AnimationPlayer.play("death_effect")

@@ -17,6 +17,7 @@ var default_param_values := {
 }
 
 func _ready():
+	GlobalVariables.camera_utils = self
 	$Shaker.object = camera
 
 func quick_zoom(zoom_coeff : float, obj_pos : Vector2, duration : float, interp_duration : float):

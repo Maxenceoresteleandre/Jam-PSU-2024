@@ -68,7 +68,6 @@ func _ready() -> void:
 	$AnimatedSprite2D.play("right_m")
 	$health_debug.text = str(health) + "/" + str(max_health)
 	$speed_debug.text = "speed : " + str(speed)
-	
 
 func hit_obstacle():
 	if velocity.length() > hit_obstacle_min_speed:
