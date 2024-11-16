@@ -1,0 +1,241 @@
+[gd_scene load_steps=10 format=3 uid="uid://cgfmyooh5wuqd"]
+
+[ext_resource type="PackedScene" uid="uid://c1lbji6onqrmq" path="res://scenes/environment/Obstacle.tscn" id="1_spljg"]
+[ext_resource type="Shader" path="res://resources/shader/water.gdshader" id="2_j85st"]
+[ext_resource type="Shader" path="res://resources/shader/pixelart.gdshader" id="3_1284c"]
+[ext_resource type="PackedScene" uid="uid://c2a0nbvglukoh" path="res://scenes/characters/SmallBoat.tscn" id="4_b1ohb"]
+[ext_resource type="PackedScene" uid="uid://cu3ayfi7cnbdj" path="res://scenes/utilities/CameraUtils.tscn" id="5_6mp0v"]
+[ext_resource type="PackedScene" uid="uid://b0ew2d3ov7rsc" path="res://scenes/environment/BoatView.tscn" id="6_dkx3j"]
+[ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="7_86sdk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k3mm3"]
+shader = ExtResource("2_j85st")
+shader_parameter/uv_scale = 1.0
+shader_parameter/color_alpha = 1.0
+shader_parameter/resolution = 7.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f1b57"]
+shader = ExtResource("3_1284c")
+shader_parameter/resolution = 128.0
+
+[node name="Map01" type="Node2D"]
+
+[node name="Area2D" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(417, 341)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_k3mm3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_f1b57")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SmallBoat" parent="." instance=ExtResource("4_b1ohb")]
+collision_mask = 0
+
+[node name="Camera2D" type="Camera2D" parent="SmallBoat"]
+position = Vector2(-300, -17)
+
+[node name="CameraUtils" parent="SmallBoat/Camera2D" instance=ExtResource("5_6mp0v")]
+
+[node name="BoatView" parent="SmallBoat" instance=ExtResource("6_dkx3j")]
+position = Vector2(-1295, -616)
+
+[node name="PointLight2D" type="PointLight2D" parent="SmallBoat/BoatView"]
+position = Vector2(344, 572)
+scale = Vector2(14, 25)
+energy = 0.3
+texture = ExtResource("7_86sdk")
+texture_scale = 50.0
+
+[node name="Area2D2" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(487, -297)
+
+[node name="Area2D3" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(1211, -232)
+
+[node name="Area2D4" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(1140, 552)
+
+[node name="Area2D5" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(1792, 83)
+
+[node name="Area2D6" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(1649, 1116)
+
+[node name="Area2D7" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(2846, 1622)
+
+[node name="Area2D8" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(2577, 455)
+
+[node name="Area2D9" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(3914, 1529)
+
+[node name="Area2D10" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(3453, 410)
+
+[node name="Area2D11" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(4580, 806)
+
+[node name="Area2D12" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(4879, 100)
+
+[node name="Area2D13" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(4109, -4)
+
+[node name="Area2D14" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(4426, -724)
+
+[node name="Area2D15" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(4722, -1558)
+
+[node name="Area2D16" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(4937, -700)
+
+[node name="Area2D17" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(5207, -1113)
+
+[node name="Area2D18" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(5463, -2170)
+
+[node name="Area2D19" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(5965, -1479)
+
+[node name="Area2D20" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(6695, -2465)
+
+[node name="Area2D21" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(6773, -1481)
+
+[node name="Area2D22" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(7915, -1971)
+
+[node name="Area2D23" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(7479, -1318)
+
+[node name="Area2D24" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(8266, -1554)
+
+[node name="Area2D25" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(8050, -1102)
+
+[node name="Area2D26" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(8626, -1465)
+
+[node name="Area2D27" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(8383, -950)
+
+[node name="Area2D28" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(8524, -680)
+
+[node name="Area2D29" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(8803, -1606)
+
+[node name="Area2D30" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(8848, -1755)
+
+[node name="Area2D31" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(8648, -275)
+
+[node name="Area2D32" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(10341, -1414)
+
+[node name="Area2D33" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(10307, -1030)
+
+[node name="Area2D34" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(10714, -1448)
+
+[node name="Area2D35" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(10680, -1148)
+
+[node name="Area2D36" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(11070, -1363)
+
+[node name="Area2D37" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(11053, -1148)
+
+[node name="Area2D38" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(11460, -962)
+
+[node name="Area2D39" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(11492, -1216)
+
+[node name="Area2D40" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(11824, -1187)
+
+[node name="Area2D41" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(11826, -866)
+
+[node name="Area2D42" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(-171, 396)
+
+[node name="Area2D43" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(-114, -475)
+
+[node name="Area2D44" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(12127, -701)
+
+[node name="Area2D45" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(12229, -1109)
+
+[node name="Area2D46" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(12568, -1493)
+
+[node name="Area2D47" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(10213, -731)
+
+[node name="Area2D48" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(10213, -1607)
+
+[node name="Area2D49" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(10077, -1849)
+
+[node name="Area2D50" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(10153, -489)
+
+[node name="Area2D51" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(12297, -384)
+
+[node name="Area2D52" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(13233, 326)
+
+[node name="Area2D53" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(13143, -1758)
+
+[node name="Area2D54" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(14366, -1380)
+
+[node name="Area2D55" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(13883, 115)
+
+[node name="Area2D56" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(14653, -791)
+
+[node name="Area2D57" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(14396, 130)
+
+[node name="Area2D58" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(14745, -248)
+
+[node name="Area2D59" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(12584, 69)
+
+[node name="Area2D60" parent="." instance=ExtResource("1_spljg")]
+position = Vector2(13792, -1788)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b0ew2d3ov7rsc"]
+[gd_scene load_steps=23 format=3 uid="uid://b0ew2d3ov7rsc"]
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="1_ecoml"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://duqdi0n0ql27i" path="res://scenes/environment/interactible_objects/light_house.tscn" id="9_nborx"]
 [ext_resource type="PackedScene" uid="uid://btc1len2ws85b" path="res://scenes/environment/interactible_objects/ship_light.tscn" id="10_pau2v"]
 [ext_resource type="Shader" path="res://resources/shader/outline.gdshader" id="11_rdet8"]
+[ext_resource type="Texture2D" uid="uid://dwuaec32p1ylb" path="res://resources/art/boat_view/ship/roue_up.png" id="12_su6kc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vhkfm"]
 radius = 90.0
@@ -189,6 +190,7 @@ position = Vector2(357, 725)
 
 [node name="Sprite" parent="ShipLight4" index="1"]
 material = SubResource("ShaderMaterial_raawg")
+texture = ExtResource("12_su6kc")
 
 [node name="PointLight2D" parent="ShipLight4" index="3"]
 texture_scale = 23.05
@@ -209,5 +211,17 @@ occluder = SubResource("OccluderPolygon2D_47fhp")
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
 position = Vector2(668, 48)
 occluder = SubResource("OccluderPolygon2D_yv58s")
+
+[node name="GhostSpawn" type="Node2D" parent="."]
+position = Vector2(307, -123)
+
+[node name="GhostSpawn2" type="Node2D" parent="."]
+position = Vector2(-206, 763)
+
+[node name="GhostSpawn3" type="Node2D" parent="."]
+position = Vector2(361, 1239)
+
+[node name="GhostSpawn4" type="Node2D" parent="."]
+position = Vector2(786, 625)
 
 [editable path="ShipLight4"]

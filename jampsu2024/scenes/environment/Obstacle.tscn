@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c1lbji6onqrmq"]
 
 [ext_resource type="Script" path="res://script/obstacle.gd" id="1_bt7bh"]
-[ext_resource type="Texture2D" uid="uid://c6rc5o0ovxmb5" path="res://icon.svg" id="2_hwoxj"]
+[ext_resource type="Texture2D" uid="uid://iqg3bih2vt08" path="res://resources/art/sea_view/env/stones/7.png" id="2_i80nx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wj7pc"]
 size = Vector2(126, 123)
@@ -17,7 +17,9 @@ position = Vector2(-3, 8.5)
 shape = SubResource("RectangleShape2D_wj7pc")
 
 [node name="Icon" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, 13)
-texture = ExtResource("2_hwoxj")
+scale = Vector2(3, 3)
+texture = ExtResource("2_i80nx")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
