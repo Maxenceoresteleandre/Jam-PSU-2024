@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjxwnihh6j1c"]
+[gd_scene load_steps=5 format=3 uid="uid://bjxwnihh6j1c"]
 
 [ext_resource type="Script" path="res://script/title_screen.gd" id="1_al338"]
 [ext_resource type="FontFile" uid="uid://jcj6f06bt67a" path="res://resources/fonts/Moglan.ttf" id="1_w4mkl"]
+[ext_resource type="Texture2D" uid="uid://dr5qpq5dg6rm6" path="res://resources/Ecran_titre.png" id="3_hec8c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jkj5e"]
 font = ExtResource("1_w4mkl")
@@ -22,6 +23,19 @@ label_settings = SubResource("LabelSettings_jkj5e")
 position = Vector2(954, 540)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 1.0
+offset_right = -9.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_hec8c")
+expand_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
