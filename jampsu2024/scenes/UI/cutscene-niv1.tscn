@@ -1,27 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccwr1al3xr5bm"]
+[gd_scene load_steps=3 format=3 uid="uid://ccwr1al3xr5bm"]
 
 [ext_resource type="PackedScene" uid="uid://ut72x64opxdx" path="res://scenes/UI/cutscene.tscn" id="1_0b4g1"]
-[ext_resource type="FontFile" uid="uid://jcj6f06bt67a" path="res://resources/fonts/Moglan.ttf" id="2_pkbsm"]
-[ext_resource type="AudioStream" uid="uid://cpqwh0a6gvvxe" path="res://resources/audio/narration-niv1-debut.mp3" id="3_k02hm"]
+[ext_resource type="AudioStream" uid="uid://dia1li51mryja" path="res://resources/audio/narration-niv1-debut.mp3" id="3_k02hm"]
 
 [node name="Cutscene" instance=ExtResource("1_0b4g1")]
 
-[node name="RichTextLabel" parent="." index="1"]
-offset_top = 700.0
-offset_right = -244.0
-offset_bottom = 2114.0
-theme_override_fonts/normal_font = ExtResource("2_pkbsm")
-theme_override_font_sizes/normal_font_size = 70
-text = "Sous une lune blafarde, l'Étreinte Nocturne fend les flots, son phare pénètre la nuit d’une lueur vacillante et inquiétante.  À son bord, quatre vampires flamboyants, corsets ajustés et cravates en bataille, voguent dans une éternelle pénombre. Ils ne cherchent ni trésor ni gloire. Leur seul désir : atteindre les ports avant l’aube pour enflammer les nuits de promesses et s’abreuver des cœurs battants d’une population naïve… ou consentante.
-
-Mais la traversée est loin d’être paisible. Dans l’obscurité, des créatures abjectes émergent des profondeurs : monstres écailleux, tentacules voraces, et autres horreurs attirées par le goût du sang immortel. Entre deux assauts furieux, les quatre vampires trouvent néanmoins le temps d’échanger des sous-entendus douteux, des regards brûlants, et quelques gestes qui font légèrement tanguer le navire.
-
-La mer change sans cesse, traîtresse, tandis que la brume s’épaissit. Le temps presse. Chaque nuit, le danger croît et le soleil, cruel et implacable, approche. À chaque escale, c’est une victoire : de nouvelles conquêtes, de nouvelles morsures… et un équipage qui semble toujours trouver des raisons de s’attarder un peu trop dans la cabine du capitaine.
-"
-fit_content = true
-language = "fr"
-
 [node name="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource("3_k02hm")
-volume_db = 23.89
+volume_db = 4.418
 autoplay = true
