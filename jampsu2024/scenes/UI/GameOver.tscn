@@ -1,15 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://gm1gwtbivyej"]
+[gd_scene load_steps=6 format=3 uid="uid://gm1gwtbivyej"]
 
+[ext_resource type="Script" path="res://scenes/UI/ame_ovver_gentil.gd" id="1_1pre4"]
 [ext_resource type="FontFile" uid="uid://jcj6f06bt67a" path="res://resources/fonts/Moglan.ttf" id="1_03hgx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tb50w"]
 font_size = 286
 font_color = Color(0.7, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_xv2w2"]
+font_size = 141
+font_color = Color(0.7, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ro2v3"]
 draw_center = false
 
 [node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_1pre4")
 
 [node name="TextLabel" type="Label" parent="."]
 anchors_preset = 15
@@ -22,6 +28,24 @@ theme_override_fonts/font = ExtResource("1_03hgx")
 theme_override_font_sizes/font_size = 116
 text = "GAME OVER"
 label_settings = SubResource("LabelSettings_tb50w")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextScore" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = -340.0
+offset_right = -9.0
+offset_bottom = -340.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.794399, 3.22476e-06, 9.62615e-07, 1)
+theme_override_fonts/font = ExtResource("1_03hgx")
+theme_override_font_sizes/font_size = 116
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_xv2w2")
 horizontal_alignment = 1
 vertical_alignment = 1
 

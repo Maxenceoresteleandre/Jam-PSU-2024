@@ -1,4 +1,5 @@
 extends Node2D
+class_name GameWorld
 
 func _ready() -> void:
 	score = 0
