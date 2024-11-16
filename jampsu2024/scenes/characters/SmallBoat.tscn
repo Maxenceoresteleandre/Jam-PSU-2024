@@ -90,6 +90,9 @@ default_color = Color(0.303233, 0.303233, 0.303233, 0.85098)
 texture_mode = 1
 joint_mode = 1
 
+[node name="Timer" type="Timer" parent="CanonLine1"]
+one_shot = true
+
 [node name="CanonLine2" type="Line2D" parent="."]
 material = SubResource("ShaderMaterial_tyug3")
 width = 15.0
@@ -97,6 +100,9 @@ width_curve = SubResource("Curve_yhod1")
 default_color = Color(0.303233, 0.303233, 0.303233, 0.85098)
 texture_mode = 1
 joint_mode = 1
+
+[node name="Timer" type="Timer" parent="CanonLine2"]
+one_shot = true
 
 [node name="CanonLine3" type="Line2D" parent="."]
 z_index = 2
@@ -107,6 +113,9 @@ default_color = Color(0.303233, 0.303233, 0.303233, 0.85098)
 texture_mode = 1
 joint_mode = 1
 
+[node name="Timer" type="Timer" parent="CanonLine3"]
+one_shot = true
+
 [node name="CanonLine4" type="Line2D" parent="."]
 z_index = 2
 material = SubResource("ShaderMaterial_tyug3")
@@ -115,3 +124,6 @@ width_curve = SubResource("Curve_yhod1")
 default_color = Color(0.303233, 0.303233, 0.303233, 0.85098)
 texture_mode = 1
 joint_mode = 1
+
+[node name="Timer" type="Timer" parent="CanonLine4"]
+one_shot = true
