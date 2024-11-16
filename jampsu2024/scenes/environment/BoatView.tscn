@@ -53,6 +53,8 @@ z_index = 100
 texture_filter = 1
 script = ExtResource("1_y42bq")
 cannons = [NodePath("Cannon"), NodePath("Cannon2"), NodePath("Cannon3"), NodePath("Cannon4")]
+min_time_ghost = null
+max_time_ghost = null
 
 [node name="WhitePixel" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -209,5 +211,17 @@ occluder = SubResource("OccluderPolygon2D_47fhp")
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
 position = Vector2(668, 48)
 occluder = SubResource("OccluderPolygon2D_yv58s")
+
+[node name="GhostSpawn" type="Node2D" parent="."]
+position = Vector2(307, -123)
+
+[node name="GhostSpawn2" type="Node2D" parent="."]
+position = Vector2(-206, 763)
+
+[node name="GhostSpawn3" type="Node2D" parent="."]
+position = Vector2(361, 1239)
+
+[node name="GhostSpawn4" type="Node2D" parent="."]
+position = Vector2(786, 625)
 
 [editable path="ShipLight4"]
