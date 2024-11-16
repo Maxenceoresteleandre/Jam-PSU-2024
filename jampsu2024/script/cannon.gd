@@ -35,9 +35,9 @@ func interact() -> void:
 func _process(delta: float) -> void:
 	if current_player != null:
 		var turn_rate := 0.0
-		if current_player.up_pressed:
+		if current_player.down_pressed or current_player.left_pressed:
 			turn_rate += 1.0 
-		if current_player.down_pressed:
+		if current_player.up_pressed or current_player.right_pressed:
 			turn_rate -= 1.0
 		var rot_offset := turn_speed * delta * turn_rate
-		rotation += rot_offset
+		rotation = clamp(rotation + rot_offset, -1.1, 1.1)
