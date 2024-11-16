@@ -1,7 +1,7 @@
 extends Area2D
 class_name InteractibleObject
 
-const MAX_WIDTH_OUTLINE := 10.0
+const MAX_WIDTH_OUTLINE := 1.25
 
 @export var freeze_movement := false
 @export var movement_speed_multiplier := 1.0

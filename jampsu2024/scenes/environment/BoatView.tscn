@@ -45,5 +45,4 @@ position = Vector2(139, 785)
 
 [node name="ShipWheel" parent="." instance=ExtResource("5_ix3x2")]
 position = Vector2(345, 931)
-turn_speed = null
-movement_speed_multiplier = null
+turn_speed = 1.0
