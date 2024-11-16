@@ -5,7 +5,8 @@
 [node name="Cutscene" instance=ExtResource("1_cmb0q")]
 
 [node name="RichTextLabel" parent="." index="1"]
-offset_bottom = 3720.0
+offset_top = -2400.0
+offset_bottom = 1250.0
 text = "Sous un ciel étoilé à peine troublé par les premiers rayons de l’aube, l’Étreinte Nocturne  flotte fièrement sur une mer enfin calme. La bataille a été aussi épique que chaotique, et le Kraken, cette abomination tentaculaire des profondeurs, repose désormais vaincu sous les flots… non sans avoir laissé quelques souvenirs très embarrassants à l’équipage immortel.
 
 Le capitaine Yellow Ochre ajuste son col, jurant qu’il n’a jamais été étranglé par un tentacule (malgré les preuves criantes laissées sur son cou). Amaranth examine un fragment de succion visqueux, marmonnant que cette 'biomasse aquatique' pourrait faire un excellent lubrifiant pour ses prochaines inventions. Obsidian ricane doucement, affirmant que \"même un Kraken géant peut être séduit, avec un peu d’audace et beaucoup de charisme\". Quant à Ivory, il ne peut s’empêcher de sourire en coin, se vantant bruyamment d’avoir été 'privilégié' par pas moins de trois tentacules à la fois.
