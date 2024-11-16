@@ -1,7 +1,7 @@
 extends Sprite2D
 class_name CollectibleResource
 
-const INTERACTIBLE_OBJECT_RES_PATH = preload("res://scenes/environment/interactible_objects/interactible_object_resource.tscn")
+const INTERACTIBLE_OBJECT_RES_PATH = preload("res://scenes/environment/interactible_objects/interactible_resources.tscn")
 
 var type : InteractibleResource.ResourceTypes
 var carried := false

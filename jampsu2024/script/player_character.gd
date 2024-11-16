@@ -76,10 +76,16 @@ func check_turn() -> void:
 func interact() -> void:
 	print("player " + str(control_device) + " interact!")
 	if carrying_object:
+		print("\t carrying")
 		if nearby_object != null:
-			pass
+			print("\t\tnearby_object.consume_resource_type = ", nearby_object.consume_resource_type, " ; int(resource_type) = ", int(resource_type))
+			if nearby_object.consume_resource_type == int(resource_type):
+				print("\t\t\tgood resource")
+				nearby_object.add_resource()
+				leave_resource(true)
 		else:
 			leave_resource()
+		return
 	if current_object == null:
 		interact_with_new_object()
 		if current_object == null:
@@ -88,7 +94,7 @@ func interact() -> void:
 		return
 	current_object.interact()
 
-func collect_resource(obj : Collectible, rtype : InteractibleResource.ResourceTypes):
+func collect_resource(obj : Collectible, rtype : int):
 	if carrying_object:
 		return
 	print("collect : ", obj, " of type ", rtype)
@@ -100,11 +106,15 @@ func collect_resource(obj : Collectible, rtype : InteractibleResource.ResourceTy
 	carried_object.global_position = $ObjectAttach.global_position
 	carried_object.global_scale = Vector2(5, 5)
 
-func leave_resource():
+func leave_resource(delete_obj := false):
 	carrying_object = false
-	carried_object.deposit_object()
+	if delete_obj:
+		carried_object.queue_free()
+	else:
+		carried_object.deposit_object()
 	carried_object = null
 	object_speed_coeff = 1.0
+	
 
 func start_interact_delay():
 	can_act = false

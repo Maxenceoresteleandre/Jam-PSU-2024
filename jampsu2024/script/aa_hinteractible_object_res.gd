@@ -1,5 +1,5 @@
 extends InteractibleObject
-class_name InteractibleResource
+class_name InteractibleObjRes
 
 enum ResourceTypes {
 	Oil,
@@ -20,7 +20,7 @@ const CRATE_SPRITES := [
 ]
 
 @export var resource : ResourceTypes
-@export var can_interact_forever := true
+@export var can_interact_forever := false
 
 func _ready() -> void:
 	var resource_sprite : Collectible = COLLECTIBLE_PATH.instantiate()
@@ -30,11 +30,6 @@ func _ready() -> void:
 	
 	$Sprite.texture = CRATE_SPRITES[int(resource)]
 
-static func spawn_res_at_location(global_pos : Vector2):
-	const SELF_RES = preload("res://scenes/environment/AAHinteractible_object_res.tscn")
-	var self_instance := SELF_RES.instantiate()
-	GlobalVariables.boat_view.add_child(self_instance)
-	self_instance.global_position = global_pos
 
 func interact() -> void:
 	current_player
