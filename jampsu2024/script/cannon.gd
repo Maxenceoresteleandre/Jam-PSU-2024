@@ -10,7 +10,10 @@ const CANNONBALL_OFFSET := 70.0
 @export var left_side := true:
 	set(value):
 		left_side = value
-		$Sprite.flip_h = not left_side
+		if left_side:
+			scale.x = 1.0
+		else:
+			scale.x = -1.0
 
 var sea_corresp : Node2D = null
 
@@ -21,16 +24,14 @@ func create_sea_correspondance() -> void:
 	pass
 
 func interact() -> void:
+	# fake cannonball
 	var cannonball : Node2D = CANNONBALL_RES.instantiate()
 	self.add_child(cannonball)
 	var cannonball_velocity : Vector2
-	if left_side:
-		cannonball.position += Vector2.LEFT * CANNONBALL_OFFSET
-		cannonball_velocity = Vector2.LEFT
-	else:
-		cannonball.position += Vector2.RIGHT * CANNONBALL_OFFSET
-		cannonball_velocity = Vector2.RIGHT
+	cannonball.position += Vector2.LEFT * CANNONBALL_OFFSET
+	cannonball_velocity = Vector2.LEFT
 	cannonball.velocity = cannonball_velocity
+	# real cannonball
 
 func _process(delta: float) -> void:
 	if current_player != null:
