@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu3ayfi7cnbdj"]
+
+[ext_resource type="Script" path="res://script/camera_utils.gd" id="1_jhdnh"]
+[ext_resource type="Script" path="res://script/shaker.gd" id="2_tpro3"]
+
+[node name="CameraUtils" type="Node2D"]
+script = ExtResource("1_jhdnh")
+
+[node name="Shaker" type="Node" parent="."]
+script = ExtResource("2_tpro3")

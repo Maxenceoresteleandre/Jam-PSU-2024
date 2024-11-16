@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bod8wa5bta3ix"]
+[gd_scene load_steps=3 format=3 uid="uid://mueevv1w5dn3"]
 
 [ext_resource type="Script" path="res://script/world.gd" id="1_sean8"]
 [ext_resource type="PackedScene" uid="uid://oxak7bpjdska" path="res://scenes/environment/SeaView.tscn" id="3_ybsmw"]
