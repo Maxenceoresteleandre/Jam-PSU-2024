@@ -10,4 +10,6 @@ func _process(delta: float) -> void:
 			turn_rate += 1.0 
 		if current_player.left_pressed:
 			turn_rate -= 1.0
-		GlobalVariables.small_boat.set_turn(turn_speed * delta * turn_rate)
+		var rot_offset := turn_speed * delta * turn_rate
+		GlobalVariables.small_boat.set_turn(rot_offset)
+		$Sprite/Sprite2.rotation += rot_offset
