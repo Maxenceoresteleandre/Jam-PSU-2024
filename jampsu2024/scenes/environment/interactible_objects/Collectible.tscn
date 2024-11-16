@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj1hta16iftym"]
+
+[ext_resource type="Script" path="res://script/collectible.gd" id="1_mb8bh"]
+
+[node name="Collectible" type="Sprite2D"]
+script = ExtResource("1_mb8bh")
