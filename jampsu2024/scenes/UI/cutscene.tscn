@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ut72x64opxdx"]
+[gd_scene load_steps=8 format=3 uid="uid://ut72x64opxdx"]
 
 [ext_resource type="Script" path="res://script/cutscene.gd" id="1_drhaq"]
 [ext_resource type="Shader" path="res://resources/shader/cutscene.gdshader" id="2_4i7br"]
+[ext_resource type="Texture2D" uid="uid://c7bjn5pb51yko" path="res://resources/art/frame.png" id="3_fnyhy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hog7t"]
 shader = ExtResource("2_4i7br")
@@ -94,3 +95,11 @@ text = "
 libraries = {
 "": SubResource("AnimationLibrary_3rccs")
 }
+
+[node name="TextureRect" type="TextureRect" parent="AnimationPlayer"]
+modulate = Color(0.240313, 0.189972, 0.131312, 1)
+offset_left = -473.0
+offset_top = -88.0
+offset_right = 2366.0
+offset_bottom = 1138.0
+texture = ExtResource("3_fnyhy")
