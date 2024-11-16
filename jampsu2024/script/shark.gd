@@ -1,7 +1,6 @@
 extends Ennemy
 class_name Shark
 
-@export var speed = 200
 
 var going_back = false
 var random_point := Vector2.ZERO
@@ -30,7 +29,3 @@ func _on_hitbox_area_2d_body_entered(body: Node2D) -> void:
 func choose_random_point():
 	var rp = Vector2(rng.randi_range(position.x - 500, position.x + 500), rng.randi_range(position.y - 500, position.y + 500))
 	random_point = rp
-	
-		
-func hit():
-	pass
