@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name SmallBoat
 
 const CANNONBALL_RES := preload("res://scenes/environment/cannonball_sea.tscn")
-const COAL_CONSUMPTION_TIME := 10.0
+const COAL_CONSUMPTION_TIME := 17.5
 const COAL_CONS_MULT := {
 	SPEEDS.REVERSE : 1.0,
 	SPEEDS.STOPPED : 0.0,
@@ -40,7 +40,7 @@ var speed: float = 70
 @export var line_length = 500
 @export var hit_cooldown_time = 2.0
 var can_change_speed := true
-var remaining_coal_time := 10.0
+var remaining_coal_time := COAL_CONSUMPTION_TIME
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -76,7 +76,7 @@ func _process(delta: float) -> void:
 	remaining_coal_time -= delta * COAL_CONS_MULT[current_speed]
 	if remaining_coal_time <= 0.0 and current_speed != SPEEDS.STOPPED:
 		if GlobalVariables.steam_engine.consume_coal():
-			remaining_coal_time = 10.0
+			remaining_coal_time = COAL_CONSUMPTION_TIME
 		else:
 			set_speed(SPEEDS.STOPPED)
 
