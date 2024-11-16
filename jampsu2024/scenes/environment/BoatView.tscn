@@ -238,7 +238,6 @@ position = Vector2(357, 725)
 material = SubResource("ShaderMaterial_raawg")
 
 [node name="PointLight2D" parent="ShipLight4" index="3"]
-color = Color(0.723944, 0.537497, 0, 1)
 texture_scale = 23.05
 
 [node name="CollisionShape2D" parent="ShipLight4/Area2D" index="0"]
