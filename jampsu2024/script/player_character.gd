@@ -22,6 +22,7 @@ var object_speed_coeff := 1.0
 
 func _ready() -> void:
 	start_game()
+	$WhitePixel.modulate = player_color
 
 func start_game():
 	can_move = true

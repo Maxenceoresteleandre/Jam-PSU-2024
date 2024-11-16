@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dk2rkvhposxkf"]
+[gd_scene load_steps=6 format=3 uid="uid://dk2rkvhposxkf"]
 
 [ext_resource type="Script" path="res://script/player_character.gd" id="1_p1nly"]
 [ext_resource type="Texture2D" uid="uid://dgfwgn78qcjhm" path="res://resources/art/boat_view/Vampire player.png" id="2_6xnrr"]
+[ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="3_ms3vx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w7g5h"]
 radius = 30.0
@@ -26,6 +27,12 @@ texture = ExtResource("2_6xnrr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_e2hrs")
+
+[node name="WhitePixel" type="Sprite2D" parent="."]
+position = Vector2(-10, -109)
+rotation = -0.785397
+scale = Vector2(44.0095, 44.0095)
+texture = ExtResource("3_ms3vx")
 
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]
