@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dleh0ha7jwkji" path="res://resources/art/boat_view/ship/crate_oil.png" id="4_u2b05"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsugw"]
+size = Vector2(100, 100)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c6hp3"]
 resource_local_to_scene = true
