@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0ew2d3ov7rsc"]
+[gd_scene load_steps=14 format=3 uid="uid://b0ew2d3ov7rsc"]
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="1_ecoml"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dk2rkvhposxkf" path="res://scenes/characters/player_character.tscn" id="2_rrqf3"]
 [ext_resource type="PackedScene" uid="uid://d1e3duvrjeqii" path="res://scenes/environment/interactible_objects/cannon.tscn" id="5_8vw4u"]
 [ext_resource type="PackedScene" uid="uid://8x20osbchfve" path="res://scenes/environment/interactible_objects/ship_wheel.tscn" id="5_ix3x2"]
+[ext_resource type="PackedScene" uid="uid://cvxjpkvp6vgfr" path="res://scenes/environment/interactible_objects/interactible_resources.tscn" id="7_8y7oe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vhkfm"]
 radius = 90.0
@@ -43,42 +44,46 @@ scale = Vector2(4.02344, 3.55245)
 texture = ExtResource("1_5kobi")
 
 [node name="VampireCharacter" parent="." instance=ExtResource("2_rrqf3")]
-position = Vector2(211, 462)
+position = Vector2(281, 500)
 player_color = Color(0.772549, 0.643137, 0.294118, 1)
 
 [node name="VampireCharacter2" parent="." instance=ExtResource("2_rrqf3")]
-position = Vector2(455, 816)
+position = Vector2(544, 946)
 control_device = 1
 player_color = Color(0.898039, 0.168627, 0.313726, 1)
 
 [node name="VampireCharacter3" parent="." instance=ExtResource("2_rrqf3")]
-position = Vector2(392, 480)
+position = Vector2(402, 501)
 control_device = 2
 player_color = Color(0.0470588, 0.0509804, 0.054902, 1)
 
 [node name="VampireCharacter4" parent="." instance=ExtResource("2_rrqf3")]
-position = Vector2(343, 294)
+position = Vector2(348, 259)
 control_device = 3
 player_color = Color(1, 1, 0.941176, 1)
 
 [node name="ShipWheel" parent="." instance=ExtResource("5_ix3x2")]
-position = Vector2(345, 931)
+position = Vector2(350, 954)
 
 [node name="Cannon" parent="." instance=ExtResource("5_8vw4u")]
 position = Vector2(101, 758)
+gives_carried_object = false
 
 [node name="Cannon2" parent="." instance=ExtResource("5_8vw4u")]
 position = Vector2(96, 545)
+gives_carried_object = false
 
 [node name="Cannon3" parent="." instance=ExtResource("5_8vw4u")]
 position = Vector2(596, 545)
 scale = Vector2(-1, 1)
 left_side = false
+gives_carried_object = false
 
 [node name="Cannon4" parent="." instance=ExtResource("5_8vw4u")]
 position = Vector2(595, 755)
 scale = Vector2(-1, 1)
 left_side = false
+gives_carried_object = false
 
 [node name="StaticBodyChimney" type="StaticBody2D" parent="."]
 position = Vector2(350, 649)
@@ -128,3 +133,14 @@ shape = SubResource("RectangleShape2D_xwfyc")
 position = Vector2(-119, -644)
 rotation = 0.672534
 shape = SubResource("RectangleShape2D_xwfyc")
+
+[node name="InteractibleResourcesOil" parent="." instance=ExtResource("7_8y7oe")]
+position = Vector2(448, 373)
+
+[node name="InteractibleResourcesCoal" parent="." instance=ExtResource("7_8y7oe")]
+position = Vector2(237, 373)
+resource = 2
+
+[node name="InteractibleResourcesBalls" parent="." instance=ExtResource("7_8y7oe")]
+position = Vector2(296, 843)
+resource = 1
