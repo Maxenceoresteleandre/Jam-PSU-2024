@@ -24,10 +24,11 @@ const CANNONBALL_PLACES : Array[Vector2] = [
 
 var sea_corresp : Node2D = null
 
-@onready var cannonballs_reserved : Array[CollectibleResource] = [$CannonballReserve]
+@onready var cannonballs_reserved : Array[Sprite2D] = []
 
 func _ready() -> void:
 	create_sea_correspondance()
+	add_cannonball()
 
 func create_sea_correspondance() -> void:
 	pass
@@ -36,7 +37,8 @@ func interact() -> void:
 	if cannonballs_reserved.size() == 0:
 		return
 	# remove cannonball from reserve
-	cannonballs_reserved.pop_back().queue_free()
+	var c : Node = cannonballs_reserved.pop_back()
+	c.queue_free()
 	# fake cannonball
 	var cannonball : Node2D = CANNONBALL_RES.instantiate()
 	self.add_child(cannonball)
