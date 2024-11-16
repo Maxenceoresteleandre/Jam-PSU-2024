@@ -14,12 +14,14 @@ func connect_to_player(player : PlayerCharacter) -> bool:
 	$Timer.start(MAX_LIGHT_DURATION)
 	is_light_on = true
 	$PointLight2D.visible = true
+	$Area2D/CollisionShape2D.disabled = false
 	return false
 
 func _on_timer_timeout() -> void:
 	is_light_on = false
 	$PointLight2D.visible = false
+	$Area2D/CollisionShape2D.disabled = true
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.has_method("cleanse") and is_light_on:
+	if body.has_method("cleanse"):
 		body.cleanse()
