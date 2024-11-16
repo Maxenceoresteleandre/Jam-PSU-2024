@@ -99,13 +99,15 @@ func set_speed(value: SPEEDS):
 	t.tween_property(self, "speed", value, 2.0)
 
 func set_line_direction(index: int, direction: Vector2):
-	lines[index].visible = true
 	var start_position = position
 	start_position += cannons_offsets[index]
 	var end_position = direction * line_length
 	lines[index].add_point(start_position)
 	lines[index].add_point(end_position)
-	
+
+func set_line_visibility(index : int, new_visibility : bool):
+	lines[index].visible = new_visibility
+
 func shoot(index: int, direction: Vector2):
 	var cannonball : Node2D = CANNONBALL_RES.instantiate()
 	GlobalVariables.sea_view.add_child(cannonball)
