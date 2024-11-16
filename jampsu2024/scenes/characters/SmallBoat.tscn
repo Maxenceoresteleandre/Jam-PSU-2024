@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c2a0nbvglukoh"]
+[gd_scene load_steps=11 format=3 uid="uid://c2a0nbvglukoh"]
 
 [ext_resource type="Script" path="res://script/small_boat.gd" id="1_ayldm"]
 [ext_resource type="Texture2D" uid="uid://7y2url7aofoi" path="res://resources/art/sea_view/ship placeholder v2.png" id="2_rxjs8"]
 [ext_resource type="Shader" path="res://resources/shader/line.gdshader" id="3_cfkk8"]
+[ext_resource type="Texture2D" uid="uid://dwlufm0mapnsy" path="res://resources/art/lights/ship_small_light.png" id="4_dbmac"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qbyrv"]
 particle_flag_disable_z = true
@@ -140,3 +141,12 @@ offset_bottom = 30.0
 theme = SubResource("Theme_am6nv")
 text = "gfdfvgf"
 label_settings = SubResource("LabelSettings_hw1wk")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+texture_filter = 1
+position = Vector2(38, 31)
+scale = Vector2(3, 3)
+color = Color(0.58479, 0.693539, 0.299293, 1)
+shadow_enabled = true
+texture = ExtResource("4_dbmac")
+texture_scale = 5.0

@@ -60,7 +60,9 @@ func hit_obstacle():
 func ennemy_hit():
 	damage(10)
 	$health_debug.text = str(health) + "/" + str(max_health)
-	
+
+func move_light_house(rot_offset : float):
+	pass
 
 func set_turn(value : float):
 	direction = direction.rotated(value)

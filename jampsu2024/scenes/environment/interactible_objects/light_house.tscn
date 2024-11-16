@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://duqdi0n0ql27i"]
+
+[ext_resource type="PackedScene" uid="uid://bxw152aldsit3" path="res://scenes/environment/interactible_objects/interactible_object.tscn" id="1_cuscy"]
+[ext_resource type="Script" path="res://script/light_house.gd" id="2_1p4mo"]
+[ext_resource type="Shader" path="res://resources/shader/outline.gdshader" id="2_aq8tp"]
+[ext_resource type="Texture2D" uid="uid://qorcsva5r5wh" path="res://resources/art/boat_view/ship/Canon.png" id="3_3ky2t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfnft"]
+size = Vector2(70, 30)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yv1"]
+resource_local_to_scene = true
+shader = ExtResource("2_aq8tp")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[node name="LightHouse" instance=ExtResource("1_cuscy")]
+script = ExtResource("2_1p4mo")
+consume_resource_type = 0
+freeze_movement = true
+
+[node name="CollisionShape2D" parent="." index="0"]
+visible = true
+shape = SubResource("RectangleShape2D_bfnft")
+
+[node name="Sprite" parent="." index="1"]
+material = SubResource("ShaderMaterial_h2yv1")
+scale = Vector2(3, 3)
+texture = ExtResource("3_3ky2t")
