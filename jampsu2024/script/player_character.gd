@@ -3,7 +3,7 @@ class_name PlayerCharacter
 
 @export var control_device := 0
 @export var player_color := Color.WHITE
-@export var speed := 400
+@export var speed := 200
 
 var right_pressed := false
 var left_pressed := false
@@ -56,7 +56,8 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if can_move and not object_freeze_movement:
-		velocity = Vector2(int(right_pressed) - int(left_pressed), int(down_pressed) - int(up_pressed)) * speed * object_speed_coeff
+		velocity = Vector2(int(right_pressed) - int(left_pressed), int(down_pressed) - int(up_pressed)
+		).normalized() * speed * object_speed_coeff
 		check_turn()
 		move_and_slide()
 
