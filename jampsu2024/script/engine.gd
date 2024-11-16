@@ -14,6 +14,7 @@ const change_speed_rate := 100.0
 @onready var coal_reserved : Array[Sprite2D] = []
 
 func _ready() -> void:
+	GlobalVariables.steam_engine = self
 	create_sea_correspondance()
 	add_coal()
 

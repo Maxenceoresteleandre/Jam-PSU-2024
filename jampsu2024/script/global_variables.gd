@@ -7,3 +7,4 @@ const INTERACTIBLE_OBJECT_RES_PATH := preload("res://scenes/environment/interact
 var small_boat : SmallBoat = null
 var boat_view : BoatView = null
 var sea_view : Node2D = null
+var steam_engine : SteamEngine = null

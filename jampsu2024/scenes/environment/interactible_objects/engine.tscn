@@ -18,6 +18,9 @@ shader_parameter/add_margins = true
 script = ExtResource("2_htuug")
 consume_resource_type = 2
 freeze_movement = true
+movement_speed_multiplier = null
+gives_carried_object = null
+one_time_collectible = null
 
 [node name="Sprite" parent="." index="1"]
 material = SubResource("ShaderMaterial_y44ox")
