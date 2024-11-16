@@ -1,12 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2a0nbvglukoh"]
+[gd_scene load_steps=6 format=3 uid="uid://c2a0nbvglukoh"]
 
 [ext_resource type="Script" path="res://script/small_boat.gd" id="1_ayldm"]
-[ext_resource type="Texture2D" uid="uid://bdjt061ll7850" path="res://resources/art/sea_view/ship placeholder.png" id="2_erb1x"]
+[ext_resource type="Texture2D" uid="uid://bqd8p5k8lyxg8" path="res://resources/art/sea_view/ship placeholder.png" id="2_erb1x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7txp"]
-size = Vector2(392, 410)
+size = Vector2(392, 135)
+
+[sub_resource type="Theme" id="Theme_am6nv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hw1wk"]
+font_size = 41
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
 
 [node name="SmallBoat" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 16
 script = ExtResource("1_ayldm")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -16,5 +25,14 @@ scale = Vector2(8.86, 8.86)
 texture = ExtResource("2_erb1x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(20, -10)
+position = Vector2(20, 46.5)
 shape = SubResource("RectangleShape2D_f7txp")
+
+[node name="health_debug" type="Label" parent="."]
+anchors_preset = -1
+offset_left = -15.0
+offset_top = -223.0
+offset_right = 97.0
+offset_bottom = -166.0
+theme = SubResource("Theme_am6nv")
+label_settings = SubResource("LabelSettings_hw1wk")
