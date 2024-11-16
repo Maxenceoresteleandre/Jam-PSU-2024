@@ -62,6 +62,14 @@ cancel={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="boat_env"
+2d_physics/layer_3="ship"
+2d_physics/layer_4="sea_env"
+2d_physics/layer_5="sea_enemy"
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
