@@ -78,7 +78,7 @@ position = Vector2(-1295, -616)
 [node name="PointLight2D" type="PointLight2D" parent="SmallBoat/BoatView"]
 position = Vector2(344, 572)
 scale = Vector2(14, 25)
-energy = 0.4
+energy = 0.3
 texture = ExtResource("8_ccdmm")
 texture_scale = 50.0
 
