@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://8x20osbchfve"]
+[gd_scene load_steps=8 format=3 uid="uid://8x20osbchfve"]
 
 [ext_resource type="PackedScene" uid="uid://bxw152aldsit3" path="res://scenes/environment/interactible_objects/interactible_object.tscn" id="1_umbpd"]
 [ext_resource type="Script" path="res://script/ship_wheel.gd" id="2_30n02"]
 [ext_resource type="Shader" path="res://resources/shader/outline.gdshader" id="3_5vtai"]
 [ext_resource type="Texture2D" uid="uid://80jf3ljp65bp" path="res://resources/art/boat_view/ship/Roue du navire.png" id="4_23c8i"]
+[ext_resource type="Texture2D" uid="uid://dwuaec32p1ylb" path="res://resources/art/boat_view/ship/roue_up.png" id="5_aye1j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ofwny"]
 radius = 40.05
@@ -31,3 +32,10 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_l8hkm")
 scale = Vector2(5.11111, 5.11111)
 texture = ExtResource("4_23c8i")
+
+[node name="Sprite2" type="Sprite2D" parent="Sprite" index="0"]
+texture_filter = 1
+use_parent_material = true
+position = Vector2(0, -1.17391)
+texture = ExtResource("5_aye1j")
+offset = Vector2(0, -0.9)
