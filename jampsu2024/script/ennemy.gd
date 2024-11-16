@@ -25,12 +25,10 @@ func hit():
 	else:
 		death_anim()
 		await $AnimationPlayer.animation_finished
-		GlobalVariables.world.increment_score()
 		queue_free()
 
 func hit_anim():
 	$AnimationPlayer.play("hit_effect")
 
 func death_anim():
-	GlobalVariables.camera_utils.shake()
 	$AnimationPlayer.play("death_effect")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ut72x64opxdx"]
+[gd_scene load_steps=9 format=3 uid="uid://ut72x64opxdx"]
 
 [ext_resource type="Script" path="res://script/cutscene.gd" id="1_drhaq"]
 [ext_resource type="Shader" path="res://resources/shader/cutscene.gdshader" id="2_4i7br"]
 [ext_resource type="Texture2D" uid="uid://c7bjn5pb51yko" path="res://resources/art/frame.png" id="3_fnyhy"]
+[ext_resource type="FontFile" uid="uid://jcj6f06bt67a" path="res://resources/fonts/Moglan.ttf" id="3_o7fu6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hog7t"]
 shader = ExtResource("2_4i7br")
@@ -28,22 +29,6 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.5
 
-[sub_resource type="Animation" id="Animation_n2lna"]
-resource_name = "defilement"
-length = 40.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RichTextLabel:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.433333, 27.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(166, 700), Vector2(166, -2400)]
-}
-
 [sub_resource type="Animation" id="Animation_rhqdq"]
 length = 0.001
 tracks/0/type = "value"
@@ -59,6 +44,21 @@ tracks/0/keys = {
 "values": [Vector2(166, 70)]
 }
 
+[sub_resource type="Animation" id="Animation_n2lna"]
+resource_name = "defilement"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(166, 700), Vector2(166, -2400)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3rccs"]
 _data = {
 "RESET": SubResource("Animation_rhqdq"),
@@ -66,6 +66,7 @@ _data = {
 }
 
 [node name="Cutscene" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_drhaq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -82,12 +83,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 166.0
 offset_top = 70.0
-offset_right = -166.0
-offset_bottom = -70.0
+offset_right = -244.0
+offset_bottom = 1484.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "
-ygluygouyggouygouygouygo"
+theme_override_fonts/normal_font = ExtResource("3_o7fu6")
+theme_override_font_sizes/normal_font_size = 70
+text = "Sous une lune blafarde, l'Étreinte Nocturne fend les flots, son phare pénètre la nuit d’une lueur vacillante et inquiétante.  À son bord, quatre vampires flamboyants, corsets ajustés et cravates en bataille, voguent dans une éternelle pénombre. Ils ne cherchent ni trésor ni gloire. Leur seul désir : atteindre les ports avant l’aube pour enflammer les nuits de promesses et s’abreuver des cœurs battants d’une population naïve… ou consentante.
+
+Mais la traversée est loin d’être paisible. Dans l’obscurité, des créatures abjectes émergent des profondeurs : monstres écailleux, tentacules voraces, et autres horreurs attirées par le goût du sang immortel. Entre deux assauts furieux, les quatre vampires trouvent néanmoins le temps d’échanger des sous-entendus douteux, des regards brûlants, et quelques gestes qui font légèrement tanguer le navire.
+
+La mer change sans cesse, traîtresse, tandis que la brume s’épaissit. Le temps presse. Chaque nuit, le danger croît et le soleil, cruel et implacable, approche. À chaque escale, c’est une victoire : de nouvelles conquêtes, de nouvelles morsures… et un équipage qui semble toujours trouver des raisons de s’attarder un peu trop dans la cabine du capitaine.
+"
+fit_content = true
+language = "fr"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
