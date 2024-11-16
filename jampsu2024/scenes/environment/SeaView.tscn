@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://oxak7bpjdska"]
+[gd_scene load_steps=11 format=3 uid="uid://oxak7bpjdska"]
 
 [ext_resource type="Shader" path="res://resources/shader/water.gdshader" id="1_cwibs"]
 [ext_resource type="Shader" path="res://resources/shader/pixelart.gdshader" id="1_mgopa"]
 [ext_resource type="Script" path="res://script/sea_view.gd" id="1_y6n53"]
+[ext_resource type="Texture2D" uid="uid://buf4qtgavs5sf" path="res://resources/art/sea_view/water.png" id="4_8wy6i"]
 [ext_resource type="PackedScene" uid="uid://c2a0nbvglukoh" path="res://scenes/characters/SmallBoat.tscn" id="4_ms5o0"]
 [ext_resource type="PackedScene" uid="uid://b0ew2d3ov7rsc" path="res://scenes/environment/BoatView.tscn" id="5_wi4hj"]
 
@@ -48,7 +49,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(428, 428)
+texture = ExtResource("4_8wy6i")
+region_enabled = true
+region_rect = Rect2(0, 0, 10000, 10000)
+
 [node name="backgroundTest" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(960, 539)
 scale = Vector2(29.6563, 15.8437)
 texture = SubResource("GradientTexture2D_ts3b2")
@@ -56,6 +65,7 @@ texture = SubResource("GradientTexture2D_ts3b2")
 [node name="SmallBoat" parent="." instance=ExtResource("4_ms5o0")]
 
 [node name="Camera2D" type="Camera2D" parent="SmallBoat"]
+position = Vector2(-300, -17)
 
 [node name="BoatView" parent="SmallBoat" instance=ExtResource("5_wi4hj")]
-position = Vector2(-1001, -605)
+position = Vector2(-1295, -616)

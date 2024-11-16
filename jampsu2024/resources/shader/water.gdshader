@@ -80,7 +80,7 @@ vec4 hn_fdm(vec2 p, float t) {
 
 void fragment()
 {
-    vec2 uv = UV;
+    vec2 uv = UV ;
     vec2 uv_screen = (uv - 0.5) * uv_scale;
 
     vec4 nh = hn_fdm(uv_screen* 10.0, iTime * 1.0);
