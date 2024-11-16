@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://btc1len2ws85b"]
+
+[ext_resource type="PackedScene" uid="uid://bxw152aldsit3" path="res://scenes/environment/interactible_objects/interactible_object.tscn" id="1_6xq6j"]
+[ext_resource type="Script" path="res://script/ship_light.gd" id="2_a44ww"]
+[ext_resource type="Shader" path="res://resources/shader/outline.gdshader" id="2_nqiod"]
+[ext_resource type="Texture2D" uid="uid://dwuaec32p1ylb" path="res://resources/art/boat_view/ship/roue_up.png" id="3_fynwa"]
+[ext_resource type="Texture2D" uid="uid://dwlufm0mapnsy" path="res://resources/art/lights/ship_small_light.png" id="5_q87sj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gs0xj"]
+size = Vector2(70, 70)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wkxve"]
+resource_local_to_scene = true
+shader = ExtResource("2_nqiod")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_glnq4"]
+radius = 182.003
+
+[node name="ShipLight" instance=ExtResource("1_6xq6j")]
+script = ExtResource("2_a44ww")
+
+[node name="CollisionShape2D" parent="." index="0"]
+visible = true
+shape = SubResource("RectangleShape2D_gs0xj")
+
+[node name="Sprite" parent="." index="1"]
+material = SubResource("ShaderMaterial_wkxve")
+scale = Vector2(5, 5)
+texture = ExtResource("3_fynwa")
+
+[node name="Timer" type="Timer" parent="." index="2"]
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="3"]
+color = Color(0.723944, 0.537497, 0, 1)
+energy = 0.75
+shadow_enabled = true
+texture = ExtResource("5_q87sj")
+texture_scale = 15.0
+
+[node name="Area2D" type="Area2D" parent="." index="4"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_glnq4")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
