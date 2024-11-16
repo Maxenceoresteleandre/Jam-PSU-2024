@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dk2rkvhposxkf"]
+[gd_scene load_steps=5 format=3 uid="uid://dk2rkvhposxkf"]
 
 [ext_resource type="Script" path="res://script/player_character.gd" id="1_p1nly"]
 [ext_resource type="Texture2D" uid="uid://dgfwgn78qcjhm" path="res://resources/art/boat_view/Vampire player.png" id="2_6xnrr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w7g5h"]
 radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e2hrs"]
+radius = 125.0
 
 [node name="VampireCharacter" type="CharacterBody2D"]
 script = ExtResource("1_p1nly")
@@ -18,3 +21,8 @@ texture_filter = 1
 position = Vector2(-1, -1)
 scale = Vector2(7, 7)
 texture = ExtResource("2_6xnrr")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_e2hrs")
