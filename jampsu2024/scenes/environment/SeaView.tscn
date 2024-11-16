@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://oxak7bpjdska"]
+[gd_scene load_steps=13 format=3 uid="uid://oxak7bpjdska"]
 
 [ext_resource type="Shader" path="res://resources/shader/water.gdshader" id="1_cwibs"]
 [ext_resource type="Shader" path="res://resources/shader/pixelart.gdshader" id="1_mgopa"]
@@ -6,11 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://buf4qtgavs5sf" path="res://resources/art/sea_view/water.png" id="4_8wy6i"]
 [ext_resource type="PackedScene" uid="uid://c2a0nbvglukoh" path="res://scenes/characters/SmallBoat.tscn" id="4_ms5o0"]
 [ext_resource type="PackedScene" uid="uid://b0ew2d3ov7rsc" path="res://scenes/environment/BoatView.tscn" id="5_wi4hj"]
-[ext_resource type="PackedScene" path="res://scenes/environment/Obstacle.tscn" id="7_55r16"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="8_ccdmm"]
 [ext_resource type="PackedScene" uid="uid://cu3ayfi7cnbdj" path="res://scenes/utilities/CameraUtils.tscn" id="8_qu3r4"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://s16w4sliprif" path="res://scenes/characters/ennemies/Shark.tscn" id="9_iafle"]
 [ext_resource type="PackedScene" uid="uid://cpee5frran2j0" path="res://scenes/characters/ennemies/Underwater.tscn" id="10_071nf"]
+=======
+>>>>>>> Stashed changes
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x28q6"]
 shader = ExtResource("1_cwibs")
@@ -83,50 +85,10 @@ energy = 0.3
 texture = ExtResource("8_ccdmm")
 texture_scale = 50.0
 
-[node name="Obstacle" parent="." instance=ExtResource("7_55r16")]
-position = Vector2(358, -205)
-
-[node name="Obstacle2" parent="." instance=ExtResource("7_55r16")]
-position = Vector2(646, 593)
-
-[node name="Shark" parent="." instance=ExtResource("9_iafle")]
-position = Vector2(1802, -1246)
-
-[node name="Shark2" parent="." instance=ExtResource("9_iafle")]
-position = Vector2(518, -1182)
-
-[node name="Shark3" parent="." instance=ExtResource("9_iafle")]
-position = Vector2(1972, 56)
-
-[node name="Shark4" parent="." instance=ExtResource("9_iafle")]
-position = Vector2(1961, 1313)
-
-[node name="Shark5" parent="." instance=ExtResource("9_iafle")]
-position = Vector2(1961, 1313)
-
-[node name="Underwater" parent="." instance=ExtResource("10_071nf")]
-position = Vector2(10139, 3873)
-collision_layer = 1
-collision_mask = 1
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yberc")
 camera_attributes = SubResource("CameraAttributesPractical_q58yo")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
-
-[node name="Underwater2" parent="." instance=ExtResource("10_071nf")]
-position = Vector2(1540, -591)
-
-[node name="Underwater3" parent="." instance=ExtResource("10_071nf")]
-position = Vector2(3052, 790)
-
-[node name="Underwater4" parent="." instance=ExtResource("10_071nf")]
-position = Vector2(4262, 336)
-
-[node name="Underwater5" parent="." instance=ExtResource("10_071nf")]
-position = Vector2(1389, -1680)
-
-[node name="Underwater6" parent="." instance=ExtResource("10_071nf")]
-position = Vector2(1389, -1680)

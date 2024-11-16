@@ -114,7 +114,6 @@ func play_dir_anim(dir: Vector2) -> void:
 	var closest_dir : Vector2 = arr[0]
 	var rott : float = arr[1]
 	var anim_name := ""
-	print("arr, ", arr)
 	#$AnimatedSprite2D.rotation = (1 / rott) / 100.0
 	match closest_dir:
 		DIR.Left: 		set_ship_sprite(Directions.Left)

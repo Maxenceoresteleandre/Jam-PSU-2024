@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmee7rf4cynvo"]
+
+[ext_resource type="PackedScene" path="res://scenes/environment/Obstacle.tscn" id="1_oinpv"]
+[ext_resource type="PackedScene" uid="uid://s16w4sliprif" path="res://scenes/characters/ennemies/Shark.tscn" id="2_ulyh5"]
+[ext_resource type="PackedScene" uid="uid://8rqrc63m6s0m" path="res://scenes/characters/ennemies/Underwater.tscn" id="3_rj7a6"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Obstacle" parent="." instance=ExtResource("1_oinpv")]
+position = Vector2(358, -205)
+
+[node name="Obstacle2" parent="." instance=ExtResource("1_oinpv")]
+position = Vector2(646, 593)
+
+[node name="Shark" parent="." instance=ExtResource("2_ulyh5")]
+position = Vector2(1802, -1246)
+
+[node name="Shark2" parent="." instance=ExtResource("2_ulyh5")]
+position = Vector2(518, -1182)
+
+[node name="Shark3" parent="." instance=ExtResource("2_ulyh5")]
+position = Vector2(1972, 56)
+
+[node name="Shark4" parent="." instance=ExtResource("2_ulyh5")]
+position = Vector2(1961, 1313)
+
+[node name="Shark5" parent="." instance=ExtResource("2_ulyh5")]
+position = Vector2(1961, 1313)
+
+[node name="Underwater" parent="." instance=ExtResource("3_rj7a6")]
+position = Vector2(10139, 3873)
+collision_layer = 1
+collision_mask = 1
+
+[node name="Underwater2" parent="." instance=ExtResource("3_rj7a6")]
+position = Vector2(1540, -591)
+
+[node name="Underwater3" parent="." instance=ExtResource("3_rj7a6")]
+position = Vector2(3052, 790)
+
+[node name="Underwater4" parent="." instance=ExtResource("3_rj7a6")]
+position = Vector2(4262, 336)
+
+[node name="Underwater5" parent="." instance=ExtResource("3_rj7a6")]
+position = Vector2(1389, -1680)
+
+[node name="Underwater6" parent="." instance=ExtResource("3_rj7a6")]
+position = Vector2(1389, -1680)

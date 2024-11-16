@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b0ew2d3ov7rsc"]
+[gd_scene load_steps=21 format=3 uid="uid://b0ew2d3ov7rsc"]
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="1_ecoml"]
@@ -15,12 +15,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vhkfm"]
 radius = 90.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tnu3"]
-size = Vector2(294, 13)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoeaj"]
-size = Vector2(15, 75.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjvor"]
 size = Vector2(516, 13)
@@ -116,22 +110,6 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyChimney"]
 shape = SubResource("CircleShape2D_vhkfm")
-
-[node name="StaticBodyInsideGuard" type="StaticBody2D" parent="."]
-position = Vector2(335, 895)
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyInsideGuard"]
-position = Vector2(18, 3.5)
-shape = SubResource("RectangleShape2D_3tnu3")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBodyInsideGuard"]
-position = Vector2(-125, 46)
-shape = SubResource("RectangleShape2D_yoeaj")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBodyInsideGuard"]
-position = Vector2(156, 46)
-shape = SubResource("RectangleShape2D_yoeaj")
 
 [node name="StaticBodyOutsideGuard" type="StaticBody2D" parent="."]
 position = Vector2(335, 895)
