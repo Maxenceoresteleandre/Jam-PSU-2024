@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://oxak7bpjdska"]
+[gd_scene load_steps=12 format=3 uid="uid://oxak7bpjdska"]
 
 [ext_resource type="Shader" path="res://resources/shader/water.gdshader" id="1_cwibs"]
 [ext_resource type="Shader" path="res://resources/shader/pixelart.gdshader" id="1_mgopa"]
@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://buf4qtgavs5sf" path="res://resources/art/sea_view/water.png" id="4_8wy6i"]
 [ext_resource type="PackedScene" uid="uid://c2a0nbvglukoh" path="res://scenes/characters/SmallBoat.tscn" id="4_ms5o0"]
 [ext_resource type="PackedScene" uid="uid://b0ew2d3ov7rsc" path="res://scenes/environment/BoatView.tscn" id="5_wi4hj"]
-[ext_resource type="PackedScene" path="res://scenes/environment/Obstacle.tscn" id="7_55r16"]
+[ext_resource type="PackedScene" uid="uid://c1lbji6onqrmq" path="res://scenes/environment/Obstacle.tscn" id="7_55r16"]
 [ext_resource type="PackedScene" uid="uid://cu3ayfi7cnbdj" path="res://scenes/utilities/CameraUtils.tscn" id="8_qu3r4"]
+[ext_resource type="PackedScene" uid="uid://co22hkofh6nso" path="res://scenes/characters/ennemies/Shark.tscn" id="9_iafle"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x28q6"]
 shader = ExtResource("1_cwibs")
@@ -66,3 +67,6 @@ position = Vector2(358, -205)
 
 [node name="Obstacle2" parent="." instance=ExtResource("7_55r16")]
 position = Vector2(646, 593)
+
+[node name="Shark" parent="." instance=ExtResource("9_iafle")]
+position = Vector2(1371, -654)
