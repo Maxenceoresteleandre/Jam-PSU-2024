@@ -73,7 +73,6 @@ func hit_obstacle():
 	if velocity.length() > hit_obstacle_min_speed:
 		damage(10)
 		can_move = false
-		velocity = Vector2.ZERO  # TODO: rendre l'arrêt moins brutal ?
 		await get_tree().create_timer(hit_cooldown_time).timeout
 		can_move = true
 		$health_debug.text = str(health) + "/" + str(max_health)

@@ -1,3 +1,20 @@
-[gd_scene format=3 uid="uid://xwnf114tehx4"]
+[gd_scene load_steps=4 format=3 uid="uid://jtfb1qdeivcs"]
 
-[node name="BreakableObstacle" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://c1lbji6onqrmq" path="res://scenes/environment/Obstacle.tscn" id="1_cvjyb"]
+[ext_resource type="Script" path="res://script/breakable_obstacle.gd" id="2_46n2h"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m7i2k"]
+particle_flag_disable_z = true
+angle_min = -91.0
+angle_max = 85.7
+gravity = Vector3(0, 98, 0)
+
+[node name="Area2D" instance=ExtResource("1_cvjyb")]
+script = ExtResource("2_46n2h")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="2"]
+emitting = false
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_m7i2k")
+one_shot = true
+explosiveness = 1.0
