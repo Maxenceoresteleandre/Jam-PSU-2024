@@ -31,4 +31,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		var pbody : PlayerCharacter = body
 		if not pbody.carrying_object:
 			get_parent().remove_child(self)
+			print("carry new again type = ", type)
 			pbody.collect_resource(self, type)

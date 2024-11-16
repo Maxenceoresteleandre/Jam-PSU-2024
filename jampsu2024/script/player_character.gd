@@ -21,7 +21,7 @@ var nearby_object : InteractibleObject = null
 var object_freeze_movement := false
 var object_speed_coeff := 1.0
 var carrying_object := false
-var resource_type : InteractibleResource.ResourceTypes
+var resource_type : int
 var carried_object : Collectible = null
 
 
@@ -112,6 +112,7 @@ func leave_resource(delete_obj := false):
 	if delete_obj:
 		carried_object.queue_free()
 	else:
+		carried_object.type = resource_type
 		carried_object.deposit_object()
 	carried_object = null
 	object_speed_coeff = 1.0
