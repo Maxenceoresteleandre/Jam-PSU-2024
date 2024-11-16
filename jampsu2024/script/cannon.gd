@@ -3,7 +3,7 @@ extends InteractibleObject
 class_name Cannon
 
 const CANNONBALL_RES := preload("res://scenes/environment/cannonball_boat.tscn")
-const CANNONBALL_OFFSET := 20.0
+const CANNONBALL_OFFSET := 70.0
 
 @export var turn_speed := 1.0
 
