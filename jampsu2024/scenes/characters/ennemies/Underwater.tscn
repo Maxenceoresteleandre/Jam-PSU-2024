@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpee5frran2j0"]
+
+[ext_resource type="PackedScene" uid="uid://chviatf7tluc5" path="res://scenes/characters/ennemies/ennemy.tscn" id="1_t73wk"]
+[ext_resource type="Script" path="res://script/underwater.gd" id="2_dfemf"]
+[ext_resource type="Shader" path="res://scenes/characters/ennemies/Underwater.gdshader" id="3_wk5y8"]
+[ext_resource type="Texture2D" uid="uid://qkfdixr05eea" path="res://resources/art/boat_view/ennemies/abyss_shark_right.png" id="4_ooyux"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xyh6s"]
+radius = 522.004
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5xrl"]
+size = Vector2(83.5, 88.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bfsgt"]
+shader = ExtResource("3_wk5y8")
+shader_parameter/target_color = Vector4(1, 0, 0, 0.5)
+
+[node name="Underwater" instance=ExtResource("1_t73wk")]
+script = ExtResource("2_dfemf")
+aggro_range = null
+
+[node name="AggroRange" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_xyh6s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(1.25, 1.75)
+shape = SubResource("RectangleShape2D_k5xrl")
+
+[node name="BadOctopus" type="Sprite2D" parent="." index="2"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_bfsgt")
+scale = Vector2(3, 3)
+texture = ExtResource("4_ooyux")

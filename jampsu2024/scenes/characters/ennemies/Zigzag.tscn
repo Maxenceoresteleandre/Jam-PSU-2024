@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpee5frran2j0"]
-
-[ext_resource type="PackedScene" uid="uid://chviatf7tluc5" path="res://scenes/characters/ennemies/ennemy.tscn" id="1_r8d0l"]
-[ext_resource type="Script" path="res://zigzag.gd" id="2_kjl2p"]
-
-[node name="Zigzag" instance=ExtResource("1_r8d0l")]
-script = ExtResource("2_kjl2p")
