@@ -19,12 +19,11 @@ shader_parameter/add_margins = true
 
 [node name="Cannon" instance=ExtResource("1_5f7lk")]
 script = ExtResource("2_cf3jc")
-array_num = null
+array_num = 0
 turn_speed = 1.0
 left_side = true
 consume_resource_type = 1
 freeze_movement = true
-one_time_collectible = null
 
 [node name="CollisionShape2D" parent="." index="0"]
 visible = true

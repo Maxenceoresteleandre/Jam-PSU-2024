@@ -37,6 +37,14 @@ func add_resource() -> void:
 func create_sea_correspondance() -> void:
 	pass
 
+func connect_to_player(player : PlayerCharacter):
+	super.connect_to_player(player)
+	GlobalVariables.small_boat.set_line_visibility(array_num, true)
+
+func cancel():
+	super.cancel()
+	GlobalVariables.small_boat.set_line_visibility(array_num, false)
+
 func interact() -> void:
 	if cannonballs_reserved.size() == 0:
 		return
