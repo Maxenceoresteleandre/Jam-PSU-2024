@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://d22ufmm0x15c1"]
+
+[ext_resource type="Script" path="res://script/title_screen.gd" id="1_al338"]
+[ext_resource type="FontFile" uid="uid://jcj6f06bt67a" path="res://resources/fonts/Moglan.ttf" id="1_w4mkl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jkj5e"]
+font = ExtResource("1_w4mkl")
+font_size = 151
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_al338")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 254.0
+offset_top = 150.0
+offset_right = 1386.0
+offset_bottom = 365.0
+text = "L'Etreinte Nocture"
+label_settings = SubResource("LabelSettings_jkj5e")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(954, 540)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
