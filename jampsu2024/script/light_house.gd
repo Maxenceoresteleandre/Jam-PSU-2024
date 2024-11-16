@@ -16,9 +16,7 @@ var can_change_speed := false
 
 func _ready() -> void:
 	GlobalVariables.light_house = self
-	add_OIL()
-	add_OIL()
-	add_OIL()
+	pass
 
 func add_resource() -> void:
 	add_OIL()
@@ -55,10 +53,10 @@ func consume_OIL() -> bool:
 
 func _process(delta: float) -> void:
 	if current_player != null and can_change_speed:
-		var change_speed := 0.0
+		var change := 0.0
 		if current_player.down_pressed or current_player.left_pressed:
-			change_speed -= 1.0 
+			change -= 1.0 
 		if current_player.up_pressed or current_player.right_pressed:
-			change_speed += 1.0
-		if change_speed > 0.5 or change_speed < -0.5:
-			GlobalVariables.small_boat.set_speed_change(change_speed)
+			change += 1.0
+		if change > 0.5 or change < -0.5:
+			GlobalVariables.small_boat.move_light_house(change * delta * 1.0)

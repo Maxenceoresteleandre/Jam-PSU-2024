@@ -10,7 +10,9 @@ const COAL_CONS_MULT := {
 	SPEEDS.FAST : 2.0,
 }
 
-var oil_lightouse_remaining_time := 15.0
+const MAX_OIL_TIME := 20.0
+
+var oil_lightouse_remaining_time := MAX_OIL_TIME
 
 enum SPEEDS {
 	REVERSE = -70,
@@ -79,7 +81,8 @@ func _process(delta: float) -> void:
 	oil_lightouse_remaining_time -= delta
 	if oil_lightouse_remaining_time <= 0.0:
 		if GlobalVariables.light_house.consume_OIL():
-			pass
+			$PointLightHouse.visible = true
+			oil_lightouse_remaining_time = MAX_OIL_TIME
 		else:
 			$PointLightHouse.visible = false
 	$coal_debug.text = str(remaining_coal_time)
