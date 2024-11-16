@@ -59,12 +59,7 @@ func interact() -> void:
 	cannonball_velocity = Vector2.LEFT
 	cannonball.velocity = cannonball_velocity
 	# real cannonball
-	var orientation : Vector2
-	if left_side:
-		orientation = Vector2.LEFT
-	else:
-		orientation = Vector2.RIGHT
-	GlobalVariables.small_boat.shoot(array_num, orientation.rotated(rotation))
+	GlobalVariables.small_boat.shoot(array_num)
 
 func add_cannonball() -> bool:
 	if cannonballs_reserved.size() >= 3:
@@ -90,4 +85,4 @@ func _process(delta: float) -> void:
 			orientation = Vector2.LEFT
 		else:
 			orientation = Vector2.RIGHT
-		GlobalVariables.small_boat.set_line_direction(array_num, orientation.rotated(rotation))
+		GlobalVariables.small_boat.set_line_direction(array_num, rotation)

@@ -38,10 +38,6 @@ func _ready() -> void:
 	GlobalVariables.small_boat = self
 	$health_debug.text = str(health) + "/" + str(max_health)
 	$speed_debug.text = "speed : " + str(speed)
-	set_line_direction(0, Vector2(-1,-1))
-	set_line_direction(1, Vector2(1,-1))
-	set_line_direction(2, Vector2(1,1))
-	set_line_direction(3, Vector2(-1,1))
 	await get_tree().create_timer(hit_cooldown_time).timeout
 	shoot(2, Vector2(1, 1))
 
@@ -91,24 +87,19 @@ func _physics_process(_delta: float) -> void:
 			set_speed(SPEEDS.SLOW)
 		elif current_speed == SPEEDS.SLOW:
 			set_speed(SPEEDS.STOPPED)
-		
 
 func set_speed(value: SPEEDS):
 	current_speed = value
 	var t := create_tween().set_trans(Tween.TRANS_CUBIC)
 	t.tween_property(self, "speed", value, 2.0)
 
-func set_line_direction(index: int, direction: Vector2):
-	var start_position = Vector2.ZERO
-	start_position += cannons_offsets[index]
-	var end_position = direction * line_length
-	lines[index].points[0] = start_position
-	lines[index].points[1] = end_position.rotated($Icon.rotation)
+func set_line_direction(index: int, direction: float):
+	lines[index].rotation = direction
 
 func set_line_visibility(index : int, new_visibility : bool):
 	lines[index].visible = new_visibility
 
-func shoot(index: int, direction: Vector2):
+func shoot(index: int):
 	var cannonball : Node2D = CANNONBALL_RES.instantiate()
 	GlobalVariables.sea_view.add_child(cannonball)
 	var cannonball_velocity : Vector2
