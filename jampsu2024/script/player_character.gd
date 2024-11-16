@@ -75,6 +75,11 @@ func check_turn() -> void:
 
 func interact() -> void:
 	print("player " + str(control_device) + " interact!")
+	if carrying_object:
+		if nearby_object != null:
+			pass
+		else:
+			leave_resource()
 	if current_object == null:
 		interact_with_new_object()
 		if current_object == null:
@@ -96,7 +101,10 @@ func collect_resource(obj : Collectible, rtype : InteractibleResource.ResourceTy
 	carried_object.global_scale = Vector2(5, 5)
 
 func leave_resource():
-	pass
+	carrying_object = false
+	carried_object.deposit_object()
+	carried_object = null
+	object_speed_coeff = 1.0
 
 func start_interact_delay():
 	can_act = false

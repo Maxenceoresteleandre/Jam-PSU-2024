@@ -21,8 +21,7 @@ shader_parameter/add_margins = true
 script = ExtResource("2_cf3jc")
 turn_speed = 1.0
 left_side = true
-consume_resource_type = null
-consume_res_type = null
+consume_resource_type = 1
 freeze_movement = true
 
 [node name="CollisionShape2D" parent="." index="0"]
