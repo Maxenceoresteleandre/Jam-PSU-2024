@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d22ufmm0x15c1"]
+[gd_scene load_steps=4 format=3 uid="uid://bjxwnihh6j1c"]
 
 [ext_resource type="Script" path="res://script/title_screen.gd" id="1_al338"]
 [ext_resource type="FontFile" uid="uid://jcj6f06bt67a" path="res://resources/fonts/Moglan.ttf" id="1_w4mkl"]
