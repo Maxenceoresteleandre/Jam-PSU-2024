@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c07f46kaw52yx"]
+
+[ext_resource type="PackedScene" uid="uid://ut72x64opxdx" path="res://scenes/UI/cutscene.tscn" id="1_yjffo"]
+[ext_resource type="AudioStream" uid="uid://5ojrssuxhr4g" path="res://resources/audio/narration-niv1-fin.mp3" id="2_818ca"]
+
+[node name="Cutscene" instance=ExtResource("1_yjffo")]
+
+[node name="RichTextLabel" parent="." index="1"]
+offset_top = 70.0
+offset_bottom = 1484.0
+text = "Les premières lueurs de l’aube effleurent l’horizon, mais l’Étreinte Nocturne glisse déjà dans les eaux calmes du port. Les quatre vampires descendent sur les quais, ajustant vestes et corsets froissés par une nuit de batailles et… d’interruptions fort distrayantes. Le danger est derrière eux, pour l’instant, et l’air du port est saturé d’opportunités.
+
+Les habitants, encore ensommeillés, ignorent le sourire carnassier qui illumine les visages de ces visiteurs nocturnes. Marchands, marins, bourgeois aux joues trop roses pour être ignorées… les rues grouillent de vies qui n’attendent que d’être croquées. Les vampires se dispersent, chacun prêt à goûter aux plaisirs de cette escale, tout en jetant des regards entendus qui promettent une nuit encore plus intense pour la prochaine traversée.
+"
+
+[node name="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("2_818ca")
+autoplay = true

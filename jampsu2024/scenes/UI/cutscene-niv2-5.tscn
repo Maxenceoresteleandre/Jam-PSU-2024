@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgkrwrkwl6l1v"]
+
+[ext_resource type="PackedScene" uid="uid://ut72x64opxdx" path="res://scenes/UI/cutscene.tscn" id="1_xt1w2"]
+[ext_resource type="AudioStream" uid="uid://dv0upg71qvsjc" path="res://resources/audio/narration-fin-niv2.mp3" id="2_xx7wa"]
+
+[node name="Cutscene" instance=ExtResource("1_xt1w2")]
+
+[node name="RichTextLabel" parent="." index="1"]
+text = "Sous les dernières étoiles de la nuit, l’Étreinte Nocturne fend les flots pour accoster dans un port qui sent déjà la débauche et les ennuis. La traversée a laissé des marques – au sens propre comme au figuré – mais l’équipage immortellement insatiable est prêt à conquérir ces nouvelles terres avec la grâce d’un vampire assoiffé et l’élégance d’un corset trop serré.
+
+Dans les ruelles sombres, des promesses chuchotées flottent comme la brume matinale, et les rares habitants éveillés échangent des regards curieux, hésitant entre peur et fascination. On dit que ce port est connu pour ses plaisirs secrets, ses fêtes masquées et, apparemment, un certain goût pour les étrangetés maritimes. Une chose est sûre : aucun quai, aucune chambre, aucun grenier ne sera à l’abri des crocs de l’Étreinte Nocturne.
+
+Mais il faudra se dépêcher : le jour approche, et avec lui, les regards indiscrets et les rumeurs de chasseurs de vampires bien décidés à gâcher l’ambiance. Chaque escale est une danse sur le fil du rasoir – et cette nuit promet d’être aussi délicieusement dangereuse que les précédentes.
+"
+
+[node name="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("2_xx7wa")
+autoplay = true

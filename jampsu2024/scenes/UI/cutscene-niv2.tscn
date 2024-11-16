@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcvin3wvyyv16"]
+
+[ext_resource type="PackedScene" uid="uid://ut72x64opxdx" path="res://scenes/UI/cutscene.tscn" id="1_seknn"]
+[ext_resource type="AudioStream" uid="uid://b436yo66v0g0n" path="res://resources/audio/narration-niv2debut.mp3" id="2_qe0e0"]
+
+[node name="Cutscene" instance=ExtResource("1_seknn")]
+
+[node name="RichTextLabel" parent="." index="1"]
+text = "L’Étreinte Nocturne  reprend la mer, et sur le pont, les quatre vampires semblent… particulièrement satisfaits de leur escale :
+
+Le capitaine Yellow Ochre ajuste son col en déclarant que « la cave à vin n’était pas le seul endroit humide et sombre de ce port ».
+
+Amaranth , couvert de taches d’huile et de baisers au rouge à lèvres, jure que sa nouvelle invention – un ‘extracteur de fluides à vapeur’ – a parfaitement fonctionné, bien que personne n’ait osé lui demander sur quoi ou sur qui il l’avait testé.
+
+Obsidian , tout.e de cuir vêtu.e, confie avoir passé une bonne partie de la nuit à ‘aider’ les matelots à défaire leurs nœuds… 
+
+Ivory , un sourire en coin et la chemise à moitié déboutonnée, affirme avoir découvert qu’un duel au fouet est bien plus intéressant quand on est torse nu.
+
+La brume engloutit le navire, et déjà, des créatures grouillent dans l’ombre. Mais rien, pas même une pieuvre géante, ne pourra éclipser les souvenirs de cette escale… enfin, sauf peut-être un débat houleux sur qui a laissé des marques de morsures dans la cale.
+"
+
+[node name="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("2_qe0e0")
+autoplay = true

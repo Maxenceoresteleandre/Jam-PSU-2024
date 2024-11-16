@@ -1,10 +1,15 @@
 extends CanvasLayer
 
-
 const CUTSCENES := [
-	preload("res://cutscene-niv1.tscn"),
+	"res://cutscene-niv1.tscn", 
+	"res://scenes/UI/cutscene-niv1-5.tscn",
+	"res://scenes/UI/cutscene-niv2.tscn",
+	"res://scenes/UI/cutscene-niv2-5.tscn",
+	"res://scenes/UI/cutscene-niv3.tscn",
+	"res://cutscene-goodending.tscn"
 	
 ]
+
 
 
 

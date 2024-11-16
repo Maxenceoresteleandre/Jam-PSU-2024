@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqjunplbp33bv"]
+
+[ext_resource type="PackedScene" uid="uid://ut72x64opxdx" path="res://scenes/UI/cutscene.tscn" id="1_p1knb"]
+[ext_resource type="AudioStream" uid="uid://bqr50qr8w6nt6" path="res://resources/audio/narration-début-niv3.mp3" id="2_s8lg0"]
+
+[node name="Cutscene" instance=ExtResource("1_p1knb")]
+
+[node name="RichTextLabel" parent="." index="1"]
+offset_top = 385.0
+offset_bottom = 2315.0
+text = "Le port a tenu ses promesses… et même un peu plus. L’Étreinte Nocturne reprend la mer sous une lune à demi voilée, son équipage d’immortels encore grisé par une nuit riche en expériences et en excès :
+
+Le capitaine Yellow Ochre a quitté précipitamment une fête masquée après avoir découvert que le 'collier' offert par un mystérieux noble était en réalité un pieu camouflé – et, soyons honnêtes, il a trouvé ça un peu excitant.
+
+Amaranth, fidèle à lui-même, a convaincu un ingénieur local de tester son tout dernier prototype de 'pompe à passion'… avant que la machine ne prenne feu, littéralement, sous leurs ébats.
+
+Obsidian, toujours aussi audacieux.se, a passé une partie de la nuit à danser sur un bar, croquant tour à tour dans des verres de vin et des cous séduits, sous les applaudissements d’une foule en transe.
+
+Ivory, quant à lui, s’est retrouvé dans une situation pour le moins compromettante lorsqu’un marin jaloux a tenté de l’enfermer dans une cale… à laquelle il avait déjà invité trois autres personnes.
+
+Alors que les premières vagues claquent contre la coque, le groupe échange des regards entendus et des sourires un peu trop satisfaits. La nuit à venir promet d’être longue, et les eaux, comme toujours, pleines de dangers… et de tentations
+"
+
+[node name="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("2_s8lg0")
+volume_db = 5.311
+autoplay = true
