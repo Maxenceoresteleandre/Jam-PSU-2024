@@ -6,6 +6,6 @@
 z_index = 100
 
 [node name="ShipSprite" type="Sprite2D" parent="."]
-position = Vector2(299.5, 524)
-scale = Vector2(3.22656, 5.9375)
+position = Vector2(366.5, 549.5)
+scale = Vector2(4.27344, 6.33594)
 texture = ExtResource("1_chstg")
