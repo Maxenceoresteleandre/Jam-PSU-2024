@@ -9,6 +9,7 @@ var up_pressed := false
 var down_pressed := false
 var can_act := true
 
+var current_object : InteractibleObject = null
 
 
 func _input(event: InputEvent) -> void:
@@ -41,4 +42,7 @@ func interact() -> void:
 	pass
 
 func cancel() -> void:
-	pass
+	if current_object == null:
+		return
+	
+	current_object = null
