@@ -39,7 +39,7 @@ func leave_interact_zone(player : PlayerCharacter, remove_shader := true) -> voi
 func tween_outline_to(to_val : float):
 	tween_outline = true
 	var tween := create_tween().set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(self, "outline_width", to_val, 0.5)
+	tween.tween_property(self, "outline_width", to_val, 0.2)
 	await tween.finished
 	tween_outline = false
 
@@ -47,7 +47,9 @@ func connect_to_player(player : PlayerCharacter) -> bool:
 	if current_player != null:
 		return false
 	current_player = player
+	tween_outline_to(MAX_WIDTH_OUTLINE * 2.1)
 	return true
 
 func cancel() -> void:
 	current_player = null
+	tween_outline_to(MAX_WIDTH_OUTLINE)
