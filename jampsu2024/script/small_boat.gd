@@ -1,5 +1,5 @@
-class_name SmallBoat
 extends CharacterBody2D
+class_name SmallBoat
 
 var can_move = true
 var max_health = 100.0

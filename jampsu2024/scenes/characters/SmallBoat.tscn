@@ -29,7 +29,6 @@ position = Vector2(20, 46.5)
 shape = SubResource("RectangleShape2D_f7txp")
 
 [node name="health_debug" type="Label" parent="."]
-anchors_preset = -1
 offset_left = -15.0
 offset_top = -223.0
 offset_right = 97.0

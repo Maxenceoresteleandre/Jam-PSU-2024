@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0ew2d3ov7rsc"]
+[gd_scene load_steps=4 format=3 uid="uid://b0ew2d3ov7rsc"]
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
 [ext_resource type="PackedScene" uid="uid://dk2rkvhposxkf" path="res://scenes/characters/player_character.tscn" id="2_rrqf3"]
+[ext_resource type="PackedScene" uid="uid://bxw152aldsit3" path="res://scenes/environment/interactible_objects/interactible_object.tscn" id="3_tdscc"]
 
 [node name="BoatView" type="Node2D"]
 z_index = 100
@@ -26,3 +27,6 @@ control_device = 2
 [node name="VampireCharacter4" parent="." instance=ExtResource("2_rrqf3")]
 position = Vector2(326, 263)
 control_device = 3
+
+[node name="InteractibleObject" parent="." instance=ExtResource("3_tdscc")]
+position = Vector2(206, 900)
