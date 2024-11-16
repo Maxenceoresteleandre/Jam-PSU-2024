@@ -1,7 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj1hta16iftym"]
+[gd_scene load_steps=4 format=3 uid="uid://dj1hta16iftym"]
 
+[ext_resource type="Texture2D" uid="uid://03sgokkgbv0c" path="res://resources/art/boat_view/ship/cannonball.png" id="1_06wg1"]
 [ext_resource type="Script" path="res://script/collectible.gd" id="1_mb8bh"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8wqxw"]
+radius = 5.03587
+
 [node name="Collectible" type="Sprite2D"]
+texture_filter = 1
 scale = Vector2(5, 5)
+texture = ExtResource("1_06wg1")
 script = ExtResource("1_mb8bh")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_8wqxw")

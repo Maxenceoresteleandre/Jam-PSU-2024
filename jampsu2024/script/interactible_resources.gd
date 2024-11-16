@@ -30,12 +30,6 @@ func _ready() -> void:
 	
 	$Sprite.texture = CRATE_SPRITES[int(resource)]
 
-static func spawn_res_at_location(global_pos : Vector2):
-	const SELF_RES = preload("res://scenes/environment/interactible_objects/interactible_object.tscn")
-	var self_instance := SELF_RES.instantiate()
-	GlobalVariables.boat_view.add_child(self_instance)
-	self_instance.global_position = global_pos
-
 func interact() -> void:
 	current_player
 

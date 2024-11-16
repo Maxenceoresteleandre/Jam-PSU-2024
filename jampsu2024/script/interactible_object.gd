@@ -8,11 +8,21 @@ const MAX_WIDTH_OUTLINE := 1.25
 @export var freeze_movement := false
 @export var movement_speed_multiplier := 1.0
 @export var gives_carried_object := false
+@export var one_time_collectible := false
+
+var one_time_resource : int
 
 var current_player : PlayerCharacter = null
 var in_player_interact_zone : PlayerCharacter = null
 var outline_width := 0.0
 var tween_outline := false
+
+
+const CC_RESOURCES_SPRITE_RES := [
+	preload("res://resources/art/boat_view/ship/oil_res.png"),
+	preload("res://resources/art/boat_view/ship/cannonball.png"),
+	preload("res://resources/art/boat_view/ship/coal.png")
+]
 
 func interact() -> void:
 	pass
@@ -55,6 +65,10 @@ func connect_to_player(player : PlayerCharacter) -> bool:
 	current_player = player
 	tween_outline_to(MAX_WIDTH_OUTLINE * 2.1)
 	return true
+
+func destroy_with_delay() -> void:
+	await get_tree().process_frame
+	queue_free()
 
 func cancel() -> void:
 	current_player = null
