@@ -17,7 +17,7 @@ $GhostSpawn4.position,
 
 func _ready() -> void:
 	GlobalVariables.boat_view = self
-	spawn_ghost()
+	#spawn_ghost()
 
 func spawn_ghost():
 	var ghost := GHOST_PATH.instantiate()

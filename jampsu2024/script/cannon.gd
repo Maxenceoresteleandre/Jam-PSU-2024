@@ -33,6 +33,8 @@ func _ready() -> void:
 
 func add_resource() -> void:
 	add_cannonball()
+	add_cannonball()
+	add_cannonball()
 
 func create_sea_correspondance() -> void:
 	pass

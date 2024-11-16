@@ -5,10 +5,25 @@ const CANNONBALL_RES := preload("res://scenes/environment/cannonball_sea.tscn")
 const GAMEOVER_SCREEN := preload("res://scenes/UI/GameOver.tscn")
 const COAL_CONSUMPTION_TIME := 17.5
 const COAL_CONS_MULT := {
-	SPEEDS.REVERSE : 1.0,
+	SPEEDS.REVERSE : 0.4,
 	SPEEDS.STOPPED : 0.0,
-	SPEEDS.SLOW : 1.0,
-	SPEEDS.FAST : 2.0,
+	SPEEDS.SLOW : 0.4,
+	SPEEDS.FAST : 0.8,
+}
+
+enum Directions {
+	Top, TopLeft, Left, BottomLeft,
+	Bottom, BottomRight, Right, TopRight
+}
+const DIRECTION_ANIMS = {
+	Directions.Top : ["top_", false],
+	Directions.TopLeft : ["top_right_", true],
+	Directions.Left : ["right_", true],
+	Directions.BottomLeft : ['down_right_', true],
+	Directions.Bottom : ["down_", false],
+	Directions.BottomRight : ["down_right_", false],
+	Directions.Right : ["right_", false],
+	Directions.TopRight : ["top_right_", false]
 }
 
 const MAX_OIL_TIME := 20.0
@@ -69,9 +84,51 @@ func ennemy_hit():
 func move_light_house(rot_offset : float):
 	$PointLightHouse.rotation += rot_offset
 
+const DIR := {
+	Left = Vector2.LEFT,
+	Right = Vector2.RIGHT,
+	Up = Vector2.UP,
+	Down = Vector2.DOWN,
+	
+	UpLeft = Vector2.UP + Vector2.LEFT,
+	UpRight = Vector2.UP + Vector2.RIGHT,
+	DownLeft = Vector2.DOWN + Vector2.LEFT,
+	DownRight = Vector2.DOWN + Vector2.RIGHT,		
+}
+
+func get_closest_dir(dir: Vector2) -> Vector2:
+	var closest_distance: float = 9999.99
+	var closest_dir := Vector2.ZERO
+	
+	var other_directions := DIR.values()
+	for other_dir in other_directions:
+		var distance = dir.distance_to(other_dir)
+		if distance < closest_distance:
+			closest_distance = distance
+			closest_dir = other_dir
+	return closest_dir
+
+func play_dir_anim(dir: Vector2) -> void:
+	var closest_dir := get_closest_dir(dir)
+	var anim_name := ""
+	match closest_dir:
+		DIR.Left: 		set_ship_sprite(Directions.Left)
+		DIR.Right: 		set_ship_sprite(Directions.Right)
+		DIR.Up: 			set_ship_sprite(Directions.Top)
+		DIR.Down: 		set_ship_sprite(Directions.Bottom)
+		DIR.UpLeft: 		set_ship_sprite(Directions.TopLeft)
+		DIR.UpRight: 	set_ship_sprite(Directions.TopRight)
+		DIR.DownLeft: 	set_ship_sprite(Directions.BottomLeft)
+		DIR.DownRight:	set_ship_sprite(Directions.BottomRight)
+
 func set_turn(value : float):
 	direction = direction.rotated(value)
 	$Icon.rotation += value
+	play_dir_anim(Vector2.RIGHT.rotated($Icon.rotation))
+
+func set_ship_sprite(d : Directions):
+	$AnimatedSprite2D.play(DIRECTION_ANIMS[d][0] + "m")
+	$AnimatedSprite2D.flip_h = DIRECTION_ANIMS[d][1]
 
 func damage(damage: float):
 	health -= damage
@@ -92,12 +149,12 @@ func _process(delta: float) -> void:
 		else:
 			$PointLightHouse.visible = false
 	$coal_debug.text = str(remaining_coal_time)
-	remaining_coal_time -= delta * COAL_CONS_MULT[current_speed]
-	if remaining_coal_time <= 0.0 and current_speed != SPEEDS.STOPPED:
-		if GlobalVariables.steam_engine.consume_coal():
-			remaining_coal_time = COAL_CONSUMPTION_TIME
-		else:
-			set_speed(SPEEDS.STOPPED)
+	#remaining_coal_time -= delta * COAL_CONS_MULT[current_speed]
+	#if remaining_coal_time <= 0.0 and current_speed != SPEEDS.STOPPED:
+		#if GlobalVariables.steam_engine.consume_coal():
+			#remaining_coal_time = COAL_CONSUMPTION_TIME
+		#else:
+			#set_speed(SPEEDS.STOPPED)
 
 func _physics_process(_delta: float) -> void:
 	$speed_debug.text = "speed : " + str(speed)

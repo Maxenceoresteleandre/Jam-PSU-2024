@@ -1,10 +1,29 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2a0nbvglukoh"]
+[gd_scene load_steps=32 format=3 uid="uid://c2a0nbvglukoh"]
 
 [ext_resource type="Script" path="res://script/small_boat.gd" id="1_ayldm"]
-[ext_resource type="Texture2D" uid="uid://7y2url7aofoi" path="res://resources/art/sea_view/ship placeholder v2.png" id="2_rxjs8"]
 [ext_resource type="Shader" path="res://resources/shader/line.gdshader" id="3_cfkk8"]
 [ext_resource type="Texture2D" uid="uid://dwlufm0mapnsy" path="res://resources/art/lights/ship_small_light.png" id="4_dbmac"]
+[ext_resource type="Texture2D" uid="uid://b5lthwhcxa03t" path="res://resources/art/sea_view/ship/ship sprites/facing down/ship down frame 01.png" id="5_i86wy"]
 [ext_resource type="Texture2D" uid="uid://b8v4dh2v28c6r" path="res://resources/art/lights/light_house_light.png" id="5_qqabn"]
+[ext_resource type="Texture2D" uid="uid://hye3vxxgob27" path="res://resources/art/sea_view/ship/ship sprites/facing right/ship right frame 01.png" id="5_tcvs0"]
+[ext_resource type="Texture2D" uid="uid://cfxiig5d01t6c" path="res://resources/art/sea_view/ship/ship sprites/facing down/ship down frame 02.png" id="6_74r3t"]
+[ext_resource type="Texture2D" uid="uid://co211m0p4f5ov" path="res://resources/art/sea_view/ship/ship sprites/facing right/ship right frame 02.png" id="6_a3co1"]
+[ext_resource type="Texture2D" uid="uid://b0ncmau4e0eft" path="res://resources/art/sea_view/ship/ship sprites/facing down/ship down frame 03.png" id="7_rohva"]
+[ext_resource type="Texture2D" uid="uid://c8mtq6hmcrt57" path="res://resources/art/sea_view/ship/ship sprites/facing right/ship right frame 03.png" id="7_x62w1"]
+[ext_resource type="Texture2D" uid="uid://b8xi5p3vlqkxa" path="res://resources/art/sea_view/ship/ship sprites/facing bottom right/ship bottom right frame 01.png" id="8_dhr5s"]
+[ext_resource type="Texture2D" uid="uid://dq7n7h3jhyoxi" path="res://resources/art/sea_view/ship/ship sprites/facing down/ship down stopped.png" id="8_eif0h"]
+[ext_resource type="Texture2D" uid="uid://krpgttfn1n4m" path="res://resources/art/sea_view/ship/ship sprites/facing right/ship right stopped.png" id="8_twymf"]
+[ext_resource type="Texture2D" uid="uid://cq40bd60kpbj8" path="res://resources/art/sea_view/ship/ship sprites/facing bottom right/ship bottom right frame 02.png" id="9_tp521"]
+[ext_resource type="Texture2D" uid="uid://bfmh2fktde81n" path="res://resources/art/sea_view/ship/ship sprites/facing bottom right/ship bottom right frame 03.png" id="10_8so08"]
+[ext_resource type="Texture2D" uid="uid://bxgls2hoqrnjk" path="res://resources/art/sea_view/ship/ship sprites/facing bottom right/ship bottom right stopped.png" id="11_w1syc"]
+[ext_resource type="Texture2D" uid="uid://dy108x4oq27ab" path="res://resources/art/sea_view/ship/ship sprites/facing top right/ship top right frame 01.png" id="17_5oro5"]
+[ext_resource type="Texture2D" uid="uid://besqpkf5dhe78" path="res://resources/art/sea_view/ship/ship sprites/facing up/ship up frame 01.png" id="17_hlk11"]
+[ext_resource type="Texture2D" uid="uid://jiut0712sunf" path="res://resources/art/sea_view/ship/ship sprites/facing top right/ship top right frame 02.png" id="18_cofr5"]
+[ext_resource type="Texture2D" uid="uid://dr10bk32aoxep" path="res://resources/art/sea_view/ship/ship sprites/facing up/ship up frame 02.png" id="18_nt2c0"]
+[ext_resource type="Texture2D" uid="uid://t8oiu0ig0ojb" path="res://resources/art/sea_view/ship/ship sprites/facing top right/ship top right frame 03.png" id="19_5yddc"]
+[ext_resource type="Texture2D" uid="uid://cjcpbf3mgx4nv" path="res://resources/art/sea_view/ship/ship sprites/facing up/ship up frame 03.png" id="19_ymp5s"]
+[ext_resource type="Texture2D" uid="uid://c0gwxs0b0fjkv" path="res://resources/art/sea_view/ship/ship sprites/facing top right/ship top right stopped.png" id="20_rveei"]
+[ext_resource type="Texture2D" uid="uid://dq2gqpdlhti4c" path="res://resources/art/sea_view/ship/ship sprites/facing up/ship up stopped.png" id="24_vkmwf"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qbyrv"]
 particle_flag_disable_z = true
@@ -31,8 +50,8 @@ shader_parameter/opacity = 1.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.494575), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7txp"]
-size = Vector2(165, 70)
+[sub_resource type="CircleShape2D" id="CircleShape2D_n8fv8"]
+radius = 41.5482
 
 [sub_resource type="Theme" id="Theme_am6nv"]
 
@@ -40,6 +59,119 @@ size = Vector2(165, 70)
 font_size = 41
 outline_size = 15
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g54dr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_i86wy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_74r3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rohva")
+}],
+"loop": true,
+"name": &"down_m",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_dhr5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tp521")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8so08")
+}],
+"loop": true,
+"name": &"down_right_m",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_w1syc")
+}],
+"loop": true,
+"name": &"down_right_s",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_eif0h")
+}],
+"loop": true,
+"name": &"down_s",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_tcvs0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a3co1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x62w1")
+}],
+"loop": true,
+"name": &"right_m",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_twymf")
+}],
+"loop": true,
+"name": &"right_s",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_hlk11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_nt2c0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ymp5s")
+}],
+"loop": true,
+"name": &"top_m",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_5oro5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_cofr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_5yddc")
+}],
+"loop": true,
+"name": &"top_right_m",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_rveei")
+}],
+"loop": true,
+"name": &"top_right_s",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_vkmwf")
+}],
+"loop": true,
+"name": &"top_s",
+"speed": 5.0
+}]
 
 [node name="SmallBoat" type="CharacterBody2D"]
 collision_layer = 4
@@ -62,7 +194,6 @@ z_index = 1
 texture_filter = 1
 position = Vector2(3, -2)
 scale = Vector2(4, 4)
-texture = ExtResource("2_rxjs8")
 
 [node name="CanonLine1" type="Line2D" parent="Icon"]
 visible = false
@@ -115,10 +246,11 @@ texture_mode = 1
 joint_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(15.5, 20)
-shape = SubResource("RectangleShape2D_f7txp")
+position = Vector2(-6, 9)
+shape = SubResource("CircleShape2D_n8fv8")
 
 [node name="health_debug" type="Label" parent="."]
+visible = false
 offset_left = -15.0
 offset_top = -223.0
 offset_right = 97.0
@@ -127,6 +259,7 @@ theme = SubResource("Theme_am6nv")
 label_settings = SubResource("LabelSettings_hw1wk")
 
 [node name="speed_debug" type="Label" parent="."]
+visible = false
 offset_left = -262.0
 offset_top = -120.0
 offset_right = -150.0
@@ -135,6 +268,7 @@ theme = SubResource("Theme_am6nv")
 label_settings = SubResource("LabelSettings_hw1wk")
 
 [node name="coal_debug" type="Label" parent="."]
+visible = false
 offset_left = -361.0
 offset_top = -27.0
 offset_right = -249.0
@@ -161,3 +295,11 @@ shadow_enabled = true
 texture = ExtResource("5_qqabn")
 offset = Vector2(175, 0)
 texture_scale = 4.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-6, -8)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_g54dr")
+animation = &"down_m"
+speed_scale = 1.2
