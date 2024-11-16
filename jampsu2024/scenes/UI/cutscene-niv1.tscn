@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccwr1al3xr5bm"]
+[gd_scene load_steps=4 format=3 uid="uid://fgck2mit7o28"]
 
 [ext_resource type="PackedScene" uid="uid://ut72x64opxdx" path="res://scenes/UI/cutscene.tscn" id="1_0b4g1"]
-[ext_resource type="FontFile" uid="uid://t25e3866qtse" path="res://resources/fonts/Moglan.ttf" id="2_pkbsm"]
-[ext_resource type="AudioStream" uid="uid://b2ev2248y5h2w" path="res://resources/audio/narration-niv1-debut.mp3" id="3_k02hm"]
+[ext_resource type="FontFile" uid="uid://jcj6f06bt67a" path="res://resources/fonts/Moglan.ttf" id="2_pkbsm"]
+[ext_resource type="AudioStream" uid="uid://bt3favg458tfg" path="res://resources/audio/narration-niv1-debut.mp3" id="3_k02hm"]
 
 [node name="Cutscene" instance=ExtResource("1_0b4g1")]
 
 [node name="RichTextLabel" parent="." index="1"]
 offset_right = -244.0
-offset_bottom = 1484.0
+offset_bottom = 1862.0
 theme_override_fonts/normal_font = ExtResource("2_pkbsm")
 theme_override_font_sizes/normal_font_size = 70
 text = "Sous une lune blafarde, l'Étreinte Nocturne fend les flots, son phare pénètre la nuit d’une lueur vacillante et inquiétante.  À son bord, quatre vampires flamboyants, corsets ajustés et cravates en bataille, voguent dans une éternelle pénombre. Ils ne cherchent ni trésor ni gloire. Leur seul désir : atteindre les ports avant l’aube pour enflammer les nuits de promesses et s’abreuver des cœurs battants d’une population naïve… ou consentante.
@@ -24,6 +24,3 @@ language = "fr"
 stream = ExtResource("3_k02hm")
 volume_db = 23.89
 autoplay = true
-
-[node name="TextureRect" parent="AnimationPlayer" index="0"]
-modulate = Color(0.240313, 0.189972, 0.131312, 1)
