@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dmee7rf4cynvo"]
 
-[ext_resource type="PackedScene" path="res://scenes/environment/Obstacle.tscn" id="1_oinpv"]
+[ext_resource type="PackedScene" uid="uid://yv7lcxf6b5ft" path="res://scenes/environment/Obstacle.tscn" id="1_oinpv"]
 [ext_resource type="PackedScene" uid="uid://s16w4sliprif" path="res://scenes/characters/ennemies/Shark.tscn" id="2_ulyh5"]
 [ext_resource type="PackedScene" uid="uid://8rqrc63m6s0m" path="res://scenes/characters/ennemies/Underwater.tscn" id="3_rj7a6"]
 
