@@ -13,9 +13,6 @@ size = Vector2(75, 72)
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("2_gicbg")
-speed = 100
-health = 1
-aggro_range = 2000
 
 [node name="truc" type="CollisionShape2D" parent="." index="1"]
 position = Vector2(-19.5, 4)

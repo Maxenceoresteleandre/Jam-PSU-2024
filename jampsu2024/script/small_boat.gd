@@ -11,10 +11,10 @@ enum SPEEDS {
 } 
 
 @onready var lines: Array[Line2D] = [
-	$CanonLine1,
-	$CanonLine2,
-	$CanonLine3,
-	$CanonLine4
+	$Icon/CanonLine1,
+	$Icon/CanonLine2,
+	$Icon/CanonLine3,
+	$Icon/CanonLine4
 ]
 
 var cannons_offsets = [

@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Ennemy
 
 
-@export var speed = 100
+@export var speed = 150
 @export var health := 1
 @export var aggro_range = 2000
 
