@@ -12,6 +12,7 @@ const CANNONBALL_PLACES : Array[Vector2] = [
 	Vector2(117, -10),
 ]
 
+@export var array_num := 0
 @export var turn_speed := 1.0
 
 @export var left_side := true:
@@ -50,6 +51,7 @@ func interact() -> void:
 	cannonball_velocity = Vector2.LEFT
 	cannonball.velocity = cannonball_velocity
 	# real cannonball
+	GlobalVariables.small_boat.shoot(array_num, Vector2(0, 0))
 
 func add_cannonball() -> bool:
 	if cannonballs_reserved.size() >= 3:
