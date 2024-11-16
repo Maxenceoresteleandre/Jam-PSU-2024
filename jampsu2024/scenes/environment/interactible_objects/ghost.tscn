@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ndg478ou2ftq"]
+
+[ext_resource type="Texture2D" uid="uid://c0yiv8ulmdnqs" path="res://resources/art/boat_view/ennemies/fantome.png" id="1_boek7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrs4i"]
+radius = 33.2415
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dj4x1"]
+radius = 60.0
+
+[node name="Ghost" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xrs4i")
+
+[node name="Fantome" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("1_boek7")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_dj4x1")

@@ -88,6 +88,24 @@ func check_turn() -> void:
 	elif velocity.x < -0.1:
 		$Sprite.flip_h = false
 
+func stun():
+	stun_act()
+	stun_walk()
+
+func stun_walk():
+	if not can_move:
+		return
+	can_move = false
+	await get_tree().create_timer(3.0).timeout
+	can_move = true
+
+func stun_act():
+	if not can_act:
+		return
+	can_act = false
+	await get_tree().create_timer(3.0).timeout
+	can_act = true
+
 func interact() -> void:
 	print("player " + str(control_device) + " interact!")
 	if carrying_object:
