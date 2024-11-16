@@ -59,7 +59,12 @@ func interact() -> void:
 	cannonball_velocity = Vector2.LEFT
 	cannonball.velocity = cannonball_velocity
 	# real cannonball
-	GlobalVariables.small_boat.shoot(array_num)
+	var orientation : Vector2
+	if left_side:
+		orientation = Vector2.LEFT
+	else:
+		orientation = Vector2.RIGHT
+	GlobalVariables.small_boat.shoot(array_num, orientation)
 
 func add_cannonball() -> bool:
 	if cannonballs_reserved.size() >= 3:

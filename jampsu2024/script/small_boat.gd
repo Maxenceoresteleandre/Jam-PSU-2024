@@ -38,8 +38,6 @@ func _ready() -> void:
 	GlobalVariables.small_boat = self
 	$health_debug.text = str(health) + "/" + str(max_health)
 	$speed_debug.text = "speed : " + str(speed)
-	await get_tree().create_timer(hit_cooldown_time).timeout
-	shoot(2, Vector2(1, 1))
 
 func hit_obstacle():
 	if velocity.length() > hit_obstacle_min_speed:
@@ -99,12 +97,12 @@ func set_line_direction(index: int, direction: float):
 func set_line_visibility(index : int, new_visibility : bool):
 	lines[index].visible = new_visibility
 
-func shoot(index: int):
+func shoot(index: int, dir : Vector2):
 	var cannonball : Node2D = CANNONBALL_RES.instantiate()
 	GlobalVariables.sea_view.add_child(cannonball)
 	var cannonball_velocity : Vector2
 	cannonball.position = position + cannons_offsets[index]
-	cannonball.velocity = direction
+	cannonball.velocity = dir.rotated(lines[index].global_rotation + PI/2.0)
 	$GPUParticles2D.position = cannons_offsets[index]
 	$GPUParticles2D.process_material.initial_velocity = direction * 100
 	$GPUParticles2D.emitting = true
