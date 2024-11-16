@@ -56,9 +56,9 @@ func consume_OIL() -> bool:
 func _process(delta: float) -> void:
 	if current_player != null and can_change_speed:
 		var change_speed := 0.0
-		if current_player.down_pressed:
+		if current_player.down_pressed or current_player.left_pressed:
 			change_speed -= 1.0 
-		if current_player.up_pressed:
+		if current_player.up_pressed or current_player.right_pressed:
 			change_speed += 1.0
 		if change_speed > 0.5 or change_speed < -0.5:
 			GlobalVariables.small_boat.set_speed_change(change_speed)
