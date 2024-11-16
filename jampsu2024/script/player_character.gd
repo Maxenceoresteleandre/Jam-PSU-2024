@@ -89,8 +89,15 @@ func check_turn() -> void:
 		$Sprite.flip_h = false
 
 func stun():
+	var nsm := false
+	if can_move or can_act:
+		nsm = true
 	stun_act()
 	stun_walk()
+	if nsm:
+		modulate = Color(100, 0, 0)
+		await get_tree().create_timer(2.75).timeout
+		modulate = Color.WHITE
 
 func stun_walk():
 	if not can_move:
