@@ -10,6 +10,7 @@ radius = 33.2415
 radius = 60.0
 
 [node name="Ghost" type="CharacterBody2D"]
+collision_mask = 0
 script = ExtResource("1_2lopx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

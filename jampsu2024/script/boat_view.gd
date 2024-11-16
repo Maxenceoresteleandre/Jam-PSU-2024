@@ -5,7 +5,7 @@ const GHOST_PATH := preload("res://scenes/environment/interactible_objects/ghost
 
 @export var cannons : Array[Cannon] = []
 @export var min_time_ghost := 5.0
-@export var max_time_ghost := 18.0
+@export var max_time_ghost := 15.0
 
 @onready var ghost_spawns := [$GhostSpawn.position, 
 $GhostSpawn2.position,
@@ -17,10 +17,12 @@ $GhostSpawn4.position,
 
 func _ready() -> void:
 	GlobalVariables.boat_view = self
+	spawn_ghost()
 
 func spawn_ghost():
 	var ghost := GHOST_PATH.instantiate()
 	add_child(ghost)
 	ghost.position = ghost_spawns.pick_random()
+	ghost.velocity = (ghost.global_position.direction_to($LightOccluder2D.global_position) ).normalized() * 400.0
 	await get_tree().create_timer(randf_range(min_time_ghost, max_time_ghost)).timeout
 	spawn_ghost()
