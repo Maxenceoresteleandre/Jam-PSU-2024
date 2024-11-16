@@ -6,11 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://buf4qtgavs5sf" path="res://resources/art/sea_view/water.png" id="4_8wy6i"]
 [ext_resource type="PackedScene" uid="uid://c2a0nbvglukoh" path="res://scenes/characters/SmallBoat.tscn" id="4_ms5o0"]
 [ext_resource type="PackedScene" uid="uid://b0ew2d3ov7rsc" path="res://scenes/environment/BoatView.tscn" id="5_wi4hj"]
-[ext_resource type="PackedScene" path="res://scenes/environment/Obstacle.tscn" id="7_55r16"]
+[ext_resource type="PackedScene" uid="uid://c1lbji6onqrmq" path="res://scenes/environment/Obstacle.tscn" id="7_55r16"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="8_ccdmm"]
 [ext_resource type="PackedScene" uid="uid://cu3ayfi7cnbdj" path="res://scenes/utilities/CameraUtils.tscn" id="8_qu3r4"]
 [ext_resource type="PackedScene" uid="uid://s16w4sliprif" path="res://scenes/characters/ennemies/Shark.tscn" id="9_iafle"]
-[ext_resource type="PackedScene" path="res://scenes/characters/ennemies/Underwater.tscn" id="10_071nf"]
+[ext_resource type="PackedScene" uid="uid://cpee5frran2j0" path="res://scenes/characters/ennemies/Underwater.tscn" id="10_071nf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x28q6"]
 shader = ExtResource("1_cwibs")
@@ -66,6 +66,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 10000, 10000)
 
 [node name="SmallBoat" parent="." instance=ExtResource("4_ms5o0")]
+health = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="SmallBoat"]
 position = Vector2(-300, -17)

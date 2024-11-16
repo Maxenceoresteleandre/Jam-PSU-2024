@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name SmallBoat
 
 const CANNONBALL_RES := preload("res://scenes/environment/cannonball_sea.tscn")
+const GAMEOVER_SCREEN := preload("res://scenes/UI/GameOver.tscn")
 const COAL_CONSUMPTION_TIME := 17.5
 const COAL_CONS_MULT := {
 	SPEEDS.REVERSE : 1.0,
@@ -75,6 +76,11 @@ func set_turn(value : float):
 func damage(damage: float):
 	health -= damage
 	$Camera2D/CameraUtils.shake(0.3, 7, 20, 2)
+	if health == 0:
+		show_game_over()
+		
+func show_game_over():
+	get_tree().change_scene_to_packed(GAMEOVER_SCREEN)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
