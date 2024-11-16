@@ -25,10 +25,11 @@ size = Vector2(17, 644.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwfyc"]
 size = Vector2(30.5, 435.201)
 
-[node name="BoatView" type="Node2D"]
+[node name="BoatView" type="Node2D" node_paths=PackedStringArray("cannons")]
 z_index = 100
 texture_filter = 1
 script = ExtResource("1_y42bq")
+cannons = [NodePath("Cannon"), NodePath("Cannon2"), NodePath("Cannon3"), NodePath("Cannon4")]
 
 [node name="WhitePixel" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
