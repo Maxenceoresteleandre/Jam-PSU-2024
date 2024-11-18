@@ -38,7 +38,7 @@ func set_speed(new_speed : int):
 	$CanvasLayer/AudioStreamLever.play()
 
 func set_flames_height(flames_height : float):
-	$Flames.position.y = 50 - flames_height * 50.0
+	$CanvasLayer/Flames.position.y = 50 - flames_height * 50.0
 
 func spawn_enemy():
 	const ENEMIES = [
