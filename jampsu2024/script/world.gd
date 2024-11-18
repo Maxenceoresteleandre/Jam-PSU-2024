@@ -44,20 +44,6 @@ func set_speed(new_speed : int):
 func set_flames_height(flames_height : float):
 	$CanvasLayer/Flames.position.y = 50 - flames_height * 50.0
 
-func spawn_rock():
-	const OBSTACLES = [
-		preload("res://scenes/environment/Obstacle.tscn"),
-		preload("res://scenes/environment/large_obstacle.tscn"),
-		preload("res://scenes/environment/BreakableObstacle.tscn")
-	]
-	var rd := randi_range(0, 15)
-	if rd <= 5: 
-		spawn_m(OBSTACLES[0])
-	elif rd < 9:
-		spawn_m(OBSTACLES[1])
-	elif rd <= 20 or score <= 30:
-		spawn_m(OBSTACLES[2])
-
 func spawn_enemy():
 	const ENEMIES = [
 		preload("res://scenes/characters/ennemies/Shark.tscn"),

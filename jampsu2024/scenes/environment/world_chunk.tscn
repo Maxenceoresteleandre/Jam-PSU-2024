@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dedgcbeue7ex2"]
+
+[ext_resource type="Texture2D" uid="uid://buf4qtgavs5sf" path="res://resources/art/sea_view/water.png" id="1_e5e3o"]
+[ext_resource type="Script" path="res://script/world_chunk.gd" id="1_uhsih"]
+[ext_resource type="PackedScene" uid="uid://yv7lcxf6b5ft" path="res://scenes/environment/Obstacle.tscn" id="3_wj7w1"]
+[ext_resource type="PackedScene" uid="uid://ghlk5m3hburu" path="res://scenes/environment/large_obstacle.tscn" id="4_w6t6b"]
+
+[node name="WorldChunk" type="Node2D"]
+script = ExtResource("1_uhsih")
+
+[node name="sea" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("1_e5e3o")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 2000)
+
+[node name="Obstacle" parent="." instance=ExtResource("3_wj7w1")]
+position = Vector2(-534, -617)
+
+[node name="LargeObstacle" parent="." instance=ExtResource("4_w6t6b")]
+position = Vector2(-440, 71)
