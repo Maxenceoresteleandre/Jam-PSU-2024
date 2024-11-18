@@ -1,6 +1,8 @@
 extends Node2D
 class_name WorldChunk
 
+signal player_in_chunk
+
 func _ready() -> void:
 	var nb_rocks := randi_range(10, 15)
 	for _i in range(nb_rocks):
@@ -26,3 +28,11 @@ func spawn_rock():
 		randf_range(-900.0, 900.0),
 		randf_range(-900.0, 900.0)
 	)
+
+func _on_destroy_radius_body_exited(body: Node2D) -> void:
+	if body is SmallBoat:
+		queue_free()
+
+func _on_enter_area_2d_body_entered(body: Node2D) -> void:
+	if body is SmallBoat:
+		emit_signal("player_in_chunk")
