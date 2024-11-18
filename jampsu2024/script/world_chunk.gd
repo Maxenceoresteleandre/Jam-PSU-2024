@@ -3,6 +3,8 @@ class_name WorldChunk
 
 signal player_in_chunk
 
+@export var chunk_pos : Vector2i
+
 func _ready() -> void:
 	var nb_rocks := randi_range(10, 15)
 	for _i in range(nb_rocks):

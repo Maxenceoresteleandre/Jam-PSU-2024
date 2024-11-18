@@ -72,26 +72,26 @@ position = Vector2(1590, 636)
 
 [node name="WorldChunk" parent="." instance=ExtResource("9_opkuk")]
 
-[node name="WorldChunk2" parent="." instance=ExtResource("9_opkuk")]
+[node name="WorldChunkBottom" parent="." instance=ExtResource("9_opkuk")]
 position = Vector2(0, 2000)
 
-[node name="WorldChunk3" parent="." instance=ExtResource("9_opkuk")]
+[node name="WorldChunkTop" parent="." instance=ExtResource("9_opkuk")]
 position = Vector2(0, -2000)
 
-[node name="WorldChunk4" parent="." instance=ExtResource("9_opkuk")]
+[node name="WorldChunkTopRight" parent="." instance=ExtResource("9_opkuk")]
 position = Vector2(2000, -2000)
 
-[node name="WorldChunk5" parent="." instance=ExtResource("9_opkuk")]
+[node name="WorldChunkTopLeft" parent="." instance=ExtResource("9_opkuk")]
 position = Vector2(-2000, -2000)
 
-[node name="WorldChunk6" parent="." instance=ExtResource("9_opkuk")]
+[node name="WorldChunkLeft" parent="." instance=ExtResource("9_opkuk")]
 position = Vector2(-2000, 0)
 
-[node name="WorldChunk7" parent="." instance=ExtResource("9_opkuk")]
+[node name="WorldChunkRight" parent="." instance=ExtResource("9_opkuk")]
 position = Vector2(2000, 0)
 
-[node name="WorldChunk8" parent="." instance=ExtResource("9_opkuk")]
+[node name="WorldChunkBottomRight" parent="." instance=ExtResource("9_opkuk")]
 position = Vector2(2000, 2000)
 
-[node name="WorldChunk9" parent="." instance=ExtResource("9_opkuk")]
+[node name="WorldChunkBottomLeft" parent="." instance=ExtResource("9_opkuk")]
 position = Vector2(-2000, 2000)

@@ -2,11 +2,27 @@ extends Node2D
 class_name SeaView
 
 
+var current_chunk := Vector2i(0, 0)
+
+@onready var chunks := {
+	Vector2i(0, 0) : $WorldChunk,
+	Vector2i(0, -1) : $WorldChunkTop,
+	Vector2i(-1, -1) : $WorldChunkTopLeft,
+	Vector2i(1, -1) : $WorldChunkTopRight,
+	Vector2i(0, 1) : $WorldChunkBottom,
+	Vector2i(-1, 0) : $WorldChunkLeft,
+	Vector2i(-1, 1) : $WorldChunkBottomLeft,
+	Vector2i(1, 0) : $WorldChunkRight,
+	Vector2i(1, 1) : $WorldChunkBottomRight 
+}
 
 
 func _ready() -> void:
 	GlobalVariables.sea_view = self
 
+func spawn_chunk():
+	const CHUNK_PATH := preload("res://scenes/environment/world_chunk.tscn")
+	
 
 func spawn_enemy():
 	const ENEMIES = [
