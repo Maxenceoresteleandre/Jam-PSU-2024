@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://jtfb1qdeivcs"]
+[gd_scene load_steps=10 format=3 uid="uid://jtfb1qdeivcs"]
 
 [ext_resource type="PackedScene" uid="uid://yv7lcxf6b5ft" path="res://scenes/environment/Obstacle.tscn" id="1_cvjyb"]
 [ext_resource type="Script" path="res://script/breakable_obstacle.gd" id="2_46n2h"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dbej5kk7p5u78" path="res://resources/art/sea_view/Récifs/Animated rocher cassé2.png" id="4_g1r1s"]
 [ext_resource type="Texture2D" uid="uid://b5yvdmegioxs0" path="res://resources/art/sea_view/Récifs/Animated rocher cassé3.png" id="5_t17pf"]
 [ext_resource type="Texture2D" uid="uid://b0h3ln7mn6qww" path="res://resources/art/sea_view/Récifs/Animated rocher cassé4.png" id="6_cok5k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qy53e"]
+size = Vector2(90, 60)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h5nj2"]
 animations = [{
@@ -36,6 +39,10 @@ gravity = Vector3(0, 98, 0)
 [node name="BreakableObstacle" instance=ExtResource("1_cvjyb")]
 script = ExtResource("2_46n2h")
 randomize_sprite = false
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-3, 13)
+shape = SubResource("RectangleShape2D_qy53e")
 
 [node name="Icon" parent="." index="1"]
 scale = Vector2(3.5, 3.5)
