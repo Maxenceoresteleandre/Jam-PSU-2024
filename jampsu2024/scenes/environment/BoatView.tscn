@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b0ew2d3ov7rsc"]
+[gd_scene load_steps=20 format=3 uid="uid://b0ew2d3ov7rsc"]
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="1_ecoml"]
@@ -31,6 +31,12 @@ polygon = PackedVector2Array(26, 1164, 9, -89, 50, -67, 68, 1175)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h4vdd"]
 polygon = PackedVector2Array(-706, 1159, -750, -72, 50, -67, 68, 1175)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38kkr"]
+size = Vector2(286, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30dma"]
+size = Vector2(11, 54.5625)
 
 [node name="BoatView" type="Node2D" node_paths=PackedStringArray("cannons")]
 z_index = 100
@@ -165,6 +171,22 @@ occluder_light_mask = 3
 [node name="LightOccluderSea" type="LightOccluder2D" parent="."]
 position = Vector2(668, 48)
 occluder = SubResource("OccluderPolygon2D_h4vdd")
+
+[node name="StaticBodyInsideGuard" type="StaticBody2D" parent="."]
+position = Vector2(335, 895)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyInsideGuard"]
+position = Vector2(17, 2)
+shape = SubResource("RectangleShape2D_38kkr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBodyInsideGuard"]
+position = Vector2(-125.5, 30.4375)
+shape = SubResource("RectangleShape2D_30dma")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBodyInsideGuard"]
+position = Vector2(156, 31.7188)
+shape = SubResource("RectangleShape2D_30dma")
 
 [node name="GhostSpawn" type="Node2D" parent="."]
 position = Vector2(307, -123)
