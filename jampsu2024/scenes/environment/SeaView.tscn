@@ -59,7 +59,6 @@ collision_mask = 0
 
 [node name="Camera2D" type="Camera2D" parent="SmallBoat"]
 position = Vector2(-300, -17)
-zoom = Vector2(0.3, 0.3)
 
 [node name="CameraUtils" parent="SmallBoat/Camera2D" instance=ExtResource("8_qu3r4")]
 

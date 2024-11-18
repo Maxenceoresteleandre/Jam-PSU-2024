@@ -32,6 +32,7 @@ texture_filter = 1
 position = Vector2(43, -18)
 scale = Vector2(3, 3)
 color = Color(0.729336, 0.54108, 0, 1)
+range_z_max = 50
 shadow_enabled = true
 texture = ExtResource("3_mkl0v")
 
