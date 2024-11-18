@@ -81,3 +81,5 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ro2v3")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_ro2v3")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ro2v3")
 text = "rejouer"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
