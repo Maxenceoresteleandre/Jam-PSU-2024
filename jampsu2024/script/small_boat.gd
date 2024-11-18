@@ -31,9 +31,9 @@ const MAX_OIL_TIME := 20.0
 var oil_lightouse_remaining_time := MAX_OIL_TIME
 
 enum SPEEDS {
-	REVERSE = -70,
+	REVERSE = -100,
 	STOPPED = 0,
-	SLOW = 70,
+	SLOW = 100,
 	FAST = 140
 } 
 
@@ -52,8 +52,8 @@ var cannons_offsets = [
 ]
 var can_move = true
 var max_health = 100.0
-var speed: float = 125
-@export var current_speed:SPEEDS = SPEEDS.SLOW
+var speed: float = 70
+@export var current_speed: int = SPEEDS.SLOW
 @export var hit_obstacle_min_speed = 50
 @export var health: float = max_health
 @export var direction: Vector2 = Vector2(1,0)
@@ -142,19 +142,47 @@ func set_ship_sprite(d : Directions):
 	$AnimatedSprite2D.flip_h = DIRECTION_ANIMS[d][1]
 
 func damage(damage: float):
+	if health <= 0:
+		return
 	$AudioStreamPlayer.play()
-	health -= damage
-	$Camera2D/CameraUtils.shake(0.3, 7, 20, 2)
+	health -= damage * 1.75
+	$Camera2D/CameraUtils.shake(0.3, 10, 40, 2)
 	GlobalVariables.world.set_life(health)
-	if health == 0:
+	if health <= 0:
+		set_speed(SPEEDS.STOPPED)
+		GlobalVariables.world.cut_music()
+		$AnimatedSprite2D/AnimationPlayer.play("death")
+		play_hit_sound_loop(5)
+		await get_tree().create_timer(2.5).timeout
 		show_game_over()
-		
+	else:
+		$AnimatedSprite2D/AnimationPlayer.play("hit")
+
+func play_hit_sound_loop(n : int):
+	for _i in range(n):
+		await get_tree().create_timer(0.25).timeout
+		$AudioStreamPlayer.play()
+
 func show_game_over():
 	get_tree().change_scene_to_packed(GAMEOVER_SCREEN)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	# set boat view water
+	var water_speed := 1.0
+	GlobalVariables.boat_view.set_water_movement(speed)
+	# set coal consumption
+	remaining_coal_time -= delta * COAL_CONS_MULT[current_speed]
+	GlobalVariables.world.set_flames_height(remaining_coal_time / COAL_CONSUMPTION_TIME)
+	if remaining_coal_time <= 0.0 and current_speed != SPEEDS.STOPPED:
+		if GlobalVariables.steam_engine.consume_coal():
+			remaining_coal_time = COAL_CONSUMPTION_TIME
+			$PointLightHouse.visible = true
+			$AudioEngineUp.play()
+		else:
+			set_speed(SPEEDS.STOPPED)
+			$PointLightHouse.visible = false
+			$AudioEngineDown.play()
 	#oil_lightouse_remaining_time -= delta
 	#if oil_lightouse_remaining_time <= 0.0:
 		#if GlobalVariables.light_house.consume_OIL():
@@ -162,13 +190,6 @@ func _process(delta: float) -> void:
 			#oil_lightouse_remaining_time = MAX_OIL_TIME
 		#else:
 			#$PointLightHouse.visible = false
-	#$coal_debug.text = str(remaining_coal_time)
-	#remaining_coal_time -= delta * COAL_CONS_MULT[current_speed]
-	#if remaining_coal_time <= 0.0 and current_speed != SPEEDS.STOPPED:
-		#if GlobalVariables.steam_engine.consume_coal():
-			#remaining_coal_time = COAL_CONSUMPTION_TIME
-		#else:
-			#set_speed(SPEEDS.STOPPED)
 
 func _physics_process(_delta: float) -> void:
 	$speed_debug.text = "speed : " + str(speed)
@@ -179,7 +200,8 @@ func _physics_process(_delta: float) -> void:
 func set_speed(value: SPEEDS):
 	current_speed = value
 	var t := create_tween().set_trans(Tween.TRANS_CUBIC)
-	t.tween_property(self, "speed", value, 0.9)
+	t.tween_property(self, "speed", value, 1.0)
+	GlobalVariables.world.set_speed(current_speed)
 
 func set_line_direction(index: int, direction: float):
 	lines[index].rotation = direction
@@ -204,7 +226,7 @@ func set_speed_change(speed_offset : float):
 				set_speed(SPEEDS.SLOW)
 			elif current_speed == SPEEDS.SLOW:
 				set_speed(SPEEDS.FAST)
-		await get_tree().create_timer(1.3).timeout
+		await get_tree().create_timer(0.9).timeout
 		can_change_speed = true
 
 func shoot(index: int, dir : Vector2):

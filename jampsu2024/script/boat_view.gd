@@ -13,11 +13,21 @@ $GhostSpawn3.position,
 $GhostSpawn4.position,
 ]
 
+var current_water_time := 0.0
+var water_time_scale := 0.7
+
 
 
 func _ready() -> void:
 	GlobalVariables.boat_view = self
-	#spawn_ghost()
+	spawn_ghost()
+
+func _process(delta: float) -> void:
+	current_water_time += delta * water_time_scale
+	$water.material.set_shader_parameter("time", current_water_time)
+
+func set_water_movement(speed : float):
+	water_time_scale = speed / 100.0
 
 func spawn_ghost():
 	var ghost := GHOST_PATH.instantiate()

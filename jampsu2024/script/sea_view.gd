@@ -2,15 +2,37 @@ extends Node2D
 class_name SeaView
 
 
+var current_chunk := Vector2i(0, 0)
+
+@onready var chunks := {
+	Vector2i(0, 0) : $WorldChunk,
+	Vector2i(0, -1) : $WorldChunkTop,
+	Vector2i(-1, -1) : $WorldChunkTopLeft,
+	Vector2i(1, -1) : $WorldChunkTopRight,
+	Vector2i(0, 1) : $WorldChunkBottom,
+	Vector2i(-1, 0) : $WorldChunkLeft,
+	Vector2i(-1, 1) : $WorldChunkBottomLeft,
+	Vector2i(1, 0) : $WorldChunkRight,
+	Vector2i(1, 1) : $WorldChunkBottomRight 
+}
 
 
 func _ready() -> void:
 	GlobalVariables.sea_view = self
-	print(GlobalVariables.sea_view)
+	await get_tree().create_timer(0.5).timeout
+	for k : Vector2i in chunks.keys():
+		var obj : WorldChunk = chunks[k]
+		obj.already_in_chunk = false
+		obj.connect("player_in_chunk", enter_chunk.bind(obj.chunk_pos))
 
+func enter_chunk(chunk_pos : Vector2i):
+	pass
+
+func spawn_chunk():
+	const CHUNK_PATH := preload("res://scenes/environment/world_chunk.tscn")
+	
 
 func spawn_enemy():
-	print("hello")
 	const ENEMIES = [
 		preload("res://scenes/characters/ennemies/Shark.tscn"),
 		preload("res://scenes/characters/ennemies/sharklvl2.tscn"),

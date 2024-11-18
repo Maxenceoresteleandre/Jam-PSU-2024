@@ -14,7 +14,7 @@ const PLAYER_ANIMS : Array[String] = [
 @export var anim_num := 0
 @export var control_device := 0
 @export var player_color := Color.WHITE
-@export var speed := 200
+@export var speed := 320
 
 var right_pressed := false
 var left_pressed := false

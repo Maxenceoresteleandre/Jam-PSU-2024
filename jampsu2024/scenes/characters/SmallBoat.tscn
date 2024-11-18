@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c2a0nbvglukoh"]
+[gd_scene load_steps=43 format=3 uid="uid://c2a0nbvglukoh"]
 
 [ext_resource type="Script" path="res://script/small_boat.gd" id="1_ayldm"]
 [ext_resource type="Shader" path="res://resources/shader/line.gdshader" id="3_cfkk8"]
@@ -26,8 +26,9 @@
 [ext_resource type="Texture2D" uid="uid://dq2gqpdlhti4c" path="res://resources/art/sea_view/ship/ship sprites/facing up/ship up stopped.png" id="24_vkmwf"]
 [ext_resource type="AudioStream" uid="uid://dty676jy4ipa" path="res://resources/audio/impact_bateau.wav" id="25_0jdm8"]
 [ext_resource type="Texture2D" uid="uid://pwlogsvvhx3o" path="res://resources/shader/WaterTrailGradient.png" id="26_ikl7f"]
-[ext_resource type="Shader" uid="uid://3dkt385m8auv" path="res://resources/shader/RippleShader.tres" id="26_l484s"]
 [ext_resource type="Script" path="res://script/water_trail.gd" id="27_c6ifn"]
+[ext_resource type="AudioStream" uid="uid://dnldpflxm1smr" path="res://resources/audio/engine_power_up.wav" id="28_cqrpg"]
+[ext_resource type="AudioStream" uid="uid://diblh0dc7e1c1" path="res://resources/audio/engine_power_down.wav" id="28_fgdvx"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qbyrv"]
 particle_flag_disable_z = true
@@ -177,13 +178,59 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kbe5d"]
-shader = ExtResource("26_l484s")
-shader_parameter/InitialAlpha = 0.46
-shader_parameter/Speed = 0.1
-shader_parameter/QuantizeColourAmount = 6.0
-shader_parameter/BrightnessOffset = null
-shader_parameter/UpperCutoff = 0.3
+[sub_resource type="Animation" id="Animation_qge2o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wjmoq"]
+resource_name = "death"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(100, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_euh8b"]
+resource_name = "hit"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(100, 0, 0, 1), Color(1, 1, 1, 1), Color(100, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k2eyv"]
+_data = {
+"RESET": SubResource("Animation_qge2o"),
+"death": SubResource("Animation_wjmoq"),
+"hit": SubResource("Animation_euh8b")
+}
 
 [sub_resource type="Curve" id="Curve_7xspy"]
 max_value = 21.28
@@ -303,17 +350,8 @@ texture_filter = 1
 position = Vector2(38, 31)
 scale = Vector2(3, 3)
 color = Color(0.58479, 0.693539, 0.299293, 1)
-range_item_cull_mask = 3
-shadow_enabled = true
 texture = ExtResource("4_dbmac")
 texture_scale = 5.0
-
-[node name="Sprite2D" type="Sprite2D" parent="PointLight2D2"]
-visible = false
-modulate = Color(0.997844, 0.552907, 0, 0.449)
-position = Vector2(-1.66667, -0.666667)
-scale = Vector2(5, 5)
-texture = ExtResource("4_dbmac")
 
 [node name="PointLightHouse" type="PointLight2D" parent="."]
 texture_filter = 1
@@ -326,13 +364,17 @@ texture = ExtResource("5_qqabn")
 offset = Vector2(175, 0)
 texture_scale = 4.0
 
-[node name="Sprite2D2" type="Sprite2D" parent="PointLightHouse"]
-visible = false
-modulate = Color(0.997844, 0.552907, 0, 0.449)
-position = Vector2(5, 5)
-scale = Vector2(5, 5)
-texture = ExtResource("5_qqabn")
-offset = Vector2(40, 0)
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+texture_filter = 1
+position = Vector2(549, 16)
+rotation = 3.14159
+scale = Vector2(3, 3)
+color = Color(0.58479, 0.693539, 0.299293, 1)
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = ExtResource("4_dbmac")
+offset = Vector2(175, 0)
+texture_scale = 5.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -342,16 +384,28 @@ sprite_frames = SubResource("SpriteFrames_g54dr")
 animation = &"down_right_m"
 speed_scale = 1.2
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_k2eyv")
+}
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("25_0jdm8")
 volume_db = -7.0
 
 [node name="WaterTrail" type="Line2D" parent="."]
 z_index = -1
-material = SubResource("ShaderMaterial_kbe5d")
-points = PackedVector2Array(43, 73, -64, -43, -121, -86, -288, -209)
+points = PackedVector2Array(43, 73, -64, -43, -169, -139, -258, -208)
 width_curve = SubResource("Curve_7xspy")
 gradient = SubResource("Gradient_13it1")
 texture = ExtResource("26_ikl7f")
 texture_mode = 1
 script = ExtResource("27_c6ifn")
+
+[node name="AudioEngineUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_cqrpg")
+volume_db = -15.0
+
+[node name="AudioEngineDown" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_fgdvx")
+volume_db = -15.0

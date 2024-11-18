@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://script/ship_light.gd" id="2_a44ww"]
 [ext_resource type="Shader" path="res://resources/shader/outline.gdshader" id="2_nqiod"]
 [ext_resource type="Texture2D" uid="uid://ck848jgqvlr6i" path="res://resources/art/boat_view/ship/Flambeau animated1.png" id="5_ei2de"]
-[ext_resource type="Texture2D" uid="uid://dwlufm0mapnsy" path="res://resources/art/lights/ship_small_light.png" id="5_q87sj"]
 [ext_resource type="Texture2D" uid="uid://8ivo4xgv1ilp" path="res://resources/art/boat_view/ship/Flambeau animated2.png" id="6_w4gxo"]
 [ext_resource type="Texture2D" uid="uid://dd5r7j1baa7p7" path="res://resources/art/boat_view/ship/Flambeau animated3.png" id="7_j62fv"]
 [ext_resource type="Texture2D" uid="uid://2sc76k32sifg" path="res://resources/art/boat_view/ship/Flambeau animated4.png" id="8_0jlwy"]
+[ext_resource type="Texture2D" uid="uid://mwnuifnghf6c" path="res://resources/art/lights/ship_small_light2.png" id="8_sqwmh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gs0xj"]
 size = Vector2(70, 70)
@@ -42,7 +42,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_glnq4"]
-radius = 182.003
+radius = 363.022
 
 [node name="ShipLight" instance=ExtResource("1_6xq6j")]
 script = ExtResource("2_a44ww")
@@ -57,6 +57,7 @@ scale = Vector2(5, 5)
 texture = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite" index="0"]
+use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_rsf6u")
 frame_progress = 0.39271
 
@@ -65,8 +66,10 @@ frame_progress = 0.39271
 [node name="PointLight2D" type="PointLight2D" parent="." index="3"]
 color = Color(0.723944, 0.537497, 0, 1)
 energy = 0.75
+range_item_cull_mask = 3
 shadow_enabled = true
-texture = ExtResource("5_q87sj")
+shadow_item_cull_mask = 2
+texture = ExtResource("8_sqwmh")
 texture_scale = 15.0
 
 [node name="Area2D" type="Area2D" parent="." index="4"]

@@ -1,15 +1,24 @@
-[gd_scene load_steps=17 format=3 uid="uid://b0ew2d3ov7rsc"]
+[gd_scene load_steps=30 format=3 uid="uid://b0ew2d3ov7rsc"]
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
-[ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="1_ecoml"]
 [ext_resource type="Script" path="res://script/boat_view.gd" id="1_y42bq"]
+[ext_resource type="Shader" path="res://resources/shader/moving_water.gdshader" id="2_b12bf"]
+[ext_resource type="Texture2D" uid="uid://buf4qtgavs5sf" path="res://resources/art/sea_view/water.png" id="2_c1bcn"]
 [ext_resource type="PackedScene" uid="uid://dk2rkvhposxkf" path="res://scenes/characters/player_character.tscn" id="2_rrqf3"]
 [ext_resource type="PackedScene" uid="uid://d1e3duvrjeqii" path="res://scenes/environment/interactible_objects/cannon.tscn" id="5_8vw4u"]
 [ext_resource type="PackedScene" uid="uid://8x20osbchfve" path="res://scenes/environment/interactible_objects/ship_wheel.tscn" id="5_ix3x2"]
 [ext_resource type="PackedScene" uid="uid://cvxjpkvp6vgfr" path="res://scenes/environment/interactible_objects/interactible_resources.tscn" id="7_8y7oe"]
 [ext_resource type="PackedScene" uid="uid://bc8dk4ly01i3h" path="res://scenes/environment/interactible_objects/engine.tscn" id="8_e4w2j"]
+[ext_resource type="Shader" path="res://resources/shader/outline.gdshader" id="8_jpfla"]
+[ext_resource type="Texture2D" uid="uid://b7150c18rafv8" path="res://resources/art/boat_view/ship/Boulets de canon.png" id="9_maakb"]
 [ext_resource type="PackedScene" uid="uid://duqdi0n0ql27i" path="res://scenes/environment/interactible_objects/light_house.tscn" id="9_nborx"]
 [ext_resource type="PackedScene" uid="uid://btc1len2ws85b" path="res://scenes/environment/interactible_objects/ship_light.tscn" id="10_pau2v"]
+[ext_resource type="Texture2D" uid="uid://boinnau2rox8w" path="res://resources/art/boat_view/ship/Trappe à charbon.png" id="14_bqrmx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3wf21"]
+shader = ExtResource("2_b12bf")
+shader_parameter/motion = Vector2(0, -0.5)
+shader_parameter/time = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vhkfm"]
 radius = 90.0
@@ -23,23 +32,68 @@ size = Vector2(17, 644.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwfyc"]
 size = Vector2(30.5, 435.201)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htrw0"]
+size = Vector2(127, 40)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cdy7w"]
+resource_local_to_scene = true
+shader = ExtResource("8_jpfla")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ib1n"]
+resource_local_to_scene = true
+shader = ExtResource("8_jpfla")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_47fhp"]
 polygon = PackedVector2Array(-58, 64, -96, 2, -61, -69, 50, -67, 86, -5, 53, 68)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yv58s"]
 polygon = PackedVector2Array(26, 1164, 9, -89, 50, -67, 68, 1175)
 
-[node name="BoatView" type="Node2D" node_paths=PackedStringArray("cannons")]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h4vdd"]
+polygon = PackedVector2Array(-706, 1159, -750, -72, 50, -67, 68, 1175)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38kkr"]
+size = Vector2(286, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30dma"]
+size = Vector2(11, 54.5625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3sook"]
+size = Vector2(66, 68)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b7e16"]
+resource_local_to_scene = true
+shader = ExtResource("8_jpfla")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[node name="BoatView" type="Node2D"]
 z_index = 100
 texture_filter = 1
 script = ExtResource("1_y42bq")
-cannons = [NodePath("Cannon"), NodePath("Cannon2"), NodePath("Cannon3"), NodePath("Cannon4")]
 
-[node name="WhitePixel" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(338.5, 553.5)
-scale = Vector2(723, 1273)
-texture = ExtResource("1_ecoml")
+[node name="water" type="Sprite2D" parent="."]
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
+texture_repeat = 2
+material = SubResource("ShaderMaterial_3wf21")
+position = Vector2(353, 647)
+texture = ExtResource("2_c1bcn")
+offset = Vector2(-150, 0)
+region_enabled = true
+region_rect = Rect2(0, 0, 1000, 2000)
 
 [node name="ShipSprite" type="Sprite2D" parent="."]
 position = Vector2(350.5, 556)
@@ -124,38 +178,64 @@ rotation = 0.672534
 shape = SubResource("RectangleShape2D_xwfyc")
 
 [node name="InteractibleResourcesBalls" parent="." instance=ExtResource("7_8y7oe")]
-position = Vector2(349, 803)
+position = Vector2(283, 845)
 resource = 1
 
+[node name="CollisionShape2D" parent="InteractibleResourcesBalls" index="0"]
+position = Vector2(-13.5, 30)
+shape = SubResource("RectangleShape2D_htrw0")
+
+[node name="Sprite" parent="InteractibleResourcesBalls" index="1"]
+material = SubResource("ShaderMaterial_cdy7w")
+position = Vector2(-12, 29)
+texture = ExtResource("9_maakb")
+
 [node name="Engine" parent="." instance=ExtResource("8_e4w2j")]
-visible = false
-position = Vector2(-850, 772)
+position = Vector2(437, 879)
 
 [node name="LightHouse" parent="." instance=ExtResource("9_nborx")]
 position = Vector2(357, 561)
 
-[node name="ShipLight" parent="." instance=ExtResource("10_pau2v")]
-position = Vector2(123, 422)
-
-[node name="ShipLight2" parent="." instance=ExtResource("10_pau2v")]
-position = Vector2(352, 160)
-
-[node name="ShipLight3" parent="." instance=ExtResource("10_pau2v")]
-position = Vector2(566, 420)
-
 [node name="ShipLight5" parent="." instance=ExtResource("10_pau2v")]
-position = Vector2(105, 1066)
+position = Vector2(344, 113)
+
+[node name="Sprite" parent="ShipLight5" index="1"]
+material = SubResource("ShaderMaterial_4ib1n")
+position = Vector2(5, -32)
 
 [node name="ShipLight6" parent="." instance=ExtResource("10_pau2v")]
-position = Vector2(594, 1064)
+position = Vector2(350, 702)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 position = Vector2(352, 648)
 occluder = SubResource("OccluderPolygon2D_47fhp")
+occluder_light_mask = 2
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
 position = Vector2(668, 48)
 occluder = SubResource("OccluderPolygon2D_yv58s")
+occluder_light_mask = 3
+
+[node name="LightOccluderSea" type="LightOccluder2D" parent="."]
+position = Vector2(668, 48)
+occluder = SubResource("OccluderPolygon2D_h4vdd")
+
+[node name="StaticBodyInsideGuard" type="StaticBody2D" parent="."]
+position = Vector2(335, 895)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyInsideGuard"]
+position = Vector2(17, 2)
+shape = SubResource("RectangleShape2D_38kkr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBodyInsideGuard"]
+position = Vector2(-125.5, 30.4375)
+shape = SubResource("RectangleShape2D_30dma")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBodyInsideGuard"]
+position = Vector2(156, 31.7188)
+shape = SubResource("RectangleShape2D_30dma")
 
 [node name="GhostSpawn" type="Node2D" parent="."]
 position = Vector2(307, -123)
@@ -168,3 +248,18 @@ position = Vector2(361, 1239)
 
 [node name="GhostSpawn4" type="Node2D" parent="."]
 position = Vector2(786, 625)
+
+[node name="InteractibleResources" parent="." instance=ExtResource("7_8y7oe")]
+position = Vector2(346, 375)
+resource = 2
+
+[node name="CollisionShape2D" parent="InteractibleResources" index="0"]
+shape = SubResource("RectangleShape2D_3sook")
+
+[node name="Sprite" parent="InteractibleResources" index="1"]
+material = SubResource("ShaderMaterial_b7e16")
+texture = ExtResource("14_bqrmx")
+
+[editable path="InteractibleResourcesBalls"]
+[editable path="ShipLight5"]
+[editable path="InteractibleResources"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1e3duvrjeqii"]
+[gd_scene load_steps=8 format=3 uid="uid://d1e3duvrjeqii"]
 
 [ext_resource type="PackedScene" uid="uid://bxw152aldsit3" path="res://scenes/environment/interactible_objects/interactible_object.tscn" id="1_5f7lk"]
 [ext_resource type="Shader" path="res://resources/shader/outline.gdshader" id="2_bfv8o"]
 [ext_resource type="Script" path="res://script/cannon.gd" id="2_cf3jc"]
 [ext_resource type="Texture2D" uid="uid://qorcsva5r5wh" path="res://resources/art/boat_view/ship/Canon.png" id="3_s1mjq"]
+[ext_resource type="AudioStream" uid="uid://b31p4a1qm8qtp" path="res://resources/audio/cannon.wav" id="5_6vnl4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxr3e"]
 size = Vector2(100, 50)
@@ -33,3 +34,7 @@ shape = SubResource("RectangleShape2D_jxr3e")
 material = SubResource("ShaderMaterial_cp15w")
 scale = Vector2(5, 5)
 texture = ExtResource("3_s1mjq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource("5_6vnl4")
+volume_db = 20.0

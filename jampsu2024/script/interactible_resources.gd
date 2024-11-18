@@ -22,13 +22,13 @@ const CRATE_SPRITES := [
 @export var resource : ResourceTypes
 @export var can_interact_forever := true
 
-func _ready() -> void:
-	var resource_sprite : Collectible = COLLECTIBLE_PATH.instantiate()
-	self.add_child(resource_sprite)
-	print("resource_sprite : ", resource_sprite)
-	resource_sprite.texture = RESOURCES_SPRITE_RES[int(resource)]
-	
-	$Sprite.texture = CRATE_SPRITES[int(resource)]
+#func _ready() -> void:
+	#var resource_sprite : Collectible = COLLECTIBLE_PATH.instantiate()
+	#self.add_child(resource_sprite)
+	#print("resource_sprite : ", resource_sprite)
+	#resource_sprite.texture = RESOURCES_SPRITE_RES[int(resource)]
+	#
+	#$Sprite.texture = CRATE_SPRITES[int(resource)]
 
 func interact() -> void:
 	current_player

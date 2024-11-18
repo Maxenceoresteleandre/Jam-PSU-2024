@@ -11,3 +11,5 @@ var steam_engine : SteamEngine = null
 var light_house : LightHouse = null
 var world = null
 var camera_util : CameraUtils = null
+
+var custscenes_played : int = 0
