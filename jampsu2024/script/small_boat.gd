@@ -152,7 +152,7 @@ func damage(damage: float):
 		set_speed(SPEEDS.STOPPED)
 		$AnimatedSprite2D/AnimationPlayer.play("death")
 		play_hit_sound_loop(5)
-		await get_tree().create_timer(1.75).timeout
+		await get_tree().create_timer(2.5).timeout
 		show_game_over()
 	else:
 		$AnimatedSprite2D/AnimationPlayer.play("hit")
