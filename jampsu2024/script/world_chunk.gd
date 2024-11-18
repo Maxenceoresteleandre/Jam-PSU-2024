@@ -32,9 +32,6 @@ func spawn_rock():
 		randf_range(-900.0, 900.0)
 	)
 
-func _on_destroy_radius_body_exited(body: Node2D) -> void:
-	if body is SmallBoat:
-		queue_free()
 
 func _on_enter_area_2d_body_entered(body: Node2D) -> void:
 	if body is SmallBoat and not already_in_chunk:
