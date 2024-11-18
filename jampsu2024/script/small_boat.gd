@@ -181,9 +181,11 @@ func _process(delta: float) -> void:
 		if GlobalVariables.steam_engine.consume_coal():
 			remaining_coal_time = COAL_CONSUMPTION_TIME
 			$PointLightHouse.visible = true
+			$AudioEngineUp.play()
 		else:
 			set_speed(SPEEDS.STOPPED)
 			$PointLightHouse.visible = false
+			$AudioEngineDown.play()
 
 func _physics_process(_delta: float) -> void:
 	$speed_debug.text = "speed : " + str(speed)

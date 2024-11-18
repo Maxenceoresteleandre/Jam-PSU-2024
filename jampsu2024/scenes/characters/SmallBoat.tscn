@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c2a0nbvglukoh"]
+[gd_scene load_steps=43 format=3 uid="uid://c2a0nbvglukoh"]
 
 [ext_resource type="Script" path="res://script/small_boat.gd" id="1_ayldm"]
 [ext_resource type="Shader" path="res://resources/shader/line.gdshader" id="3_cfkk8"]
@@ -27,6 +27,8 @@
 [ext_resource type="AudioStream" uid="uid://dty676jy4ipa" path="res://resources/audio/impact_bateau.wav" id="25_0jdm8"]
 [ext_resource type="Texture2D" uid="uid://pwlogsvvhx3o" path="res://resources/shader/WaterTrailGradient.png" id="26_ikl7f"]
 [ext_resource type="Script" path="res://script/water_trail.gd" id="27_c6ifn"]
+[ext_resource type="AudioStream" uid="uid://dnldpflxm1smr" path="res://resources/audio/engine_power_up.wav" id="28_cqrpg"]
+[ext_resource type="AudioStream" uid="uid://diblh0dc7e1c1" path="res://resources/audio/engine_power_down.wav" id="28_fgdvx"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qbyrv"]
 particle_flag_disable_z = true
@@ -403,3 +405,9 @@ gradient = SubResource("Gradient_13it1")
 texture = ExtResource("26_ikl7f")
 texture_mode = 1
 script = ExtResource("27_c6ifn")
+
+[node name="AudioEngineUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_cqrpg")
+
+[node name="AudioEngineDown" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_fgdvx")
