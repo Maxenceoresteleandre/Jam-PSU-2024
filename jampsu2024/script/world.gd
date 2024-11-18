@@ -25,6 +25,16 @@ var can_re := true
 func set_life(new_life : float):
 	$CanvasLayer/Blood.position.x = 625 + (250 * (new_life / 100))
 
+func set_speed(new_speed : int):
+	const ROT_VALS_FROM_SPEED := {
+		-100 : -27.0, 
+		0: 0.0, 
+		100: 24.2, 
+		140: 47.8
+	}
+	var next_speed_rot_val : float = ROT_VALS_FROM_SPEED[new_speed]
+	var t := create_tween().set_trans(Tween.TRANS_CUBIC)
+	t.tween_property($CanvasLayer/TextureLever, "rotation_degrees", next_speed_rot_val, 1.0)
 
 func spawn_enemy():
 	const ENEMIES = [

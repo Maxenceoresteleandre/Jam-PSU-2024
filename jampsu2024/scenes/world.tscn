@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://oxak7bpjdska" path="res://scenes/environment/SeaView.tscn" id="3_ybsmw"]
 [ext_resource type="Texture2D" uid="uid://dbc3cqxd4vq7j" path="res://resources/art/furnace/blood bar.png" id="4_qd4dd"]
 [ext_resource type="Texture2D" uid="uid://ddx6n6arit6hs" path="res://resources/art/levier vitesse/cadran vide.png" id="5_xc153"]
-[ext_resource type="Texture2D" uid="uid://bao5sdhgu134p" path="res://resources/art/levier vitesse/levier de vitesse reverse.png" id="6_amc7e"]
+[ext_resource type="Texture2D" uid="uid://bum3pyacot1vl" path="res://resources/art/levier vitesse/levier_vitesse.png" id="6_rldy0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4oppc"]
 font_size = 111
@@ -63,14 +63,17 @@ offset_bottom = 1092.0
 texture = ExtResource("5_xc153")
 stretch_mode = 4
 
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer"]
+[node name="TextureLever" type="TextureRect" parent="CanvasLayer"]
 modulate = Color(0.510824, 0.635497, 0.620516, 1)
 texture_filter = 1
-offset_left = 1512.0
-offset_top = 642.0
-offset_right = 2501.0
-offset_bottom = 1092.0
-texture = ExtResource("6_amc7e")
+offset_left = 1632.0
+offset_top = 877.0
+offset_right = 2094.0
+offset_bottom = 1087.0
+rotation = 0.42237
+pivot_offset = Vector2(265, 167.5)
+texture = ExtResource("6_rldy0")
+expand_mode = 1
 stretch_mode = 4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

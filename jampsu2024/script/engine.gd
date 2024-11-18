@@ -24,8 +24,7 @@ func add_resource() -> void:
 	add_coal()
 
 func connect_to_player(player : PlayerCharacter):
-	set_can_change_speed_with_delay()
-	return super.connect_to_player(player)
+	return false
 
 func set_can_change_speed_with_delay():
 	can_change_speed = false
@@ -53,12 +52,12 @@ func consume_coal() -> bool:
 	else:
 		return false
 
-func _process(delta: float) -> void:
-	if current_player != null and can_change_speed:
-		var change_speed := 0.0
-		if current_player.down_pressed:
-			change_speed -= 1.0 
-		if current_player.up_pressed:
-			change_speed += 1.0
-		if change_speed > 0.5 or change_speed < -0.5:
-			GlobalVariables.small_boat.set_speed_change(change_speed)
+#func _process(delta: float) -> void:
+	#if current_player != null and can_change_speed:
+		#var change_speed := 0.0
+		#if current_player.down_pressed:
+			#change_speed -= 1.0 
+		#if current_player.up_pressed:
+			#change_speed += 1.0
+		#if change_speed > 0.5 or change_speed < -0.5:
+			#GlobalVariables.small_boat.set_speed_change(change_speed)

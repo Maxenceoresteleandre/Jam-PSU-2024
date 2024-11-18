@@ -31,9 +31,9 @@ const MAX_OIL_TIME := 20.0
 var oil_lightouse_remaining_time := MAX_OIL_TIME
 
 enum SPEEDS {
-	REVERSE = -70,
+	REVERSE = -100,
 	STOPPED = 0,
-	SLOW = 70,
+	SLOW = 100,
 	FAST = 140
 } 
 
@@ -52,8 +52,8 @@ var cannons_offsets = [
 ]
 var can_move = true
 var max_health = 100.0
-var speed: float = 125
-@export var current_speed:SPEEDS = SPEEDS.SLOW
+var speed: float = 70
+@export var current_speed: int = SPEEDS.SLOW
 @export var hit_obstacle_min_speed = 50
 @export var health: float = max_health
 @export var direction: Vector2 = Vector2(1,0)
@@ -192,7 +192,8 @@ func _physics_process(_delta: float) -> void:
 func set_speed(value: SPEEDS):
 	current_speed = value
 	var t := create_tween().set_trans(Tween.TRANS_CUBIC)
-	t.tween_property(self, "speed", value, 0.9)
+	t.tween_property(self, "speed", value, 1.0)
+	GlobalVariables.world.set_speed(current_speed)
 
 func set_line_direction(index: int, direction: float):
 	lines[index].rotation = direction
@@ -217,7 +218,7 @@ func set_speed_change(speed_offset : float):
 				set_speed(SPEEDS.SLOW)
 			elif current_speed == SPEEDS.SLOW:
 				set_speed(SPEEDS.FAST)
-		await get_tree().create_timer(1.3).timeout
+		await get_tree().create_timer(0.9).timeout
 		can_change_speed = true
 
 func shoot(index: int, dir : Vector2):
