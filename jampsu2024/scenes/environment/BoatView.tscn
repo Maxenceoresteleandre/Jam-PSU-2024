@@ -17,6 +17,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3wf21"]
 shader = ExtResource("2_b12bf")
+shader_parameter/motion = Vector2(0, -0.5)
+shader_parameter/time = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vhkfm"]
 radius = 90.0
@@ -78,17 +80,18 @@ shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
-[node name="BoatView" type="Node2D" node_paths=PackedStringArray("cannons")]
+[node name="BoatView" type="Node2D"]
 z_index = 100
 texture_filter = 1
 script = ExtResource("1_y42bq")
-cannons = [NodePath("Cannon"), NodePath("Cannon2"), NodePath("Cannon3"), NodePath("Cannon4")]
 
 [node name="water" type="Sprite2D" parent="."]
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
 texture_repeat = 2
 material = SubResource("ShaderMaterial_3wf21")
-position = Vector2(203, 395)
+position = Vector2(353, 647)
 texture = ExtResource("2_c1bcn")
+offset = Vector2(-150, 0)
 region_enabled = true
 region_rect = Rect2(0, 0, 1000, 2000)
 

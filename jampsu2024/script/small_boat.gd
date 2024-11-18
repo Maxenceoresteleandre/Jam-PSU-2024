@@ -167,6 +167,10 @@ func show_game_over():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	# set boat view water
+	var water_speed := 1.0
+	GlobalVariables.boat_view.set_water_movement(speed)
+	# set coal consumption
 	remaining_coal_time -= delta * COAL_CONS_MULT[current_speed]
 	GlobalVariables.world.set_flames_height(remaining_coal_time / COAL_CONSUMPTION_TIME)
 	if remaining_coal_time <= 0.0 and current_speed != SPEEDS.STOPPED:
