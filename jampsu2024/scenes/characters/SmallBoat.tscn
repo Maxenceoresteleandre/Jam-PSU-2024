@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c2a0nbvglukoh"]
+[gd_scene load_steps=37 format=3 uid="uid://c2a0nbvglukoh"]
 
 [ext_resource type="Script" path="res://script/small_boat.gd" id="1_ayldm"]
 [ext_resource type="Shader" path="res://resources/shader/line.gdshader" id="3_cfkk8"]
@@ -25,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://c0gwxs0b0fjkv" path="res://resources/art/sea_view/ship/ship sprites/facing top right/ship top right stopped.png" id="20_rveei"]
 [ext_resource type="Texture2D" uid="uid://dq2gqpdlhti4c" path="res://resources/art/sea_view/ship/ship sprites/facing up/ship up stopped.png" id="24_vkmwf"]
 [ext_resource type="AudioStream" uid="uid://dty676jy4ipa" path="res://resources/audio/impact_bateau.wav" id="25_0jdm8"]
+[ext_resource type="Texture2D" uid="uid://pwlogsvvhx3o" path="res://resources/shader/WaterTrailGradient.png" id="26_ikl7f"]
+[ext_resource type="Script" path="res://script/water_trail.gd" id="27_c6ifn"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qbyrv"]
 particle_flag_disable_z = true
@@ -173,6 +175,15 @@ animations = [{
 "name": &"top_s",
 "speed": 5.0
 }]
+
+[sub_resource type="Curve" id="Curve_7xspy"]
+max_value = 21.28
+_data = [Vector2(0.00645161, 6.08), 0.0, 0.0, 0, 0, Vector2(0.987097, 16.1354), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_13it1"]
+offsets = PackedFloat32Array(0, 0.566667, 0.986667)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0.728822, 0.728822, 0.728822, 1)
 
 [node name="SmallBoat" type="CharacterBody2D"]
 collision_layer = 4
@@ -325,3 +336,12 @@ speed_scale = 1.2
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("25_0jdm8")
 volume_db = -7.0
+
+[node name="WaterTrail" type="Line2D" parent="."]
+z_index = -1
+points = PackedVector2Array(43, 73, -64, -43, -169, -139, -258, -208)
+width_curve = SubResource("Curve_7xspy")
+gradient = SubResource("Gradient_13it1")
+texture = ExtResource("26_ikl7f")
+texture_mode = 1
+script = ExtResource("27_c6ifn")
