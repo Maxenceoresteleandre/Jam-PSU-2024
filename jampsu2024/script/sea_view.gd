@@ -16,10 +16,6 @@ var current_chunk := Vector2i(0, 0)
 	Vector2i(1, 1) : $WorldChunkBottomRight 
 }
 
-func _process(delta: float) -> void:
-	print("current_chunk = ", current_chunk)
-
-
 func _ready() -> void:
 	GlobalVariables.sea_view = self
 	await get_tree().create_timer(0.5).timeout
