@@ -1,5 +1,10 @@
 extends Node2D
+class_name WorldChunk
 
+func _ready() -> void:
+	var nb_rocks := randi_range(10, 15)
+	for _i in range(nb_rocks):
+		spawn_rock()
 
 func spawn_rock():
 	const OBSTACLES = [
