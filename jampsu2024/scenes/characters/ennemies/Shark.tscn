@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://s16w4sliprif"]
+[gd_scene load_steps=5 format=3 uid="uid://s16w4sliprif"]
 
 [ext_resource type="PackedScene" uid="uid://chviatf7tluc5" path="res://scenes/characters/ennemies/ennemy.tscn" id="1_8ldjg"]
 [ext_resource type="Script" path="res://script/shark.gd" id="2_gicbg"]
@@ -6,9 +6,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ntxs"]
 size = Vector2(61, 63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y22h0"]
-size = Vector2(80, 85)
 
 [node name="Shark" instance=ExtResource("1_8ldjg")]
 collision_mask = 4
@@ -19,15 +16,7 @@ speed = 80
 position = Vector2(-18.5, 2.5)
 shape = SubResource("RectangleShape2D_6ntxs")
 
-[node name="HitboxArea2D" type="Area2D" parent="." index="2"]
-collision_layer = 16
-collision_mask = 4
-
-[node name="Hitbox" type="CollisionShape2D" parent="HitboxArea2D" index="0"]
-position = Vector2(-19, 4.5)
-shape = SubResource("RectangleShape2D_y22h0")
-
-[node name="PointLight2D" type="PointLight2D" parent="." index="4"]
+[node name="PointLight2D" type="PointLight2D" parent="." index="3"]
 texture_filter = 1
 position = Vector2(43, -18)
 scale = Vector2(3, 3)
@@ -35,5 +24,3 @@ color = Color(0.729336, 0.54108, 0, 1)
 range_z_max = 50
 shadow_enabled = true
 texture = ExtResource("3_mkl0v")
-
-[connection signal="body_entered" from="HitboxArea2D" to="." method="_on_hitbox_area_2d_body_entered"]

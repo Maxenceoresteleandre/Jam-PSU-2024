@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://chviatf7tluc5"]
+[gd_scene load_steps=8 format=3 uid="uid://chviatf7tluc5"]
 
 [ext_resource type="Script" path="res://script/ennemy.gd" id="1_ekx8i"]
 [ext_resource type="Texture2D" uid="uid://bojof48xg7s1i" path="res://resources/art/sea_view/fish_placeholder.png" id="2_tjs24"]
@@ -95,6 +95,9 @@ _data = {
 "hit_effect": SubResource("Animation_f1qwe")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_muma5"]
+size = Vector2(80, 85)
+
 [node name="Ennemy" type="CharacterBody2D"]
 collision_layer = 16
 collision_mask = 0
@@ -110,3 +113,11 @@ texture = ExtResource("2_tjs24")
 libraries = {
 "": SubResource("AnimationLibrary_4ri1k")
 }
+
+[node name="HitboxArea2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="Hitbox" type="CollisionShape2D" parent="HitboxArea2D"]
+position = Vector2(-19, 4.5)
+shape = SubResource("RectangleShape2D_muma5")

@@ -11,7 +11,7 @@
 radius = 77.2334
 
 [node name="Kraken" instance=ExtResource("1_7eba0")]
-speed = 100
+speed = 30
 health = 6
 
 [node name="Sprite" parent="." index="0"]
