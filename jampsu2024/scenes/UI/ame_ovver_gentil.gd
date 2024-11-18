@@ -6,4 +6,5 @@ func _ready() -> void:
 
 func _on_button_pressed() -> void:
 	GameWorld.score = 0
+	Cutscene.current_cutscene = 0
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
