@@ -28,7 +28,7 @@ func _ready() -> void:
 	print("resource_sprite : ", resource_sprite)
 	resource_sprite.texture = RESOURCES_SPRITE_RES[int(resource)]
 	
-	$Sprite.texture = CRATE_SPRITES[int(resource)]
+	#$Sprite.texture = CRATE_SPRITES[int(resource)]
 
 func interact() -> void:
 	current_player

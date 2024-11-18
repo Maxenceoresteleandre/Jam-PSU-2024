@@ -11,7 +11,6 @@
 [ext_resource type="Shader" path="res://resources/shader/outline.gdshader" id="8_jpfla"]
 [ext_resource type="Texture2D" uid="uid://b7150c18rafv8" path="res://resources/art/boat_view/ship/Boulets de canon.png" id="9_maakb"]
 [ext_resource type="PackedScene" uid="uid://duqdi0n0ql27i" path="res://scenes/environment/interactible_objects/light_house.tscn" id="9_nborx"]
-[ext_resource type="Texture2D" uid="uid://cpx6bn23p0qk6" path="res://resources/art/boat_view/ship/Bac à charbon.png" id="10_iuhng"]
 [ext_resource type="PackedScene" uid="uid://btc1len2ws85b" path="res://scenes/environment/interactible_objects/ship_light.tscn" id="10_pau2v"]
 [ext_resource type="Texture2D" uid="uid://boinnau2rox8w" path="res://resources/art/boat_view/ship/Trappe à charbon.png" id="14_bqrmx"]
 
@@ -31,6 +30,15 @@ size = Vector2(30.5, 435.201)
 size = Vector2(127, 40)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cdy7w"]
+resource_local_to_scene = true
+shader = ExtResource("8_jpfla")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ib1n"]
 resource_local_to_scene = true
 shader = ExtResource("8_jpfla")
 shader_parameter/color = Color(1, 1, 1, 1)
@@ -173,33 +181,24 @@ material = SubResource("ShaderMaterial_cdy7w")
 position = Vector2(-12, 29)
 texture = ExtResource("9_maakb")
 
-[node name="BacÀCharbon" type="Sprite2D" parent="."]
-position = Vector2(435, 861)
-scale = Vector2(5, 5)
-texture = ExtResource("10_iuhng")
-
 [node name="Engine" parent="." instance=ExtResource("8_e4w2j")]
 position = Vector2(437, 879)
 
 [node name="LightHouse" parent="." instance=ExtResource("9_nborx")]
 position = Vector2(357, 561)
 
-[node name="ShipLight" parent="." instance=ExtResource("10_pau2v")]
-position = Vector2(123, 422)
-
-[node name="ShipLight2" parent="." instance=ExtResource("10_pau2v")]
-position = Vector2(352, 160)
-
-[node name="ShipLight3" parent="." instance=ExtResource("10_pau2v")]
-position = Vector2(566, 420)
-
 [node name="ShipLight5" parent="." instance=ExtResource("10_pau2v")]
-position = Vector2(105, 1066)
+position = Vector2(344, 113)
+
+[node name="Sprite" parent="ShipLight5" index="1"]
+material = SubResource("ShaderMaterial_4ib1n")
+position = Vector2(5, -32)
 
 [node name="ShipLight6" parent="." instance=ExtResource("10_pau2v")]
-position = Vector2(594, 1064)
+position = Vector2(350, 702)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 position = Vector2(352, 648)
 occluder = SubResource("OccluderPolygon2D_47fhp")
 occluder_light_mask = 2
@@ -253,4 +252,5 @@ material = SubResource("ShaderMaterial_b7e16")
 texture = ExtResource("14_bqrmx")
 
 [editable path="InteractibleResourcesBalls"]
+[editable path="ShipLight5"]
 [editable path="InteractibleResources"]
