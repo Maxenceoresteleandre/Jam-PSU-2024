@@ -175,13 +175,13 @@ func _process(delta: float) -> void:
 			#oil_lightouse_remaining_time = MAX_OIL_TIME
 		#else:
 			#$PointLightHouse.visible = false
-	#$coal_debug.text = str(remaining_coal_time)
-	#remaining_coal_time -= delta * COAL_CONS_MULT[current_speed]
-	#if remaining_coal_time <= 0.0 and current_speed != SPEEDS.STOPPED:
-		#if GlobalVariables.steam_engine.consume_coal():
-			#remaining_coal_time = COAL_CONSUMPTION_TIME
-		#else:
-			#set_speed(SPEEDS.STOPPED)
+	remaining_coal_time -= delta * COAL_CONS_MULT[current_speed]
+	GlobalVariables.world.set_flames_height(remaining_coal_time / COAL_CONSUMPTION_TIME)
+	if remaining_coal_time <= 0.0 and current_speed != SPEEDS.STOPPED:
+		if GlobalVariables.steam_engine.consume_coal():
+			remaining_coal_time = COAL_CONSUMPTION_TIME
+		else:
+			set_speed(SPEEDS.STOPPED)
 
 func _physics_process(_delta: float) -> void:
 	$speed_debug.text = "speed : " + str(speed)
