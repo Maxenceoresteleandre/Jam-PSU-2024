@@ -17,7 +17,6 @@ func _ready() -> void:
 	center = position + Vector2(radius, 0) # Center to the right of the character
 
 func _physics_process(delta: float) -> void:
-	print(str(going_back))
 	if going_back and position.distance_squared_to(random_point) < 10:
 		going_back = false
 		chasing_player = true

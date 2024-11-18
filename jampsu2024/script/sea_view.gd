@@ -6,7 +6,6 @@ class_name SeaView
 
 func _ready() -> void:
 	GlobalVariables.sea_view = self
-	print(GlobalVariables.sea_view)
 
 
 func spawn_enemy():
