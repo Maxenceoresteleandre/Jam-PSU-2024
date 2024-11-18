@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://script/world_chunk.gd" id="1_uhsih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0l0oa"]
-size = Vector2(1764, 1814)
+size = Vector2(1900, 1900)
 
 [node name="WorldChunk" type="Node2D"]
 script = ExtResource("1_uhsih")

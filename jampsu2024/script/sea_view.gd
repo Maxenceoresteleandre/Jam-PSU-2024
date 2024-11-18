@@ -26,7 +26,7 @@ func _ready() -> void:
 		obj.connect("player_in_chunk", enter_chunk.bind(obj.chunk_pos))
 
 func enter_chunk(chunk_pos : Vector2i):
-	
+	pass
 
 func spawn_chunk():
 	const CHUNK_PATH := preload("res://scenes/environment/world_chunk.tscn")
