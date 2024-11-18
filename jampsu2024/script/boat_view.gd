@@ -20,7 +20,7 @@ var water_time_scale := 0.7
 
 func _ready() -> void:
 	GlobalVariables.boat_view = self
-	#spawn_ghost()
+	spawn_ghost()
 
 func _process(delta: float) -> void:
 	current_water_time += delta * water_time_scale
