@@ -6,5 +6,5 @@
 speed = 40
 health = 3
 
-[node name="Sprite" parent="." index="3"]
+[node name="Sprite" parent="." index="0"]
 self_modulate = Color(0, 0.718, 0.518995, 1)

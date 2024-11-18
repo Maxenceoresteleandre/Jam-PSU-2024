@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://oxak7bpjdska"]
+[gd_scene load_steps=14 format=3 uid="uid://oxak7bpjdska"]
 
 [ext_resource type="Shader" path="res://resources/shader/water.gdshader" id="1_cwibs"]
 [ext_resource type="Shader" path="res://resources/shader/pixelart.gdshader" id="1_mgopa"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c2a0nbvglukoh" path="res://scenes/characters/SmallBoat.tscn" id="4_ms5o0"]
 [ext_resource type="PackedScene" uid="uid://b0ew2d3ov7rsc" path="res://scenes/environment/BoatView.tscn" id="5_wi4hj"]
 [ext_resource type="PackedScene" uid="uid://yv7lcxf6b5ft" path="res://scenes/environment/Obstacle.tscn" id="7_55r16"]
+[ext_resource type="Texture2D" uid="uid://c6rc5o0ovxmb5" path="res://icon.svg" id="7_lkjru"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="8_ccdmm"]
 [ext_resource type="PackedScene" uid="uid://cu3ayfi7cnbdj" path="res://scenes/utilities/CameraUtils.tscn" id="8_qu3r4"]
 [ext_resource type="PackedScene" uid="uid://do5m4h6hyibs5" path="res://scenes/characters/ennemies/kraken.tscn" id="10_qo2n1"]
@@ -58,8 +59,31 @@ collision_mask = 0
 
 [node name="Camera2D" type="Camera2D" parent="SmallBoat"]
 position = Vector2(-300, -17)
+zoom = Vector2(0.3, 0.3)
 
 [node name="CameraUtils" parent="SmallBoat/Camera2D" instance=ExtResource("8_qu3r4")]
+
+[node name="Sprite2D" type="Sprite2D" parent="SmallBoat/Camera2D"]
+position = Vector2(15, -543.5)
+scale = Vector2(15, 0.289062)
+texture = ExtResource("7_lkjru")
+
+[node name="Sprite2D2" type="Sprite2D" parent="SmallBoat/Camera2D"]
+position = Vector2(3.75002, 550)
+scale = Vector2(15.1836, 0.289062)
+texture = ExtResource("7_lkjru")
+
+[node name="Sprite2D3" type="Sprite2D" parent="SmallBoat/Camera2D"]
+position = Vector2(974, 2)
+rotation = -1.57079
+scale = Vector2(8.45446, 0.289062)
+texture = ExtResource("7_lkjru")
+
+[node name="Sprite2D4" type="Sprite2D" parent="SmallBoat/Camera2D"]
+position = Vector2(-958, -24)
+rotation = -1.57079
+scale = Vector2(8.99463, 0.289062)
+texture = ExtResource("7_lkjru")
 
 [node name="BoatView" parent="SmallBoat" instance=ExtResource("5_wi4hj")]
 position = Vector2(-1295, -616)
@@ -72,6 +96,7 @@ texture = ExtResource("8_ccdmm")
 texture_scale = 50.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Area2D" parent="." instance=ExtResource("7_55r16")]

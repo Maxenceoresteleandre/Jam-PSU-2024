@@ -40,6 +40,20 @@ func set_speed(new_speed : int):
 func set_flames_height(flames_height : float):
 	$CanvasLayer/Flames.position.y = 50 - flames_height * 50.0
 
+func spawn_rock():
+	const OBSTACLES = [
+		preload("res://scenes/environment/Obstacle.tscn"),
+		preload("res://scenes/environment/large_obstacle.tscn"),
+		preload("res://scenes/environment/BreakableObstacle.tscn")
+	]
+	var rd := randi_range(0, 15)
+	if rd <= 5: 
+		spawn_m(OBSTACLES[0])
+	elif rd < 9:
+		spawn_m(OBSTACLES[1])
+	elif rd <= 20 or score <= 30:
+		spawn_m(OBSTACLES[2])
+
 func spawn_enemy():
 	const ENEMIES = [
 		preload("res://scenes/characters/ennemies/Shark.tscn"),
@@ -56,10 +70,11 @@ func spawn_enemy():
 		spawn_m(ENEMIES[2])
 	else:
 		spawn_m(ENEMIES[3])
-	await get_tree().create_timer(randf_range(9.0, 17.0)).timeout
+	await get_tree().create_timer(randf_range(9.0, 9.0)).timeout
 	spawn_enemy()
 
 func spawn_m(monster : PackedScene):
 	var m := monster.instantiate()
 	$SeaView.add_child(m)
-	m.global_position = $SeaView/SmallBoat.global_position + Vector2(randf_range(700.0, 1200.0), randf_range(700.0, 1200.0))
+	m.global_position = $SeaView/SmallBoat.global_position + Vector2.RIGHT.rotated(
+		randf_range(0.0, 6.3)) * randf_range(1000, 1000)
