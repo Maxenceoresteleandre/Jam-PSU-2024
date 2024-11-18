@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bc8dk4ly01i3h"]
+[gd_scene load_steps=8 format=3 uid="uid://bc8dk4ly01i3h"]
 
 [ext_resource type="PackedScene" uid="uid://bxw152aldsit3" path="res://scenes/environment/interactible_objects/interactible_object.tscn" id="1_x74fo"]
 [ext_resource type="Shader" path="res://resources/shader/outline.gdshader" id="2_flvxk"]
 [ext_resource type="Script" path="res://script/engine.gd" id="2_htuug"]
+[ext_resource type="Texture2D" uid="uid://cpx6bn23p0qk6" path="res://resources/art/boat_view/ship/Bac à charbon.png" id="3_ov12n"]
 [ext_resource type="Texture2D" uid="uid://b5qau78fenyyj" path="res://resources/art/boat_view/ship/Moteur.png" id="4_2004e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8704k"]
@@ -31,3 +32,10 @@ shape = SubResource("RectangleShape2D_8704k")
 material = SubResource("ShaderMaterial_y44ox")
 scale = Vector2(5, 5)
 texture = ExtResource("4_2004e")
+
+[node name="BacÀCharbon" type="Sprite2D" parent="Sprite" index="0"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(0, -4)
+scale = Vector2(1, 1)
+texture = ExtResource("3_ov12n")

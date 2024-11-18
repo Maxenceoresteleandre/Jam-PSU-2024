@@ -5,9 +5,9 @@ const COAL_SPRITE := preload("res://scenes/environment/interactible_objects/Coll
 const CANNONBALL_OFFSET := 70.0
 
 const COAL_PLACES : Array[Vector2] = [
-	Vector2( 97,  18),
-	Vector2(137,  18),
-	Vector2(117, -10),
+	Vector2( -17,  -27),
+	Vector2(13,  -27),
+	Vector2(-1, -40),
 ]
 
 const change_speed_rate := 100.0
