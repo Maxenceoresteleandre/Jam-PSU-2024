@@ -142,17 +142,25 @@ func set_ship_sprite(d : Directions):
 	$AnimatedSprite2D.flip_h = DIRECTION_ANIMS[d][1]
 
 func damage(damage: float):
+	if health <= 0:
+		return
 	$AudioStreamPlayer.play()
-	health -= damage * 1.5
-	$Camera2D/CameraUtils.shake(0.3, 7, 20, 2)
+	health -= damage * 1.75
+	$Camera2D/CameraUtils.shake(0.3, 10, 40, 2)
 	GlobalVariables.world.set_life(health)
 	if health <= 0:
 		set_speed(SPEEDS.STOPPED)
 		$AnimatedSprite2D/AnimationPlayer.play("death")
-		await get_tree().create_timer(0.75).timeout
+		play_hit_sound_loop(5)
+		await get_tree().create_timer(1.75).timeout
 		show_game_over()
 	else:
 		$AnimatedSprite2D/AnimationPlayer.play("hit")
+
+func play_hit_sound_loop(n : int):
+	for _i in range(n):
+		await get_tree().create_timer(0.25).timeout
+		$AudioStreamPlayer.play()
 
 func show_game_over():
 	get_tree().change_scene_to_packed(GAMEOVER_SCREEN)
