@@ -4,13 +4,13 @@ var queue: Array[Vector2] = []
 var length: float = 0.0
 @export var smallest_tip_width = 6
 @export var largest_tip_width = 15
-@export var distance_at_largest_width = 10
+@export var distance_at_largest_width = 16 * 6
 
 func _process(delta: float) -> void:
 	var pos = get_parent().global_position
 	queue.push_front(pos)
 	
-	if (len(queue) > 120):
+	if (len(queue) > 10):
 		queue.pop_back()
 		
 	clear_points()

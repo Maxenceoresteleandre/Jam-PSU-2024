@@ -403,7 +403,8 @@ volume_db = -7.0
 
 [node name="WaterTrail" type="Line2D" parent="."]
 z_index = -1
-points = PackedVector2Array(43, 73, -64, -43, -169, -139, -266, -205)
+texture_filter = 1
+points = PackedVector2Array(43, 73, -64, -43, -139, -100, -332, -149)
 width_curve = SubResource("Curve_7xspy")
 gradient = SubResource("Gradient_13it1")
 texture = ExtResource("26_ikl7f")
