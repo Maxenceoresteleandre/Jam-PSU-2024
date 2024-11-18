@@ -14,6 +14,7 @@ size = Vector2(243, 153)
 polygon = PackedVector2Array(-64, 2, 142, 6, 148, 115, -69, 116)
 
 [node name="LargeObstacle" instance=ExtResource("1_81j0p")]
+randomize_sprite = false
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(37.5, 60.5)

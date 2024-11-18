@@ -1,4 +1,4 @@
-extends Area2D
+extends Obstacle
 
 func hit():
 	$Icon/AnimatedSprite2D.play("default")
