@@ -302,7 +302,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-787.259, -204.622)
+graph_offset = Vector2(-1406.94, -370.783)
 mode = 1
 flags/light_only = false
 varyings/VertexColour = "0,5"

@@ -1,6 +1,7 @@
-[gd_scene load_steps=43 format=3 uid="uid://c2a0nbvglukoh"]
+[gd_scene load_steps=45 format=3 uid="uid://c2a0nbvglukoh"]
 
 [ext_resource type="Script" path="res://script/small_boat.gd" id="1_ayldm"]
+[ext_resource type="Shader" uid="uid://nm0hvloww1wc" path="res://resources/shader/RippleShaderNew.tres" id="2_poryn"]
 [ext_resource type="Shader" path="res://resources/shader/line.gdshader" id="3_cfkk8"]
 [ext_resource type="Texture2D" uid="uid://dwlufm0mapnsy" path="res://resources/art/lights/ship_small_light.png" id="4_dbmac"]
 [ext_resource type="Texture2D" uid="uid://b5lthwhcxa03t" path="res://resources/art/sea_view/ship/ship sprites/facing down/ship down frame 01.png" id="5_i86wy"]
@@ -40,6 +41,12 @@ spread = 29.277
 gravity = Vector3(0, 98, 0)
 scale_min = 10.61
 scale_max = 10.61
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_in8b3"]
+shader = ExtResource("2_poryn")
+shader_parameter/FloatParameter = 0.46
+shader_parameter/Speed = 0.1
+shader_parameter/FloatParameter2 = 6.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tyug3"]
 shader = ExtResource("3_cfkk8")
@@ -234,7 +241,7 @@ _data = {
 
 [sub_resource type="Curve" id="Curve_7xspy"]
 max_value = 21.28
-_data = [Vector2(0.00645161, 6.08), 0.0, 0.0, 0, 0, Vector2(0.987097, 16.1354), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.00645161, 6.08), 0.0, 0.0, 0, 0, Vector2(0.985294, 15.9015), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_13it1"]
@@ -260,6 +267,7 @@ local_coords = true
 [node name="Icon" type="Sprite2D" parent="."]
 z_index = 1
 texture_filter = 1
+material = SubResource("ShaderMaterial_in8b3")
 position = Vector2(3, -2)
 scale = Vector2(4, 4)
 
@@ -395,7 +403,7 @@ volume_db = -7.0
 
 [node name="WaterTrail" type="Line2D" parent="."]
 z_index = -1
-points = PackedVector2Array(43, 73, -64, -43, -169, -139, -258, -208)
+points = PackedVector2Array(43, 73, -64, -43, -169, -139, -266, -205)
 width_curve = SubResource("Curve_7xspy")
 gradient = SubResource("Gradient_13it1")
 texture = ExtResource("26_ikl7f")
