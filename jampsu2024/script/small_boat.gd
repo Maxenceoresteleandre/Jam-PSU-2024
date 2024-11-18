@@ -167,14 +167,6 @@ func show_game_over():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-	#oil_lightouse_remaining_time -= delta
-	#if oil_lightouse_remaining_time <= 0.0:
-		#if GlobalVariables.light_house.consume_OIL():
-			#$PointLightHouse.visible = true
-			#oil_lightouse_remaining_time = MAX_OIL_TIME
-		#else:
-			#$PointLightHouse.visible = false
 	remaining_coal_time -= delta * COAL_CONS_MULT[current_speed]
 	GlobalVariables.world.set_flames_height(remaining_coal_time / COAL_CONSUMPTION_TIME)
 	if remaining_coal_time <= 0.0 and current_speed != SPEEDS.STOPPED:
@@ -186,6 +178,13 @@ func _process(delta: float) -> void:
 			set_speed(SPEEDS.STOPPED)
 			$PointLightHouse.visible = false
 			$AudioEngineDown.play()
+	#oil_lightouse_remaining_time -= delta
+	#if oil_lightouse_remaining_time <= 0.0:
+		#if GlobalVariables.light_house.consume_OIL():
+			#$PointLightHouse.visible = true
+			#oil_lightouse_remaining_time = MAX_OIL_TIME
+		#else:
+			#$PointLightHouse.visible = false
 
 func _physics_process(_delta: float) -> void:
 	$speed_debug.text = "speed : " + str(speed)
