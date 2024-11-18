@@ -30,10 +30,10 @@ var sea_corresp : Node2D = null
 func _ready() -> void:
 	create_sea_correspondance()
 	add_cannonball()
+	add_cannonball()
+	add_cannonball()
 
 func add_resource() -> void:
-	add_cannonball()
-	add_cannonball()
 	add_cannonball()
 
 func create_sea_correspondance() -> void:
@@ -66,6 +66,7 @@ func interact() -> void:
 		orientation = Vector2.LEFT
 	else:
 		orientation = Vector2.RIGHT
+	$AudioStreamPlayer.play(0.0)
 	GlobalVariables.small_boat.shoot(array_num, orientation)
 
 func add_cannonball() -> bool:

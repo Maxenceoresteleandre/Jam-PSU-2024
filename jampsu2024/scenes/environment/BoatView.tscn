@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b0ew2d3ov7rsc"]
+[gd_scene load_steps=18 format=3 uid="uid://b0ew2d3ov7rsc"]
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
 [ext_resource type="Texture2D" uid="uid://deg1uyhx4bpwq" path="res://resources/art/white_pixel.png" id="1_ecoml"]
@@ -28,6 +28,9 @@ polygon = PackedVector2Array(-58, 64, -96, 2, -61, -69, 50, -67, 86, -5, 53, 68)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yv58s"]
 polygon = PackedVector2Array(26, 1164, 9, -89, 50, -67, 68, 1175)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h4vdd"]
+polygon = PackedVector2Array(-706, 1159, -750, -72, 50, -67, 68, 1175)
 
 [node name="BoatView" type="Node2D" node_paths=PackedStringArray("cannons")]
 z_index = 100
@@ -152,10 +155,16 @@ position = Vector2(594, 1064)
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 position = Vector2(352, 648)
 occluder = SubResource("OccluderPolygon2D_47fhp")
+occluder_light_mask = 2
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
 position = Vector2(668, 48)
 occluder = SubResource("OccluderPolygon2D_yv58s")
+occluder_light_mask = 3
+
+[node name="LightOccluderSea" type="LightOccluder2D" parent="."]
+position = Vector2(668, 48)
+occluder = SubResource("OccluderPolygon2D_h4vdd")
 
 [node name="GhostSpawn" type="Node2D" parent="."]
 position = Vector2(307, -123)
