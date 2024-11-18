@@ -12,6 +12,10 @@ func _ready() -> void:
 	spawn_enemy()
 	Cutscene.load_cutscene()
 
+func cut_music():
+	var t := create_tween()
+	t.tween_property($AudioStreamPlayer, "volume_db", -80.0, 0.5)
+
 static var score := 0
 func increase_score():
 	score += 1

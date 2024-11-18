@@ -150,6 +150,7 @@ func damage(damage: float):
 	GlobalVariables.world.set_life(health)
 	if health <= 0:
 		set_speed(SPEEDS.STOPPED)
+		GlobalVariables.world.cut_music()
 		$AnimatedSprite2D/AnimationPlayer.play("death")
 		play_hit_sound_loop(5)
 		await get_tree().create_timer(2.5).timeout
