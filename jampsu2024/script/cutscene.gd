@@ -14,13 +14,16 @@ const CUTSCENES := [
 
 
 static func load_cutscene() -> void:
-	if current_cutscene >= CUTSCENES.size():
+	if current_cutscene >= CUTSCENES.size() or GlobalVariables.custscenes_played > current_cutscene:
+		current_cutscene += 1
 		return
+	GlobalVariables.custscenes_played += 1
 	GlobalVariables.world.add_child(load(CUTSCENES[current_cutscene]).instantiate())
 	current_cutscene += 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	current_cutscene = 0
 	$AudioStreamPlayer.volume_db = 0
 	get_tree().paused = true
 	$AnimationPlayer.play("defilement")

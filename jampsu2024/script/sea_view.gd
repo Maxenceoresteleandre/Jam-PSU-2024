@@ -10,7 +10,6 @@ func _ready() -> void:
 
 
 func spawn_enemy():
-	print("hello")
 	const ENEMIES = [
 		preload("res://scenes/characters/ennemies/Shark.tscn"),
 		preload("res://scenes/characters/ennemies/sharklvl2.tscn"),
