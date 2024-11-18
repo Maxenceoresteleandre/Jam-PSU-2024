@@ -146,10 +146,14 @@ func damage(damage: float):
 	health -= damage * 1.5
 	$Camera2D/CameraUtils.shake(0.3, 7, 20, 2)
 	GlobalVariables.world.set_life(health)
-	$AnimatedSprite2D/AnimationPlayer.play("hit")
-	if health == 0:
+	if health <= 0:
+		set_speed(SPEEDS.STOPPED)
+		$AnimatedSprite2D/AnimationPlayer.play("death")
+		await get_tree().create_timer(0.75).timeout
 		show_game_over()
-		
+	else:
+		$AnimatedSprite2D/AnimationPlayer.play("hit")
+
 func show_game_over():
 	get_tree().change_scene_to_packed(GAMEOVER_SCREEN)
 
