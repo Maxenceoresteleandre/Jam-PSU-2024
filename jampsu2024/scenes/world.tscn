@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://mueevv1w5dn3"]
+[gd_scene load_steps=10 format=3 uid="uid://mueevv1w5dn3"]
 
 [ext_resource type="Script" path="res://script/world.gd" id="1_sean8"]
 [ext_resource type="Texture2D" uid="uid://c3f28bc6ouvxp" path="res://resources/art/furnace/furnace.png" id="3_aascn"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dbc3cqxd4vq7j" path="res://resources/art/furnace/blood bar.png" id="4_qd4dd"]
 [ext_resource type="Texture2D" uid="uid://ddx6n6arit6hs" path="res://resources/art/levier vitesse/cadran vide.png" id="5_xc153"]
 [ext_resource type="Texture2D" uid="uid://bum3pyacot1vl" path="res://resources/art/levier vitesse/levier_vitesse.png" id="6_rldy0"]
+[ext_resource type="AudioStream" uid="uid://c84nwyjuncqxu" path="res://resources/audio/lever_clank.wav" id="7_dur8k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4oppc"]
 font_size = 111
@@ -75,6 +76,10 @@ pivot_offset = Vector2(265, 167.5)
 texture = ExtResource("6_rldy0")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="AudioStreamLever" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("7_dur8k")
+volume_db = 2.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ohc4b")

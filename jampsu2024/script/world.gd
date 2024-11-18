@@ -35,6 +35,7 @@ func set_speed(new_speed : int):
 	var next_speed_rot_val : float = ROT_VALS_FROM_SPEED[new_speed]
 	var t := create_tween().set_trans(Tween.TRANS_CUBIC)
 	t.tween_property($CanvasLayer/TextureLever, "rotation_degrees", next_speed_rot_val, 1.0)
+	$CanvasLayer/AudioStreamLever.play()
 
 func spawn_enemy():
 	const ENEMIES = [
