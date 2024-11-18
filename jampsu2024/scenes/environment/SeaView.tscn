@@ -71,27 +71,36 @@ color = Color(0, 0, 0, 1)
 position = Vector2(1590, 636)
 
 [node name="WorldChunk" parent="." instance=ExtResource("9_opkuk")]
+already_in_chunk = true
 
 [node name="WorldChunkBottom" parent="." instance=ExtResource("9_opkuk")]
 position = Vector2(0, 2000)
+chunk_pos = Vector2i(0, 1)
 
 [node name="WorldChunkTop" parent="." instance=ExtResource("9_opkuk")]
 position = Vector2(0, -2000)
+chunk_pos = Vector2i(0, -1)
 
 [node name="WorldChunkTopRight" parent="." instance=ExtResource("9_opkuk")]
 position = Vector2(2000, -2000)
+chunk_pos = Vector2i(1, -1)
 
 [node name="WorldChunkTopLeft" parent="." instance=ExtResource("9_opkuk")]
 position = Vector2(-2000, -2000)
+chunk_pos = Vector2i(-1, -1)
 
 [node name="WorldChunkLeft" parent="." instance=ExtResource("9_opkuk")]
 position = Vector2(-2000, 0)
+chunk_pos = Vector2i(-1, 0)
 
 [node name="WorldChunkRight" parent="." instance=ExtResource("9_opkuk")]
 position = Vector2(2000, 0)
+chunk_pos = Vector2i(1, 0)
 
 [node name="WorldChunkBottomRight" parent="." instance=ExtResource("9_opkuk")]
 position = Vector2(2000, 2000)
+chunk_pos = Vector2i(1, 1)
 
 [node name="WorldChunkBottomLeft" parent="." instance=ExtResource("9_opkuk")]
 position = Vector2(-2000, 2000)
+chunk_pos = Vector2i(1, -1)

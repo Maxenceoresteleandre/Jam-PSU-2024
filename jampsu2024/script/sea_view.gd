@@ -19,6 +19,9 @@ var current_chunk := Vector2i(0, 0)
 
 func _ready() -> void:
 	GlobalVariables.sea_view = self
+	await get_tree().create_timer(0.5).timeout
+	for obj : WorldChunk in chunks.values():
+		obj.already_in_chunk = false
 
 func spawn_chunk():
 	const CHUNK_PATH := preload("res://scenes/environment/world_chunk.tscn")

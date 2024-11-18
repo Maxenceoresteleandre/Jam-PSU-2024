@@ -3,6 +3,7 @@ class_name WorldChunk
 
 signal player_in_chunk
 
+@export var already_in_chunk := false
 @export var chunk_pos : Vector2i
 
 func _ready() -> void:
@@ -36,5 +37,5 @@ func _on_destroy_radius_body_exited(body: Node2D) -> void:
 		queue_free()
 
 func _on_enter_area_2d_body_entered(body: Node2D) -> void:
-	if body is SmallBoat:
+	if body is SmallBoat and not already_in_chunk:
 		emit_signal("player_in_chunk")
