@@ -96,7 +96,6 @@ texture = ExtResource("8_ccdmm")
 texture_scale = 50.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Area2D" parent="." instance=ExtResource("7_55r16")]
