@@ -1,7 +1,7 @@
 [gd_scene load_steps=47 format=3 uid="uid://c2a0nbvglukoh"]
 
 [ext_resource type="Script" path="res://script/small_boat.gd" id="1_ayldm"]
-[ext_resource type="Shader" uid="uid://nm0hvloww1wc" path="res://resources/shader/RippleShaderNew.tres" id="2_poryn"]
+[ext_resource type="Shader" uid="uid://qd5fee603li3" path="res://resources/shader/RippleShaderNew.tres" id="2_poryn"]
 [ext_resource type="Shader" path="res://resources/shader/line.gdshader" id="3_cfkk8"]
 [ext_resource type="Texture2D" uid="uid://dwlufm0mapnsy" path="res://resources/art/lights/ship_small_light.png" id="4_dbmac"]
 [ext_resource type="Texture2D" uid="uid://b5lthwhcxa03t" path="res://resources/art/sea_view/ship/ship sprites/facing down/ship down frame 01.png" id="5_i86wy"]

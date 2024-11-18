@@ -16,6 +16,9 @@ var current_chunk := Vector2i(0, 0)
 	Vector2i(1, 1) : $WorldChunkBottomRight 
 }
 
+func _process(delta: float) -> void:
+	print("current_chunk = ", current_chunk)
+
 
 func _ready() -> void:
 	GlobalVariables.sea_view = self
@@ -50,22 +53,22 @@ func spawn_chunk(chunk_coord : Vector2i) -> WorldChunk:
 	c.connect("player_in_chunk", enter_chunk.bind(c.chunk_pos))
 	return c
 
-func spawn_enemy():
-	const ENEMIES = [
-		preload("res://scenes/characters/ennemies/Shark.tscn"),
-		preload("res://scenes/characters/ennemies/sharklvl2.tscn"),
-		preload("res://scenes/characters/ennemies/Underwater.tscn")
-	]
-	var rd := randi_range(0, 10)
-	if rd <= 5: 
-		spawn_m(ENEMIES[0])
-	elif rd < 9:
-		spawn_m(ENEMIES[1])
-	else:
-		spawn_m(ENEMIES[2])
-	await get_tree().create_timer(randf_range(9.0, 25.0)).timeout
-	spawn_enemy()
-
-func spawn_m(monster : PackedScene):
-	add_child(monster.instantiate())
-	monster.position = $SmallBoat.position + Vector2(randf_range(100.0, 200.0), randf_range(100.0, 200.0))
+#func spawn_enemy():
+	#const ENEMIES = [
+		#preload("res://scenes/characters/ennemies/Shark.tscn"),
+		#preload("res://scenes/characters/ennemies/sharklvl2.tscn"),
+		#preload("res://scenes/characters/ennemies/Underwater.tscn")
+	#]
+	#var rd := randi_range(0, 10)
+	#if rd <= 5: 
+		#spawn_m(ENEMIES[0])
+	#elif rd < 9:
+		#spawn_m(ENEMIES[1])
+	#else:
+		#spawn_m(ENEMIES[2])
+	#await get_tree().create_timer(randf_range(9.0, 25.0)).timeout
+	#spawn_enemy()
+#
+#func spawn_m(monster : PackedScene):
+	#add_child(monster.instantiate())
+	#monster.position = $SmallBoat.position + Vector2(randf_range(100.0, 200.0), randf_range(100.0, 200.0))
