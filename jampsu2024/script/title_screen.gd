@@ -5,7 +5,7 @@ func _ready() -> void:
 	t.tween_property($CanvasLayer/ColorRect, "color", Color.TRANSPARENT, 0.4)
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") or Input.is_action_just_pressed("clicl"):
 		set_process(false)
 		var t := create_tween().set_trans(Tween.TRANS_CUBIC)
 		t.tween_property($CanvasLayer/ColorRect, "color", Color.BLACK, 0.4)
