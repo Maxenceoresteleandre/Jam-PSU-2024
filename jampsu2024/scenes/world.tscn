@@ -14,12 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://no8r6hfwbs1s" path="res://resources/art/levier vitesse/furnace_flames3.png" id="10_rpphi"]
 [ext_resource type="Texture2D" uid="uid://bq63ai50x1pkl" path="res://resources/art/levier vitesse/furnace_flames4.png" id="11_v6spf"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_4oppc"]
-font_size = 111
-font_color = Color(0.861208, 0, 0.232181, 1)
-outline_size = 79
-outline_color = Color(0, 0, 0, 1)
-
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_mtvmc"]
 frames = 4
 speed_scale = 0.8
@@ -67,6 +61,12 @@ frame_2/duration = 0.2
 frame_3/texture = ExtResource("11_v6spf")
 frame_3/duration = 0.2
 
+[sub_resource type="LabelSettings" id="LabelSettings_4oppc"]
+font_size = 111
+font_color = Color(0.861208, 0, 0.232181, 1)
+outline_size = 79
+outline_color = Color(0, 0, 0, 1)
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_sean8")
 
@@ -81,6 +81,48 @@ offset_top = 979.0
 offset_right = 809.0
 offset_bottom = 1050.0
 texture = ExtResource("8_46vc1")
+
+[node name="Flames" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureFlame" type="TextureRect" parent="CanvasLayer/Flames"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 701.078
+offset_top = 992.619
+offset_right = 711.078
+offset_bottom = 1040.62
+texture = SubResource("AnimatedTexture_mtvmc")
+
+[node name="TextureFlame2" type="TextureRect" parent="CanvasLayer/Flames"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 730.423
+offset_top = 992.707
+offset_right = 740.423
+offset_bottom = 1040.71
+texture = SubResource("AnimatedTexture_agndi")
+
+[node name="TextureFlame4" type="TextureRect" parent="CanvasLayer/Flames"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 788.052
+offset_top = 992.354
+offset_right = 798.052
+offset_bottom = 1040.35
+texture = SubResource("AnimatedTexture_u2eok")
+
+[node name="TextureFlame3" type="TextureRect" parent="CanvasLayer/Flames"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 759.061
+offset_top = 993.061
+offset_right = 769.061
+offset_bottom = 1041.06
+texture = SubResource("AnimatedTexture_encq8")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 15
@@ -139,38 +181,6 @@ stretch_mode = 4
 [node name="AudioStreamLever" type="AudioStreamPlayer" parent="CanvasLayer"]
 stream = ExtResource("7_dur8k")
 volume_db = 2.0
-
-[node name="TextureFlame" type="TextureRect" parent="CanvasLayer"]
-texture_filter = 1
-offset_left = 701.078
-offset_top = 992.619
-offset_right = 711.078
-offset_bottom = 1040.62
-texture = SubResource("AnimatedTexture_mtvmc")
-
-[node name="TextureFlame2" type="TextureRect" parent="CanvasLayer"]
-texture_filter = 1
-offset_left = 730.423
-offset_top = 992.707
-offset_right = 740.423
-offset_bottom = 1040.71
-texture = SubResource("AnimatedTexture_agndi")
-
-[node name="TextureFlame4" type="TextureRect" parent="CanvasLayer"]
-texture_filter = 1
-offset_left = 788.052
-offset_top = 992.354
-offset_right = 798.052
-offset_bottom = 1040.35
-texture = SubResource("AnimatedTexture_u2eok")
-
-[node name="TextureFlame3" type="TextureRect" parent="CanvasLayer"]
-texture_filter = 1
-offset_left = 759.061
-offset_top = 993.061
-offset_right = 769.061
-offset_bottom = 1041.06
-texture = SubResource("AnimatedTexture_encq8")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ohc4b")

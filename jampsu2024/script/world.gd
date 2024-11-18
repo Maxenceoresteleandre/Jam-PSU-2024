@@ -37,6 +37,9 @@ func set_speed(new_speed : int):
 	t.tween_property($CanvasLayer/TextureLever, "rotation_degrees", next_speed_rot_val, 1.0)
 	$CanvasLayer/AudioStreamLever.play()
 
+func set_flames_height(flames_height : float):
+	$Flames.position.y = 50 - flames_height * 50.0
+
 func spawn_enemy():
 	const ENEMIES = [
 		preload("res://scenes/characters/ennemies/Shark.tscn"),
