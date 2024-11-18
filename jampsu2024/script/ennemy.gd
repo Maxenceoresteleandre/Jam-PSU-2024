@@ -4,7 +4,6 @@ class_name Ennemy
 
 @export var speed = 150
 @export var health := 1
-@export var aggro_range = 2000
 
 var chasing_player = true
 

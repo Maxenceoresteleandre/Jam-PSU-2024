@@ -11,10 +11,10 @@
 radius = 77.2334
 
 [node name="Kraken" instance=ExtResource("1_7eba0")]
-speed = 25
-health = 9
+speed = 100
+health = 6
 
-[node name="Sprite" parent="." index="1"]
+[node name="Sprite" parent="." index="0"]
 position = Vector2(-259, -15)
 texture = ExtResource("2_cx143")
 
@@ -60,6 +60,6 @@ use_parent_material = true
 position = Vector2(138.333, 35.6667)
 texture = ExtResource("6_pelmw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 position = Vector2(-9, 4)
 shape = SubResource("CircleShape2D_5aju5")
