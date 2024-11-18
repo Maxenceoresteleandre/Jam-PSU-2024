@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ghlk5m3hburu"]
+[gd_scene load_steps=9 format=3 uid="uid://ghlk5m3hburu"]
 
 [ext_resource type="PackedScene" uid="uid://yv7lcxf6b5ft" path="res://scenes/environment/Obstacle.tscn" id="1_81j0p"]
 [ext_resource type="Texture2D" uid="uid://dh73f4vgjmndo" path="res://resources/art/sea_view/Récifs/Gros caillou.png" id="2_l7nco"]
 [ext_resource type="Texture2D" uid="uid://btxmrg8vtufnj" path="res://resources/art/sea_view/Récifs/Gros caillou.png2.png" id="3_ro21q"]
+[ext_resource type="Texture2D" uid="uid://ba1awubdbgl5n" path="res://resources/art/sea_view/Récifs/Récif droit.png" id="4_d8wr1"]
+[ext_resource type="Texture2D" uid="uid://6jq86o4odyn4" path="res://resources/art/sea_view/Récifs/Récif gauche.png" id="5_ao07b"]
+[ext_resource type="Texture2D" uid="uid://cq5pow618yehj" path="res://resources/art/sea_view/Récifs/Deux récifs.png" id="6_l2u8f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hj5k"]
 size = Vector2(243, 153)
@@ -23,19 +26,19 @@ texture = ExtResource("2_l7nco")
 texture_filter = 1
 position = Vector2(-54, 14)
 scale = Vector2(3, 3)
-texture = ExtResource("2_l7nco")
+texture = ExtResource("3_ro21q")
 
 [node name="Icon2" type="Sprite2D" parent="." index="3"]
 texture_filter = 1
 position = Vector2(-55, 54)
 scale = Vector2(3, 3)
-texture = ExtResource("3_ro21q")
+texture = ExtResource("4_d8wr1")
 
 [node name="Icon3" type="Sprite2D" parent="." index="4"]
 texture_filter = 1
-position = Vector2(-60, 100)
+position = Vector2(-59, 109)
 scale = Vector2(3, 3)
-texture = ExtResource("3_ro21q")
+texture = ExtResource("5_ao07b")
 
 [node name="Icon4" type="Sprite2D" parent="." index="5"]
 texture_filter = 1
@@ -45,9 +48,9 @@ texture = ExtResource("3_ro21q")
 
 [node name="Icon5" type="Sprite2D" parent="." index="6"]
 texture_filter = 1
-position = Vector2(52, 104)
+position = Vector2(68, 110)
 scale = Vector2(3, 3)
-texture = ExtResource("3_ro21q")
+texture = ExtResource("5_ao07b")
 
 [node name="Icon6" type="Sprite2D" parent="." index="7"]
 texture_filter = 1
@@ -59,7 +62,7 @@ texture = ExtResource("3_ro21q")
 texture_filter = 1
 position = Vector2(123, 8)
 scale = Vector2(3, 3)
-texture = ExtResource("3_ro21q")
+texture = ExtResource("4_d8wr1")
 
 [node name="Icon8" type="Sprite2D" parent="." index="9"]
 texture_filter = 1
@@ -71,7 +74,7 @@ texture = ExtResource("3_ro21q")
 texture_filter = 1
 position = Vector2(127, 100)
 scale = Vector2(3, 3)
-texture = ExtResource("3_ro21q")
+texture = ExtResource("6_l2u8f")
 
 [node name="LightOccluder2D" parent="." index="11"]
 occluder = SubResource("OccluderPolygon2D_csyds")
