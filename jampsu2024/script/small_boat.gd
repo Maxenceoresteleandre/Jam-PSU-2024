@@ -143,9 +143,10 @@ func set_ship_sprite(d : Directions):
 
 func damage(damage: float):
 	$AudioStreamPlayer.play()
-	health -= damage
+	health -= damage * 1.5
 	$Camera2D/CameraUtils.shake(0.3, 7, 20, 2)
 	GlobalVariables.world.set_life(health)
+	$AnimatedSprite2D/AnimationPlayer.play("hit")
 	if health == 0:
 		show_game_over()
 		
