@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=17 format=3 uid="uid://nm0hvloww1wc"]
+[gd_resource type="VisualShader" load_steps=18 format=3 uid="uid://nm0hvloww1wc"]
 
 [ext_resource type="Texture2D" uid="uid://x1g544px0r7e" path="res://resources/shader/WaterTrailGradientFaded.png" id="1_q4cs6"]
 
@@ -28,6 +28,8 @@ function = 14
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_w1hl8"]
 output_port_for_preview = 0
 operator = 3
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_mg23l"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_qck3u"]
 expanded_output_ports = [0]
@@ -69,6 +71,10 @@ uniform float FloatParameter2 = 6;
 
 
 void fragment() {
+// ColorConstant:17
+	vec4 n_out17p0 = vec4(1.000000, 1.000000, 1.000000, 1.000000);
+
+
 // Texture2D:2
 	vec4 n_out2p0 = texture(tex_frg_2, UV);
 	float n_out2p1 = n_out2p0.r;
@@ -141,12 +147,13 @@ void fragment() {
 
 
 // Output:0
-	COLOR.rgb = vec3(n_out16p0);
+	COLOR.rgb = vec3(n_out17p0.xyz);
+	COLOR.a = n_out16p0;
 
 
 }
 "
-graph_offset = Vector2(1193.16, -86.4792)
+graph_offset = Vector2(-172.38, -39.6437)
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(2700, 80)
@@ -180,4 +187,6 @@ nodes/fragment/15/node = SubResource("VisualShaderNodeFloatFunc_f1kwu")
 nodes/fragment/15/position = Vector2(2080, 160)
 nodes/fragment/16/node = SubResource("VisualShaderNodeFloatOp_w1hl8")
 nodes/fragment/16/position = Vector2(2300, 300)
-nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 4, 0, 5, 0, 6, 0, 8, 0, 7, 0, 8, 1, 8, 0, 4, 1, 5, 0, 9, 0, 12, 0, 11, 1, 2, 0, 11, 0, 2, 1, 3, 0, 11, 0, 10, 0, 9, 0, 10, 1, 10, 0, 13, 0, 14, 0, 13, 1, 13, 0, 15, 0, 15, 0, 16, 0, 14, 0, 16, 1, 16, 0, 0, 0)
+nodes/fragment/17/node = SubResource("VisualShaderNodeColorConstant_mg23l")
+nodes/fragment/17/position = Vector2(2420, 40)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 4, 0, 5, 0, 6, 0, 8, 0, 7, 0, 8, 1, 8, 0, 4, 1, 5, 0, 9, 0, 12, 0, 11, 1, 2, 0, 11, 0, 2, 1, 3, 0, 11, 0, 10, 0, 9, 0, 10, 1, 10, 0, 13, 0, 14, 0, 13, 1, 13, 0, 15, 0, 15, 0, 16, 0, 14, 0, 16, 1, 17, 0, 0, 0, 16, 0, 0, 1)
