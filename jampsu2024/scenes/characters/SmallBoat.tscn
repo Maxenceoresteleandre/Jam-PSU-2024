@@ -404,6 +404,8 @@ script = ExtResource("27_c6ifn")
 
 [node name="AudioEngineUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("28_cqrpg")
+volume_db = -15.0
 
 [node name="AudioEngineDown" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("28_fgdvx")
+volume_db = -15.0
