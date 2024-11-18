@@ -349,7 +349,6 @@ position = Vector2(38, 31)
 scale = Vector2(3, 3)
 color = Color(0.58479, 0.693539, 0.299293, 1)
 range_item_cull_mask = 3
-shadow_enabled = true
 texture = ExtResource("4_dbmac")
 texture_scale = 5.0
 
