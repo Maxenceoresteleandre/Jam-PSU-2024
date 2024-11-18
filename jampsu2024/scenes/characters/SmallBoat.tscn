@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c2a0nbvglukoh"]
+[gd_scene load_steps=39 format=3 uid="uid://c2a0nbvglukoh"]
 
 [ext_resource type="Script" path="res://script/small_boat.gd" id="1_ayldm"]
 [ext_resource type="Shader" path="res://resources/shader/line.gdshader" id="3_cfkk8"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://dq2gqpdlhti4c" path="res://resources/art/sea_view/ship/ship sprites/facing up/ship up stopped.png" id="24_vkmwf"]
 [ext_resource type="AudioStream" uid="uid://dty676jy4ipa" path="res://resources/audio/impact_bateau.wav" id="25_0jdm8"]
 [ext_resource type="Texture2D" uid="uid://pwlogsvvhx3o" path="res://resources/shader/WaterTrailGradient.png" id="26_ikl7f"]
+[ext_resource type="Shader" uid="uid://3dkt385m8auv" path="res://resources/shader/RippleShader.tres" id="26_l484s"]
 [ext_resource type="Script" path="res://script/water_trail.gd" id="27_c6ifn"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qbyrv"]
@@ -175,6 +176,14 @@ animations = [{
 "name": &"top_s",
 "speed": 5.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kbe5d"]
+shader = ExtResource("26_l484s")
+shader_parameter/InitialAlpha = 0.46
+shader_parameter/Speed = 0.1
+shader_parameter/QuantizeColourAmount = 6.0
+shader_parameter/BrightnessOffset = null
+shader_parameter/UpperCutoff = 0.3
 
 [sub_resource type="Curve" id="Curve_7xspy"]
 max_value = 21.28
@@ -339,7 +348,8 @@ volume_db = -7.0
 
 [node name="WaterTrail" type="Line2D" parent="."]
 z_index = -1
-points = PackedVector2Array(43, 73, -64, -43, -169, -139, -258, -208)
+material = SubResource("ShaderMaterial_kbe5d")
+points = PackedVector2Array(43, 73, -64, -43, -121, -86, -288, -209)
 width_curve = SubResource("Curve_7xspy")
 gradient = SubResource("Gradient_13it1")
 texture = ExtResource("26_ikl7f")
