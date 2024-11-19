@@ -9,8 +9,6 @@ func _ready() -> void:
 	await get_tree().create_timer(8.0).timeout
 	spawn_enemy()
 	spawn_enemy()
-	spawn_enemy()
-	spawn_enemy()
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -50,24 +48,24 @@ func set_flames_height(flames_height : float):
 
 func spawn_enemy():
 	const ENEMIES = [
-		preload("res://scenes/characters/ennemies/Shark.tscn"),
+		preload("res://scenes/characters/ennemies/Shark.tscn"),   
 		preload("res://scenes/characters/ennemies/sharklvl2.tscn"),
 		preload("res://scenes/characters/ennemies/Underwater.tscn"),
 		preload("res://scenes/characters/ennemies/kraken.tscn"),
 		preload("res://scenes/characters/ennemies/shark_no_light.tscn")
 	]
-	var rd := randi_range(0, 23)
-	if rd <= 10 or score <= 10: 
+	var rd := randi_range(0, 22)
+	if rd <= 10 or score <= 10:  # 10/21 proba de ennemi lvl1:Baudroie ou lvl1:Requin
 		if randi()%2 == 0:
 			spawn_m(ENEMIES[0])
 		else:
 			spawn_m(ENEMIES[4])
-	elif rd < 15 or score <= 15:
+	elif rd < 15 or score <= 15: # 5/21 proba de ennemi lvl2:Baudroie (+ de PV)
 		spawn_m(ENEMIES[1])
-	elif rd <= 20 or score <= 30:
+	elif rd <= 20 or score <= 30:# 5/21 proba de ennemi lvl2:Requin (sous l'eau)
 		spawn_m(ENEMIES[2])
 	else:
-		spawn_m(ENEMIES[3])
+		spawn_m(ENEMIES[3])      # 1/21 proba de ennemi lvl3:Kraken
 	await get_tree().create_timer(randf_range(9.0, 9.0)).timeout
 	spawn_enemy()
 
