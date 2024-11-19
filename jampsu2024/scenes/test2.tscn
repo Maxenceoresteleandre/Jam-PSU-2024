@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://cnsao8pg4k1tp"]
+
+[ext_resource type="Shader" uid="uid://qd5fee603li3" path="res://resources/shader/RippleShaderNew.tres" id="1_cay78"]
+[ext_resource type="Script" path="res://script/test_cursor.gd" id="1_md435"]
+[ext_resource type="Material" uid="uid://tj1entgdpoef" path="res://resources/shader/WaterTrailSpriteMaterial.tres" id="2_eoshs"]
+[ext_resource type="Texture2D" uid="uid://pwlogsvvhx3o" path="res://resources/shader/WaterTrailGradient.png" id="2_ibo2c"]
+[ext_resource type="Script" path="res://script/water_trail.gd" id="3_cxfrv"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7j60q"]
+viewport_path = NodePath("WaterTrail/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_if8ow"]
+shader = ExtResource("1_cay78")
+shader_parameter/FloatParameter = 0.46
+shader_parameter/Speed = 0.1
+shader_parameter/FloatParameter2 = 6.0
+
+[sub_resource type="Curve" id="Curve_d07uq"]
+min_value = 0.5
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.483516), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_v0ps7"]
+offsets = PackedFloat32Array(0, 0.226667, 0.986667)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0.728822, 0.728822, 0.728822, 1)
+
+[node name="Test2" type="Node2D"]
+
+[node name="WaterTrail" type="Node2D" parent="."]
+script = ExtResource("1_md435")
+
+[node name="WaterTrailSprite" type="Sprite2D" parent="WaterTrail"]
+material = ExtResource("2_eoshs")
+texture = SubResource("ViewportTexture_7j60q")
+
+[node name="SubViewport" type="SubViewport" parent="WaterTrail"]
+disable_3d = true
+size = Vector2i(128, 128)
+
+[node name="WaterTrail" type="Line2D" parent="WaterTrail/SubViewport" node_paths=PackedStringArray("parent", "sub_viewport")]
+z_index = -1
+texture_filter = 1
+material = SubResource("ShaderMaterial_if8ow")
+points = PackedVector2Array(43, 36, 31, 27, 22, 19, 9, 9, 1, 1)
+width_curve = SubResource("Curve_d07uq")
+gradient = SubResource("Gradient_v0ps7")
+texture = ExtResource("2_ibo2c")
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 1
+end_cap_mode = 1
+script = ExtResource("3_cxfrv")
+parent = NodePath("../..")
+sub_viewport = NodePath("..")

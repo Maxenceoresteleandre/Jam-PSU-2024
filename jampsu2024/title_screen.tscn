@@ -93,6 +93,7 @@ range_item_cull_mask = 7
 texture = ExtResource("5_qjvo4")
 
 [node name="Label2" type="Label" parent="CanvasLayer/TextureTuto/TutoLights/ColorRect"]
+layout_mode = 0
 offset_left = 25.0
 offset_top = 4.74998
 offset_right = 692.0
@@ -174,6 +175,7 @@ range_item_cull_mask = 7
 texture = ExtResource("5_qjvo4")
 
 [node name="Label2" type="Label" parent="CanvasLayer/TextureTuto/TutoCannons/ColorRect"]
+layout_mode = 0
 offset_left = 25.0
 offset_top = 4.74998
 offset_right = 692.0
@@ -234,6 +236,7 @@ range_item_cull_mask = 7
 texture = ExtResource("5_qjvo4")
 
 [node name="Label2" type="Label" parent="CanvasLayer/TextureTuto/TutoLightHouse/ColorRect"]
+layout_mode = 0
 offset_left = 25.0
 offset_top = 4.74998
 offset_right = 692.0
@@ -316,6 +319,7 @@ range_item_cull_mask = 7
 texture = ExtResource("5_qjvo4")
 
 [node name="Label2" type="Label" parent="CanvasLayer/TextureTuto/TutoWheel/ColorRect"]
+layout_mode = 0
 offset_left = 25.0
 offset_top = 4.74998
 offset_right = 692.0
