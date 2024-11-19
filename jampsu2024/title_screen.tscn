@@ -102,7 +102,63 @@ Approchez-vous et appuyez sur
 INTERAGIR pour les rallumer."
 label_settings = SubResource("LabelSettings_jkj5e")
 
+[node name="TutoLightHouse" type="Control" parent="CanvasLayer/TextureTuto"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoLightHouse"]
+z_index = 3
+position = Vector2(322, 524)
+scale = Vector2(2.53, 2.53)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("4_i3ejn")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoLightHouse"]
+z_index = 3
+position = Vector2(1528, 582)
+scale = Vector2(16.1081, 16.1081)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("4_i3ejn")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureTuto/TutoLightHouse"]
+layout_mode = 0
+offset_left = 679.0
+offset_top = 45.0
+offset_right = 1382.0
+offset_bottom = 443.0
+color = Color(0, 0, 0, 1)
+
+[node name="PointLight2D3" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoLightHouse/ColorRect"]
+z_index = 3
+texture_filter = 1
+position = Vector2(342, 197.5)
+scale = Vector2(0.969101, 0.54073)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("5_qjvo4")
+
+[node name="Label2" type="Label" parent="CanvasLayer/TextureTuto/TutoLightHouse/ColorRect"]
+offset_left = 25.0
+offset_top = 4.74998
+offset_right = 692.0
+offset_bottom = 371.75
+text = "Ces objet est le PHARE.
+Il permet d'illuminer la route, révélant 
+ennemis et obstacles. 
+Pour le tourner, approchez vous de la
+mannette de contrôle et appuyez sur 
+INTERAGIR."
+label_settings = SubResource("LabelSettings_jkj5e")
+
 [node name="TutoCannons" type="Control" parent="CanvasLayer/TextureTuto"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -186,6 +242,96 @@ Pour cela, allez vers la RESERVE et
 appuyez sur INTERAGIR pour récupérer
 un boulet, puis déposez le à côté du 
 CANON avec INTERAGIR."
+label_settings = SubResource("LabelSettings_jkj5e")
+
+[node name="TutoWheel" type="Control" parent="CanvasLayer/TextureTuto"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoWheel"]
+z_index = 3
+position = Vector2(311, 310)
+scale = Vector2(2.53, 2.53)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("4_i3ejn")
+
+[node name="PointLight2D2" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoWheel"]
+z_index = 3
+position = Vector2(308, 902)
+scale = Vector2(2.53, 2.53)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("4_i3ejn")
+
+[node name="PointLight2D4" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoWheel"]
+z_index = 3
+position = Vector2(898, 1069)
+scale = Vector2(11.8147, 11.8147)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("4_i3ejn")
+
+[node name="PointLight2D5" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoWheel"]
+z_index = 3
+position = Vector2(1856, 1026)
+scale = Vector2(11.8147, 11.8147)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("4_i3ejn")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoWheel"]
+z_index = 3
+position = Vector2(388, 806)
+scale = Vector2(2.53, 2.53)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("4_i3ejn")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureTuto/TutoWheel"]
+layout_mode = 0
+offset_left = 679.0
+offset_top = 45.0
+offset_right = 1395.0
+offset_bottom = 850.0
+color = Color(0, 0, 0, 1)
+
+[node name="PointLight2D3" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoWheel/ColorRect"]
+z_index = 3
+texture_filter = 1
+position = Vector2(383.5, 405)
+scale = Vector2(1.08567, 1.1236)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("5_qjvo4")
+
+[node name="Label2" type="Label" parent="CanvasLayer/TextureTuto/TutoWheel/ColorRect"]
+offset_left = 25.0
+offset_top = 4.74998
+offset_right = 692.0
+offset_bottom = 371.75
+text = "Cet objet est le GOUVERNAIL. 
+Approchez-vous et appuyer sur 
+INTERAGIR pour piloter le bateau.
+Avec Haut/Bas, vous pouvez gérer
+la vitesse (indiquée par le levier à 
+droite de l'écran).
+Avec DROITE/GAUCHE vous pouvez
+tourner le bateau.
+Le moteur fonctionne au charbon.
+Quand la réserve (à côté du gouvernail)
+est vide, vous pouvez la remplir en y
+apportant du charbon depuis la SOUTE,
+à l'avant du bateau.
+"
 label_settings = SubResource("LabelSettings_jkj5e")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
