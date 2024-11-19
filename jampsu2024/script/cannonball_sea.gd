@@ -12,5 +12,8 @@ func _process(delta: float) -> void:
 	position += velocity * SPEED * delta
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if not (body is SmallBoat) and body.has_method("hit"):
-		body.hit()
+	if not (body is SmallBoat):
+		if body.has_method("hit"):
+			body.hit()
+		else:
+			queue_free()
