@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://flr3ossjawcr"]
 
-[ext_resource type="Texture2D" uid="uid://87rg16fwa3kp" path="res://resources/art/tentacle_shadow_1.png" id="1_okj4b"]
 [ext_resource type="Script" path="res://script/tentacle.gd" id="1_xb7r8"]
-[ext_resource type="Texture2D" uid="uid://c77g08lsdehpe" path="res://resources/art/tentacle_shadow_2.png" id="2_p5iw4"]
-[ext_resource type="Texture2D" uid="uid://q3hhpl3k2f2d" path="res://resources/art/tentacle_shadow_3.png" id="3_p3fn6"]
+[ext_resource type="Texture2D" uid="uid://d15h6kftxxrwk" path="res://resources/art/sea_view/kraken/tentacule 03 waves.png" id="2_64v7d"]
+[ext_resource type="Texture2D" uid="uid://bo5ajaprv8lya" path="res://resources/art/sea_view/kraken/tentacule 01 waves.png" id="3_4bi54"]
+[ext_resource type="Texture2D" uid="uid://blwq5g0dyfvoe" path="res://resources/art/sea_view/kraken/tentacule9waves.png" id="4_fvsy3"]
 [ext_resource type="Texture2D" uid="uid://batk8skfcnh3o" path="res://resources/art/sea_view/kraken/tentacule 01.png" id="5_iljb3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ky4em"]
@@ -13,20 +13,20 @@ radius = 7.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_okj4b")
+"texture": ExtResource("2_64v7d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_p5iw4")
+"texture": ExtResource("3_4bi54")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_p3fn6")
+"texture": ExtResource("4_fvsy3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_p5iw4")
+"texture": ExtResource("3_4bi54")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hmv5o"]
@@ -82,7 +82,7 @@ shape = SubResource("CircleShape2D_ky4em")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_sq8bs")
-frame_progress = 0.264988
+frame_progress = 0.567121
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
