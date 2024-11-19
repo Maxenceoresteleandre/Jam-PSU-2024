@@ -36,3 +36,7 @@ func spawn_ghost():
 	ghost.velocity = (ghost.global_position.direction_to($LightOccluder2D.global_position) ).normalized() * 400.0
 	await get_tree().create_timer(randf_range(min_time_ghost, max_time_ghost)).timeout
 	spawn_ghost()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Ghost and body.velocity.x > 1:
+		body.cleanse()

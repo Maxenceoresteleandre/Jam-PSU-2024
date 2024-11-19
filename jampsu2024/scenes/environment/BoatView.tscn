@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b0ew2d3ov7rsc"]
+[gd_scene load_steps=31 format=3 uid="uid://b0ew2d3ov7rsc"]
 
 [ext_resource type="Texture2D" uid="uid://cnda0on2lhoq6" path="res://resources/art/boat_view/ship/Bato.png" id="1_5kobi"]
 [ext_resource type="Script" path="res://script/boat_view.gd" id="1_y42bq"]
@@ -79,6 +79,9 @@ shader_parameter/width = 0.0
 shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5v1v"]
+size = Vector2(47, 1386)
 
 [node name="BoatView" type="Node2D"]
 z_index = 100
@@ -259,6 +262,15 @@ shape = SubResource("RectangleShape2D_3sook")
 [node name="Sprite" parent="InteractibleResources" index="1"]
 material = SubResource("ShaderMaterial_b7e16")
 texture = ExtResource("14_bqrmx")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(708, 578)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(9.5, 5)
+shape = SubResource("RectangleShape2D_l5v1v")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 
 [editable path="InteractibleResourcesBalls"]
 [editable path="ShipLight5"]
