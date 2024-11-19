@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Ennemy
 
+var DESPAWN_DISTANCE := 2500 * 2500
+
 
 @export var speed = 150
 @export var health := 1
@@ -9,6 +11,12 @@ var chasing_player = true
 var going_back = false
 var random_point := Vector2.ZERO
 var rng = RandomNumberGenerator.new()
+
+
+func check_distance():
+	if global_position.distance_squared_to(GlobalVariables.small_boat.global_position) > (
+	DESPAWN_DISTANCE):
+		queue_free()
 
 func _physics_process(delta: float) -> void:
 	#$Sprite.global_rotation = 0.0

@@ -129,4 +129,9 @@ shape = SubResource("RectangleShape2D_muma5")
 position = Vector2(-18.5, 2.5)
 shape = SubResource("CircleShape2D_2cf0n")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
 [connection signal="body_entered" from="HitboxArea2D" to="." method="_on_hitbox_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="check_distance"]
