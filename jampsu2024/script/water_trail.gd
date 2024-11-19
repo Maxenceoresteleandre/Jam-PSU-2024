@@ -9,17 +9,17 @@ var offset: Vector2i
 @export var smallest_tip_width: float = 0.5
 @export var largest_tip_width: float = 1.0
 @export var distance_at_largest_width = 16 * 6
-@export var max_length = 6
+@export var max_length = 20
 
 func _ready() -> void:
 	offset = Vector2i(sub_viewport.size.x / 2, sub_viewport.size.y / 2)
 
 func _process(delta: float) -> void:
 	var pos = parent.global_position + Vector2(offset)
-	queue.push_front(pos)
+	queue.push_back(pos)
 	
 	if (len(queue) > max_length):
-		queue.pop_back()
+		queue.pop_front()
 		
 	clear_points()
 	

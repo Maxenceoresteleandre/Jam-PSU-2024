@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://c2a0nbvglukoh"]
+[gd_scene load_steps=41 format=3 uid="uid://c2a0nbvglukoh"]
 
 [ext_resource type="Script" path="res://script/small_boat.gd" id="1_ayldm"]
 [ext_resource type="Shader" uid="uid://qd5fee603li3" path="res://resources/shader/RippleShaderNew.tres" id="2_poryn"]
@@ -26,8 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://c0gwxs0b0fjkv" path="res://resources/art/sea_view/ship/ship sprites/facing top right/ship top right stopped.png" id="20_rveei"]
 [ext_resource type="Texture2D" uid="uid://dq2gqpdlhti4c" path="res://resources/art/sea_view/ship/ship sprites/facing up/ship up stopped.png" id="24_vkmwf"]
 [ext_resource type="AudioStream" uid="uid://dty676jy4ipa" path="res://resources/audio/impact_bateau.wav" id="25_0jdm8"]
-[ext_resource type="Texture2D" uid="uid://pwlogsvvhx3o" path="res://resources/shader/WaterTrailGradient.png" id="26_ikl7f"]
-[ext_resource type="Script" path="res://script/water_trail.gd" id="27_c6ifn"]
 [ext_resource type="AudioStream" uid="uid://dnldpflxm1smr" path="res://resources/audio/engine_power_up.wav" id="28_cqrpg"]
 [ext_resource type="AudioStream" uid="uid://diblh0dc7e1c1" path="res://resources/audio/engine_power_down.wav" id="28_fgdvx"]
 
@@ -239,24 +237,6 @@ _data = {
 "hit": SubResource("Animation_euh8b")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_73ytb"]
-viewport_path = NodePath("WaterTrail/SubViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ahfrw"]
-shader = ExtResource("2_poryn")
-shader_parameter/FloatParameter = 0.46
-shader_parameter/Speed = 0.1
-shader_parameter/FloatParameter2 = 6.0
-
-[sub_resource type="Curve" id="Curve_7xspy"]
-max_value = 21.28
-_data = [Vector2(0.00645161, 6.08), 0.0, 0.0, 0, 0, Vector2(0.985294, 15.9015), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_13it1"]
-offsets = PackedFloat32Array(0, 0.566667, 0.986667)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0.728822, 0.728822, 0.728822, 1)
-
 [node name="SmallBoat" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 16
@@ -417,26 +397,3 @@ volume_db = -15.0
 [node name="AudioEngineDown" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("28_fgdvx")
 volume_db = -15.0
-
-[node name="WaterTrail" type="Node2D" parent="."]
-
-[node name="WaterTrailSprite" type="Sprite2D" parent="WaterTrail"]
-texture = SubResource("ViewportTexture_73ytb")
-
-[node name="SubViewport" type="SubViewport" parent="WaterTrail"]
-disable_3d = true
-transparent_bg = true
-size = Vector2i(128, 128)
-
-[node name="WaterTrail" type="Line2D" parent="WaterTrail/SubViewport" node_paths=PackedStringArray("parent", "sub_viewport")]
-z_index = -1
-texture_filter = 1
-material = SubResource("ShaderMaterial_ahfrw")
-points = PackedVector2Array(24, 64, 19, 62, 2, 43, -10, 32, -143, -87)
-width_curve = SubResource("Curve_7xspy")
-gradient = SubResource("Gradient_13it1")
-texture = ExtResource("26_ikl7f")
-texture_mode = 1
-script = ExtResource("27_c6ifn")
-parent = NodePath("../..")
-sub_viewport = NodePath("..")
