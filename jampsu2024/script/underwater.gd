@@ -14,7 +14,7 @@ func _ready() -> void:
 	center = position + Vector2(radius, 0) # Center to the right of the character
 
 func _physics_process(delta: float) -> void:
-	$Sprite.global_position = 0.0
+	#$Sprite.global_position = 0.0
 	if velocity.x < -1:
 		$Sprite.flip_h = true
 	elif velocity.x > 1:
@@ -24,14 +24,14 @@ func _physics_process(delta: float) -> void:
 		chasing_player = true
 	if going_back:
 		velocity = position.direction_to(random_point) * speed
-		look_at(random_point)
+		#look_at(random_point)
 		move_and_slide()
 	elif chasing_player:
 		go_underwater()
 		if position.distance_to(GlobalVariables.small_boat.position) < 300:
 			go_to_the_surface()
 		velocity = position.direction_to(GlobalVariables.small_boat.position) * speed
-		look_at(GlobalVariables.small_boat.position)
+		#look_at(GlobalVariables.small_boat.position)
 		move_and_slide()
 	else:
 		# Update the angle based on the angular speed
