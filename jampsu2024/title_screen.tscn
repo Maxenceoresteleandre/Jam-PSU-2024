@@ -1,23 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjxwnihh6j1c"]
+[gd_scene load_steps=8 format=3 uid="uid://bjxwnihh6j1c"]
 
 [ext_resource type="Script" path="res://script/title_screen.gd" id="1_al338"]
 [ext_resource type="FontFile" uid="uid://jcj6f06bt67a" path="res://resources/fonts/Moglan.ttf" id="1_w4mkl"]
 [ext_resource type="Texture2D" uid="uid://dr5qpq5dg6rm6" path="res://resources/Ecran_titre.png" id="3_hec8c"]
+[ext_resource type="Texture2D" uid="uid://cg2t4uehve8m4" path="res://resources/screenshot.png" id="3_o7ugm"]
+[ext_resource type="Texture2D" uid="uid://mwnuifnghf6c" path="res://resources/art/lights/ship_small_light2.png" id="4_i3ejn"]
+[ext_resource type="Texture2D" uid="uid://cagxvy0o21lg3" path="res://resources/white_suqare.png" id="5_qjvo4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jkj5e"]
 font = ExtResource("1_w4mkl")
-font_size = 151
+font_size = 40
+outline_size = 2
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource("1_al338")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 254.0
-offset_top = 150.0
-offset_right = 1386.0
-offset_bottom = 365.0
-text = "L'Etreinte Nocture"
-label_settings = SubResource("LabelSettings_jkj5e")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(954, 540)
@@ -37,10 +33,159 @@ grow_vertical = 2
 texture = ExtResource("3_hec8c")
 expand_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="TextureTuto" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_o7ugm")
+expand_mode = 2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer/TextureTuto"]
+position = Vector2(-18, -2)
+color = Color(0.3, 0.3, 0.3, 1)
+
+[node name="TutoLights" type="Control" parent="CanvasLayer/TextureTuto"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoLights"]
+z_index = 3
+position = Vector2(316, 30)
+scale = Vector2(2.53, 2.53)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("4_i3ejn")
+
+[node name="PointLight2D2" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoLights"]
+z_index = 3
+position = Vector2(317, 651)
+scale = Vector2(2.53, 2.53)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("4_i3ejn")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureTuto/TutoLights"]
+layout_mode = 0
+offset_left = 679.0
+offset_top = 45.0
+offset_right = 1270.0
+offset_bottom = 376.0
 color = Color(0, 0, 0, 1)
+
+[node name="PointLight2D3" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoLights/ColorRect"]
+z_index = 3
+texture_filter = 1
+position = Vector2(286, 162)
+scale = Vector2(0.811798, 0.441011)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("5_qjvo4")
+
+[node name="Label2" type="Label" parent="CanvasLayer/TextureTuto/TutoLights/ColorRect"]
+offset_left = 25.0
+offset_top = 4.74998
+offset_right = 692.0
+offset_bottom = 371.75
+text = "Ces objets sont des TORCHES.
+Elles repoussent les fantômes, 
+mais s'éteignent avec le temps.
+Approchez-vous et appuyez sur
+INTERAGIR pour les rallumer."
+label_settings = SubResource("LabelSettings_jkj5e")
+
+[node name="TutoCannons" type="Control" parent="CanvasLayer/TextureTuto"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PointLight2D5" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoCannons"]
+z_index = 3
+position = Vector2(231, 799)
+scale = Vector2(2.99093, 2.99093)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("4_i3ejn")
+
+[node name="PointLight2D4" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoCannons"]
+z_index = 3
+position = Vector2(89, 471)
+scale = Vector2(4.46152, 4.46152)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("4_i3ejn")
+
+[node name="PointLight2D6" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoCannons"]
+z_index = 3
+position = Vector2(92, 705)
+scale = Vector2(4.46152, 4.46152)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("4_i3ejn")
+
+[node name="PointLight2D7" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoCannons"]
+z_index = 3
+position = Vector2(522, 682)
+scale = Vector2(4.46152, 4.46152)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("4_i3ejn")
+
+[node name="PointLight2D8" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoCannons"]
+z_index = 3
+position = Vector2(518, 478)
+scale = Vector2(4.46152, 4.46152)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("4_i3ejn")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureTuto/TutoCannons"]
+layout_mode = 0
+offset_left = 679.0
+offset_top = 45.0
+offset_right = 1377.0
+offset_bottom = 725.0
+color = Color(0, 0, 0, 1)
+
+[node name="PointLight2D3" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoCannons/ColorRect"]
+z_index = 3
+texture_filter = 1
+position = Vector2(340.5, 340)
+scale = Vector2(0.964887, 0.941011)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("5_qjvo4")
+
+[node name="Label2" type="Label" parent="CanvasLayer/TextureTuto/TutoCannons/ColorRect"]
+offset_left = 25.0
+offset_top = 4.74998
+offset_right = 692.0
+offset_bottom = 371.75
+text = "Ces objets sont des CANONS.
+Ils tuent les monstres marins. 
+Appuyez sur INTERAGIR puis visez
+avec le joystick pour tirer.
+Les boulets sont affichés à côté 
+de chaque canon, et vous pouvez 
+utiliser la RESERVE pour les recharger.
+Pour cela, allez vers la RESERVE et 
+appuyez sur INTERAGIR pour récupérer
+un boulet, puis déposez le à côté du 
+CANON avec INTERAGIR."
+label_settings = SubResource("LabelSettings_jkj5e")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
