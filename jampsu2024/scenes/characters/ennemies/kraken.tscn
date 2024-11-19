@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://do5m4h6hyibs5"]
+[gd_scene load_steps=9 format=3 uid="uid://do5m4h6hyibs5"]
 
 [ext_resource type="PackedScene" uid="uid://chviatf7tluc5" path="res://scenes/characters/ennemies/ennemy.tscn" id="1_7eba0"]
+[ext_resource type="Script" path="res://script/kraken.gd" id="2_c5yuu"]
 [ext_resource type="Texture2D" uid="uid://lmn7jyjsamop" path="res://resources/art/sea_view/kraken/poulpe head.png" id="2_mxvkg"]
-[ext_resource type="Texture2D" uid="uid://batk8skfcnh3o" path="res://resources/art/sea_view/kraken/tentacule 01.png" id="3_rvfs0"]
+[ext_resource type="PackedScene" uid="uid://flr3ossjawcr" path="res://scenes/characters/ennemies/tentacle.tscn" id="4_mg74m"]
 [ext_resource type="Texture2D" uid="uid://c21qr8omd168m" path="res://resources/art/sea_view/kraken/tentacule 02.png" id="4_pb06x"]
 [ext_resource type="Texture2D" uid="uid://c6e7sgopfvgys" path="res://resources/art/sea_view/kraken/tentacule 03.png" id="5_p24uw"]
 [ext_resource type="Texture2D" uid="uid://dg77hf2q8w4yr" path="res://resources/art/sea_view/kraken/tentacule 04.png" id="6_hwh44"]
@@ -11,55 +12,50 @@
 radius = 77.2334
 
 [node name="Kraken" instance=ExtResource("1_7eba0")]
-speed = 30
-health = 6
+script = ExtResource("2_c5yuu")
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2(4, -12)
 texture = ExtResource("2_mxvkg")
 
-[node name="Sprite2" type="Sprite2D" parent="Sprite" index="0"]
-texture_filter = 1
-use_parent_material = true
-position = Vector2(-67.6667, -5.16664)
-texture = ExtResource("3_rvfs0")
-
-[node name="Sprite8" type="Sprite2D" parent="Sprite" index="1"]
-texture_filter = 1
-use_parent_material = true
-position = Vector2(35.6663, 9.83336)
-texture = ExtResource("3_rvfs0")
-
-[node name="Sprite3" type="Sprite2D" parent="Sprite" index="2"]
-texture_filter = 1
-use_parent_material = true
-position = Vector2(-62, 39)
-texture = ExtResource("4_pb06x")
-
-[node name="Sprite6" type="Sprite2D" parent="Sprite" index="3"]
-texture_filter = 1
-use_parent_material = true
-position = Vector2(-43, -28.1666)
-texture = ExtResource("4_pb06x")
-
-[node name="Sprite4" type="Sprite2D" parent="Sprite" index="4"]
-texture_filter = 1
-use_parent_material = true
-position = Vector2(25.3333, -38.8333)
-texture = ExtResource("5_p24uw")
-
-[node name="Sprite7" type="Sprite2D" parent="Sprite" index="5"]
-texture_filter = 1
-use_parent_material = true
-position = Vector2(-19.6667, 34.6667)
-texture = ExtResource("5_p24uw")
-
-[node name="Sprite5" type="Sprite2D" parent="Sprite" index="6"]
-texture_filter = 1
-use_parent_material = true
-position = Vector2(28.6667, 50.6667)
-texture = ExtResource("6_hwh44")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 position = Vector2(-9, 4)
 shape = SubResource("CircleShape2D_5aju5")
+
+[node name="Tentacle" parent="." index="4" instance=ExtResource("4_mg74m")]
+position = Vector2(-161, -67)
+scale = Vector2(3, 3)
+tentacle_texture = ExtResource("4_pb06x")
+
+[node name="Tentacle2" parent="." index="5" instance=ExtResource("4_mg74m")]
+position = Vector2(-227, 73)
+scale = Vector2(3, 3)
+tentacle_texture = ExtResource("5_p24uw")
+
+[node name="Tentacle3" parent="." index="6" instance=ExtResource("4_mg74m")]
+position = Vector2(-110, 152)
+scale = Vector2(3, 3)
+tentacle_texture = ExtResource("6_hwh44")
+
+[node name="Tentacle4" parent="." index="7" instance=ExtResource("4_mg74m")]
+position = Vector2(79, 187)
+scale = Vector2(3, 3)
+
+[node name="Tentacle5" parent="." index="8" instance=ExtResource("4_mg74m")]
+position = Vector2(153, -120)
+scale = Vector2(3, 3)
+tentacle_texture = ExtResource("6_hwh44")
+
+[node name="Tentacle7" parent="." index="9" instance=ExtResource("4_mg74m")]
+position = Vector2(288, -67)
+scale = Vector2(3, 3)
+tentacle_texture = ExtResource("5_p24uw")
+
+[node name="Tentacle8" parent="." index="10" instance=ExtResource("4_mg74m")]
+position = Vector2(203, 97)
+scale = Vector2(3, 3)
+tentacle_texture = ExtResource("4_pb06x")
+
+[node name="Tentacle6" parent="." index="11" instance=ExtResource("4_mg74m")]
+position = Vector2(-27, -153)
+scale = Vector2(3, 3)

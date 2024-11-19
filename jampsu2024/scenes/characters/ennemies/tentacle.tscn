@@ -82,7 +82,7 @@ shape = SubResource("CircleShape2D_ky4em")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_sq8bs")
-frame_progress = 0.181545
+frame_progress = 0.264988
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
