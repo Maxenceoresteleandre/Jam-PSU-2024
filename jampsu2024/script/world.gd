@@ -5,12 +5,12 @@ func _ready() -> void:
 	score = 0
 	GlobalVariables.world = self
 	GlobalVariables.sea_view = $SeaView
-	await get_tree().create_timer(0.5).timeout
-	spawn_enemy()
-	spawn_enemy()
-	spawn_enemy()
-	spawn_enemy()
 	Cutscene.load_cutscene()
+	await get_tree().create_timer(8.0).timeout
+	spawn_enemy()
+	spawn_enemy()
+	spawn_enemy()
+	spawn_enemy()
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
