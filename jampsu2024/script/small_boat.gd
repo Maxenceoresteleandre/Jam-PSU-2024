@@ -236,7 +236,8 @@ func shoot(index: int, dir : Vector2):
 	var cannonball_velocity : Vector2
 	cannonball.position = position + cannons_offsets[index]
 	cannonball.velocity = dir.rotated(lines[index].global_rotation + PI/2.0)
-	$GPUParticles2D.position = cannons_offsets[index]
+	$GPUParticles2D.position = lines[index].position
+	$GPUParticles2D.rotation = lines[index].rotation
 	$GPUParticles2D.process_material.initial_velocity = direction * 100
 	$GPUParticles2D.emitting = true
 	
