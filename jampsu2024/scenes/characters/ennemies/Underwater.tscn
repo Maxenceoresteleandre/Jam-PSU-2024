@@ -10,11 +10,11 @@ shader = ExtResource("3_wk5y8")
 shader_parameter/target_color = Vector4(0.8, 0.8, 0.8, 0.5)
 shader_parameter/enable = false
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5xrl"]
-size = Vector2(106, 47)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tp2m5"]
+size = Vector2(218, 113)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bg7a"]
-size = Vector2(201, 110)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csowo"]
+size = Vector2(118, 34)
 
 [node name="Underwater" instance=ExtResource("1_t73wk")]
 script = ExtResource("2_dfemf")
@@ -23,16 +23,10 @@ script = ExtResource("2_dfemf")
 material = SubResource("ShaderMaterial_yt3fq")
 texture = ExtResource("4_ooyux")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-position = Vector2(-2, 9.5)
-shape = SubResource("RectangleShape2D_k5xrl")
+[node name="Hitbox" parent="HitboxArea2D" index="0"]
+position = Vector2(2, 6)
+shape = SubResource("RectangleShape2D_tp2m5")
 
-[node name="Area2D2" type="Area2D" parent="." index="4"]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" index="0"]
-position = Vector2(-5.5, 3)
-shape = SubResource("RectangleShape2D_0bg7a")
-
-[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[node name="truc" parent="." index="3"]
+position = Vector2(2, 7)
+shape = SubResource("RectangleShape2D_csowo")

@@ -67,14 +67,3 @@ func go_to_the_surface():
 func hit():
 	if can_be_killed:
 		super.hit()
-		
-func choose_random_point():
-	var rp = Vector2(rng.randi_range(position.x - 500, position.x-200), rng.randi_range(position.y - 500, position.y + 500))
-	random_point = rp
-
-
-func _on_area_2d_2_body_entered(body: Node2D) -> void:
-	if body is SmallBoat:
-		body.ennemy_hit()
-		going_back = true
-		choose_random_point()

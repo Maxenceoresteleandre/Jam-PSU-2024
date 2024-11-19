@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://chviatf7tluc5"]
+[gd_scene load_steps=9 format=3 uid="uid://chviatf7tluc5"]
 
 [ext_resource type="Script" path="res://script/ennemy.gd" id="1_ekx8i"]
 [ext_resource type="Texture2D" uid="uid://bojof48xg7s1i" path="res://resources/art/sea_view/fish_placeholder.png" id="2_tjs24"]
@@ -96,7 +96,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muma5"]
-size = Vector2(80, 85)
+size = Vector2(124, 115)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2cf0n"]
+radius = 32.5038
 
 [node name="Ennemy" type="CharacterBody2D"]
 collision_layer = 16
@@ -121,3 +124,9 @@ collision_mask = 4
 [node name="Hitbox" type="CollisionShape2D" parent="HitboxArea2D"]
 position = Vector2(-19, 4.5)
 shape = SubResource("RectangleShape2D_muma5")
+
+[node name="truc" type="CollisionShape2D" parent="."]
+position = Vector2(-18.5, 2.5)
+shape = SubResource("CircleShape2D_2cf0n")
+
+[connection signal="body_entered" from="HitboxArea2D" to="." method="_on_hitbox_area_2d_body_entered"]

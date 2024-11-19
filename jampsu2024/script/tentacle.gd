@@ -11,6 +11,10 @@ const TIME_DOWN := 10.0
 
 var is_up := true
 
+func _ready() -> void:
+	await get_tree().create_timer(randf_range(0.0, 1.0)).timeout
+	$AnimatedSprite2D.play("default")
+
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
