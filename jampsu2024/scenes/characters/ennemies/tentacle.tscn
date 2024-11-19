@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://flr3ossjawcr"]
+[gd_scene load_steps=9 format=3 uid="uid://flr3ossjawcr"]
 
-[ext_resource type="Texture2D" uid="uid://cdews25nfylt8" path="res://resources/art/tentacule_01.png" id="1_frkc1"]
 [ext_resource type="Texture2D" uid="uid://87rg16fwa3kp" path="res://resources/art/tentacle_shadow_1.png" id="1_okj4b"]
+[ext_resource type="Script" path="res://script/tentacle.gd" id="1_xb7r8"]
 [ext_resource type="Texture2D" uid="uid://c77g08lsdehpe" path="res://resources/art/tentacle_shadow_2.png" id="2_p5iw4"]
 [ext_resource type="Texture2D" uid="uid://q3hhpl3k2f2d" path="res://resources/art/tentacle_shadow_3.png" id="3_p3fn6"]
+[ext_resource type="Texture2D" uid="uid://batk8skfcnh3o" path="res://resources/art/sea_view/kraken/tentacule 01.png" id="5_iljb3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ky4em"]
-radius = 12.0
+radius = 7.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sq8bs"]
 animations = [{
@@ -28,17 +29,34 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmv5o"]
+radius = 13.0
+
 [node name="Tentacle" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_xb7r8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -3)
 shape = SubResource("CircleShape2D_ky4em")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_sq8bs")
-frame_progress = 0.937106
+frame_progress = 0.897375
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -25)
-texture = ExtResource("1_frkc1")
+position = Vector2(-1, -15)
+texture = ExtResource("5_iljb3")
+
+[node name="HitboxArea2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="Hitbox" type="CollisionShape2D" parent="HitboxArea2D"]
+position = Vector2(-1, -3)
+shape = SubResource("CircleShape2D_hmv5o")
+
+[connection signal="body_entered" from="HitboxArea2D" to="." method="_on_hitbox_area_2d_body_entered"]

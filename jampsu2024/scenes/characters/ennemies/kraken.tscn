@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://do5m4h6hyibs5"]
 
 [ext_resource type="PackedScene" uid="uid://chviatf7tluc5" path="res://scenes/characters/ennemies/ennemy.tscn" id="1_7eba0"]
-[ext_resource type="Texture2D" uid="uid://bc5co6mytelxb" path="res://resources/art/poulpe_head.png" id="2_cx143"]
-[ext_resource type="Texture2D" uid="uid://cdews25nfylt8" path="res://resources/art/tentacule_01.png" id="3_17x0s"]
-[ext_resource type="Texture2D" uid="uid://dwkvnw7uhuaud" path="res://resources/art/tentacule_02.png" id="4_e3qe4"]
-[ext_resource type="Texture2D" uid="uid://duayp8ayi23qx" path="res://resources/art/tentacule_03.png" id="5_scyjt"]
-[ext_resource type="Texture2D" uid="uid://c5ds6rnsqhhn4" path="res://resources/art/tentacule_04.png" id="6_pelmw"]
+[ext_resource type="Texture2D" uid="uid://lmn7jyjsamop" path="res://resources/art/sea_view/kraken/poulpe head.png" id="2_mxvkg"]
+[ext_resource type="Texture2D" uid="uid://batk8skfcnh3o" path="res://resources/art/sea_view/kraken/tentacule 01.png" id="3_rvfs0"]
+[ext_resource type="Texture2D" uid="uid://c21qr8omd168m" path="res://resources/art/sea_view/kraken/tentacule 02.png" id="4_pb06x"]
+[ext_resource type="Texture2D" uid="uid://c6e7sgopfvgys" path="res://resources/art/sea_view/kraken/tentacule 03.png" id="5_p24uw"]
+[ext_resource type="Texture2D" uid="uid://dg77hf2q8w4yr" path="res://resources/art/sea_view/kraken/tentacule 04.png" id="6_hwh44"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5aju5"]
 radius = 77.2334
@@ -15,50 +15,50 @@ speed = 30
 health = 6
 
 [node name="Sprite" parent="." index="0"]
-position = Vector2(-259, -15)
-texture = ExtResource("2_cx143")
+position = Vector2(4, -12)
+texture = ExtResource("2_mxvkg")
 
 [node name="Sprite2" type="Sprite2D" parent="Sprite" index="0"]
 texture_filter = 1
 use_parent_material = true
-position = Vector2(32, -4)
-texture = ExtResource("3_17x0s")
+position = Vector2(-67.6667, -5.16664)
+texture = ExtResource("3_rvfs0")
 
 [node name="Sprite8" type="Sprite2D" parent="Sprite" index="1"]
 texture_filter = 1
 use_parent_material = true
-position = Vector2(135.333, 11)
-texture = ExtResource("3_17x0s")
+position = Vector2(35.6663, 9.83336)
+texture = ExtResource("3_rvfs0")
 
 [node name="Sprite3" type="Sprite2D" parent="Sprite" index="2"]
 texture_filter = 1
 use_parent_material = true
-position = Vector2(30.3333, 27.3333)
-texture = ExtResource("4_e3qe4")
+position = Vector2(-62, 39)
+texture = ExtResource("4_pb06x")
 
 [node name="Sprite6" type="Sprite2D" parent="Sprite" index="3"]
 texture_filter = 1
 use_parent_material = true
-position = Vector2(56.6667, -27)
-texture = ExtResource("4_e3qe4")
+position = Vector2(-43, -28.1666)
+texture = ExtResource("4_pb06x")
 
 [node name="Sprite4" type="Sprite2D" parent="Sprite" index="4"]
 texture_filter = 1
 use_parent_material = true
-position = Vector2(125, -37.6667)
-texture = ExtResource("5_scyjt")
+position = Vector2(25.3333, -38.8333)
+texture = ExtResource("5_p24uw")
 
 [node name="Sprite7" type="Sprite2D" parent="Sprite" index="5"]
 texture_filter = 1
 use_parent_material = true
-position = Vector2(83, 32)
-texture = ExtResource("5_scyjt")
+position = Vector2(-19.6667, 34.6667)
+texture = ExtResource("5_p24uw")
 
 [node name="Sprite5" type="Sprite2D" parent="Sprite" index="6"]
 texture_filter = 1
 use_parent_material = true
-position = Vector2(138.333, 35.6667)
-texture = ExtResource("6_pelmw")
+position = Vector2(28.6667, 50.6667)
+texture = ExtResource("6_hwh44")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 position = Vector2(-9, 4)
