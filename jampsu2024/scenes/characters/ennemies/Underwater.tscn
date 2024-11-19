@@ -18,15 +18,19 @@ size = Vector2(118, 34)
 
 [node name="Underwater" instance=ExtResource("1_t73wk")]
 script = ExtResource("2_dfemf")
+speed = 110
 
 [node name="Sprite" parent="." index="0"]
+self_modulate = Color(0.984993, 0, 0.29003, 1)
 material = SubResource("ShaderMaterial_yt3fq")
 texture = ExtResource("4_ooyux")
 
 [node name="Hitbox" parent="HitboxArea2D" index="0"]
+visible = false
 position = Vector2(2, 6)
 shape = SubResource("RectangleShape2D_tp2m5")
 
 [node name="truc" parent="." index="3"]
+visible = false
 position = Vector2(2, 7)
 shape = SubResource("RectangleShape2D_csowo")

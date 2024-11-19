@@ -145,7 +145,7 @@ func damage(damage: float):
 	if health <= 0:
 		return
 	$AudioStreamPlayer.play()
-	health -= damage * 1.75
+	health -= damage
 	$Camera2D/CameraUtils.shake(0.3, 10, 40, 2)
 	GlobalVariables.world.set_life(health)
 	if health <= 0:
