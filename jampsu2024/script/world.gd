@@ -53,12 +53,16 @@ func spawn_enemy():
 		preload("res://scenes/characters/ennemies/Shark.tscn"),
 		preload("res://scenes/characters/ennemies/sharklvl2.tscn"),
 		preload("res://scenes/characters/ennemies/Underwater.tscn"),
-		preload("res://scenes/characters/ennemies/kraken.tscn")
+		preload("res://scenes/characters/ennemies/kraken.tscn"),
+		preload("res://scenes/characters/ennemies/shark_no_light.tscn")
 	]
 	var rd := randi_range(0, 23)
-	if rd <= 5 or score <= 10: 
-		spawn_m(ENEMIES[0])
-	elif rd < 9 or score <= 15:
+	if rd <= 10 or score <= 10: 
+		if randi()%2 == 0:
+			spawn_m(ENEMIES[0])
+		else:
+			spawn_m(ENEMIES[4])
+	elif rd < 15 or score <= 15:
 		spawn_m(ENEMIES[1])
 	elif rd <= 20 or score <= 30:
 		spawn_m(ENEMIES[2])

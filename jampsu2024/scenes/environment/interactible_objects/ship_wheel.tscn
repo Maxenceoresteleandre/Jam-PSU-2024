@@ -34,7 +34,6 @@ texture = ExtResource("4_23c8i")
 
 [node name="Sprite2" type="Sprite2D" parent="Sprite" index="0"]
 texture_filter = 1
-use_parent_material = true
 position = Vector2(0, -1.17391)
 texture = ExtResource("5_aye1j")
 offset = Vector2(0, -0.9)

@@ -27,37 +27,45 @@ shape = SubResource("CircleShape2D_5aju5")
 [node name="Tentacle" parent="." index="4" instance=ExtResource("4_mg74m")]
 position = Vector2(-161, -67)
 scale = Vector2(3, 3)
+velocity = Vector2(-43.0907, 35.3175)
 tentacle_texture = ExtResource("4_pb06x")
 
 [node name="Tentacle2" parent="." index="5" instance=ExtResource("4_mg74m")]
 position = Vector2(-227, 73)
 scale = Vector2(3, 3)
+velocity = Vector2(-0.442798, 23.18)
 tentacle_texture = ExtResource("5_p24uw")
 
 [node name="Tentacle3" parent="." index="6" instance=ExtResource("4_mg74m")]
 position = Vector2(-110, 152)
 scale = Vector2(3, 3)
+velocity = Vector2(42.0118, 8.59789)
 tentacle_texture = ExtResource("6_hwh44")
 
 [node name="Tentacle4" parent="." index="7" instance=ExtResource("4_mg74m")]
 position = Vector2(79, 187)
 scale = Vector2(3, 3)
+velocity = Vector2(-24.306, -40.9341)
 
 [node name="Tentacle5" parent="." index="8" instance=ExtResource("4_mg74m")]
 position = Vector2(153, -120)
 scale = Vector2(3, 3)
+velocity = Vector2(4.34879, 26.6458)
 tentacle_texture = ExtResource("6_hwh44")
 
 [node name="Tentacle7" parent="." index="9" instance=ExtResource("4_mg74m")]
 position = Vector2(288, -67)
 scale = Vector2(3, 3)
+velocity = Vector2(27.0985, 27.9251)
 tentacle_texture = ExtResource("5_p24uw")
 
 [node name="Tentacle8" parent="." index="10" instance=ExtResource("4_mg74m")]
 position = Vector2(203, 97)
 scale = Vector2(3, 3)
+velocity = Vector2(-19.0089, 12.4424)
 tentacle_texture = ExtResource("4_pb06x")
 
 [node name="Tentacle6" parent="." index="11" instance=ExtResource("4_mg74m")]
 position = Vector2(-27, -153)
 scale = Vector2(3, 3)
+velocity = Vector2(-29.4737, 33.9889)
