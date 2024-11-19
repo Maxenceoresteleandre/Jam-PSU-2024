@@ -13,6 +13,8 @@ radius = 77.2334
 
 [node name="Kraken" instance=ExtResource("1_7eba0")]
 script = ExtResource("2_c5yuu")
+speed = 50
+health = 9
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2(-23, -2)

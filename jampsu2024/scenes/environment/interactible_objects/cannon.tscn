@@ -35,6 +35,6 @@ material = SubResource("ShaderMaterial_cp15w")
 scale = Vector2(5, 5)
 texture = ExtResource("3_s1mjq")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource("5_6vnl4")
 volume_db = 20.0

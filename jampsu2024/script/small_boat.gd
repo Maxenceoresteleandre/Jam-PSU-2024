@@ -232,6 +232,7 @@ func set_speed_change(speed_offset : float):
 func shoot(index: int, dir : Vector2):
 	var cannonball : Node2D = CANNONBALL_RES.instantiate()
 	GlobalVariables.sea_view.add_child(cannonball)
+	$Camera2D/CameraUtils.shake(0.3, 10, 25, 2)
 	var cannonball_velocity : Vector2
 	cannonball.position = position + cannons_offsets[index]
 	cannonball.velocity = dir.rotated(lines[index].global_rotation + PI/2.0)
