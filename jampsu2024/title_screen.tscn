@@ -34,6 +34,7 @@ texture = ExtResource("3_hec8c")
 expand_mode = 2
 
 [node name="TextureTuto" type="TextureRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -45,6 +46,7 @@ texture = ExtResource("3_o7ugm")
 expand_mode = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer/TextureTuto"]
+visible = false
 position = Vector2(-18, -2)
 color = Color(0.3, 0.3, 0.3, 1)
 
@@ -100,61 +102,6 @@ Elles repoussent les fantômes,
 mais s'éteignent avec le temps.
 Approchez-vous et appuyez sur
 INTERAGIR pour les rallumer."
-label_settings = SubResource("LabelSettings_jkj5e")
-
-[node name="TutoLightHouse" type="Control" parent="CanvasLayer/TextureTuto"]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="PointLight2D2" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoLightHouse"]
-z_index = 3
-position = Vector2(322, 524)
-scale = Vector2(2.53, 2.53)
-range_layer_min = -100
-range_layer_max = 512
-range_item_cull_mask = 7
-texture = ExtResource("4_i3ejn")
-
-[node name="PointLight2D3" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoLightHouse"]
-z_index = 3
-position = Vector2(1528, 582)
-scale = Vector2(16.1081, 16.1081)
-range_layer_min = -100
-range_layer_max = 512
-range_item_cull_mask = 7
-texture = ExtResource("4_i3ejn")
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureTuto/TutoLightHouse"]
-layout_mode = 0
-offset_left = 679.0
-offset_top = 45.0
-offset_right = 1382.0
-offset_bottom = 443.0
-color = Color(0, 0, 0, 1)
-
-[node name="PointLight2D3" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoLightHouse/ColorRect"]
-z_index = 3
-texture_filter = 1
-position = Vector2(342, 197.5)
-scale = Vector2(0.969101, 0.54073)
-range_layer_min = -100
-range_layer_max = 512
-range_item_cull_mask = 7
-texture = ExtResource("5_qjvo4")
-
-[node name="Label2" type="Label" parent="CanvasLayer/TextureTuto/TutoLightHouse/ColorRect"]
-offset_left = 25.0
-offset_top = 4.74998
-offset_right = 692.0
-offset_bottom = 371.75
-text = "Ces objet est le PHARE.
-Il permet d'illuminer la route, révélant 
-ennemis et obstacles. 
-Pour le tourner, approchez vous de la
-mannette de contrôle et appuyez sur 
-INTERAGIR."
 label_settings = SubResource("LabelSettings_jkj5e")
 
 [node name="TutoCannons" type="Control" parent="CanvasLayer/TextureTuto"]
@@ -242,6 +189,61 @@ Pour cela, allez vers la RESERVE et
 appuyez sur INTERAGIR pour récupérer
 un boulet, puis déposez le à côté du 
 CANON avec INTERAGIR."
+label_settings = SubResource("LabelSettings_jkj5e")
+
+[node name="TutoLightHouse" type="Control" parent="CanvasLayer/TextureTuto"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoLightHouse"]
+z_index = 3
+position = Vector2(322, 524)
+scale = Vector2(2.53, 2.53)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("4_i3ejn")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoLightHouse"]
+z_index = 3
+position = Vector2(1528, 582)
+scale = Vector2(16.1081, 16.1081)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("4_i3ejn")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureTuto/TutoLightHouse"]
+layout_mode = 0
+offset_left = 679.0
+offset_top = 45.0
+offset_right = 1382.0
+offset_bottom = 443.0
+color = Color(0, 0, 0, 1)
+
+[node name="PointLight2D3" type="PointLight2D" parent="CanvasLayer/TextureTuto/TutoLightHouse/ColorRect"]
+z_index = 3
+texture_filter = 1
+position = Vector2(342, 197.5)
+scale = Vector2(0.969101, 0.54073)
+range_layer_min = -100
+range_layer_max = 512
+range_item_cull_mask = 7
+texture = ExtResource("5_qjvo4")
+
+[node name="Label2" type="Label" parent="CanvasLayer/TextureTuto/TutoLightHouse/ColorRect"]
+offset_left = 25.0
+offset_top = 4.74998
+offset_right = 692.0
+offset_bottom = 371.75
+text = "Ces objet est le PHARE.
+Il permet d'illuminer la route, révélant 
+ennemis et obstacles. 
+Pour le tourner, approchez vous de la
+mannette de contrôle et appuyez sur 
+INTERAGIR."
 label_settings = SubResource("LabelSettings_jkj5e")
 
 [node name="TutoWheel" type="Control" parent="CanvasLayer/TextureTuto"]
