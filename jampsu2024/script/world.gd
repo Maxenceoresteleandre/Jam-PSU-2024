@@ -12,6 +12,10 @@ func _ready() -> void:
 	spawn_enemy()
 	Cutscene.load_cutscene()
 
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().quit()
+
 func cut_music():
 	var t := create_tween()
 	t.tween_property($AudioStreamPlayer, "volume_db", -80.0, 0.5)
