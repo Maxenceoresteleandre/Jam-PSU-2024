@@ -8,15 +8,17 @@ var angle: float = 90 # Current angle
 var rotation_speed: float = -1.0
 
 var can_be_killed = true
-var going_back = false
-var random_point := Vector2.ZERO
-var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	# Set the center based on the character's starting position
 	center = position + Vector2(radius, 0) # Center to the right of the character
 
 func _physics_process(delta: float) -> void:
+	$Sprite.global_position = 0.0
+	if velocity.x < -1:
+		$Sprite.flip_h = true
+	elif velocity.x > 1:
+		$Sprite.flip_h = false
 	if going_back and position.distance_squared_to(random_point) < 10:
 		going_back = false
 		chasing_player = true

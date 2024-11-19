@@ -71,7 +71,6 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("1_sean8")
 
 [node name="SeaView" parent="." instance=ExtResource("3_ybsmw")]
-script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
