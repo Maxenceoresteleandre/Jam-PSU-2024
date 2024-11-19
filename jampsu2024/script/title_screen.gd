@@ -54,6 +54,7 @@ func set_new_screen_state():
 			4:
 				$CanvasLayer/TextureTuto/TutoLightHouse.visible = false
 				$CanvasLayer/TextureTuto/TutoWheel.visible = true
+				$CanvasLayer/TextureTuto/CanvasModulate.visible = true
 			5:
 				$CanvasLayer/TextureTuto/CanvasModulate.visible = false
 				$CanvasLayer/TextureTuto/TutoWheel.visible = false
